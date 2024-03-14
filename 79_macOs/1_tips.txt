@@ -1,0 +1,31 @@
+/*
+
+svg -> scalable vector graphics
+networkquality    for wifi speed check...
+cmd + click     to open a link in new tab
+shift + click to open a link in new window
+cmd + click    on an app to see its location in finder...
+cmd + H       to hide a window
+
+option then (maximizing full screen green button)           to show features like
+left mai window kar lena 
+
+double right click then use picture in picture  feature    yt videos run in miniwindow
+on other windows also
+
+after writing your query on spotlight search agar aapka pet nahi bhara and you want 
+to search it on the web then press cmd + B          i.e. Browser
+
+fn + f5 for keyboard suggestion of a word
+
+you can copy the saved wifi passwords from the keychain access
+
+
+
+
+
+
+
+
+
+*/

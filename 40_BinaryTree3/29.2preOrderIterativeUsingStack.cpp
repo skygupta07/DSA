@@ -1,0 +1,57 @@
+#include<iostream>
+#include <stack>
+using namespace std;
+
+class node{  // okay so leetcode uses ListNode or TreeNode and all to distinguish kaha ka node
+public:
+    int data;
+    node* left;
+    node* right;
+
+    node(int data){ // constructor is initialised in the node class itself...
+        this->data = data;
+        this->left = NULL;
+        this->right = NULL;
+    }
+
+};
+
+void preOrderIterative(node* &root){  // since stack is filo so preOrder iterative will be 
+                                           // root right left 
+
+    stack <node*> st;
+    if (root!=NULL) st.push(root);  // to avoid null pointer exception
+    while(st.size()>0){
+        
+        node* temp = st.top();
+        st.pop();
+        cout<<temp->data <<" ";
+
+        if (temp->right !=NULL) st.push(temp->right);
+        if (temp->left !=NULL) st.push(temp->left);
+    }
+
+}
+
+
+int main(){
+    node* a = new node(1);  // first node is the root node..
+    node* b = new node(2);  // since humne upar node ki definition hi aisi likhi hai ki
+                            // now har new node ke pass left aur right child node honge..
+    node* c = new node(3);
+    node* d = new node(4);
+    node* e = new node(5);
+    node* f = new node(6);
+    node* g = new node(7);
+    
+    // connecting nodes
+    a->left = b;
+    a->right = c;
+    b->left = d;
+    b->right = e;
+    c->left = f;
+    c->right = g;
+
+    preOrderIterative(a);
+
+}    

@@ -1,0 +1,36 @@
+1. bit masking  2. find ith bit    3. set ith bit   4. clear ith bit   
+5. find number of bits to change to convert a to b.........
+
+
+5. find number of bits to change to convert a to b....
+
+1. bit masking -> face ke har pixel pe instagram ne black and white ka upar se property laga di...
+
+2. bit masking is used to check at ith index the bit is either zero or one...
+to do this we first find the mask number by left shift our 1 index times then taking and with 
+our number...
+if the result is non zero -> the ith bit was 1 esle ith bit was zero.....
+
+e.g.  1 1 0 1 0 1 1 0 1  (binary number)
+      8 7 6 5 4 3 2 1 0  (ith bit)
+
+where mask can be found using the expression mask = 1 << i
+
+3. to set ith bit -> (bit set karna matlab bit ko 1 karna bhai....) 
+                        simply take OR with mask bit
+
+
+
+4. to clear ith bit -> first do left shift then take negation (this creates complemented masked bit)
+now take AND with this complemented masked bit to clear the ith bit...
+
+5. to find number of bits to change to convert a to b -> means to find number of different 
+bits in both of the number => taking xor operation gives one on different pairs..
+now question reduces to find the number of ones in the result......
+method 1 -> you can do this by simply increment the count when the last bit is 1 and then immediately do right shift operation....
+repeat above step until the number reduces to zero (or all bit reduces to zero....)
+
+method 2 -> n & (n-1)    -> last significant bit ko zero karke and kar do ho jayega...ek number karke and karna hai bas ....
+this overall decreases the number of steps
+// number of digits in a number is ( logbase2n + 1 )
+

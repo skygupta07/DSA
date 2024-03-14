@@ -1,0 +1,90 @@
+/*
+
+->properties of heap
+1. heap is hierarchy based data structure
+2.heap is a complete binary tree (last row tight packing)
+3. it stores the element such that the priority of parent is always greater than priority of children
+4. max heap-> every node is having value more than all of its descendants
+5. all the subtrees of a heap are also heap..
+
+
+->complete binary tree properties
+1. h = O(logn)
+2. the last level has almost half of the total number of nodes in that heap
+3. complete binary tree lene se ye fayda hua ki ab koi gapping nahi exist kar rahi
+matlab we can represent it in the form of array also....
+
+->parent aur just immediate child ke bich comparison karna hai..
+-> bigger the element higher is the priority (max heap)
+-> bst wali left chota right bada ye sab bakchodi yaha nahi hogi...
+
+->if parent is at ith index in array then its left child is at: 2i+1 and 
+right child is at 2i+2
+
+->if child is at ith index in array then its parent is at [(i-1)/2] floor value..
+=> insertion in heap
+1. constant time mai element insert kara but to maintain the property of heap 
+we need to upheapify/percolate up
+2. actual swapping to array mai hi hogi chahe hamara mental model heap ka hi kyu na ho..
+3. highest priority or max element will always be sitting on the top
+
+
+
+time taken to insert in an heap is min-O(1) to O(logn)
+// our most shining apple is on the top === our max element is on top, so we remove them..
+
+
+=> deleting element in a heap
+-> how can we modify the current complete binary tree to a max heap where the 
+left subtree is a heap and right subtree is also a heap but the complete tree is not
+a heap...
+-> intermediate mai jis taraf swapping kar rahe hai ... wahi dikkat ho ja rahi thi 
+matlab wahi pe swap karo fir...
+-> we can percolate down upto logn height..
+
+-> agar array se directly hi mai arr[0] urf max element ko delete kar du.. tab to
+sabko peeche lana hoga O(n) time lagega
+-> arey suno array mai last element remove karna sabse easy hota hai..
+
+
+
+for max heap -> root element is all about which I am concerned...
+to delete root element swap it with last element of array(or with the rightmost element of heap)
+then apply downheapify...
+
+
+idea of heap sort->
+whenever we delete element from the heap, max. element of that time is deleted...
+also array ke last me jagah bhi khali ho jaati hai, so simply delete karo and ek ek karke     <- <- <- lagate jao
+i.e. if you have a heap then delete the element and fill it in the empty place obtained
+after deletion
+
+steps:-> you will be given a heap
+step1-> create a heap 
+step2-> delete all the element from heap 
+
+time complexity : O(nlogn) for creation and O(nlogn) for deletion also
+=> total time = 2nlogn === nlogn  for heap sort
+
+
+heapify fn( takes O(n)) -> different from creation of heap, arey wahi ki instead ki saare leaf nodes
+ko hi upheapify karte ussey accha hai ki har node pe jaake ye dekho ki uska koi descendant 
+hai kya agar hai to phir compare karke neeche le aao...matlab downheapify laga do.. 
+
+
+if you implement priority queue with simple array then it may take O(n) time for creation
+and deletion, so heap is the best data structure to implement heap as it takes O(logn) only
+
+-> inbuilt mai to queue lagega hi
+-> jiski priority sabse jyada wo sabse aage lag jaega.....
+-> hume priority queue implement karni hai...abhi tak ke padhe hue data structures
+ko tod madod ke try kiya... like arrays se ,,linked list se...binary trees se ..balanced binary tree
+ya bst se bhi ....but utna maja nahi aaya...
+
+so here comes a new data structure heap....so by using heap we can implement
+priority queues...
+
+
+
+
+*/
