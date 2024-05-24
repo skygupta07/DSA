@@ -1,6 +1,8 @@
 //wap to reverse the part of array
 #include <iostream>
+#include <vector>
 using namespace std;
+
 void display(vector <int> &v){  // print karane ke liye bhi aap reference se pass 
 // kar do taaki copy na create ho ....it is mandatory to pass by reference in those cases
 // where we need to do changes in the original array itself...
@@ -13,7 +15,7 @@ void reversepart(int i, int j, vector <int> &v){
     // ofcourse fn definition can take multiple parameters..
     // vector to pass karega hi tabhi to pta chalega ki kis vector ke elements print karne hai..
     while (i<=j){
-        int t = v[i]; // good way to reverse is just swap ith and jth element using temp variable
+        int t = v[i]; // good way (two pointer approach) to reverse is just swap ith and jth element using temp variable
         v[i]=v[j];
         v[j]= t;
 

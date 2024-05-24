@@ -15,7 +15,8 @@ public:
 };
 
 TreeNode* insertIntoBST(TreeNode* root, int data){
-    TreeNode* temp = new TreeNode(data);
+    TreeNode* temp = new TreeNode(data);    // sabse pehle pudiya to banao khaini rakhne ke liye...
+                                        // sabse pehle node to banao TreeNode ki value ko store karne ke liye...
     if (root == NULL) return temp;  // for the very first node to be inserted
 
     else if (data < root->data){  // go left...

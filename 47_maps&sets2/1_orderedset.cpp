@@ -19,10 +19,10 @@ int main(){
 }
 
 // ordered set mai aap kaise bhi element ko insert karo wo apne aap ko distinct sorted 
-// form mai le hi aaega as soon as aap element daalo..
+// form mai le hi aaega as soon as aap element daalo..(Very Very IMP)
 /*
 -> but yaha O(logn) time lagta hai insertion wagera mai...(bst soch sakte ho)
--> unordered map mai O(1) mai saara kaaam ho jaata hai..
+-> unordered map mai ya unordered_set -> O(1) mai saara kaaam ho jaata hai..
 
 */
 

@@ -7,7 +7,7 @@ int main(){
     int fmax  = -1, smax = -1, tmax = -1;
 
     for (int i=0; i<n; i++){
-        if (arr[i]>fmax){
+        if (arr[i]>fmax){   // kahaani ki suruaat to tmax se hi hogi...ab jiski baat ho rahi hogi uspe jaake rok dena hai..
             tmax = smax;
             smax = fmax;
             fmax = arr[i];

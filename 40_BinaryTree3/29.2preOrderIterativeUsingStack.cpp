@@ -21,6 +21,8 @@ void preOrderIterative(node* &root){  // since stack is filo so preOrder iterati
 
     stack <node*> st;
     if (root!=NULL) st.push(root);  // to avoid null pointer exception
+    // dudh ka jala chach bhi phook phook kar peeta hai ... even tum root bhi check karke
+    // push kar rahe ho ki kahi mujhe root hi to null nahi de rakha na bc no....
     while(st.size()>0){
         
         node* temp = st.top();
@@ -55,3 +57,12 @@ int main(){
     preOrderIterative(a);
 
 }    
+
+/*
+preorder iterative yeh bhi same aapka bfs queue wale ke hi jaisa hai.....
+bas queue mai aapka while (!q.empty())
+to yaha while (st.size()>0)
+
+aur stack to aapka order reverse kar deta hai to humne bhi kar diya ...
+preorder iterative mai appka root right left kar diya..
+*/

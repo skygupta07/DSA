@@ -30,7 +30,8 @@ int sum(node* root){
 }
 
 int nodesNumber(node* root){    // size of tree is number of node
-    if (root==NULL) return 0; // mana ki leaf node ki value aapki zero hai
+    if (root==NULL) return 0; // wapas jaaana hai magar int ans bhi dena hai to zero ko yaad kiya.
+                // saap bhi mar jaye aur laathi bhi naa tute...
     return 1 + nodesNumber(root->left) + nodesNumber(root->right); // recursion magic..
 }
 

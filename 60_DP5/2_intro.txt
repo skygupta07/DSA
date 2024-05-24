@@ -1,0 +1,19 @@
+tabulation -> bottom up
+
+memoization -> top-down
+
+first memoization then its tc, sc, then tabulation tc, sc -> final soln
+
+memoization-> tend to store the value of subproblems in map/table
+
+recursion-> tabulation (bottom up) -> base case to the required answer...
+
+dp hints -> count the total number of ways or    find min or max out of given sample...
+where first you apply recursion then apply optimization....
+
+3 step approach 
+step 1-> try to represent the problem in terms of index.
+step 2-> do all possible stuffs on that index according to the problem statement..
+step 2-> take sum / min. of all those stuffs accordingly....
+
+to convert the recurrence to dp -> look at the parameters which are changing...

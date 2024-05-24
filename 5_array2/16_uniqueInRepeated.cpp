@@ -12,23 +12,20 @@ int main(){
     // compare by applying neighbour wali condition.
     //print
 
-
+// bubble sort ka algorithm....
     for (int i=0; i<n-1; i++){ // n-1 times andar wala loop chalega...
         for (int j=0; j<n-1-i; j++){  // n-1-i times tak hi kyuki har loop me ek element to finally last me
-                                        // apni position par chala ja rha h
-
-            if (arr[j]>arr[j+1]){
-                swap (arr[j],arr[j+1]);
-
-
-            }
-
+                                        // apni position par chala ja rha h... isliye i aur ghata diya..
+            if (arr[j]>arr[j+1])  swap (arr[j],arr[j+1]);
         }
     }
+
+
     for (int i=0; i<n; i++){  // since we are printing the elements..so i varies
                                 // from 1 to n
         cout<<arr[i]<<" ";
     }
+
     cout<<endl;
     bool flag = 0;
     int ans;
@@ -46,12 +43,12 @@ int main(){
         }
         
     }
-        if (flag == 0){
-            cout<<"no unique element is present in the array... "<<endl;
-        }
-        else{
-            cout<<"unique element in the array is: "<<ans<<endl;
-        }
+    if (flag == 0){
+        cout<<"no unique element is present in the array... "<<endl;
+    }
+    else{
+        cout<<"unique element in the array is: "<<ans<<endl;
+    }
         
     
 }

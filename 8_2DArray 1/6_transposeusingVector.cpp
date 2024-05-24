@@ -1,11 +1,13 @@
 // leetcode 867
 #include <iostream>
+#include <vector>
 using namespace std;
 vector <vector<int> > transpose(vector <vector<int> > &matrix){
         vector <vector<int> > transpose;
         int m=matrix.size();    // gives number of rows
         int n=matrix[0].size(); // gives number of columns
 
+        // columnwise loop chalaya to transpose matrix aapka khush...
         for (int i=0; i<n;i++){
             for (int j=0; j<m; j++){
                 transpose[i][j]=matrix[j][i];

@@ -1,7 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <string>
-using namespace std;
+#include <bits/stdc++.h>
 
 void generate(string s, int open, int close, int n){
     if (close == n){ // base case because mere dry run mai closing brackets hi baad mai

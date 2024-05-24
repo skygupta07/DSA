@@ -14,7 +14,8 @@ int main(){
     s.insert(1);
     s.insert(5);
     s.insert(6);
-    s.erase(3); // to erase/delete element from the set
+    s.erase(3); // to erase/delete element from the unordered_set you need to mention which element basically 
+                // you want to delete...
     s.begin();
 
     int target = 15;

@@ -80,6 +80,9 @@ v.push_back(5);
 now if you are pushing back element then v = {0,0,0,0,0,1,2,5} will be pushed...
 this the reason why we clear the vector if we mentioned the size.
 
+1. agar vector mai push_back karna hai ginte ke element to size mat mention karo....
+2. but agar vector ka index se khelna hai element update karte huye to aap size mention karlo
+
 
 m2 vector<int> v;
 v.push_back(1);

@@ -16,9 +16,9 @@ public:
     }
 };
 
-
+// dry run done... it is amazing it works...
 void printNthLevel(TreeNode* root, int currLevel, int reqLevel){
-    if (root == NULL) return;  //base case
+    if (root == NULL) return;  //base case yeh to sagun waala hai jo hamesha hi aana hi hai likhan hi padat
     if (currLevel == reqLevel){
         cout<<root->data<<" ";   // kaam
         return;   // agar required level pe aagaye ho then neeche jaane ki no need...

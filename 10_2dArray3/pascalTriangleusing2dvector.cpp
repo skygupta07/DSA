@@ -4,6 +4,8 @@ using namespace std;
 int main(){
     int m=5;   // number of rows of pascal triangle
     vector < vector <int> > v;  // ek 2d vector banaya v name se 
+    // yaha mene starting mai hi vector ko initialise nahi kiya....matlab mere pe abhi 
+    // freedom hai ki mai kitne bhi vector aur kisi bhi size ke vector ko push kar sakta hu..
     for (int i=1; i<=m; i++){
         vector <int> a(i);   // variable size ka vector banaya
                             // aur ussey apne 2d vector me pushback kiya 

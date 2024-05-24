@@ -8,19 +8,18 @@ class Node{
 public:
     int data;
     Node *left, *right;
-    Node()
-    {
+
+    // constructors with varying use...
+    Node(){
         this->data = 0;
         left = NULL;
     }
-    Node(int data)
-    {
+    Node(int data){
         this->data = data; 
         this->left = NULL;
         this->right = NULL;
     }
-    Node(int data, Node* left, Node* right)
-    {
+    Node(int data, Node* left, Node* right){
         this->data = data;
         this->left = left;
         this->right = right;

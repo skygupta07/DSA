@@ -11,6 +11,8 @@ int main(){
     }
     // precompute
     int hash[13] = {0}; // declared array of 13 size with name as hash and each element as 0
+    // hashing matlab array ka sahara liya to memorise things...
+    
     for (int i=0; i<n; i++){
         hash[arr[i]] += 1;      // hash[arr[i]]++;
     }

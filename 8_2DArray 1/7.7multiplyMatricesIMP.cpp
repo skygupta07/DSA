@@ -71,12 +71,9 @@ int main(){
             cout<<endl;
         }
         
-
-
     }
 
     else{
         cout<<"matrix multiplication is not possible. "<<endl;
-
     }
 }

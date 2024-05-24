@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 int main(){
     vector < vector <int> > v(3, vector<int> (4,5));  // ek 2d vector bana do with name v jisme 3 row hongi

@@ -42,6 +42,7 @@ int levelOfTree(node* root){ // counts number of levels in a tree..
     return 1 + max(levelOfTree(root->left),levelOfTree(root->right));
 }
 
+// 
 void printNthLevel(node* &root, int currLevel, int targetLevel){  // fn resembling with preOrder..
     if (root==NULL) return;
     if(currLevel == targetLevel){

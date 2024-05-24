@@ -4,20 +4,21 @@ using namespace std;
 
 int main(){
     unordered_map <string,int> m;   // map matlab <key,value> pair
-    pair<string,int> p1;
+
+    pair<string,int> p1;    // Pair provides a way to store two heterogeneous objects as a single unit.
     p1.first = "akash"; // strings are always written in "double quotes"
     p1.second = 1;
 
-    pair<string,int> p2;  // accha jaise vector <int> v hota hai
+    pair <string,int> p2;
     p2.first = "apple";
     p2.second = 2;
 
-    pair<string,int> p3;
+    pair <string,int> p3;
     p3.first = "orange";
     p3.second = 3;
 
-    m.insert(p1); //inserting pairs into maps
-    m.insert(p2);
+    m.insert(p1); // inserting pairs into maps
+    m.insert(p2); 
     m.insert(p3);
 
     m["banana"] = 5; // good method to allocate map elements
@@ -44,7 +45,7 @@ int main(){
 
 
 
-// ek tarah se yahi hash maps aur hash sets hai...
+// ek tarah se yahi hash maps are simply ordered map or simply the map aur hash sets hai...
 // maps -> frequency array/set   or   key , value/index
 // matlab map me aapka do value/parameter dalenge
 // hash maps providing unlimited size can record employee data

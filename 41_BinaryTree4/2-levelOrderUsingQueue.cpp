@@ -15,7 +15,7 @@ public:
             for (int i=0; i<size; i++){
                 TreeNode* node = q.front();
                 q.pop();
-                // if that node left right exist then push it into queue
+                // if that node left right exist then only push it into queue
                 if (node->left != NULL) q.push(node->left);
                 if (node->right != NULL) q.push(node->right);
                 level.push_back(node->val);

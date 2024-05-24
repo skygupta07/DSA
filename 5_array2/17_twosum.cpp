@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 int main(){
     int x;
@@ -26,3 +27,7 @@ int main(){
     }
 
 }
+
+
+
+// cin === cout === c++ mai hot hai (3 for a reason)

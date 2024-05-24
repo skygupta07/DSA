@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 void subsetarr(int arr[], int n, int idx, vector <int> &ans){
@@ -10,7 +10,7 @@ void subsetarr(int arr[], int n, int idx, vector <int> &ans){
         cout<<endl;
         return;
     }
-    ans.push_back(arr[idx]);   // once include it and call the fn call 
+    ans.push_back(arr[idx]);   // once include it and call the next fn call 
     subsetarr(arr, n, idx+1, ans );
     ans.pop_back();
     subsetarr(arr,n,idx+1,ans); // remove and call the fn call...

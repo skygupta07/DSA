@@ -1,0 +1,46 @@
+class Solution {
+public:
+    int maxDepth(string s) {
+        stack <char> st;
+        int mx = 0;
+
+        for (int i=0; i<s.length(); i++){
+            if (s[i] == '(') st.push(s[i]);
+
+            mx = (mx > st.size()) ? mx : st.size();
+
+            if (s[i] == ')') st.pop();    
+        }
+
+        return mx;   
+    }
+};
+
+// maintaining a mx variable and update it with the maximum stack size at a moment....
+
+
+class Solution {
+public:
+    int maxDepth(string s) {
+        int count = 0;
+        int mx = 0;
+
+        for (char c : s){
+            if (c == '('){
+                count++;
+                if (mx < count ) mx = count;    // tricky and useful approach with two variables...
+            }
+            else if (c == ')') count--;
+        }
+        return mx;
+    }
+};
+
+/*
+To find the nesting depth of the given VPS string s, we can iterate through each character of the string
+and keep track of the current nesting depth. Whenever we encounter an opening parenthesis '(', we increment 
+the depth, and whenever we encounter a closing parenthesis ')', we decrement the depth. We update the maximum
+depth encountered so far accordingly.
+
+
+*/

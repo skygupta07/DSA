@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 void change(vector <int> &v){  // IMP-> just pass the address and now you are passing by call by reference
     v[0]=13;

@@ -20,7 +20,7 @@ int main(){
  *     int val;
  *     TreeNode *left;
  *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}    // constructor (nitin)
  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
@@ -59,7 +59,7 @@ public:
 
 
 /*
-we can think that ans is standing on a root go to deep in left and go in deep of right then add both o them 
+we can think that ans is standing on a root go to deep in left and go in deep of right then add both of them 
 but it will be better that we calculate the path via ezch node ...and update the maxdia via travelling only..
 
 */

@@ -2,20 +2,6 @@
 #include <map>
 using namespace std;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 int main(){
     map <int, int> m;
     
@@ -31,12 +17,12 @@ int main(){
 
     map <string,int> mp;
     
-    mp["ak"] = 94;
+    mp["ak"] = 194;
     mp["bob"] = 49;
     mp["carry"] = 60;
 
     for(auto el: mp){
-        cout<<el.first<<" ";
+        cout<<el.first<<" "<<el.second<<" ";
     }
     cout<<endl;
 

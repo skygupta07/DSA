@@ -41,7 +41,7 @@ int main(){
 }
 
 // by applying Dynamic Programming actually we are reducing our T.C. by using some extra S.C.
-// recursive soln 0(2^^n) while dp soln is linear O(2n)
+// recursive soln 0(2^^n) i.e. exponential  while dp soln is linear O(2n)
 // s.c. now is O(n) stack space and O(n) -> dp vector
 /*
 you should carefully observe two properties before applying the dp solution
@@ -73,7 +73,7 @@ memoize
 top down -> recursive soln par dp lagana , also called memoization
 => for very very very tight constraint maybe bottom up solution may cause stackoverflow..
 
-
+pehle mostly top down solution hi likhte hai ...
 => then we go for bottom up (iterative solution) => for loop laga ke
 for bottom up soln along with the recurrence relation you need to find out figure out 
 order of preparation of subproblem

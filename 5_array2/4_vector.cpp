@@ -4,7 +4,7 @@ using namespace std;
 int main(){
     vector <int> v;   // we don't need to mention the size of vector -> experience unlimited 
                         // size
-    v.push_back(2);
+    v.push_back(2); // ha bhai push_back(argument necessary) karna jaruri hai..
     v.push_back(5);
     v.push_back(10);
     v.push_back(3);

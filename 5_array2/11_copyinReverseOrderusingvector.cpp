@@ -1,5 +1,7 @@
 #include <iostream>
+#include <vector>
 using namespace std;
+
 void display(vector <int> &a){  // function to display the array you can pass a or &a
     for (int i=0; i<a.size(); i++){
         cout<<a[i]<<" ";

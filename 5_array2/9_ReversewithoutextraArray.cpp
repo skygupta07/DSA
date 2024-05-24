@@ -1,6 +1,8 @@
 //wap to reverse the array without using any extra array.
 #include <iostream>
+#include <vector>
 using namespace std;
+
 void display(vector <int> v){
     for (int i=0; i<v.size(); i++){
         cout<<v[i]<<" ";
@@ -10,7 +12,7 @@ void display(vector <int> v){
 int main(){
     vector <int> v;   // agar yaha v() likh diya to wo function nahi ho jaega
     // aur tab aapko size or optional default value bhi set karni pad sakti hai isliye 
-                        // simple v use karo
+                        // simple v use karo jab aapko push_back hi karna ho to..
     v.push_back(4);
     v.push_back(3);
     v.push_back(5);
