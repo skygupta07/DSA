@@ -4,11 +4,14 @@
 using namespace std;
 
 vector <int> h;
-int k;
+int k;  // jaan bhuj ke global kar diya taaki har jagah paas na karna pade...
 
-vector <int> dp(100005, -1);    // change 1
+vector <int> dp(100005, -1);    // change 1 -> dp ko waise mai state gin ke n ya n+1 around state mai 
+                                // bhi kaam chala sakta tha....but competitive programming mai jaldi jaldi karte waqt bina jyada dimag laga max constraint size se 5 bada 
+                                // size ka aur dp bana dete hai....
 
-int f(int i){
+int f(int i){   // f(i) calculates the minimum cost required to reach nth position starting from ith position...
+
     if (i >= h.size()) return INT_MAX;  // as you can't return from that stone
     if (i == h.size()-1) return 0;  // last se last tak pahuchne ki cost zero
     
@@ -19,7 +22,7 @@ int f(int i){
         if ( i+j >= h.size()) break;
         ans = min ( ans , abs(h[i] - h[j]) + f(i+j));
     }
-    return dp[i] =  ans;    // change-3
+    return dp[i] =  ans;    // change-3 -> ha hum dp[i] mai store bhi karte hai and return bhi karte hai...
 
 }
 // f(i) calculates the min. cost to reach the final stone starting from ith stone
@@ -64,4 +67,11 @@ cost to reach the oneth stone or    2nd stone se last tak pahuchne ki min. cost 
 reach the second stone    => aur in sab cases mai jo sabse min. hoga wo path lenge
 
 
+    tree banaya pura yaha bhi 
+
+        0
+        / \
+       1 2 3
+      /\ \   \
+    234   34  4
 */

@@ -7,7 +7,8 @@ vector <int> dp;
 int fibo(int n){
     dp.clear();
     dp.resize(n+1 , -1);  // yaha dp array ko internally banaya
-    dp[0] = 0;
+
+    dp[0] = 0;  // base cases
     dp[1] = 1;
 
     for (int i=2; i<=n; i++){  // loop laga ke tumne simply dp ke har element ko fill kiya
@@ -32,11 +33,6 @@ int main(){
 /*
 we apply local optimism in greedy while dp soln focus on global optimum i.e. we take action
 after considering all the cases
-
-
-
-
-
 
 */
 
