@@ -26,7 +26,7 @@ void display(){
 }
 
 
-f
+
 int main(){
     cout<<"enter number of vertices:"<<" ";
     cin>>v;
@@ -38,7 +38,7 @@ int main(){
     while(e--){
         int s,d;
         cin>>s>>d;
-        addEdge(s,d);  // add edge from source to destination
+        addEdge(s,d,false);  // add edge from source to destination
     }
     display();
 }

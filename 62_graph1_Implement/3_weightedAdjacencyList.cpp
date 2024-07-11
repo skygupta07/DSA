@@ -11,8 +11,8 @@ vector < list <pair<int,int> > > graph;      // globally banaya taki fn call me 
 int v;     // no. of vertices
 
 void addEdge(int src, int dest, int wt, bool bi_dir = true){
-    graph[src].push_back({dest,wt});    // pushing more than one element in vector
-                                        // using curly braces...
+    graph[src].push_back({dest,wt});    // pushing a vector in a vector of vector
+                                        // using curly braces se aapka vector ban jaata hai...
     if(bi_dir){
         graph[dest].push_back({src,wt});
     }
@@ -51,6 +51,6 @@ int main(){
 
 // graph is represented as array of linked list
 /*
-final answer me linked list ke order se phark nahi padta
+final answer me linked list ke order se phark nahi padta (obviously)
 
 */
