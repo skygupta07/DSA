@@ -6,6 +6,7 @@ void generate(string s, int open, int close, int n){
         cout<<s<<endl;
         return;
     }
+    
     if (open<n) generate(s+'(', open+1 , close, n);  // opening bracket call
     if (close<open) generate(s+')',open,close+1,n); // add closing bracket iff 
                             // count of closing bracket is less than count of opening bracket...

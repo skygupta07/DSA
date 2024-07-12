@@ -12,7 +12,9 @@ void Union(vector<int> &parent, vector<int> &rank, int a, int b) {
     // TX:(log*n);
     a = find(parent, a);
     b = find(parent, b);
+
     if(a == b) return;
+    
     if(rank[a] >= rank[b]) {
         rank[a]++;
         parent[b] = a;

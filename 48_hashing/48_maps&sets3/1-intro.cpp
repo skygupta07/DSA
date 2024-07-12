@@ -27,7 +27,17 @@ efficient
 
 
 
+unordered_map<> // Keys are not sorted O(1) - worst case O(n)
+map<>  // Keys are sorted O(logn)
 
+// Traverse the Map
+for(auto it:map){
+   // it.first  -> key
+   // it.second -> value
+}
+
+// Existence of a Key Check
+if(map.count(key)>0) cout<<"Yes"<<endl;
 
 
 

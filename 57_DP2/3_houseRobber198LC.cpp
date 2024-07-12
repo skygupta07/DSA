@@ -1,31 +1,30 @@
-/*
 class Solution {
 public:
     vector <int> dp;   // competitive coders declare dp globally else fn me har 
                         // jagah pass karna padta...
                         
-    // int f(vector<int> arr, int i){
-    //     int n = arr.size();
-    //     if (i == n-1) return arr[n-1];
-    //     if (i == n-2) return max(arr[i], arr[i+1]);
-    //     int loot = arr[i] + f(arr, i+2);
-    //     int notLoot = 0 + f(arr, i+1);
+    int f(vector<int> arr, int i){
+        int n = arr.size();
+        if (i == n-1) return arr[n-1];
+        if (i == n-2) return max(arr[i], arr[i+1]);
+        int loot = arr[i] + f(arr, i+2);
+        int notLoot = 0 + f(arr, i+1);
         
-    //     return max(loot, notLoot);
-    // }
+        return max(loot, notLoot);
+    }
 
 
-    // int ftd(vector<int> arr, int i){   // ftd means fn top down  
-    //     int n = arr.size();
-    //     if (i == n-1) return arr[n-1];
-    //     if (i == n-2) return max(arr[i], arr[i+1]);
+    int ftd(vector<int> arr, int i){   // ftd means fn top down  
+        int n = arr.size();
+        if (i == n-1) return arr[n-1];
+        if (i == n-2) return max(arr[i], arr[i+1]);
 
-    //     // base case ke baad seedhe dp ki help le sakte ho to le lo..
-    //     if (dp[i]!= -1) return dp[i];
-    //     // agar dp nahi banai to banao na!!
+        // base case ke baad seedhe dp ki help le sakte ho to le lo..
+        if (dp[i]!= -1) return dp[i];
+        // agar dp nahi banai to banao na!!
 
-    //     int lootPath = arr[i] + ftd(arr, i+2);
-    //     int notLootPath = 0 + ftd(arr, i+1);
+        int lootPath = arr[i] + ftd(arr, i+2);
+        int notLootPath = 0 + ftd(arr, i+1);
 
 
     int fbu(vector<int> arr){
@@ -85,5 +84,5 @@ clear your dp vector from the main fn ..
 LHS nikalne ke liye aapko RHS compute karna hoga => to compute the ith index you need to find the
 i+1 and i+2th index first...
 
-*/
+
 

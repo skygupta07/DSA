@@ -56,7 +56,7 @@ Trick 5
     x & ((1<<k) - 1)
 
 Trick 6 --------
-swapping two number without using a extra temporary variable....using simple xor operations..
+ping two number without using a extra temporary variable....using simple xor operations..
 int temp = a;
 a = b;
 b = a;

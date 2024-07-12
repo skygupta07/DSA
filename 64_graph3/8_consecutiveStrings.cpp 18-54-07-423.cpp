@@ -4,7 +4,7 @@
 using namespace std;
 
 void generate(string s, int n){
-    if (n==0){
+    if (n==0){  // base case 
         cout<<s<<endl;
         return;
     }

@@ -1,0 +1,108 @@
+c++ is your compiled language...
+
+matlab pura ka pura code ek baar mai compiler read karega...and jitne bhi error honge ek baar 
+throw kar dega...
+
+linux based aur mac based mai to compiler already install aata hai...
+
+yaha vs code mai to gui based interface mil jaata hai ...but what about the 
+case you have to run code on your hired virtual machine....then you need to compile 
+the code from the terminal itself....
+
+ab waha g++ filename     wala structrue use hoga...
+(devops, aws used concepts)
+
+
+ab waha compiler ne khud par khud hi output ke liye ... a.out file banayi...
+ab is executable a.out file ko mujhe terminal mai hi open karna padega...
+
+g++ demo.cpp -o akashoutput
+    matlab demo.cpp file ko execute karo.. and akashoutput name ka file bana ke 
+    usme output store karo....
+
+g++ demo.cpp -o demoexec && ./demoexec
+
+matlab demo.cpp file run karo uska output demoexec naamak file mai daalo and 
+uss file ko open bhi kar do....
+
+---> to change the compiler version write .....
+g++ demo.cpp -o run --std=c++14
+
+./run      kara uss file ko run karne ke liye....
+
+hum upar apne code mai jo preprocessor directive include karte hai...
+usme pehle se hi masala tayar hota hai...like namespace mai pehle se hi defined
+hai ki kaise input kaise output laana hai....
+
+-----
+
+#include or #define aisa karo file run hone se pehle hi....saara saaman manga lo...
+
+preprocessor expansion ke steps ko visualise karna hai to...
+
+g++ -E demo.cpp > demo_prePreprocessorExtended.cpp
+
+compile karte time wo comments ko remove kar deta hai....
+
+
+preprocessor directive ke execute hone ke baad then aapka code assembly level
+language pe convert karta hai.....
+
+g++ -S demo.cpp
+    using this command, aap 
+
+
+
+g++ -S -O3 demo.cpp
+    3 level ka optimisation kardo assembly level language mai...
+
+    optimisation karne se final binary file kaafi light file banke aaegi...
+
+compiler aapka parse tree type banata hai...
+
+c++ is platform dependent...matlab meri computer ki binary file ho sakta hai..
+dusre computer mai na chale...
+
+phir isme linker loader ka bhi use hota hai...
+
+syntax checking ...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

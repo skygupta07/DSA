@@ -12,13 +12,15 @@ void add_edge(int src, int dest, bool bi_dir = true) {
     }
 }
 
+// ye wahi hai graph ko adjacency list mai represent kara hai..now ab har 
+// starting edge se pata chal jaega... ki issey itne log jude huye hai...
 void display() {
     for(int i = 0; i < graph.size(); i++) {
         cout<<i<<" -> ";
         for(auto el : graph[i]) {
             cout<<el<<" , ";
         }
-        cout<<"\n";
+        cout<<"\n"; // yes we write it in comma
     }
 }
 

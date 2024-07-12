@@ -8,6 +8,7 @@ int minProduct(vector <int> &v){
     sort(v.begin(),v.end());
     int n = v.size();
     int min = INT_MAX;
+    
     for (int i=0; i<n; i++){
         if (v[i]<0) cn++;
         else if (v[i]==0) cp++;

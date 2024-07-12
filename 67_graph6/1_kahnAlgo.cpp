@@ -1,5 +1,6 @@
 /*
-to check if a given DAG contains cycle or not -> we can apply kahn's algorithm....(i.e. 
+to check if a given DAG (Directic Acyclic Graph) contains cycle or not -> 
+we can apply kahn's algorithm....(i.e. 
 topological sorting)
 
 

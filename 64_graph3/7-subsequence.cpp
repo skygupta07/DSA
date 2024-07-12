@@ -14,6 +14,7 @@ void printSubSeq(int idx, vector <int> &v, int arr[], int n){
         return;
     }
     
+    // push kara then normal next index ke liye call lagai...then pop karke phirse next index wali hi call lagai...
     v.push_back(arr[idx]);
     printSubSeq(idx+1, v, arr, n);  // not including the current element...
 

@@ -20,7 +20,7 @@ void levelOrder(TreeNode* root){
     queue<TreeNode*> q;
     // created a queue with name q which will contain TreeNode* as items
     // pura node hi daalna hai node ki value nahi daalni...
-    q.push(root);   // sabse pehle node push karwao.. ha node push ho sakti hai...
+    q.push(root);   // sabse pehle node push karwao.. ha node push to karni hi padegi....
     while(q.size()>0){
         TreeNode* temp = q.front();
         q.pop();
@@ -30,6 +30,7 @@ void levelOrder(TreeNode* root){
     }
     cout<<endl;
 }
+
 
 int main(){
     TreeNode* a = new TreeNode(1); // tu ek node ke andar kucch bhi value daal but usko
