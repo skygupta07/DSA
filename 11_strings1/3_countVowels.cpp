@@ -14,3 +14,9 @@ int main(){
 
     return 0;
 }
+
+// better with while loop ....
+
+/*
+string ka aakhri character backslashzero hota hai...
+*/
