@@ -17,7 +17,7 @@ int main(){
     p3.first = "orange";
     p3.second = 3;
 
-    m.insert(p1); // inserting pairs into maps
+    m.insert(p1); // inserting *pairs* into maps
     m.insert(p2); 
     m.insert(p3);
 
@@ -36,7 +36,7 @@ int main(){
     m.erase("apple");  // erases apple key value pair from map
     cout<<endl;
 
-    for (auto p: m){    // auto recognises actually what you want to print
+    for (auto p: m){    // auto recognises actually what data type to fetch..
         // for pair p in map m
         cout<<p.first<<" "<<p.second<<endl;
     }

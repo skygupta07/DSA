@@ -44,6 +44,9 @@ int main(){
 sets -> insertion deletion search all takes O(1) time
 // sets ek jhola hai jisme elements randomly insert hote hai..
 
+
+--- how to compile c++ file with different version of compiler manually?
+
 g++ filename.cpp —std=c++14 -o run
 ./run
 
