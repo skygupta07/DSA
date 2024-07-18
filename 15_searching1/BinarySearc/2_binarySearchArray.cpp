@@ -13,9 +13,9 @@ int main(){
     cout<<"\nenter the target element. ";
     cin>>target;
     
-
+    // binary search -> lo hi mid break lo hi (always appllied on sorted array either asc or desc)
     while (lo<=hi){
-        int mid = lo + (hi-lo)/2;
+        int mid = lo + (hi-lo)/2;   
         if (arr[mid]==target){
             cout<<"target element found at "<<mid<<" index.\n";
             break;
@@ -30,3 +30,14 @@ int main(){
     }
     return -1;
 }
+
+// t.c. = O(logn) for binary search
+// we work here by reduction in search space by half in each iteration 
+
+/*
+agar kahi bhi already given hai...
+given a sorted integer array ...then for sure waha binary search lagega..
+
+
+
+*/

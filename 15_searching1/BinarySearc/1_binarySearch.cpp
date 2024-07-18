@@ -1,9 +1,11 @@
 #include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
+
 int main(){
     vector <int> v;   // we don't need to mention the size of vector when we are pushing back
     v.push_back(2);    // aur agar kewal size mention karke chod diya to wo saare elements
-        // ko zero se initialise kar dega...to phir sabko index pe le jaake theek karna..
+        // ko zero se initialise kar dega...to phir sabke index pe le jaake theek karna padega...
     v.push_back(5);
     v.push_back(3);
     v.push_back(10);

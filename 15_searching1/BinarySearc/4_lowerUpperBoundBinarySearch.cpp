@@ -23,7 +23,7 @@ int lowerBound(int arr[], int n, int target){
         int mid = lo + (hi-lo)/2;
         if (arr[mid] == target){
              flag = true;
-             return mid-1;
+             return mid-1;  // main point
         }
         else if (arr[mid]<target) lo = mid+1;
         else hi = mid-1;
@@ -42,7 +42,7 @@ int upperBound(int arr[], int n, int target){
         int mid = lo + (hi-lo)/2;
         if (arr[mid] == target) {
             flag = true;
-            return mid+1;  
+            return mid+1;   // main point for upper bound
         }
         else if (arr[mid]<target) lo = mid+1;
         else hi = mid-1;
@@ -84,7 +84,7 @@ int main(){
 // but if lower and upper bound of element -> if the lower bound is not present directly in the array 
 // then apply ditto same code of binary search for both upper and lower bound...but return 
 // finally arr[hi] for lower bound    and arr[lo] for upper
-because condition tab hi break hui hogi jab wo ek dusre ko cross kar chuke honge....
+because condition tab hi break hui hogi jab lo hi  ko cross kar chuka hoga....
 
 */
 

@@ -5,12 +5,15 @@ int main(){
     int n = sizeof(arr)/sizeof(arr[0]);
     int lo = 0;
     int hi = n-1;
-    int ans = -1;
+    int ans = -1;   // in case if not present 
+
     while (lo<=hi){
         int mid = lo + (hi-lo)/2;
-        if (arr[mid] == mid) lo = mid+1;
+        if (arr[mid] == mid){   // agar wo apne sahi index pe ho to..pehle ki bhi sahi hi honge.. aage badhte jao...
+            lo = mid+1;
+        } 
         else{
-            ans = mid;
+            ans = mid;  // yes update the answer each time...
             hi = mid-1;
         }
     }

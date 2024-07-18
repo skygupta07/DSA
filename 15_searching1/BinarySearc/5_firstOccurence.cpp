@@ -21,11 +21,12 @@ int main(){
                 break;
 
             }
-            else{ // arr[mid-1]=x  // agar uske just pehle waala bhi x ke equal aa gya to 
-                    // phir hi ko dekho...
+            else{ // arr[mid-1]=x  // agar uske just pehle waala bhi x ke equal aa gya to dekho hi 
                  hi = mid-1;
             }
         }
+        else if(arr[mid] < x) lo = mid + 1;
+        else hi = mid - 1;
     }
 
 }
