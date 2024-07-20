@@ -1,11 +1,31 @@
 /*
+ho sakta hai kisi process ki priority jyada ho...OS mai...usey pehle serve karna padega..
+load balancer diverts the request to the less loaded server
+filter lagaya then.. upar sabse min. rate wala aaya..
+priority_queue aisi queue jisme aapka front element max element hoga jitne bacche huye hai unka..
+heaps ka use karke hi aap priority_queue implement karoge....
 
-->properties of heap
+------     ------- ------
+
+->properties of Heap --------
 1. heap is hierarchy based data structure
 2.heap is a complete binary tree (last row tight packing)
 3. it stores the element such that the priority of parent is always greater than priority of children
 4. max heap-> every node is having value more than all of its descendants
 5. all the subtrees of a heap are also heap..
+
+
+complete binary tree -> it is a special binary tree in which all the elements uptill the 
+2nd last level are full and the last level fills all the elements left to right as tight as 
+possible without leaving a spot...
+
+---> upheapify addition ke time and downheapify removal ke time use hoga...
+downheapify karne ke liye parent left aur right child mai jo sabse bada hoga ussey root ke saath
+swap kar do..(left tree maxheap , right tree maxheap but the whole tree is not maxheap)
+
+highest priority element ko remove karna hai.. tab to downheapify use hoga...
+highest priority element urf root ko delete karne ke liye usko last element se swap kara ...then ussey v.pop_back() kara and then root 
+wale element pe to downheapify call kar di...
 
 
 ->complete binary tree properties
@@ -19,7 +39,7 @@ matlab we can represent it in the form of array also....
 -> bst wali left chota right bada ye sab bakchodi yaha nahi hogi...
 
 ->if parent is at ith index in array then its left child is at: 2i+1 and 
-right child is at 2i+2
+right child is at 2i+2 index (zero based indexing)
 
 ->if child is at ith index in array then its parent is at [(i-1)/2] floor value..
 => insertion in heap
@@ -73,7 +93,7 @@ hai kya agar hai to phir compare karke neeche le aao...matlab downheapify laga d
 
 
 if you implement priority queue with simple array then it may take O(n) time for creation
-and deletion, so heap is the best data structure to implement heap as it takes O(logn) only
+and deletion, so heap is the best data structure to implement priority queue as it takes O(logn) only
 
 -> inbuilt mai to queue lagega hi
 -> jiski priority sabse jyada wo sabse aage lag jaega.....
@@ -81,10 +101,15 @@ and deletion, so heap is the best data structure to implement heap as it takes O
 ko tod madod ke try kiya... like arrays se ,,linked list se...binary trees se ..balanced binary tree
 ya bst se bhi ....but utna maja nahi aaya...
 
-so here comes a new data structure heap....so by using heap we can implement
-priority queues...
+so here comes a new data structure heap....so by "using heap we can implement
+priority queues..."
 
 
+how to delete any custom element in a heap?
+-> simply add infinity to that element so that it percolates up to root then apply deletion
+at root which i know..pop karke downheapify laga dunga..
 
+
+upar queue haider file ko include karna padega to implement priority_queue
 
 */

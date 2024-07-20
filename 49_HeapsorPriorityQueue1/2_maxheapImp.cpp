@@ -4,7 +4,8 @@ using namespace std;
 
 class Maxheap{
 private:    // upheapify ko private rakha...
-    // data member
+    // data members are kept private
+
     vector <int> hp;  // heap ko array/vector se represent karne ki trick..
     // if parent is at ith index then leftchild(lc) is at 2i+1 position..(zero based indexing)
 
@@ -22,6 +23,7 @@ private:    // upheapify ko private rakha...
         }
     }
 public:
+    // member fns are kept public
 
     void push(int element){
         hp.push_back(element);  // vector me simply last me element push back kar diya then upheapify call kar diya
@@ -107,3 +109,13 @@ int main(){
 // agar kisi class mai koi constructor nahi likha to wo apne aap default constructor
 // se samajh leta hai...
 // jiska naam hi hai variable to wo to change hoga hi na...
+
+
+/*
+The ceiling (chhat) value of 3.1 is 4, and the floor value of 3.1 is 3.
+
+Ceiling value (ceil): The smallest integer greater than or equal to 3.1, which is 4.
+Floor value (jammen -> bydefault) (floor): The largest integer less than or equal to 3.1, which is 3.
+
+
+*/

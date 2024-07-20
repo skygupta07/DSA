@@ -1,12 +1,13 @@
 // pehle to priority queue mai int wagera use hota tha but yaha aap linked list ke head nodes wagera daaloge 
 // priority queue mai isliye yaha use karo custom comparator....
 
-/*
+#include <bits/stdc++.h>
+using namespace std;
 
-class cmp{  // custom comparator 
+class cmp{  // custom comparator -> ratto
 public: 
     bool operator()(const ListNode* l1, const ListNode* l2){    // batana padata hai at a time kya do vastu aaengi..
-        return l1->val > l2->val;       //  decreasing order mai chahte hai sort karna...
+        return l1->val > l2->val;       //  decreasing order mai chahte hai sort karna...to wahi return kar do...
     }
 };
 
@@ -37,12 +38,12 @@ public:
     }
 };
 
-*/
+
 
 /*
 
 // best min. first candidates are the first element of list
-// priority queue ka use kiya, inbuilt min heap use karne ke liye wo greater wale ke liye cmp class banayi....
+// priority queue ka use kiya, inbuilt min heap use karne ke liye wo greater wale ke liye cmp class banayi....(asked in google)
 // priority queue mai element ListNode* wale honge
 // vector (with name lists) me iterate karke har element ko priorityqueue me push kiya
 // ek dummy node aur uske liye ek pointer create kiya

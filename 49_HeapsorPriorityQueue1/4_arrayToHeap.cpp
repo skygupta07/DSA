@@ -14,7 +14,7 @@ public:
             int pi = (ci - 1)/2;
             if (hp[pi]<hp[ci]){
                 swap(hp[pi],hp[ci]);
-                ci = pi;    // for next iteration
+                ci = pi;    // for next iteration-> imp to update child index
             }
             else break; // kyuki agar pehle hi stage mai koi changes nahi ho rahe hai 
             // to baad mai bhi nahi honge...
@@ -34,7 +34,7 @@ public:
     }
 
     bool empty(){
-        return hp.size()==0;  // if hp.size()== 0 will be true then it will return true
+        return (hp.size()==0);  // if hp.size()== 0 will be true then it will return true
     }
 
     void display(){
@@ -49,10 +49,12 @@ public:
         while(idx<hp.size()){
             int lc = 2*idx+1;
             int rc = 2*idx+2;
+            // kyuki aisa ho sakta hai ki left child ho magar right child na ho..
             if (lc>=hp.size()) break;
+
             int maxEl = idx;
             if (hp[lc]>hp[maxEl]){
-                maxEl = lc;
+                maxEl = lc; // maxElementIdx   === maxEl
             }
             if (rc<hp.size() && hp[rc]>hp[maxEl]){
                 maxEl = rc;
@@ -125,6 +127,6 @@ int main(){
 hala ki saari data structures lagbhag apne stl dete hai but unki deep understanding ke liye
 hum log uske working pattern ko analyse karke uski user defined class likhte hai....
 
--> all sorted array will be a max heap but all max heap will not be a sorted array...
+-> all sorted array(desc) will be a max heap but all max heap will not be a sorted array...
 
 */

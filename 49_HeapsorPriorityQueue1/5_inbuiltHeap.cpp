@@ -6,8 +6,10 @@ int main(){
    
     priority_queue <int> pq; // maxheap -> arey bhai ye tumhara ek tarah se object hai.. 
     // === vector <int> v;
+
+    //    type,  container type, comparator
     priority_queue <int, vector<int>, greater<int> > minheap;  // syntax to declare minheap using priority queue
-    // yaha vector <int> aur greater <int> aur aa jata hai..
+    // yaha vector <int> aur greater <int> aur aa jata hai..(aage bracket mat laga dena ...andar fn call thodi laga rahe ho...)
 
     pq.push(1);
     pq.push(2);
