@@ -1,0 +1,3 @@
+pref[0] = arr[0] (threshold)
+pref[i] = arr[i] + pref[i-1] (where i belongs to 1 to n-1) -> issey loop ki intuition aati hai...
+

@@ -2,8 +2,8 @@
 using namespace std;
 
 void prefixSum(int arr[], int n){
-    int psum[n];
-    psum[0] = arr[0];
+    int psum[n];    // jhola
+    psum[0] = arr[0];   // threshold
 
     for (int i=1; i<n; i++){
         psum[i] = arr[i] + psum[i-1];
@@ -16,7 +16,7 @@ void prefixSum(int arr[], int n){
 
 void suffixSum(int arr[], int n){
     int sSum[n];
-    sSum[n-1] = arr[n-1];
+    sSum[n-1] = arr[n-1];   // threshold
 
     for (int i=n-2; i>=0; i--){
         sSum[i] = arr[i] + sSum[i+1];
@@ -27,7 +27,7 @@ void suffixSum(int arr[], int n){
     cout<<endl;
 }
 
-void prefixProduct(int arr[], int n){
+void prefixProduct(int arr[], int n){   // general imp approach
     int pProd[n];
     pProd[0] = arr[0];
 

@@ -1,4 +1,5 @@
-/*
+#include <bits/stdc++.h>
+using namespace std;
 
 class Solution {
 public:
@@ -9,8 +10,10 @@ public:
         vector <int> ans(n);    // vector ka tujhe bhaiya size initialise karna hi padega
 
         // prefix product array except self
-        int p = nums[0];
-        pre[0] = 1;
+
+        int p = nums[0];    // 1
+        pre[0] = 1; // obviously
+        
         for (int i=1; i<n; i++){
             pre[i] = p;
             p*=nums[i];
@@ -19,7 +22,7 @@ public:
         // suffix product array except self
         p = nums[n-1];  // p variable ko kyu cheda? => arey bhai to phir uska karna hi kya hai...
                         // redefine to same variable karoge nahi => directly ched do...
-        suf[n-1] = 1;
+        suf[n-1] = 1;   // obviously
         for (int i=n-2; i>=0; i--){
             suf[i] = p; // imp
             p*=nums[i];
@@ -49,6 +52,12 @@ public:
 
 
 
+
+
+
+/*
+product of array except self wale question mai ... yaha aapko actual definition se 
+thoda sa hatt ke... prefix product array banana hoga....
 
 
 
