@@ -3,6 +3,7 @@
 using namespace std;
 
 int main(){
+
     int arr[] = {1,3,5,7,9,10,2,10};
     int n = sizeof(arr)/sizeof(arr[0]);
     int k = 4; // window size
@@ -12,6 +13,7 @@ int main(){
     for (int i=0; i<k; i++){    // sabse pehli baar to khidki bharni hi padegi
         sum += arr[i];              // t.c. = O(k)
     }
+
     maxSum = sum;
 
     int i = 1; //imp
@@ -30,6 +32,7 @@ int main(){
     }
 
     cout<<"max window sum is: "<<maxSum<<endl;
+    
     for (int p=maxIdx; p<(maxIdx+k); p++){
         cout<<arr[p]<<" ";
     }

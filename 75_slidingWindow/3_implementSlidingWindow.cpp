@@ -12,23 +12,29 @@ int main(){
     }
     maxSum = prevSum;
 
-    int i = 1; //imp
-    int j = k; // imp
+    int i = 1; //imp -> i pointer denotes start of window
+    int j = k; // imp -> j pointer denotes end of window
+
     while (j<n){  // constraint dusre waale hi pointer pe hai..
+
+// currentWindowSum = prevWindowSum + lastElement of current window - first element of prev window
+
         int currSum = prevSum + arr[j] - arr[i-1]; // calculating current window sum
         
         // now check and update if maxSum has been changed
         if (currSum > maxSum){
             maxSum = currSum;
-            maxIdx = i; // yaha se start hua bada maal milna
+            maxIdx = i; // remembering the starting index of maxSum sliding window...
         }
 
         prevSum = currSum;  // next window banane se pehle ke updates
-        i++;
+
+        i++;    // both i and j pointer will be incremented by 1
         j++; // window ko aage badaya
     }
 
     cout<<"max window sum is: "<<maxSum<<endl;
+
     for (int p=maxIdx; p<(maxIdx+k); p++){
         cout<<arr[p]<<" ";
     }
