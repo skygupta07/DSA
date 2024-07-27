@@ -32,4 +32,6 @@ a = a ^ b
 
 
 
+>> right shift right wale logo ko teer marega....
+
 

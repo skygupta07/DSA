@@ -1,0 +1,33 @@
+dono number ki bits par kaam karta hai aur wo bhi bit by bit wo particlar
+bitwise operator ko laga dega...
+
+bitwise operators are : AND(single &) OR(single pipe |) NOT(~) XOR(^)
+bitwise operations are applied on the corresponding bit of the data..
+
+logical operations: and(&&) or(||) not(!)
+logical operations work on boolean input 
+
+
+
+--------
+
+2powx to sahi cheej hoti hai ...
+in binary representation it is .... 1 followed by x number of zeroes..
+
+32 = 2pow5 = 100000 (1 followed by paach zeroes)
+
+
+-->> agar kisi number say y ko left shift kar diya x bit, to y ke aage x 
+ number of times zeroes lag jaenge...
+
+ i.e. 1 ko x se left shift kar diya to 1 ke aage bhi x number of zeroes lag jaenge...
+ 1<<x  === 2powerx   (hence proved)
+
+
+--> right shift by two places ka matlab hai ki...sach mai right se two bits kha jao...and 
+left mai zero laga do pachane ke liye...
+
+
+-----
+
+

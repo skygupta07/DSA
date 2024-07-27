@@ -21,3 +21,10 @@ public:
         return ans;
     }
 };
+
+
+/*
+reason: xor aapka commutative property hota hai....
+
+
+*/

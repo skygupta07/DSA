@@ -32,7 +32,7 @@ remember    1<<k = 2powerk
 // left shift yaha karke just uske below ek apni bit ko 1 kiya and then AND karke dekha..
 1. to check if the kth bit is set x && (1<<k) == 1 => bit is set else not set
     to check if the kth bit is set or not using the right shift operator...
-        if ((x>>i) & 1 == 1) bit is set else not set....
+        if ((x>>? k or i of 1) & 1 == 1) bit is set else not set....
 
 2. toggle the kth bit x ^ (1<<k)
 3. set the kth bit x | (1<<k)
@@ -80,10 +80,11 @@ if (x == B) x = A
         x = a^b^x;
 
 
-Trick 9 --------
+Trick 9 -------- (interview) -> how can you add two numbers without using addition operator..
 
-a+b = (a^b) + 2(a&b)
-a+b = a|b + a&b
+
+a+b = (a^b) + 2(a&b)        (xor karke + two times and karke add kardo..)
+a+b = a|b + a&b             (ya to simply OR aur AND karke sum kar do...)
 
 
 Trick 10 --------

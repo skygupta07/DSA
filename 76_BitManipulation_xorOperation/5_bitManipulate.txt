@@ -1,6 +1,8 @@
-int aapka takes 32 bit ....
+int aapka takes (4 bytes) 32 bit ....
 7 base 10 waala if we represent in binary is 111   but int to aapka 32 bits leta hai...
 matlab baaki ke saare bits aapke MSB bits zero honge....
+i.e. 7 in binary is 
+00000000000000000000000000000111
 
 long long taking 64 bits..
 
@@ -8,16 +10,19 @@ long long taking 64 bits..
 32 bit mai normally aapke integer store karte hai....
 and jisme ki sabse MSB wali jo bit hoti hai 31st wali wo sign ko represent karti hai..
 if that 31st bit is 1 => negative number.
-    if that 31st bit is 0 => positive number...
+    if that 31st bit is 0 => positive number...(kyuki bydefault wahi rehta hai na..)
 
 
----> right shift by 2 matlab LSB (right ki ) do bits khaa jao....
+---> right shift by 2 matlab LSB (right ki ) do bits khaa jao.... and obviously then lsb mai to phir two zeroes lagana 
+hi padega....
 waise internally to wo 2's complement ke form mai store karega number ko....
 
-so the max possible poitive value for a number is 2power30 + 2power29 + 2power28 + 2power27 + ..... 2power0 
+
+*** interview ***
+so the max possible poitive value for a INT number is 2power30 + 2power29 + 2power28 + 2power27 + ..... 2power0 
  ==== 2power31 - 1   === INT_MAX;
 
- negativ number ke case mai aapka min. element aapka === INT_MIN banega...
+ negative number ke case mai aapka min. element aapka === INT_MIN banega...
  i.e.      -2power31    ==== INT_MIN
 
 
@@ -33,6 +38,10 @@ to computer do step karega...
 ------ count set bits -------
 brute force approach:
 
+-> jab tak number greater than 1 hai last bit nikala and usko add kiya...
+and simultaneously number ko 2 se divide bhi karte gaye (to make him ready for the next iteration)
+then n==1  wala edge case bhi dekha....
+
 int countSetBits(int n){
     int count = 0;
 
@@ -45,7 +54,7 @@ int countSetBits(int n){
 }
 
 
------ approach2 to count the number of set bits -----
+----- approach2 to count the number of set bits  (ratto) -----
 
 int countSetBits(int n){
     int count = 0;
