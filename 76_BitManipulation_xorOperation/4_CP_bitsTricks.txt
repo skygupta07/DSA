@@ -3,17 +3,17 @@ Trick 1 =>=> to check if a number is odd or even ...we do modulo 2 operation and
     if Remainder == 1 => odd
 
 but better approach is using the bit manipulation...
-    if (x&1) == 0 => even
-    if (x&1) == 1 => odd
+    if (n&1) == 0 => even
+    if (n&1) == 1 => odd
     
 
-actually aapka xand1 aapko least significant bit laake deta ha us number ke binary 
+actually aapka nand1 aapko least significant bit (ekdum aakhri waali) laake deta ha us number ke binary 
 representation ka....
     if that bit is 1 => number will be damn sure odd.....
 
 
 Trick 2 =>=> check if a number is a power of 2
-    x & (x-1)   if gives = 0 => number is power of 2
+    n & (n-1)   if gives = 0 => number is power of 2
                 if gives > 0 => number is not a power of 2
     
 
@@ -44,19 +44,22 @@ Trick 4-------------
 -> if you want to divide the number by 2 power k , then simply right shift the number by k steps...
 
 
-x * 2powerk === x << k
+x * 2powerk === x << k    
+        matlab     *2pow  === <<
+        matlab     /2pow  === >>
+
+
 
 -------
-2powerk matlab      1000000 msb 1 and aage ke saare zero...
-2powerk - 1 matlab msb 0 then aage ke saare 1 ....
-
+2powerk matlab      1000000 msb 1 and aage k zero
+2powerk - 1    ka matlab msb 0 then aage k 1s
 
 Trick 5
 ----- how to find out x % 2powerk
     x & ((1<<k) - 1)
 
 Trick 6 --------
-ping two number without using a extra temporary variable....using simple xor operations..
+swapping two number without using a extra temporary variable....using simple xor operations..
 int temp = a;
 a = b;
 b = a;
@@ -83,7 +86,7 @@ if (x == B) x = A
 Trick 9 -------- (interview) -> how can you add two numbers without using addition operator..
 
 
-a+b = (a^b) + 2(a&b)        (xor karke + two times and karke add kardo..)
+a+b = (a^b) + 2(a&b)        (xor karke + two times AND karke add kardo..)
 a+b = a|b + a&b             (ya to simply OR aur AND karke sum kar do...)
 
 

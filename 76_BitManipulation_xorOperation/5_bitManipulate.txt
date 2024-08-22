@@ -1,7 +1,7 @@
 int aapka takes (4 bytes) 32 bit ....
 7 base 10 waala if we represent in binary is 111   but int to aapka 32 bits leta hai...
 matlab baaki ke saare bits aapke MSB bits zero honge....
-i.e. 7 in binary is 
+i.e. 7 in binary is 29go zero then teengo 1
 00000000000000000000000000000111
 
 long long taking 64 bits..
@@ -63,5 +63,8 @@ int countSetBits(int n){
         count++;
     }
 }
+
+The countSetBits function counts the number of 1s in the binary representation
+of n by repeatedly removing the lowest set bit using the n & (n - 1) operation.
 
 

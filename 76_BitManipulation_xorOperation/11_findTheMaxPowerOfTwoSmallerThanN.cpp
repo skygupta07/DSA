@@ -34,7 +34,12 @@ int main(){
 
 
 /*
+
+
+When x finally becomes 0, temp holds the value of x with only the most significant 1 bit still set.
+This temp is the largest power of 2 smaller than or equal to x.
 most significant bit ko chodd ke then aage ke saare bits zero kar diya...
+
 
 24 
 1 1 0 0 0

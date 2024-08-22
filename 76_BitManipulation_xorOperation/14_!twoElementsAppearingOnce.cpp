@@ -19,7 +19,7 @@ void findUnique(int *arr, int n) {
         if ((temp & 1) == 1) {
             break;
         }
-        temp = temp >> 1;
+        temp = temp >> 1;   // temp = temp/2
         k++;
     }
 

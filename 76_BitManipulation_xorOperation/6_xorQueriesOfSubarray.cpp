@@ -26,5 +26,9 @@ public:
 /*
 reason: xor aapka commutative property hota hai....
 
+sum karte waqt sum = 0 se initialise 
+multiply karte waqt prod = 1 se initialise
+
+xor karte waqt xorr = 1    se initialise
 
 */

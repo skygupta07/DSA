@@ -21,9 +21,9 @@ contribution zero hoga else wha 1 likhna then final number formed will be answer
 properties of xor
 
 1. a^a = 0
-2. a^0 = a
+2. a^0 = a 
 3. binary number zero one mai agar odd number of one huye to answer 1 aayega....
 
 
 p1. xor of same number gives zero (a^a = 0)
-p2. zero ke saath xor karne mai koi burai nahi hai -> matlab same hi number mil jaega...
+p2. zero ke saath xor karne mai koi burai nahi hai (koi fark nahi padta)-> matlab same hi number mil jaega...

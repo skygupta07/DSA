@@ -7,12 +7,13 @@ int main(){
     cout<<mini<<"\n";   // -2147483648
 
     int maxi = INT_MAX;
-    cout<<maxi<<"\n";   // 2147483647
+    cout<<maxi<<"\n";   // 2147483647   -> max matlab ek kam tak hi store kar payenge..
 
 
     int alpha = INT_MAX;
     int doubleAlpha = 2*alpha;
-    cout<<doubleAlpha<<"\n";    // -2   interesting
+    cout<<doubleAlpha<<"\n";    // -2   interesting -> yahi sab to overflow ho raha tha to ...
+                                // wrong answer aa raha tha.....
 
     int beta = INT_MIN;
     int doubleBeta = 2*beta;

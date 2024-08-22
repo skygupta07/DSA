@@ -2,6 +2,11 @@ dono number ki bits par kaam karta hai aur wo bhi bit by bit wo particlar
 bitwise operator ko laga dega...
 
 bitwise operators are : AND(single &) OR(single pipe |) NOT(~) XOR(^)
+    jaruri nahi hai ki bitwise operator aapka binary representation par hi lage...
+    kisi bhi number par lag sakta hai ... like 
+            5&9 kar sakte ho...
+
+
 bitwise operations are applied on the corresponding bit of the data..
 
 logical operations: and(&&) or(||) not(!)
@@ -11,13 +16,13 @@ logical operations work on boolean input
 
 --------
 
-2powx to sahi cheej hoti hai ...
-in binary representation it is .... 1 followed by x number of zeroes..
+2powk to sahi cheej hoti hai ...
+in binary representation it is .... 1 followed by k number of zeroes..
 
 32 = 2pow5 = 100000 (1 followed by paach zeroes)
 
 
--->> agar kisi number say y ko left shift kar diya x bit, to y ke aage x 
+-->> agar kisi number say y ko left shift kar diya x bit,(left ke x bit kha jaunga) to y ke right mai x 
  number of times zeroes lag jaenge...
 
  i.e. 1 ko x se left shift kar diya to 1 ke aage bhi x number of zeroes lag jaenge...
