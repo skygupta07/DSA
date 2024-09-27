@@ -1,0 +1,29 @@
+starting mai root hoga...
+box box/trie banane hai... 
+ith wale box ka reference just neeche wala box hoga...
+
+matlab mujhe trie ki class di hogi... but mai to node ki class bhi banaunga..
+jisme data members -> links array and bool flag hoga..
+and member function mai...containsKey, put (when we encounter any new ith character then put
+it into trie...), get(har ith character ko read karke uske trie pe jaane ke liye...)   fn hoga..
+
+initially flag false hoga.. and naya letter milte hi.. uske flag ko bhi
+initially false karo..... jab pura ek word khatam ho jae .. tab uske trie ko 
+false kar do...
+
+kisi bhi operation ke liye word pe to iterate karna hi hoga...
+
+// operations : 
+
+//search 
+
+if the last reference node you are standing contains true, then that word exists 
+in the trie....
+
+// starts with 
+
+if while iterating over the word you never encountered null hit , and finally 
+when the word ended you are standing at any non null trie then yes there 
+exists word in Trie that starts with that word....
+
+
