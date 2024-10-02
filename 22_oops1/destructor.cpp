@@ -12,6 +12,8 @@ public:
         // constructor ke design ke karan usme ye values assign ho jaengi apne aap...
     }
 
+    // constructor ke just neeche aapka destructor
+
     // tilde/colgate className    for destructor
     ~Rectangle(){ // here never a parameter is passed in destructor fn..
         cout<<"destructor fn is called.."<<endl;

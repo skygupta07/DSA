@@ -28,14 +28,16 @@
 using namespace std;
 
 class player{
-    private:  // imp
+private:  // imp
     int health;
     int score;
     int age;
 
 
-    public: // imp
+public: // imp
     //setter fn.
+
+    // basically member functions comprise of both getter and setter function
     void sethealth(int h){
         this->health = h;
         // is current class ke head me h(health ki int value) daal do..
@@ -61,9 +63,6 @@ class player{
     int getage(){
         return age;
     }
-
-    
-
 };
 
 

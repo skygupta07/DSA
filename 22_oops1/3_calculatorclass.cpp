@@ -6,7 +6,7 @@ public:
     int a;
     int b;
 
-    void add(){   // MEMBER FUNCTION hai isliye kuch parameters bhi entry nahi le rha
+    void add(){   // MEMBER FUNCTION hai isliye koi parameters bhi entry nahi le rha
                 // ghar ke hi to log hai easily accessible hai..
         cout<<a+b<<endl;
     }

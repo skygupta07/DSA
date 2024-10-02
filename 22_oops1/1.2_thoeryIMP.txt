@@ -1,0 +1,229 @@
+/*
+## Procedural vs Object-Oriented Programming (OOP)
+
+### Procedural Programming:
+- Focuses on functions and procedures to operate on data.
+- Code is organized as a sequence of instructions or commands.
+- Functions are the building blocks of procedural programming.
+- Example languages: C, Pascal.
+
+### Object-Oriented Programming (OOP):
+- Focuses on classes and objects.
+- Enhances scalability and code efficiency.
+- Widely used in real-world programming due to its ability to model complex systems.
+- Example languages: C++, Java, Python.
+
+### Key OOP Concepts:
+
+#### 1. Class:
+- A user-defined data type that acts as a blueprint for objects.
+- Contains data members (variables) and member functions (methods).
+
+```cpp
+class Player {
+public:
+    int health;
+    int ammo;
+    char name[50];
+    
+    void shoot() {
+        // Code to shoot
+    }
+};
+
+
+2. Object:
+An instance of a class.
+Objects are used to invoke data members and member functions.
+
+
+Player player1;  // Creating an object of class Player
+player1.health = 100;
+player1.ammo = 50;
+
+
+------ Factors in OOPs -------:
+
+1. Data Abstraction (chupana/hiding):
+
+Hides complex implementation details and shows only the essential features.
+Example: A backend server hides the details of how data is processed and only 
+exposes necessary interfaces.
+
+class Car {
+public:
+    void startEngine() {
+        // Internal working of engine start is hidden
+        ignition();
+        fuelInjection();
+        // More complex operations
+    }
+private:
+    void ignition() {
+        // Complex code hidden from the user
+    }
+    void fuelInjection() {
+        // Complex code hidden from the user
+    }
+};
+
+
+------- 2. Data Encapsulation --------------:
+
+Bundling data and methods that operate on the data within a single unit (class).
+Protects the data by restricting direct access to it.
+
+class Player {
+private:
+    int health;
+    int ammo;
+public:
+    void setHealth(int h) {
+        health = h;
+    }
+    int getHealth() {
+        return health;
+    }
+};
+
+--------- 3. Inheritance ------:
+
+Allows a class (child) to inherit properties and behavior (methods) from another class (parent).
+Promotes code reusability.
+
+class Animal {
+public:
+    void eat() {
+        cout << "Eating" << endl;
+    }
+};
+
+class Dog : public Animal {  // Dog class inherits from Animal class
+public:
+    void bark() {
+        cout << "Barking" << endl;
+    }
+};
+
+Dog myDog;
+myDog.eat();  // Inherited from Animal
+myDog.bark();  // Specific to Dog
+
+
+----4. Polymorphism: ---------
+
+Allows the same entity to take on different forms.
+Enables a single function or method to operate differently based on the context.
+
+
+
+4a. Function Overloading:
+Multiple functions with the same name but different parameters.
+
+class Math {
+public:
+    int add(int a, int b) {
+        return a + b;
+    }
+    double add(double a, double b) {
+        return a + b;
+    }
+};
+
+Math math;
+cout << math.add(5, 3);       // Calls int version
+cout << math.add(5.5, 3.2);   // Calls double version
+
+
+----- 4b. Function Overriding:
+A derived class provides a specific implementation of a function that is already defined in its base class.
+
+class Animal {
+public:
+    void sound() {
+        cout << "Some sound" << endl;
+    }
+};
+
+class Dog : public Animal {
+public:
+    void sound() {  // Overriding the base class method
+        cout << "Bark" << endl;
+    }
+};
+
+Animal myAnimal;
+Dog myDog;
+myAnimal.sound();  // Outputs "Some sound"
+myDog.sound();     // Outputs "Bark"
+
+
+Access Modifiers:
+------ 1. Public:
+
+Members are accessible from outside the class.
+Example:
+
+class Player {
+public:
+    int health;
+};
+
+Player player1;
+player1.health = 100;  // Accessible
+
+-----------2. Private:
+
+Members are not accessible from outside the class.
+Example:
+
+class Player {
+private:
+    int health;
+};
+
+Player player1;
+// player1.health = 100;  // Error: health is private
+
+3. Protected:
+
+Members are accessible within the class, and derived classes, but not from outside.
+Example:
+
+class Animal {
+protected:
+    int age;
+};
+
+class Dog : public Animal {
+public:
+    void setAge(int a) {
+        age = a;  // Allowed: Protected members are accessible in derived class
+    }
+};
+
+
+
+Additional Notes:
+Variables inside a class are called data members.
+Functions inside a class are called member functions.
+A class is merely a blueprint; data members and member functions are invoked through objects.
+
+
+-------- Best Practices in OOP:
+Keep data members private for security.
+Use public member functions to interact with the data.
+Use setter and getter functions to set and get the values of private data members.
+
+class Player {
+private:
+    int health;
+public:
+    void setHealth(int h) {
+        health = h;
+    }
+    int getHealth() {
+        return health;
+    }
+};
+

@@ -37,10 +37,10 @@ OBJECT hi invoke karega
 
 
 oops says ki for security reasons 
-1. data members ko private rakho and 
-2. member function ko public rakho...
+1. data members ko private rakho and ab aap thodey naye functions banao...
+like setter and getter to set and get data member values..
 
-ab aap thodey naye functions banao...like setter and getter to set and get values..
+2. member function ko public rakho...
 
 
 

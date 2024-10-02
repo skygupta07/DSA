@@ -45,5 +45,5 @@ int main(){
 }
 
 
-// kul mila ke data members ka direct access nahi deke usko public function ka use karke then getter setter
-// laga ke access karo..
+// kul mila ke data members ka direct access nahi deke usko public function ka use karke
+// then getter setter laga ke access karo..

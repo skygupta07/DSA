@@ -11,6 +11,7 @@ public:
     }
 
 };
+
 class Mango: public Fruit{
 public:
     Mango(){
@@ -19,8 +20,6 @@ public:
     }
 
 // child class: parent class
-
-
 };
 
 
@@ -29,7 +28,7 @@ public:
 
 int main(){
     Mango();
-// mene main fn me kewal child class ko call kiya but since child class is inherited from parent class
-// so first parent class is called then child class..
+// mene main fn me kewal child class ko call kiya but
+// since child class is inherited from parent class so first parent class is called then child class..
 
 }

@@ -9,6 +9,8 @@ public:
     // constructor ka naam same as class name
     // types: default , parameterised , copy constructor (dpc) karwate hai ghar constructor mai
     // ek class ke andar there can be more than one constructor..
+        // The technique of having two (or more) constructors in a class is known as constructor overloading.
+
     // depending on the name or syntax corresponding constructor will be chosen..
    
    
@@ -17,7 +19,7 @@ public:
     }
 
     Rectangle(int x, int y){ // parameterised -> best
-        l= x+2;
+        l= x+2; // this->l = x+2
         b = y+2;
     }
 
@@ -49,13 +51,11 @@ class mai constructor mandatory
 constructor -> hidden function -> initialisation -> object creation
 // by default rehta hi hai...
 but you can make your own 
-similar to function() => but constructor ka koi naam nahi hota but iska return type
-same as the class return type..
+similar to function() => but constructor ka koi return type nahi hota and iska name
+same as the class name..
 
 -> jab jab object create hoga constructor ko call lagegi.
 -> constructor ki help se hum koi value initialise bhi kar sakte hai...
-
-
 
 
 */
