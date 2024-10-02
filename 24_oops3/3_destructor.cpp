@@ -1,75 +1,47 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-class Bike{
+class Bike {
 public:
     int tyreSize;
     int engineSize;
 
-    Bike (){        // return type written only since constructor ka koi naam nahi hota
-        cout<<"constructor is called"<<endl;
-    } 
-    // ye ekdum default constructor hai aur ha ye hamesha hi call hoga jab bhi 
-    // object create hoga..  
-
-    Bike(int wheel, int engineSize){
-        this->tyreSize = wheel;
-        this->engineSize = engineSize;
-        cout<<"construcor"<<endl;
+    // Default constructor -> jab object create hoga aur parameters na diye gaye ho tab ye call hoga
+    Bike() {  
+        cout << "Default constructor is called" << endl;
     }
 
-    ~Bike(){
-        cout<<"destructor is called.."<<endl;
+    // Parametrized constructor -> jab object banate time values diye jaate hain
+    Bike(int wheel, int engineSize) {
+        this->tyreSize = wheel;   // `this` pointer is used to refer to the current object
+        this->engineSize = engineSize;
+        cout << "Parameterized constructor is called" << endl;
+    }
+
+    // Destructor -> jab object apni scope se bahar chala jaata hai tab ye automatically call hota hai
+    ~Bike() {
+        cout << "Destructor is called.. Memory cleanup happening!" << endl;
     }
 };
 
-int main(){
-    // object creation 
-    Bike tvs(5,100);
-    Bike honda(8,150);
-    Bike hero(10,200);
-    Bike yamaha(12,300);
+int main() {
+    // Objects creation -> har baar parametrized constructor call hoga
+    Bike tvs(5, 100);
+    Bike honda(8, 150);
+    Bike hero(10, 200);
+    Bike yamaha(12, 300);
 
+    // flag check karke ek aur object create ho raha hai
     bool flag = true;
-    if (flag == true){
-        Bike bajaj(7,250);  // no one knows him out of this curly braces..
-    }
+    if (flag == true) {
+        // Yaha pe bajaj object create ho raha hai, jo sirf is scope ke andar rahega
+        Bike bajaj(7, 250);  // Destructor isko turant cleanup karega jab curly braces close honge
+    }  // Bajaj ka destructor yahi pe call ho jaayega kyunki yeh scope ke bahar ja raha hai
 
-    cout<<honda.engineSize<<endl;
-    cout<<honda.tyreSize<<endl;
-    
+    // Honda object ke members print ho rahe hain
+    cout << honda.engineSize << endl;
+    cout << honda.tyreSize << endl;
+
+    // Yaha end pe yamaha, honda, hero, tvs ke destructors apni scope ke khatam hote hi call honge
+    return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-memory free karo bhai jab uska kaam ho gya..
--> destructor is called when object goes out of scope....matlab theek jaise hi uska ilaka 
-khatam hoga uss object ke liye turant destructor call ho jaega...
-
-memory free up ya delete karne ka code hum destructor mai likhte hai...
-
-
-
-
-
-*/

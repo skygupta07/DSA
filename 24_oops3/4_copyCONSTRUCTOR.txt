@@ -2,7 +2,7 @@
 1. shallow copy -> copy hai but independent nahi hai...matlab pehle ke changes dusre mai
 reflect honge..
 
-2. deep copy -> independent..
+2. deep copy ❌ deep water ✅ -> jyada hi independent ho jaati hai....
 
 -> copy constructor used to copy objects
 IMPORTANT
