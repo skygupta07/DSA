@@ -8,7 +8,7 @@ private:  // imp
     int age;
 
 
-    public: // imp
+public: // imp
     //setter fn.
     void sethealth(int h){
         this->health = h;
@@ -64,31 +64,20 @@ int main(){
     // cout<<bobObject.getage()<<endl;
 
     // agar aapke paas normal object hai to usko tum dot operator se access kar sakte ho..
-    // but agar aapke paas pointer object hai to ussey aap this-> ka use karke access kare directly. waha dot operator nahi chalega
-    // rather ki aap pehle pointer banaye then pointerObject banaye then execute karte..
+    // but agar aapke paas pointer object hai to ussey aap this-> ka use karke access kare 
+   //  directly. waha dot operator nahi chalega rather ki aap pehle pointer banaye then pointerObject banaye then execute karte..
 
     // inshort this-> operator is like broker for class members and assigning variables..
+
+
+// simply har choote se choote kaam ke liye aap function bana liya karo....
+
 
     // good method M2
     player* bob = new player;
     bob->setage(45);
     cout<<bob->getage()<<endl;
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
 }
 
 

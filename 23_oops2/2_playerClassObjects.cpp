@@ -7,7 +7,8 @@ private:
     int health;
     int ammo;
     bool alive;
-public:
+
+public:     // getter setter ❌ setter getter ✅
     //setter
     void setName(string s){
         name = s;
@@ -40,8 +41,6 @@ public:
 
     //  member fn
     // f1 -> fn which returns the player with max health
-
-
 };
 
 

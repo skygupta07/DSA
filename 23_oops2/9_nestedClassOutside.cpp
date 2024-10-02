@@ -13,7 +13,7 @@ private:  // member fns
     int health;
     int score;
     int age;
-    Guns gun;
+    Guns gun;   // yaha use kiya upar defined data type (class) ko
 
 public: // imp
     //setter fn.

@@ -1,0 +1,80 @@
+## **OOP Concepts with User-Defined Data Types**
+
+1. **Class as a Blueprint:**
+   - Classes are user-defined data types from which we can create objects 
+         (like variables of that class).
+   - Unlike primitive data types like `int` (which gets memory allocated at compile-time),
+          a class does not take memory until we create an object.
+   - Memory is only assigned when an object of that class is created.
+
+2. **Scope Resolution Operator vs. `this` Pointer:**
+   - Instead of using the `::` operator to access class members, the `this->` operator 
+      is used inside class functions to refer to the current object’s data members.
+
+3. **Passing Classes in Function Parameters:**
+   - You can pass an object of a class as a parameter to a function,
+       but you can't directly print the entire object like a primitive type.
+   - To print or manipulate an object, you'll first need to access and store its attributes
+       or use member functions.
+
+---
+
+## **Static vs. Dynamic Memory Allocation**
+
+1. **Static Memory Allocation:**
+   - For simple data types like `int`, memory is allocated at **compile time**
+    (e.g., `int` occupies 4 or 8 bytes).
+   - The amount of memory required is known during compilation.
+   
+2. **Dynamic Memory Allocation:**
+   - Dynamic memory allocation happens **at runtime**, often when you can't predict the memory
+ needed beforehand. For example, you can't know if 10, 100, or 1000 players will join a game.
+
+   - To dynamically allocate memory, use the `new` operator:
+     ```cpp
+     int* ptr = new int; // Allocates memory from heap
+     ```
+   - This memory comes from the **heap** (runtime memory),
+       unlike static allocation which comes from the **stack** (compile-time memory).
+   
+3. **Pointers in Dynamic Memory:**
+   - Pointers play a crucial role in dynamic memory allocation.
+   - If you're working with a regular object, use the dot (`.`) operator to access members.
+    But if you have a pointer to an object, use the arrow (`->`) operator to access members.
+   - Example:
+     ```cpp
+     obj.name;   // For normal object
+     objPtr->name; // For pointer to an object
+     ```
+
+---
+
+## **Key OOP Concepts**
+
+1. **Nested Classes:**
+   - You can define a class inside another class (nested class), which helps in logically
+    grouping the related functionality together.
+
+2. **The `this` Pointer:**
+   - The `this` pointer is a special pointer in C++ that refers to the current object
+    in a class. It is implicitly passed to all non-static member functions of a class.
+
+   - This is particularly useful when you need to refer to the calling object inside a method.
+
+3. **Array of Objects:**
+   - You can create an array of objects just like you create an array of primitive data types:
+     ```cpp
+     ClassName objArray[5];  // Array of 5 objects
+     ```
+
+---
+
+## **Key Takeaways**
+
+- **Static memory allocation** is for fixed-size memory determined at compile time.
+- **Dynamic memory allocation** uses the heap and allows flexibility
+    when the amount of memory needed is uncertain.
+- Use `->` operator for pointer objects and `.` operator for normal objects.
+- Pointers and dynamic memory are crucial for data structures like linked lists, 
+      where memory management happens at runtime.
+

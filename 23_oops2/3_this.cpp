@@ -2,13 +2,13 @@
 using namespace std;
 
 class player{
-    private:   // data members ko private rakho and usko execute karo by help of public: getter and setter.
+private:   // data members ko private rakho and usko execute karo by help of public: getter and setter.
     int health;
     int score;
     int age;
     
 
-    public:
+public:
     // ab likho saare getter functions
     int getHealth(){
         return health;

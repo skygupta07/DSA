@@ -2,13 +2,13 @@
 using namespace std;
 
 class player{
-    private:  // imp
+private:  // imp
     int health;
     int score;
     int age;
 
 
-    public: // imp
+public: // imp
     //setter fn.
     void sethealth(int h){
         this->health = h;
@@ -35,9 +35,6 @@ class player{
     int getage(){
         return age;
     }
-
-    
-
 };
 
 
