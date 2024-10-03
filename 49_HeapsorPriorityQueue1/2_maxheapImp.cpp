@@ -17,7 +17,7 @@ private:    // upheapify ko private rakha...
             int pi = (ci - 1)/2;
             if (hp[pi]<hp[ci]){
                 swap(hp[pi],hp[ci]);
-                ci = pi;    // for next iteration                
+                ci = pi;    // for next iteration (prev = curr) ==== (chote miya = bade miya)            
             }
             else break;
         }
@@ -30,15 +30,15 @@ public:
         upheapify(hp.size()-1);  // last element added index i.e. the last index  = arr.size()-1
     }
 
+    bool empty(){
+        return hp.size()==0;
+    }
     int peek(){ // when we peek into the heap we see the topmost element i.e. the greatest element
         if (empty()) return INT_MIN;
         else return hp[0];
     }
 
-    bool empty(){
-        return hp.size()==0;
-    }
-
+   
     void display(){
         cout<<"[";
         for (int i=0; i<hp.size(); i++){
@@ -47,8 +47,10 @@ public:
         cout<<"]"<<endl;
     }
 
-    void downheapify(int idx){
+    void downheapify(int idx){  // asked in viva
         while(idx<hp.size()){  //since repeatedly we need to do work
+
+            // lc, rc ye sab index hi hota hai..
             int lc = 2*idx+1;
             int rc = 2*idx+2;
             if (lc>=hp.size()) break;   // it is possible ki heap me left child ho but
@@ -76,8 +78,8 @@ public:
         //this fn removes the highest priority element
         if (empty()) return;
         swap(hp[0],hp[hp.size()-1]);
-        hp.pop_back();  // vector ka first element to gayo..karan arjun
-        if (!empty()){
+        hp.pop_back();  // vector ka last element to gayo..karan arjun
+        if (!empty()){  // thoda sarcasm wali laugh then write this condition...
             downheapify(0); // since culript node initially will be at the zeroth index
         }
     }
@@ -85,7 +87,7 @@ public:
 };
 
 int main(){
-    Maxheap hp;  // first line: classKaNaam objectName 
+    Maxheap hp;  // first line: classKaNaam(Datatype) objectName 
                     // creating an object for the class
     hp.push(200);   
     hp.push(100);

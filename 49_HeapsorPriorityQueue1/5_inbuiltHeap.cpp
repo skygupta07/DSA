@@ -11,7 +11,7 @@ int main(){
     priority_queue <int, vector<int>, greater<int> > minheap;  // syntax to declare minheap using priority queue
     // yaha vector <int> aur greater <int> aur aa jata hai..(aage bracket mat laga dena ...andar fn call thodi laga rahe ho...)
 
-    pq.push(1);
+    pq.push(1); // priority_queue mai push hota hai ...push_back to vector mai hota hai
     pq.push(2);
     pq.push(6);
     pq.push(10);
@@ -42,5 +42,7 @@ implement kar dega internally heap ko use karke....
 by default max heap hoti hai...
 
 helpful for those problem jisme ki ab tak ke bacche huye element ka overall max or overall
-min. value chahiye ho...
+min. value chahiye ho...(uber internship)
 */
+
+

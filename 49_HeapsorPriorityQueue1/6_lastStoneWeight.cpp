@@ -27,6 +27,19 @@ public:
 // mere ko koi given vector v hoga aur mujhe ussey agar priority queue or max heap mai convert karna hai to..
 // priority_queue <int> pq (v.begin(), v.end());
 
+/*
+v.begin(), v.end() karne ki aisi aadat lag gayi thi ki mai vector copy karte waqt bhi aisa hi 
+kar raha tha... (#mistake #chutiya)
+
+--> correct approach
+
+vector <int> v;
+vector <int> vCopy;
+
+vCopy = v;
+
+*/
+
 // yes priority queue mai (to po push) hota hai because queue hai bhaiya....
 
 /*

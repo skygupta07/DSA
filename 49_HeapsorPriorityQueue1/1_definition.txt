@@ -1,9 +1,27 @@
 /*
+
 ho sakta hai kisi process ki priority jyada ho...OS mai...usey pehle serve karna padega..
 load balancer diverts the request to the less loaded server
 filter lagaya then.. upar sabse min. rate wala aaya..
-priority_queue aisi queue jisme aapka front element max element hoga jitne bacche huye hai unka..
-heaps ka use karke hi aap priority_queue implement karoge....
+priority_queue aisi queue jisme aapka front element max element hoga
+    ( jitne bacche huye hai unka..)
+
+"**Priority Queue ko implement karne ke liye heaps ka use kiya jata hai.**"
+
+This is because **priority queues** are typically implemented using **heaps** 
+(especially binary heaps) due to their efficiency in performing insertion and deletion 
+operations in logarithmic time, which is essential for maintaining priority order.
+
+
+- **Priority Queue**: It’s a type of data structure where each element has a "priority" 
+associated with it. Elements are served based on their priority (highest or lowest), 
+    not just by the order they were added.
+
+- **Heap**: A special tree-based data structure (min-heap or max-heap) used to efficiently 
+manage the priority queue. In a **max-heap**, the highest priority element is at the root,
+ while in a **min-heap**, the lowest priority element is at the root.
+
+So, **heaps** are a common and efficient way to implement **priority queues**.
 
 ------     ------- ------
 
@@ -19,22 +37,22 @@ complete binary tree -> it is a special binary tree in which all the elements up
 2nd last level are full and the last level fills all the elements left to right as tight as 
 possible without leaving a spot...
 
----> upheapify addition ke time and downheapify removal ke time use hoga...
+---> upheapify addition ke time and (Downheapify Deletion) ke time use hoga...
 downheapify karne ke liye parent left aur right child mai jo sabse bada hoga ussey root ke saath
 swap kar do..(left tree maxheap , right tree maxheap but the whole tree is not maxheap)
 
 highest priority element ko remove karna hai.. tab to downheapify use hoga...
-highest priority element urf root ko delete karne ke liye usko last element se swap kara ...then ussey v.pop_back() kara and then root 
-wale element pe to downheapify call kar di...
+highest priority element urf root ko delete karne ke liye usko last element se swap kara
+...then ussey v.pop_back() kara and then, root wale element pe to downheapify call kar di...
 
 
 ->complete binary tree properties
 1. h = O(logn)
-2. the last level has almost half of the total number of nodes in that heap
+2. the last level has almost half of the total number of nodes in that heap (bheed/major janta)
 3. complete binary tree lene se ye fayda hua ki ab koi gapping nahi exist kar rahi
-matlab we can represent it in the form of array also....
+matlab we can represent it in the form of ARRAY also....
 
-->parent aur just immediate child ke bich comparison karna hai..
+->parent aur just immediate child ke bitch hi comparison karna hai..
 -> bigger the element higher is the priority (max heap)
 -> bst wali left chota right bada ye sab bakchodi yaha nahi hogi...
 
@@ -42,7 +60,8 @@ matlab we can represent it in the form of array also....
 right child is at 2i+2 index (zero based indexing)
 
 ->if child is at ith index in array then its parent is at [(i-1)/2] floor value..
-=> insertion in heap
+
+=> ----- insertion in heap -------
 1. constant time mai element insert kara but to maintain the property of heap 
 we need to upheapify/percolate up
 2. actual swapping to array mai hi hogi chahe hamara mental model heap ka hi kyu na ho..
@@ -69,6 +88,8 @@ sabko peeche lana hoga O(n) time lagega
 
 
 for max heap -> root element is all about which I am concerned...
+            (tumhare pass aur koi chara bhi nahi hai)
+
 to delete root element swap it with last element of array(or with the rightmost element of heap)
 then apply downheapify...
 
@@ -79,7 +100,7 @@ also array ke last me jagah bhi khali ho jaati hai, so simply delete karo and ek
 i.e. if you have a heap then delete the element and fill it in the empty place obtained
 after deletion
 
-steps:-> you will be given a heap
+steps:-> you will be given a array
 step1-> create a heap 
 step2-> delete all the element from heap 
 
@@ -105,11 +126,13 @@ so here comes a new data structure heap....so by "using heap we can implement
 priority queues..."
 
 
-how to delete any custom element in a heap?
+how to delete any custom element in a heap? (asked in interview)
 -> simply add infinity to that element so that it percolates up to root then apply deletion
-at root which i know..pop karke downheapify laga dunga..
+at root which i know..swap , pop,  downheapify laga dunga..
 
 
 upar queue haider file ko include karna padega to implement priority_queue
+ya sabse better #include <bits/stdc++.h>
+                using namespace std;
 
 */
