@@ -1,6 +1,9 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
     // Function to find the shortest distance of all vertices from the source vertex S.
-    vector<int> dijkstra(int V, vector<vector<int>> adj[], int S)
-    {
+vector<int> dijkstra(int V, vector<vector<int>> adj[], int S){
         // Create a distance array to store the shortest distance to each vertex.
         // Initialize all distances to a very large number (like infinity).
         vector<int> dist(V, 1e9);
@@ -62,7 +65,5 @@ it will fall in infinite loop decreasing the value in each go...
 ek cheej dhyan rakhna question mai chahe details jis marji tareeke se de rakhi
 ho aap variable apni marji se bana sakte ho....
 
-
-
-
+aur ha har question ko banaya isliye hi jaata h ko wo solve ho sake...simple 
 */

@@ -1,5 +1,9 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
 class Solution {
-  public:
+public:
     /*  Function to implement Bellman Ford
     *   edges: vector of vectors which represents the graph
     *   S: source vertex to start traversing graph with

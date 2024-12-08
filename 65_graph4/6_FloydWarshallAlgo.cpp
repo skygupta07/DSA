@@ -1,5 +1,9 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
 class Solution {
-  public:
+public:
 	void shortest_distance(vector<vector<int>>&matrix){
 	    // Code here
 	     int n = matrix.size();
