@@ -126,6 +126,6 @@ E to A is shortest distance from A to E also...
 ---
 
 ### **Homework**  
-- Solve the **"Chocolate Problem"** (details to be shared on WhatsApp).  
-- Practice **graph-based shortest path problems** shared on PhonePe.  
+- Solve the **"Chocolate Problem"** (details to be shared on WhatsApp). -> done  
+- Practice **graph-based shortest path problems** asked in PhonePe.  
 
