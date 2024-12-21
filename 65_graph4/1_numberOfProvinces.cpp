@@ -1,6 +1,7 @@
 class Solution {
 public:
     vector <int> v; // to store groups
+    
     int parent (int x){
         if (v[x] == -1) return x;
         return v[x] = parent(v[x]);

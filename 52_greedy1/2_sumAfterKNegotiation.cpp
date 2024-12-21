@@ -1,4 +1,6 @@
-/*
+#include <bits/stdc++.h>
+using namespace std;
+
 
 class Solution {
 public:
@@ -15,14 +17,8 @@ public:
             pq.push(-1*el);
             sum += -el;
         }
-        return sum;
-
-            
-        
-        
+        return sum;    
     }
 };
 
 // using priority queue to get the min. element of the available array
-
-*/

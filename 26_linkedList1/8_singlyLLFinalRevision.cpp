@@ -1,8 +1,8 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 class Node{
-    public: // in cpp
+public: // in cpp
     int data;
     Node* next; // next is a node pointer to the next node..
 
@@ -17,7 +17,8 @@ void insertATHead(Node* &head, int data){   // singly ll mai hum head maintain
                                     // karte huye chalte hai...
     // in general linked list is passed through head pointer important---
     Node* new_node = new Node(data);  // create a new node with name new_node 
-    new_node->next = head;// read as: new_node ke next ko head pe point karaya
+    new_node->next = head;// read as: new_node ke next ko head pe point karaya(left ko right pe point karwaya # important)
+                                // wo value hua karti thi jo ki aapka right to left mai assign hota hai....
 
     head = new_node; // then head ko new_node pe point karaya...
                     // since head should always point to the first node of linked list.. 
@@ -51,6 +52,8 @@ void insertAtPosition(Node* &head, int data, int pos){
     // temp pointer is at pos-1
     new_node->next = temp->next;  // order is important else we can miss the access to our current node earlier...
     temp->next = new_node;
+    // obviously pehle naye wale bande ko hi adjust hona hoga ussey hi haath badhana 
+    // hoga pehle....
 }
 
 void deleteAtHead(Node* &head){
@@ -59,16 +62,17 @@ void deleteAtHead(Node* &head){
     free(temp);     // efficiently saving memory....
 }
 
-void deleteAtTail(Node* &head){
+void deleteAtTail(Node* &head){ // thoda sa indirectly hi hallal karke free karte hai...
     Node* temp = head;
-    while(temp->next->next != NULL){
-        // i.e. temp is at second last position
-        temp= temp->next;    
+    while(temp->next->next != NULL){ 
+        temp= temp->next; 
     }
-    Node* second_last = temp;
-    second_last->next = NULL;
-    free(temp->next);   
-}
+     // i.e. temp is at second last position
+    Node* last = temp->next;    // save the last node
+    temp->next = NULL;      // remove the last node
+    free(last);         // free the memory of the last node
+}   
+
 
 void deleteAtPosition(Node* head, int pos){
     int curr_pos =0;
@@ -85,7 +89,7 @@ void deleteAtPosition(Node* head, int pos){
     free(temp);
 }
 
-void display(Node* &head) {  // again
+void display(Node* &head) {  // again -> while loop wala hi accha hota hai...
     // temp node banao jo ki iss bar head ko point kar rha ho, while loop laga ke saare node print karwao..
     Node* temp = head;
     while (temp!=NULL){ // matlab jab tak aakhri tak na pahuch jaye
@@ -98,6 +102,22 @@ void display(Node* &head) {  // again
     }
     cout<<"NULL"<<endl;
 }
+
+void displayRec(Node* head){ // O(n) space -> not better since there is call stack of O(n) and O(n) for making new variable
+
+    if (head == NULL) return;   // base case
+    cout<<head->data;           // kaam
+    displayRec(head->next);     // fn call -> yaha har recursive call ke liye stack mai local variable ban raha hoga..
+}
+
+void displayRecRev(Node* head){ // O(n) space
+
+    if (head == NULL) return;   // base case
+    displayRecRev(head->next);  // fn call 
+    cout<<head->data;       // aate waqt kaam
+}
+
+
 
 
 int main(){

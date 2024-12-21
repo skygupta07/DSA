@@ -13,23 +13,6 @@ int main(){
 
 }
 
-
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}    // constructor (nitin)
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-
-
-/*
-
-
 class Solution {
 public:
 
@@ -40,8 +23,9 @@ public:
 
     void helper (TreeNode* root , int &maxdia){    // helper fn which further takes help of levels fn and calculate the
     // diameter of tree..
-        if (root == NULL) return ;
+        if (root == NULL) return;
         int dia = levels(root->left) + levels(root->right);
+
         maxdia = max(dia,maxdia);
         helper(root->left,maxdia); // recursively call lagai taaki saare nodes tak cover ho sake...
         helper(root->right,maxdia); 

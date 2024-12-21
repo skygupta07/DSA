@@ -1,9 +1,7 @@
-#include <iostream>
-#include <vector>
-#include <list>
+#include <bits/stdc++.h>
 using namespace std;
 
-vector < list<int> > graph;      // globally banaya taki fn call me pass na karna pade
+vector < list <int> > graph;      // globally banaya taki fn call me pass na karna pade
 int v;     // no. of vertices
 
 void addEdge(int src, int dest, bool bi_dir = true){

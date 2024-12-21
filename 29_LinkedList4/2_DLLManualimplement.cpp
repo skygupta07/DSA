@@ -5,7 +5,8 @@ public:
     int data;
     node* next;
     node* prev;
-
+    
+    // constructor -> class ka name (parameter)
     node(int data){
         this->data = data;
         this->next = NULL; // smart filling of nodes..

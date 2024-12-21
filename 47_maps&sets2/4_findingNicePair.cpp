@@ -1,4 +1,5 @@
-/*
+#include <bits/stdc++.h>
+using namespace std;
 
 class Solution {
 public:
@@ -34,5 +35,47 @@ public:
         return count%1000000007;    // and finally ek baar aur theek karke return kar do...
     }
 };
+
+
+
+// ---------- -----------
+
+class Solution {
+public:
+    const int mod = 1e9 + 7;
+    typedef long long ll;
+
+    int rev(int num){
+        int r = 0;
+        while (num > 0){
+            r *= 10;
+            r += num%10;
+            num /= 10;
+        }
+        return r;
+    }
+   
+    int countNicePairs(vector<int>& nums) {
+        int n = nums.size();
+
+        unordered_map <int, ll> diffCount;
+        ll count = 0;
+
+        for (int num : nums) {
+            int revNum = rev(num);
+            int diff = num - revNum;
+            count = (count + diffCount[diff]) % mod;    // increasing count by how many times that frequency has been seen..... 
+            diffCount[diff]++;  // increasing its frequency....
+        }
+
+        return count;
+    }
+};
+
+/*
+
+simply count the frequency of nums[i] - rev(nums[i]) 
+and then see how much its frequency exists....
+
 
 */

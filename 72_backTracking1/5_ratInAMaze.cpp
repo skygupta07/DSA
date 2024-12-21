@@ -1,5 +1,4 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 bool canWeGo(vector <vector <int> > &grid , int n, int i, int j){
@@ -12,11 +11,13 @@ int ans;    // find out in how many ways the rat can reach end of the maze
             // starting from (0,0)
 
 void f(vector <vector <int> > &grid, int n, int i, int j){ // performing auxiliary fn which do work
-    if (i==n-1 and j==n-1){ // base case
+    
+    if (i==n-1 and j==n-1){ // base case -> pahuch gaye end box tak
         ans += 1;
         return;
     }
-    grid[i][j] = 2; // 2 means visited 
+    // mark the cell on which you landed as visited
+    grid[i][j] = 2; // 2 means visited (binary grid mai visited karne ki trick) 
 
     // go left and check
     if (canWeGo(grid, n, i, j-1)){
@@ -50,10 +51,6 @@ int ratInAMaze(vector <vector <int> > &grid, int n){    // virtual fn jisse fn c
 
 
 
-
-
-
-
 int main(){
     vector <vector<int> > grid = {
         {0,0,1,0,0,1,0},
@@ -80,8 +77,9 @@ given a maze with 0 and 1
 rat can go top left bottom right from a cell
 find out in how many ways the rat can reach end of the maze starting from (0,0)
 
-recursive deadlock handle karne ke liye, we will use backtracking..(and mark the already visited node)
-standing at a cell we will go to next cell which is both open and non visited before...
+recursive deadlock (ping pong -> the box) ko handle karne ke liye, we will use backtracking..
+(i.e. will mark the already visited node)
+standing at a cell we will go to next cell which is both open and non visited (kapil sharma) before...
 whenver we reach to the bottom right end, then we include it in answer
 answer mile chahe na mile state ko revert back jarur karna hai...
 */

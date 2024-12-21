@@ -1,4 +1,6 @@
-/*
+#include <bits/stdc++.h>
+using namespace std;
+
 
 class solution{
 public:
@@ -39,6 +41,8 @@ public:
 
 };
 
+
+/*
 if only one meeting room is required for the whole time interval means that no 
 meeting was overlapping and hence the person can attend all the meeting one after another
 in the same room itself...

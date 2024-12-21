@@ -7,7 +7,7 @@ int main(){
 // LBB
 //lc 226
 
-/*
+
 
 class Solution {
 public:
@@ -33,7 +33,6 @@ public:
 
 
 
-*/
 
 // ha trees wale topic mai helper fn ki jarurat hoti hai...
 // go recursively to each node and swap node->left and node->right

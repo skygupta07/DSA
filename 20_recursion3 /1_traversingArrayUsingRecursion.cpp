@@ -2,7 +2,7 @@
 using namespace std;
 
 void display(int arr[], int n, int idx){  // int arr[] pass hoga naki int arr
-    if (idx==n) return;
+    if (idx == n) return;
     cout<<arr[idx]<<" ";
     display(arr, n, idx+1);
 }

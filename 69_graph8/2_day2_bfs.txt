@@ -1,0 +1,113 @@
+graph is a generalised form of dp.
+
+find all possible path -> exponential problem.
+
+order of n factorial -> calculate all the possible paths and then 
+taking k min. paths will be inefficient.
+
+chocolate problem 2 
+ 
+problem : fuel tank problem
+
+given four cities A B C D 
+edge weights give amount of petrol needed to go from 
+A to B.
+
+
+cost of buying 1 litre of petrol at cities is given.
+
+we have a car and capacity of the fuel tank is c litres. (say 4 litres)
+initially we start with empty tank.
+now find the minimum amount of money needed to travel from source to target.
+
+------- implementation part ------
+
+introduction to class
+
+int a; (datatype variable type)
+Car maruti; (className Objects)
+
+class Car{
+    int weight;
+    double speed;
+}
+
+Car maruti;
+maruti.weight = 800kg;
+maruti.speed = 90kmph;
+
+
+------------ 
+
+GraphX library consist of 
+    Graph -> will be used to implement the graph.
+    BFS -> 
+
+
+Graph G(500); -> will create 500 nodes.
+G.add_edge(0, 1) -> will add edge from 0 to 1 .
+
+
+BFS bfs(&G);
+bfs.run(3);      // will run bfs on graph with source node as 3.
+
+// O (node + edge) time
+
+bfs.min_dist(5); // will give you shortest distance from 3 to 5.
+=> will take O(1) time.
+
+github link explore and read documentation.
+
+--------- common patterns in graph -------
+
+pattern1. graph as grid
+
+given matrix having cell as either empty or having blocked cell.
+we can simply see the grid as graph.
+
+first create nodes and add edge only where there is a possible cell to go.
+now edges have become two dimensional ..
+G.add_edge({1,1}, {2,1});  -> graphx will manage by itself.
+
+BFS bfs(&g);
+bfs.run({1,1});
+
+pattern2. Number of components.
+-> need to do multiple bfs.
+
+pseudocode
+for (each node){
+    if (bfs.is_visited(node) == false){
+        count++;
+        bfs.run(node);
+    }
+}
+return count;
+
+
+
+
+--- chocolate problem 2 --------
+
+1. introduce the idea of money as edge weight.
+     then will pass the smell test.
+
+2. identify the constraint problem (by comparing the current problem with dijkstra)
+    -> maximum capacity of tank is a constraint.
+    -> modelling of cost is also a contraint. (or purchasing fuel)
+    -> minimise cost, not need to minimise fuel consumed.
+
+3. G (has constraint) ----> G'(has no constraint)
+    instead of having fuel required on the edge... we somehow need to change 
+    the edgeweight to money.
+
+
+your job is to model all the decisions.
+algorithm job is to make optimised decisions.
+
+by giving separate decisions.. it will model all possible decisions.
+
+
+
+
+

@@ -6,10 +6,11 @@ int main(){
     string s = to_string(x);
 
     for (int i=0; i<s.length(); i++){
-        cout<<s[i]<<" ";
+        cout<<s[i]<<" "; // - 1 2 1 
     }
     cout<<endl;
-    cout<<s<<endl;
+    cout<<s<<endl; // -121
+    cout<<typeid(s).name()<<endl; // NSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEE
 
     int i=0;
     string a = "applying";

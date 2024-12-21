@@ -62,7 +62,7 @@ class queue{
         this->size--;
     }
 
-    int getSize(){
+    int getSize(){  // getter fns
         return this->size;
     }
 
@@ -74,7 +74,7 @@ class queue{
         else return false;
     }
     
-    int getFront(){
+    int getFront(){  // getter fns..
         if (this->head == NULL){
             return -1;
 

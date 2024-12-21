@@ -29,10 +29,10 @@ public:
 
 /*
 1. create vector of vector to store each level
-2. base case if no root == NULL return -> i.e. empty tree given
-3. create queue
+2. nalla base case if (root == NULL) return -> i.e. empty tree given
+3. create queue (chahe creation ho ya traversal .. yaha queue hi malik hai...)
 4. push root into queue
-5. isme yahi catch hai ki jab queue empty ho jaega tab pura traversal ho gya hoga otherwise repeatedly ussey hi karo
+5.* isme yahi catch hai ki jab queue empty ho jaega tab pura traversal ho gya hoga otherwise repeatedly ussey hi karo
 6. create vector to store each level
 7. ab jaan buj ke andar waale loop ko bas queue.size tak hi chalayenge...because utne hi element honge
 // uss level mai.....

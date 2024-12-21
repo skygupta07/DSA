@@ -1,4 +1,4 @@
-/* Given an array nums containing n distinct numbers in the range [0, n], return 
+ Given an array nums containing n distinct numbers in the range [0, n], return 
 the only number in the range that is missing from the array.
 
 class Solution {
@@ -12,7 +12,6 @@ public:
     }
 };
 
-*/
 
 // mehtod2 xor method-> remember xor with the same number give zero
 // and xor zero with any other number give that other number...

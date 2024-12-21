@@ -1,31 +1,30 @@
-/*
+#include <bits/stdc++.h>
+using namespace std;
+
 
 class Solution {
 public:
-    vector<int> preorderTraversal(TreeNode* root){
-        vector <int> preOrder;
-        // if empty tree case then return the empty vector as it is...
-        if (root == NULL) return preOrder;
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int> inOrder;
+        stack<TreeNode*> st;
+        TreeNode* current = root;
 
-        stack <TreeNode*> st;
-        st.push(root);  // initial step
-        while (!st.empty()){
-            root = st.top();
+        while (current != NULL || !st.empty()) {
+            // Traverse the left subtree
+            while (current != NULL) {
+                st.push(current);  // Push the current node onto the stack
+                current = current->left;  // Move to the left child
+            }
+
+            // Process the node on top of the stack
+            current = st.top();
             st.pop();
-            preOrder.push_back(root->val);
-            
-            // since stack is lifo so push right first
-            if (root->right != NULL){
-                st.push(root->right);
-            }
-            if (root->left != NULL){
-                st.push(root->left);
-            }
+            inOrder.push_back(current->val);  // Add the node's value to the result
+
+            // Move to the right subtree
+            current = current->right;
         }
-        return preOrder;
-        
+
+        return inOrder;
     }
 };
-
-
-*/

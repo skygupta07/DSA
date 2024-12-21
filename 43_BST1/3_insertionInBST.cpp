@@ -1,4 +1,4 @@
-#include<iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 class TreeNode{
@@ -7,7 +7,8 @@ public:
     TreeNode* left;
     TreeNode* right;
 
-    TreeNode(int data){ // constructor
+    // constructor
+    TreeNode(int data){ 
         this->data = data;
         this->left = NULL;
         this->right = NULL;
@@ -38,6 +39,8 @@ TreeNode* inorder(TreeNode* &root){   // left root right -> inorder of Bst is so
     inorder(root->left);
     cout<<root->data<<" ";
     inorder(root->right);
+
+// recursion ke magic se obviously root pointer sach mai hi root pe aagya hoga
 
     return root;
 }

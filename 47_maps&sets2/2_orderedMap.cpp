@@ -11,15 +11,17 @@ int main(){
     
 
     for (auto x : m){   // auto will see the key value pair coming...
-        cout<< x.first<<" ";
+        cout<< x.first<<" ";    // map se pehle pair isliye to padhaya tha ...
+                        // taki .first     .second use kar sako...
     }
     cout<<endl;
+
 
     map <string,int> mp;
     
     mp["ak"] = 194;
-    mp["bob"] = 49;
     mp["carry"] = 60;
+    mp["bob"] = 49;
 
     for(auto el: mp){
         cout<<el.first<<" "<<el.second<<" ";
@@ -30,10 +32,10 @@ int main(){
 
 
 /*
-key ke basis pe sort karke hi print karega (imp) chahe aap key print karao ya value guru
+key ke basis pe sort karke hi print karega (V. imp) chahe aap key print karao ya value guru
 lexicographically in case of string as key...
 
-
+tabhi kabhi kabhi mai key ko hi smartly design karta tha...taaki sorting mai easy ho...
 
 */
 

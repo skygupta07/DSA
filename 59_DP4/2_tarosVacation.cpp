@@ -1,6 +1,6 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
+
 int main(){
     int n;  // no. of days
     cin>>n;

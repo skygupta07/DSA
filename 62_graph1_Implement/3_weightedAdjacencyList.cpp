@@ -1,6 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <list>
+#include <bits/stdc++.h>
 using namespace std;
 
 vector < list <pair<int,int> > > graph;      // globally banaya taki fn call me pass na karna pade

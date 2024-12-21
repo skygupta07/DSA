@@ -1,6 +1,40 @@
 class Solution {
 public:
     vector<int> searchRange(vector<int>& nums, int target) {
+        int startingPosition = -1, endingPosition = -1;
+        int n = nums.size();
+        for(int i=0; i<n; i++){
+            if(nums[i] == target){
+                startingPosition = i;
+                break;  // jaise hi mil gya uske baad chal chal bhai chal nikal le ha..
+            }
+        }
+        for(int i=n-1; i>=0; i--){
+            if(nums[i] == target){
+                endingPosition = i;
+                break;
+            }
+        }
+        return {startingPosition, endingPosition};
+    }
+};
+
+
+/*
+
+    Time Complexity : O(N), because in the worst case we traverse the <= N element. Where N is the size of the
+    Array(nums).
+                    
+    Space Complexity : O(1), the space complexity is constant.
+
+    Solved using Linear Search.
+
+*/
+
+
+class Solution {
+public:
+    vector<int> searchRange(vector<int>& nums, int target) {
         int start = -1, end = -1;
 
         int lo = 0;
@@ -30,7 +64,7 @@ public:
             int mid = lo + (hi - lo)/2;
             
             if (nums[mid] == target){
-                if (nums[mid + 1] != target && mid+1 <= hi){
+                if (mid+1 <= hi && nums[mid + 1] != target){
                     end = mid;
                     break;
                 }
@@ -46,50 +80,6 @@ public:
     }
 };
 
-
-----------
-
-
-/*
-
-    Time Complexity : O(N), because in the worst case we traverse the <= N element. Where N is the size of the
-    Array(nums).
-                    
-    Space Complexity : O(1), the space complexity is constant.
-
-    Solved using Linear Search.
-
-*/
-
-
-/***************************************** Approach 1 First Code *****************************************/
-
-class Solution {
-public:
-    vector<int> searchRange(vector<int>& nums, int target) {
-        int startingPosition = -1, endingPosition = -1;
-        int n = nums.size();
-        for(int i=0; i<n; i++){
-            if(nums[i] == target){
-                startingPosition = i;
-                break;
-            }
-        }
-        for(int i=n-1; i>=0; i--){
-            if(nums[i] == target){
-                endingPosition = i;
-                break;
-            }
-        }
-        return {startingPosition, endingPosition};
-    }
-};
-
-
-
-
-
-
 /*
 
     Time Complexity : O(log N), since we have used binary search to find the target element. The time complexity
@@ -103,4 +93,7 @@ public:
 */
 
 
-/***************************************** Approach 2 First Code *****************************************/
+
+
+
+

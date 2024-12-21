@@ -12,8 +12,7 @@ public:
     Queue(int size){ // constructor
         f=0;    // bhai array ki help se bana rahe hai...
         b=0; // initially to front aur back arr ke zeroth index pe 
-        vector <int> v(size);  // vector used so that we can easily find size in between
-        arr = v;
+        arr.resize(size);
     }
 
 
@@ -47,7 +46,7 @@ public:
             cout<<"queue is Empty can't get back"<<endl;
             return;
         }
-        cout<<arr[b-1]<<endl;   
+        cout<<arr[b-1]<<endl;   // kyuki back hamesha ek kadam aage ko point kar raha hoga..
     }
 
     void size(){
@@ -97,3 +96,35 @@ problems in array implementation of q
 
 
 */
+
+
+// -------- gfg implement queue using array...
+
+
+class MyQueue {
+private:
+    int arr[100005];
+    int front;
+    int rear;
+
+public :
+    MyQueue(){front=0;rear=0;}
+    void push(int);
+    int pop();
+};
+
+void MyQueue ::push(int x) {
+    // Your Code
+    arr[rear] = x;
+    rear++;
+}
+
+// Function to pop an element from queue and return that element.
+int MyQueue ::pop() {
+    
+    if (front == rear) return -1;
+    // Your Code
+    int x = arr[front];
+    front++;
+    return x;
+}

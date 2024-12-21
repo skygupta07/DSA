@@ -4,7 +4,7 @@ int main(){
 
 }
 
-/*
+
 // lc 257
 
 class Solution {
@@ -32,7 +32,7 @@ public:
 
 
 
-*/
+
 
 
 // dekho jo inbuilt fn hote wo lowercase mai hi hote hai and usually separated 

@@ -19,8 +19,8 @@ public:
 // binary search mai hamesha main role mid aur target element ka hi hota hai....
 // so we also modified them also...
 
-// binary search mai jab bhi loop break hota hai.. hi aapka lower bound pe hota hai..
-// and lo aapka upper bound pe hota hai.....
+// binary search mai jab bhi loop break hota hai.. "hi" pointer aapka lower bound pe hota hai..
+// and "lo" pointer aapka upper bound pe hota hai.....
 
 
 
@@ -38,6 +38,12 @@ public:
             else if (mid*mid < x) lo = mid+1;
             else hi = mid-1;
         }
-        return hi;  // if the number is not perfect square then lower bound return karwaya.
+        return hi;   
+        
+        /*
+        if the number is not perfect square then lower bound* return karwaya.
+         jaha ki lower bound after the loop obviously hi hoga...(binary search mai loop hi iss tarah 
+        se tutta hai...)
+        */
     }
 };

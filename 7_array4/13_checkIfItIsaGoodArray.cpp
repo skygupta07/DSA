@@ -1,20 +1,22 @@
-// class Solution {
-// public:
-//     // bool isGoodArray(vector<int>& nums) {
-//     //     int n = nums.size();
+#include <bits/stdc++.h>
+using namespace std;
 
-//     //     for (int i=0; i<=n-2; i++){
-//     //         for (int j=i+1; j<=n-1; j++){
-//     //             if (__gcd(nums[i] , nums[j]) == 1){
-//     //                 return true;
-//     //             }
-//     //         }
-//     //     }
-//     //     return false;
-//     // }
 
-    
-// };
+class Solution {
+public:
+    bool isGoodArray(vector<int>& nums) {
+        int n = nums.size();
+
+        for (int i=0; i<=n-2; i++){
+            for (int j=i+1; j<=n-1; j++){
+                if (__gcd(nums[i] , nums[j]) == 1){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+};
 
 
 
@@ -35,7 +37,7 @@ public:
 
         int current_gcd = nums[0];
         for (int i = 1; i < n; ++i) {
-            current_gcd = std::gcd(current_gcd, nums[i]);
+            current_gcd = __gcd(current_gcd, nums[i]);
             if (current_gcd == 1) {
                 return true;
             }

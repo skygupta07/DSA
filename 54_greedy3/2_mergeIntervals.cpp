@@ -4,8 +4,6 @@ using namespace std;
 
 // merge interval on basis of end time...
 
-/*
-
 
 bool cmp(vector <int> &a, vector <int> &b){
         return a[1] < b[1]; // sorted in increasing order on basis of end time...
@@ -41,9 +39,6 @@ public:
 
 
 
-
-
-*/
 
 
 

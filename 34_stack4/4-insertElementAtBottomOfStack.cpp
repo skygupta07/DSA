@@ -1,6 +1,5 @@
-/*
-
 #include <bits/stdc++.h> 
+using namespace std;
 
 void solve(stack <int>&myStack, int x){
     if (myStack.empty()){
@@ -21,7 +20,6 @@ stack<int> pushAtBottom(stack<int>& myStack, int x){
     return myStack;
 }
 
-*/
 
 
 

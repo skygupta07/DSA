@@ -10,7 +10,7 @@
 // sibling 
 // ancestor -> node ke upar jitne bhi unse uska relation are their ancestors...
 // descendant- babies
-// leaf - no son
+// leaf - no son (radwa)
 // internal nodes: nodes with atleast one child..
 // / depth: no. of edges from root to the node.
 // height: no. of edges from root to the deepest leaf...
@@ -60,7 +60,7 @@ trees benefits->
 root, left subtree and right subtree are foundation of any tree...
 
 -> balanced binary tree ->for every node the difference between the levels of LST 
-and RST should be atmost 1...
+and RST should be atmost 1... (kucch chu.... isko bst ki definition bata dete h..)
 
 -> null ko child mai count mat kiya karo..
 

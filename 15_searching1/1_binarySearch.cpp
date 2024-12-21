@@ -1,10 +1,11 @@
-#include <iostream>
 #include <bits/stdc++.h>
 using namespace std;
 
 int main(){
     vector <int> v;   // we don't need to mention the size of vector when we are pushing back
-    v.push_back(2);    // aur agar kewal size mention karke chod diya to wo saare elements
+    // but we do need to mention the size, when we try to access the index...
+
+    v.push_back(2);    // aur agar kewal size mention karke chodd diya to wo saare elements
         // ko zero se initialise kar dega...to phir sabke index pe le jaake theek karna padega...
     v.push_back(5);
     v.push_back(3);
@@ -18,10 +19,13 @@ int main(){
     }
     cout<<endl;
 
+    // low hi mid sab index hote hai..
     int lo = 0;
     int hi = v.size()-1;
     int mid= hi+(lo-hi)/2;   // taki int ya long me storage aur range ki problem na aae 
                             // isliye mid = (hi+lo)\2 -> mid = hi+(lo-hi)/2
+
+    // or mid = lo + (hi - lo)/2
     int target;
     cout<<"enter the element you want to search: ";
     cin>>target;
@@ -29,7 +33,8 @@ int main(){
     while (lo<=hi){   // ye to binary ki condition hi hai..
         if (v[mid]==target ){
             // compare to hamesha middle wale element ko hi kiya karunga..
-            return target;
+            return target;  // jab jo dhundh rahe they wo mil gaya 
+            // to break karo ya return karo.
         }
         else if (v[mid]<target){
             lo = mid+1;
@@ -49,7 +54,7 @@ reducing the search space by half in each step
 -> works only if array is SORTED in either asc or desc order
 -> t.c. = O(logn)
 
-agar kahi bhi "given a sorted integer array" dikh jaye to binary search sochna hai...
+agar kahi bhi "given a sorted integer array" ✅ dikh jaye to binary search sochna hai...
 
 
 */

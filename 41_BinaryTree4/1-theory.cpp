@@ -6,17 +6,4 @@ degenerate or skewed tree
 recrusive fn return hoke waha jayega ussey jaha se usko call lagi thi....
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 */

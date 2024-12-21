@@ -21,6 +21,72 @@ fn + f5 for keyboard suggestion of a word
 you can copy the saved wifi passwords from the keychain access
 
 
+*/
+
+/*
+Mac tips Keyboard shortcuts
+
+* Command-F: Find items in a document or open a Find window.
+* Shift-Command-C: Open the Computer window.
+Shift-Command-D: Open the desktop folder
+* Shift-Command-H: Open the Home folder of the current macOS user account.
+* Shift-Command-N: Create a new folder.
+* Option–Brightness Up: Open Displays preferences. This works with either Brightness key.
+* Fn–Up Arrow: Page Up: Scroll up one page. 
+* Command–Down Arrow: Move the insertion point to the end of the document.
+* Shift–Command–Minus sign (-): Decrease the size of the selected item.
+Command-M
+Press this combination to minimize the front app window to Dock, or press Command-Option-M to minimize all the windows belonging to the front app.
+Command-Option-D
+Show or hide the Dock from within most apps.
+Command-left/right arrows
+Hit Command and the left arrow to go back a page in the browser window. Hit Command right to go forward again.
+Option-Shift-Volume
+Press Option-Shift and volume up/down to increase or decrease the volume on your Mac in small increments
+Command-P
+Do you open a document before printing it through the File menu? Do this instead: Select the document in Finder and press Command-P. The item will open and the Print dialog will appear. You can also tap Command-P to print the current item when in most any app.
+ommand + Control + Q
+Walking away from your Mac? Tap this shortcut to immediately lock your machine.
+ption + Command + Esc
+In the event an application freezes or hangs you may want to try this: Tap Option-Command-Esc to Force Quit the rogue app. It’s not always a magic bullet, but sometimes an application restart is all you need to get your system moving again.
+
+￼
+
+
+
+
+
+￼
+  Backtick keu
+
+
+
+Cmd ctrl d -> to look up meaning of something
+Cmd ctrl shift 4    copy screenshot on clipboard..
+
+
+To uninstall a app go to finder then application search app name select all its system file by clicking on + button then delete it..
+
+Cmd shift r to reload the page
+
+Cmd option space -> search finder
+
+Ctrl option f3   ->  to remove dock
+
+-> if you are editing any pdf then make sure to save it using cmd + s
+
+
+control + option + N daba ke vs code mai code run karla…
+
+
+
+
+
+
+
+
+
+
 
 
 

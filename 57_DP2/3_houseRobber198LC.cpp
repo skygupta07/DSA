@@ -1,67 +1,57 @@
 class Solution {
 public:
-    vector <int> dp;   // competitive coders declare dp globally else fn me har 
-                        // jagah pass karna padta...
-                        
-    int f(vector<int> arr, int i){
+    vector<int> dp; // Declare dp globally to avoid passing it in every function
+
+    // Top-Down Approach (Memoization)
+    int ftd(vector<int>& arr, int i) {
         int n = arr.size();
-        if (i == n-1) return arr[n-1];
-        if (i == n-2) return max(arr[i], arr[i+1]);
-        int loot = arr[i] + f(arr, i+2);
-        int notLoot = 0 + f(arr, i+1);
-        
-        return max(loot, notLoot);
+        if (i == n - 1) return arr[n - 1];
+        if (i == n - 2) return max(arr[i], arr[i + 1]);
+
+        // Check if result is already computed
+        if (dp[i] != -1) return dp[i];
+
+        // Recurrence relation
+        int lootPath = arr[i] + ftd(arr, i + 2);
+        int notLootPath = ftd(arr, i + 1);
+
+        return dp[i] = max(lootPath, notLootPath);
     }
 
-
-    int ftd(vector<int> arr, int i){   // ftd means fn top down  
+    // Bottom-Up Approach (Tabulation)
+    int fbu(vector<int>& arr) {
         int n = arr.size();
-        if (i == n-1) return arr[n-1];
-        if (i == n-2) return max(arr[i], arr[i+1]);
-
-        // base case ke baad seedhe dp ki help le sakte ho to le lo..
-        if (dp[i]!= -1) return dp[i];
-        // agar dp nahi banai to banao na!!
-
-        int lootPath = arr[i] + ftd(arr, i+2);
-        int notLootPath = 0 + ftd(arr, i+1);
-
-
-    int fbu(vector<int> arr){
-        int n = arr.size();
-        if (n==1) return arr[0];
+        if (n == 1) return arr[0];
 
         dp.clear();
         dp.resize(n);
-        dp[n-1] = arr[n-1];
-        dp[n-2] = max(arr[n-1], arr[n-2]);
-        for (int i=n-3; i>=0; i--){
-            dp[i] = max(arr[i] + dp[i+2] , 0 + dp[i+1]);
+        dp[n - 1] = arr[n - 1];
+        dp[n - 2] = max(arr[n - 1], arr[n - 2]);
+
+        for (int i = n - 3; i >= 0; i--) {
+            dp[i] = max(arr[i] + dp[i + 2], dp[i + 1]);
         }
 
-        return dp[0];  // peeche se trace karte hue aata hue zeroth index me hi ans aa jaega
-
-    }
-        
-    //     return dp[i] = max(lootPath, notLootPath);
-    // }
-    
-
-    int rob(vector<int>& nums){
-        dp.clear();         // main fn me jo bhi dp hai use clear karo
-        dp.resize(100);      // then usko resize karo constraint + 5 size se
-
-        return fbu(nums);   // fn call lagao 
+        return dp[0]; // Answer is stored at dp[0]
     }
 
+    int rob(vector<int>& nums) {
+        dp.clear();        // Clear dp
+        dp.resize(nums.size(), -1); // Resize dp to the size of nums with initial value -1
+
+        // Use either Top-Down or Bottom-Up approach
+        // return ftd(nums, 0);   // Uncomment to use Top-Down approach
+        return fbu(nums);       // Use Bottom-Up approach
+    }
 };
+
 
 
 /*
 brute force
 taking those subsets only where no adjacent elements taken
 
-// recursive fn mai array ke saath index bhi pass karna hota hai...
+// recursive fn mai array ke saath *index bhi pass karna hota hai...
 
 // f(arr,i) -> this recursive function returns max profit by looting houses from index 
 'i' to n-1  (last house) such that no two adjacent houses are looted

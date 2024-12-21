@@ -11,7 +11,7 @@ int minProduct(vector <int> &v){
     
     for (int i=0; i<n; i++){
         if (v[i]<0) cn++;
-        else if (v[i]==0) cp++;
+        else if (v[i]==0) cz++;
         else cp++;
         if (v[i]<min) min = v[i];
     }

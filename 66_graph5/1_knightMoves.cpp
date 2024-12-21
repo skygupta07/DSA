@@ -1,9 +1,0 @@
-/*
-if matrix given and we need to go in    up left down right  direction and reach a particular
-point in shortest time or path then for matrix you can use graph traversal technique like bfs 
-
-
-
-
-
-*/

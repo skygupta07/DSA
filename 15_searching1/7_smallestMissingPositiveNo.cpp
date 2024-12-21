@@ -2,7 +2,7 @@
 using namespace std;
 
 int main(){
-    int arr[] = {0,1,2,3,6,7,8};
+    int arr[] = {0,1,2,3,6,7,8};    // given sorted arr
     int n = sizeof(arr)/sizeof(arr[0]);
 
     for (int i=1; i<n; i++){

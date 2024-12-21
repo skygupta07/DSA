@@ -1,5 +1,8 @@
-#include <iostream>
-#include <vector>
+/*
+Given a sorted binary array, efficiently count the total number of 1s in it.
+*/
+
+#include <bits/stdc++.h>
 using namespace std;
 
 int countOne(int *arr, int n) {
@@ -34,6 +37,3 @@ int main() {
     cout << ans << endl;
 }
 
-/*
-Given a sorted binary array, efficiently count the total number of 1s in it.
-*/

@@ -23,15 +23,16 @@ int f(int n){   //f(n) -> returns min. no. of steps to reduce n to zero,
     if (n==0) return 0;
     if (n<=9) return 1;    // 8-8 = 0 in one step
 
-    vector<int> d = get_digits(n);
+    vector<int> d = get_digits(n);  // getting digits of that particular number ...
 
     int result = INT_MAX;
+    // loop ke andar recursive call wala question...
     for (int i=0; i<d.size(); i++){
         result = min(result, f(n-d[i]));   // f kehta hai ki mujhe nahi pta ki n se zero 
                          // pahuchne me kitne steps lagenge mujhe to ye pta hai ki jitne bhi 
             // steps lagenge wo number me se digit ghate wale number se pucch lo...
     }
-    return 1 + result;  // initial push taki waha pahuch sake..
+    return 1 + result;  // initial push taki next state achieve kar sake...
 
 }
 

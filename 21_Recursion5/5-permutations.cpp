@@ -1,4 +1,6 @@
-/*
+#include <bits/stdc++.h>
+using namespace std;
+
 
 class Solution {
 public:
@@ -29,5 +31,50 @@ public:
         return ans;
     }
 };
+ 
+// any dataStructures can be used...
 
+class Solution {
+public:
+
+    void f(vector<int>& nums, vector <int> &v, vector <vector <int>> &ans, vector <int> &visited){
+        // base case 
+        if (v.size() == nums.size()){
+            ans.push_back(v);
+            return; // imp
+        }
+
+        // har element ko starting point manega...
+
+        for (int i=0; i<nums.size(); i++){
+            if (!visited[i]){
+                visited[i] = 1; // kaam
+                v.push_back(nums[i]);
+
+                f(nums, v, ans, visited);   // recursion
+
+                visited[i] = 0; // backtrack
+                v.pop_back();
+            }  
+        }
+    }
+
+
+    vector<vector<int>> permute(vector<int>& nums) {
+        
+        vector <int> v;
+        vector <vector <int>> ans;
+
+        vector <int> visited(nums.size() , 0);
+
+       f(nums, v, ans, visited); 
+
+       return ans;
+    }
+};
+
+/*
+generating all the permutations...
+recursion , backtrack 
+kaam recursion backtrack
 */

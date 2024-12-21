@@ -1,6 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class TreeNode{
+public: 
+    int val;
+    TreeNode* left;
+    TreeNode* right;
+
+    // constructor
+    TreeNode(int data){
+        this->val = data;
+        this->left = NULL;
+        this->right = NULL;
+    }
+};
 // lc 98 -> inorder of bst should be sorted to be a valid bst..
 
-/*
 class Solution {
 public:
     void inorder(TreeNode* root, vector<int> &v){
@@ -34,4 +49,3 @@ public:
 
 
 
-*/

@@ -3,7 +3,7 @@ using namespace std;
 
 int sum(int n){
     if (n==0) return 0; 
-    if (n==2) return 3;    // oh yes ye case hit karne par I am returning something...
+    if (n==2) return 3;    // oh yes => ye case hit karne par I am returning something...
     return n + sum(n-1);
 }
 

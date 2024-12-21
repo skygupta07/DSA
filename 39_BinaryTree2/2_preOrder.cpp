@@ -53,4 +53,4 @@ int main(){
 }
 
 // T.C. = O(n) // where n is number of nodes, since visiting the node only once
-// S.C. = O()  // due to call stack of recursion
+// S.C. = O(n)  // due to call stack of recursion

@@ -5,6 +5,7 @@ using namespace std;
 int main(){
     queue <int> q;
     // c++ provides front pop push back size empty also -> ha ha sab chotte hi hai..
+    // to po push agar peeche jagah khali hai...
 
     q.push(1);
     q.push(2);

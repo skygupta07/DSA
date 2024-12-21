@@ -4,7 +4,7 @@
 using namespace std;
 
 class Node{
-    public:
+public:
     int data;
     Node* next; // next is a node pointer to the next node..
 
@@ -12,11 +12,10 @@ class Node{
     Node(int data){
        this->data = data;
        this->next = NULL; // by default koi bhi node banao aap uski next pointer to null ko hi point karegi..
-
     }
 };
 
-void insertATHead(Node* &head, int data){
+void insertATHead(Node* head, int data){
     // in general linked list is passed through head pointer important---
     Node* new_node = new Node(data);
     new_node->next = head;// read as: new_node ke next ko head pe point karaya
@@ -31,10 +30,14 @@ void insertAtTail(Node* &head, int data){
     
     Node* new_node = new Node(data);
     Node* temp = head;  // Node* temp banaya jo ki(ek nodePOinTer hai) head ko point kar rha hoga...initially
-    while (temp->next != NULL){
+    while (temp->next != NULL){ 
         temp = temp->next;
 
     }
+    // do cheeze hoti hai ... while (temp != NULL) jab mujhe last node tak bhi cheeje process karwani hoti hai tab like size nikalne mai..
+    // while (temp->next != NULL)   (bol bacchan car rule)   , second last node tak hi cheeje process hongi ..ha wo alag baat hai ki temp pointer to at the end last node pe point kar raha hoga...
+
+
     // now after the above while loop, nodePointer temp has reached the last node
     temp->next = new_node;
     // new_node->next = NULL;  // No need to write since our constructor is smartly designed
@@ -43,7 +46,9 @@ void insertAtTail(Node* &head, int data){
 
 void insertAtPosition(Node* head, int data, int pos){
     // accha me chahta hu ki meri isi wali linked list me hi saare changes ho 
-    // koi copy na bane isliye reference se bheja...
+    // koi copy na bane isliye reference se bheja... arey bhai simply yaad 
+    // rakh ki tujhe pointer hi bhejna padta hai....
+    
     Node* new_node = new Node(data);
     Node* temp = head;
     int current_pos = 0;
@@ -68,19 +73,18 @@ void deleteAtHead(Node* &head){
 
 void deleteAtTail(Node* &head){ // thoda sa indirectly hi hallal karke free karte hai...
     Node* temp = head;
-    while(temp->next->next != NULL){
-        // i.e. temp is at second last position
-        temp= temp->next;
-        
+    while(temp->next->next != NULL){ 
+        temp= temp->next; 
     }
-    Node* second_last = temp;
-    second_last->next = NULL;
-    free(second_last->next);
-    
-}
+     // i.e. temp is at second last position
+    Node* last = temp->next;    // save the last node
+    temp->next = NULL;      // remove the last node
+    free(last);         // free the memory of the last node
+}   
+
 
 void deleteAtPosition(Node* head, int pos){
-    int curr_pos =0;
+    int curr_pos =   0;
     Node* prev = head;  // prev naam ka ek pointer banaya aur ussey waha point karaya 
                         // jaha phillal head point kar rha hai...
     while(curr_pos!= pos-1){
@@ -88,11 +92,16 @@ void deleteAtPosition(Node* head, int pos){
         prev = prev->next;
 
     }
+    // jab bhi while loop mai while (alpha != betaposition){
+    // aur andar hum ek ek se increment kar rahe hote hai to sach mai hamara pointer ...
+    // betaPosition par hi aake rukta hai....
+
     // prev is pointing to node at pos-1
     Node* temp = prev->next;  // i.e. node to be deleted
     prev->next = prev->next->next;
     free(temp);
 }
+
 
 void display(Node* &head) {  // again
     // temp node banao jo ki iss bar head ko point kar rha ho, while loop laga ke saare node print karwao..

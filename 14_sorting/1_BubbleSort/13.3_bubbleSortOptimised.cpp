@@ -23,8 +23,7 @@ void bubbleSort(vector<int> &v){
 
         if (flag==true){  // means no swapping was done and array is sorted
             break;
-        }
-        
+        } 
     }
 }
 

@@ -1,13 +1,14 @@
 #include <iostream>
 using namespace std;
 
-class Node{  // class ka naam hi node rakh diya
-    public:
+class Node{  // we are using class as user defined data type...
+public:
     int data;
     Node* next;   // class ki help se bhi to hum ek data type hi define karte hai
                 // isliye jaise int* pointername -> Node* pointername
 
-    // constructor
+    // constructor -> ha constructor mai jaruri thodi hai ki mai saare ke saare data members daalu..
+    // but ha saare jo data members hai wo initialise to yahi honge...
     Node(int data){
         this->data = data;
         this->next = NULL;
@@ -16,11 +17,9 @@ class Node{  // class ka naam hi node rakh diya
 
 void insertAtHead(Node* &head, int d){
     // new node create
-    Node* temp = new Node(d);
-    temp->next = head;
-    head = temp;    // head ko temp pai point karwa dunga...
-                    // data rhs ka lhs mai daalte hai
-                    // and pointer lhs waala rhs mai point karta hai... 
+    Node* temp = new Node(d);   // created a Node with value d and name as temp
+    temp->next = head;  // temp ka next will point to head...
+    head = temp;    // head points to temp
 }
 
 

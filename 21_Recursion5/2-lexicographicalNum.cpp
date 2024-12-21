@@ -6,7 +6,6 @@ int main(){
 }
 
 
-/*
 
 class Solution {
 public:
@@ -24,7 +23,6 @@ public:
 
 
     vector<int> lexicalOrder(int n) {
-        
         f(0,n);
         return result;
     }
@@ -32,8 +30,6 @@ public:
 
 
 
-
-*/
 
 
 /*

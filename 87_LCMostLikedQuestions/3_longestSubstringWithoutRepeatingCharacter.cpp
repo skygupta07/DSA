@@ -23,7 +23,8 @@ public:
                 maxLength = max(maxLength, right-left + 1);
             }
             
-            else{   // yani ki repeted element hai..
+            else{   // yani ki repeted element hai.... to pehle left pointer ko sahi jagah leke aao..
+            // i.e. left se bando ko hatate jao...
                 while (charSet.count(s[right])){
                     charSet.erase(s[left]);
                     left++;
@@ -39,9 +40,8 @@ public:
 
 /*
 two pointer left right use kiya ....
-aur hashset mai store kara element ....taki pata chal jaye ki abhi substring mai koi repeted to nahi aa raha ...
-
-
+aur hashset mai store kara element ....taki pata chal jaye ki abhi substring 
+mai koi repeted to nahi aa raha ...
 
 
 

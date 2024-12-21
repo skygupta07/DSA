@@ -124,7 +124,7 @@ int main(){
 }
 
 
-// these all are depth first search traversals i.e. 
+// these all are depth first search traversals i.e. recursion i.e. pre in post
 // dfs traversals -> pre in postorder traversal
 
 // pre in post order traversals taking t.c. = O(n) and s.c. = O(height) = O(logn) best case

@@ -3,6 +3,8 @@
 using namespace std;
 
 
+// find fn using path compression union by rank...
+// T.C. = log*n
 int find(vector <int> &parent, int x){  // this method returns which group x belongs to..
     if (parent[x]==x) return x;
     else return find(parent , parent[x]); // recursively jao aur parent search
@@ -31,16 +33,16 @@ int main(){
     cout<<"enter number of elements and number of queries you are going to perform...";
     cin>>n>>m;
     // n -> number of elements , m = number of queries
-    vector <int> parent(n+1);
-    vector <int> rank(n+1 , 0); // all initially initialised with zero
-
+    vector <int> parent(n+1);  // 1 based indexing
     for (int i=0; i<=n; i++){   // initially all pointing to themselves
         parent[i] = i;
     }
+    vector <int> rank(n+1 , 0); // all ranks initially initialised with zero
+
 
     while (m--){
         string str;
-        cout<<"which operation union or find? write it...(union of find)";
+        cout<<"which operation union or find? write it...(union or find)";
         cin>>str;
         if (str == "union"){
             int x,y;
@@ -67,7 +69,7 @@ int main(){
 
 /*
 Dsu requires two fn Union and find
-union mai find ki need -> find pehle
+union mai find ki need -> find pehle -> sabse pehle
 
 find fn mai -> path compression union by rank
 

@@ -12,7 +12,10 @@ class twoStacks {
 public:
     twoStacks(int n){  // constructor
         size = n;
-        arr = new int[n];
+        arr = new int[n];   // very important syntax
+// dynamically allocates memory for an array of n integers and assigns
+// the address of the first element of the array to the pointer arr.
+
         top1 = n / 2 + 1;
         top2 = n / 2;
     }

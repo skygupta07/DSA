@@ -1,0 +1,54 @@
+I am using class as user defined data type...
+
+arrays advantage:
+    linear data structure
+    different kind of data store kar sakte hai..
+    accessing elements is easy O(1)
+
+arrays disadvantage:
+    fixed size 
+        vector se bhi nahi ho pata utna... because jab bhi vector ka size full ho 
+        jaata hai then jo bhi vector ka current size tha theek uska double size ka vector create karne lagta 
+        hai which consumes space...
+
+    contiguous memory allocation -> issey beech mai memory khali padi reh jaati hai ..and 
+    acche se memory utilisation nahi ho paata ...
+
+so here comes LL (linked list)
+    idea of linking two non-contiguous memory locations (nodes)
+    kucch aisa kaam karu ki mere paacho variable alag alag location pe pade ho..
+    and
+
+    advantages:
+        unlimited size
+        continuous memory
+        
+
+
+
+
+
+
+
+LL disadvantages:
+        address jo store kar rahe ho capsule mai ..wo bhi to memory khaega...
+
+ek baari linked list mai saare nodes agar connect ho jaate hai...then 
+agar mere paas pehle node ka access ka hai to... dusre node ka bhi access hai hi hamare paas
+
+pointers ka use kara to traverse karna easy ho gaya...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

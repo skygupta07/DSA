@@ -5,8 +5,9 @@ using namespace std;
 vector<vector<char> > grid;     // to mark the queen state...
 vector<vector <string> > result;
 
+// we are placing queens row wise from top to bottom -> so we will check column attack, left and right diagonal attack..
 bool canPlaceQueeen(int row , int col, int n){
-    // column check
+    // column check --> usi column mai upar kahi queen nahi bethi honi chahiye...
     for (int i = row - 1; i>=0; i--){
         if (grid[i][col] == 'Q'){ // we are attacked
             return false;
@@ -21,7 +22,8 @@ bool canPlaceQueeen(int row , int col, int n){
     }
 
     // right diagonal check
-    for (int i = row-1, j = col+1 ; i>=0 and j<n; i-- , j++){ // yes j<n  and j++ because will reach upper rightmost end..
+    for (int i = row-1, j = col+1 ; i>=0 and j<n; i-- , j++){ 
+        // yes j<n  and j++ because will reach upper rightmost end..
         if (grid[i][j] == 'Q'){ // we are attacked
             return false;
         }
@@ -38,8 +40,10 @@ void f(int row, int n){ // starting row and no. of queens placed
             for (int j = 0; j < n; j++){
                 res += grid[i][j];
             }
+            // grid mai row ko push kiya...
             temp.push_back(res);
         }
+        // pure grid ko push kiya
         result.push_back(temp);     // 2d vector string mai...ek ek karke 1D string put ki..
 
     }
@@ -47,9 +51,9 @@ void f(int row, int n){ // starting row and no. of queens placed
 
     for (int col=0; col<n; col++){
         if (canPlaceQueeen(row, col, n)){
-            grid[row][col] = 'Q'; // work
-            f(row + 1, n);      // fn call
-            grid[row][col] = '.';   // revert back step(baktrack)
+            grid[row][col] = 'Q'; // work -> current row column par queen bithao....
+            f(row + 1, n);      // fn call  -> chalo bhai chalo aage badho aur try karo..
+            grid[row][col] = '.';   // revert back step(baktrack) 
         }
     }
 
@@ -59,6 +63,8 @@ vector<vector <string> > nqueen(int n){
     grid.clear();   // khakar v of v
     result.clear(); // khakar v of v
     grid.resize(n, vector<char> (n, '.'));
+
+    // starting row and no. of queens to be placed
     f(0,n);
     return result;
 }

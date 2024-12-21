@@ -1,10 +1,10 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 
 void slideMax(int arr[], int n, vector <int> &v, int k){ // k=windowSize
                                                         // n = size of Array
-    int i =0;
+    int i = 0;
     int j = i+k-1;
     
     while(j<=n-1){
@@ -23,11 +23,6 @@ void slideMax(int arr[], int n, vector <int> &v, int k){ // k=windowSize
 }
 
 
-
-
-
-
-
 int main(){
     int arr[] = {1,3,-1,-3,5,3,6,7};
     int n = sizeof(arr)/sizeof(arr[0]);
@@ -44,7 +39,6 @@ int main(){
         cout<<res[i]<<" ";
     }
     cout<<endl;
-   
 
 }
 

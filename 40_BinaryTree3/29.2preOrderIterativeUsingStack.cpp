@@ -29,7 +29,7 @@ void preOrderIterative(node* &root){  // since stack is filo so preOrder iterati
         st.pop();
         cout<<temp->data <<" ";
 
-        if (temp->right !=NULL) st.push(temp->right);
+        if (temp->right !=NULL) st.push(temp->right);   // since stack
         if (temp->left !=NULL) st.push(temp->left);
     }
 

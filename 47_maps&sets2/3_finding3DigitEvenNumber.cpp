@@ -1,4 +1,5 @@
-/*
+#include <bits/stdc++.h>
+using namespace std;
 
 class Solution {
 public:
@@ -15,9 +16,9 @@ public:
             int x = i;  // to maintain the original ans...
             int a = x%10;   // ones place of that number
             x /= 10;
-            int b = x%10;
+            int b = x%10;   // tens place of that num
             x /= 10;
-            int c = x;
+            int c = x;      // hundreds place of that num..
             
             // now check karo set mai kya a, b ,c present hai...a ko check kiya and saath ke saath a ko 
             // set se remove bhi kiya....
@@ -40,8 +41,6 @@ public:
 };
 
  
- */
-
 
 
 

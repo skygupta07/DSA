@@ -14,7 +14,7 @@ at any moment if you are adding a new edge and if somehow it was present already
 same group then this current edge will create a cycle....
 
 
-
+kahn aur kadane's algorithm alag alag hota hai..
 
 
 

@@ -9,12 +9,13 @@ int main(){
 
     while (lo<=hi){
         int mid = lo + (hi-lo)/2;
-        if (arr[mid] == mid){   // agar wo apne sahi index pe ho to..pehle ki bhi sahi hi honge.. aage badhte jao...
+        if (arr[mid] == mid){   // agar mid index wala element apne sahi index pe ho
+            //  to..pehle ki bhi sahi hi honge.. aage badhte jao...
             lo = mid+1;
         } 
         else{
             ans = mid;  // yes update the answer each time...
-            hi = mid-1;
+            hi = mid-1; // ab aage jaane ki jarurat nahi culprits ko peeche hi search karo..
         }
     }
     cout<<ans<<endl;

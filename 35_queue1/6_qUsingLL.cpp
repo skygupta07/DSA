@@ -1,11 +1,11 @@
 #include <iostream>
 using namespace std;
-class node{ // LL node class
+class Node{ // LL Node class
 public:
     int data;
-    node* next;
+    Node* next;
 
-    node(int data){
+    Node(int data){
         this->data = data;
         this->next = NULL;
     }
@@ -13,10 +13,10 @@ public:
 
 class Queue{    // Queue class
 public:
-    node* head;     // data members 
-
-    node* tail;     // head tail or front, back
+    Node* head;     // data members 
+    Node* tail;     // head tail or front, back
     int size;
+
     Queue(){    // constructor
         head=tail=NULL;
         size=0;
@@ -25,7 +25,7 @@ public:
 
     // member functions
     void enqueue(int data){ // all fn of queue should be in Queue class declared
-        node* temp = new node(data);
+        Node* temp = new Node(data);
         if (size==0){
             head = tail = temp;
         }
@@ -43,7 +43,7 @@ public:
         }
 
         else{   // imp
-            node* temp = head;
+            Node* temp = head;
             head=head->next;
             size--;
             delete(temp);   // sach mai hi delete kar diya.. taki memory waste naa ho...
@@ -79,7 +79,7 @@ public:
     }
 
     void display(){ // simple display fn hai..
-        node* temp = head;
+        Node* temp = head;
         while (temp!=NULL){ // saare nodes/element print karwane ke liye...
             cout<<temp->data<<" ";
             temp=temp->next;
@@ -117,6 +117,6 @@ LL important implementation...
 3. no wastage of memory..
 
 
-
--> for each element we need to store both data and node* next => double data is used..
+Disadvantage:
+-> for each element we need to store both data and Node* next => double data is used..
 */

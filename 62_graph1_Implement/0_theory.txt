@@ -51,7 +51,7 @@ to every other node..
  indegree -> total number of edges going inwards...
 
  trees bhi aapka ek tarah se graph hi hota hai...
- i.e. trees are connected graph without cycle (tree = cag) connected acyclic graph
+ i.e. trees are connected graph without cycle (tree = CAG) connected acyclic graph
 
  if we remove an edge from a tree and it no more remain connected then it will now be called forest...
 
@@ -125,7 +125,7 @@ ith index of the array represent data of ith vertex....
 
 key value pair of hashmaps mai key aapka neighbour and value mai weight store kar li....
 
-this approach is good to find where b is a neighbour of a ?
+this approach is good to find whether b is a neighbour of a ?
 
 
 agar unweighted graph hai to hashmap ki jagah unordered_set lelo
