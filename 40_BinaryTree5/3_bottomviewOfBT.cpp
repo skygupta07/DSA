@@ -10,10 +10,10 @@ public:
     vector <int> bottomView(Node *root) {
         vector<int> ans;
         
-        map <int,int> mp;
+        map <int,int> mp; // map to store the last node at each horizontal distance
         // horizontalDistance , NodeValue
         
-        queue <pair <int, Node*> > q;
+        queue <pair <int, Node*> > q; // queue tree ko traverse karne ke liye use kar rahe h
         // horizontalDistance, sachmuchNode
         
         q.push({0,root});   // threshold

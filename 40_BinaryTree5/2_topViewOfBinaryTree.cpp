@@ -18,12 +18,16 @@ class Solution {
 public:
     vector<int> topView(Node* root) {
         vector<int> ans;
+        // ye chiz mene dekhi h ki jab bhi vector wali chiz return karni hoti h to... phir vector 
+        // banake then !root wali condition check karke turant vector return kar dete hai...
+
         if (!root) return ans;  // nalla
 
         // Map to store the first node at each horizontal distance
-        map<int, int> topNodeMap;
+        map<int, int> topNodeMap; // horizontal distance, node data
+
         // Queue to perform BFS
-        queue<pair<Node*, int>> q;
+        queue<pair<Node*, int>> q; // node, horizontal distance
 
         // Start BFS from the root with horizontal distance 0
         q.push({root, 0});
@@ -54,7 +58,6 @@ public:
         for (auto it : topNodeMap) {
             ans.push_back(it.second);
         }
-
         return ans;
     }
 };

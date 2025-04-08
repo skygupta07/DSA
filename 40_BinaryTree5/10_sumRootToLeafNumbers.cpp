@@ -16,6 +16,7 @@ class Solution {
 public:
     int sumNodes(TreeNode* &root ,int currSum){
         if (root == NULL) return 0;
+
         // in general if you reach a node then
         currSum = currSum*10 + root->val;
         if (root->left == NULL && root->right == NULL){
@@ -24,7 +25,7 @@ public:
         }
         
         int leftSum = sumNodes(root->left, currSum);
-        int rightSum = sumNodes(root->right,currSum);
+        int rightSum = sumNodes(root->right, currSum);
         return leftSum + rightSum;
     }
 

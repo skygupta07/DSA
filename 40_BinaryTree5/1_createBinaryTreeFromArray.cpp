@@ -39,8 +39,7 @@ Node* createTree(vector<int>&arr){
     int j = 2;
 
     // bfs and creation
-    while (q.size() > 0 &&
-           i < n) { // i<n because aisa ho sakta hai ki queue mai element rah
+    while (q.size() > 0 && i < n) { // i<n because aisa ho sakta hai ki queue mai element rah
                     // gaye but tree to puri construct ho chuki thi...(Raghav sir emphasised)
       Node *temp = q.front();
       q.pop();
@@ -48,27 +47,21 @@ Node* createTree(vector<int>&arr){
       Node *l; // do naye node banaye waha lagane ke liye...
       Node *r;
 
-      if (arr[i] != INT_MIN){ // if left child is valid 
-          l = new Node(arr[i]);
-      } 
-      else
-        l = NULL; // agar INT_MIN wala nikla array se to tree mai to bhai NULL
+       // if left child is valid 
+      if (arr[i] != INT_MIN) l = new Node(arr[i]);
+      else l = NULL; // agar INT_MIN wala nikla array se to tree mai to bhai NULL
                   // hi hoga na attach
 
       // i last index pe ho but j aage nikal chuka hu...
-      if (j != n && arr[j] != INT_MIN)
-        r = new Node(arr[j]);
-      else
-        r = NULL;
+      if (j != n && arr[j] != INT_MIN) r = new Node(arr[j]);
+      else r = NULL;
 
       // establish connection with temp
       temp->left = l;
       temp->right = r;
 
-      if (l != NULL)
-        q.push(l); // wahi q ke front waale elements mai attach kiya..
-      if (r != NULL)
-        q.push(r);
+      if (l != NULL) q.push(l); // wahi q ke front waale elements mai attach kiya..
+      if (r != NULL) q.push(r);
 
       // increment i and j by 2 ofcourse
       i += 2;
