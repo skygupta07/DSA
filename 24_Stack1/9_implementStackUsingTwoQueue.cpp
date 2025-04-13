@@ -46,7 +46,7 @@ public:
         // The last element is the top element
         int top_element = q1.front();
 
-        // Move it to q2 as well
+        // Move it to q2 as well kyuki kewal top ko access karna h pop nahi
         q2.push(q1.front());
         q1.pop();
 

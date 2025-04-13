@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 class Node{   // linked list ke node ke liye class banai..
@@ -13,7 +13,7 @@ public:
     }
 };
 
-class stack{ 
+class Stack{ 
 
     Node* head;     // head is a pointer to trace elements
     int capacity;
@@ -22,7 +22,7 @@ class stack{
 public: // accha public ki shuruat constructor se hi hoti hai...(waise ekdum upar se bhi kar sakta hai....)
 
     // constructor
-    stack(int c){
+    Stack(int c){
         this->capacity = c;
         this->head = NULL;
         this->curr_size = 0;
@@ -56,7 +56,7 @@ public: // accha public ki shuruat constructor se hi hoti hai...(waise ekdum upa
 
 
 int main(){
-    stack st(6); // stack of size 6
+    Stack st(6); // Stack of size 6
     st.push(1);
     st.push(4);
     st.push(7);
@@ -70,7 +70,7 @@ int main(){
 }
 
 
-// gfg stack using array 
+// gfg Stack using array 
 
 
 class MyStack{
@@ -90,7 +90,7 @@ void MyStack ::push(int x) {
     arr[top] = x;
 }
 
-// Function to remove an item from top of the stack.
+// Function to remove an item from top of the Stack.
 int MyStack ::pop() {
     // Your Code
     if (top == -1) return -1;
