@@ -39,8 +39,9 @@ Each integer in nums will appear twice, only two integers will appear once.
 
 class Solution {
 public: 
-    vector<int> singleNumber(vector<int>& nums) {
+    vector<int> singleNumber(vector <int> &nums){
         int firstXorSec = 0;
+        // dusre jo bhi elements jo do bar repeat honge wo sab cancel ho jaenge...
         for (auto &num : nums) firstXorSec ^= num;
 
         int mask = 1;
