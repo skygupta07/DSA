@@ -42,9 +42,9 @@ class Solution {
 public:
     // Comparator function for sorting logic.
     // Static function kyunki ise class ke kisi object ke bina call karna hai.
-    static bool cmp(vector<int>& a, vector<int>& b) {
+    static bool cmp(vector <int> &a, vector <int> &b) {
         // Agar dono persons ki height equal ho, 
-        // toh jis person ka k (number of people in front) chhota hai, usse priority milegi.
+        // toh jis person ke aage kam log lage ho usse priority milegi, i.e. k is small -> means come first..
         if(a[0] == b[0]) return a[1] < b[1];
 
         // Heights ke basis par decreasing order mein sorting karenge.
@@ -56,9 +56,13 @@ public:
         // Pehle array ko sort karte hain custom comparator ke basis par.
         sort(people.begin(), people.end(), cmp);  // Sorting according to cmp function.
 
-        vector<vector<int>> ans;  // Final queue banane ke liye ek vector create kiya.
+        vector <vector <int>> ans;  // Final queue banane ke liye ek vector create kiya.
+
         // Ab har person ko unki required position par insert karte hain.
+
+        // man itself will be a vector here... ha wahi 2 size wala..
         for(auto man : people) {
+            
             // `man[1]` hume batata hai ki is person ke aage kitne log hone chahiye.
             // Us position par person ko insert kar dete hain.
 

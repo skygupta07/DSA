@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 void print(int arr[], int n){
@@ -18,12 +18,9 @@ void insertionSort(int arr[], int n){
         while(arr[j]<arr[j-1] && j>=1){
             swap(arr[j],arr[j-1]);
             j--;
-        }
-
-            
-        }
+        }    
+    }
 }
-
 
 
 

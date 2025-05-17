@@ -1,8 +1,8 @@
 // IMPORTANT concept of vectors, recursion, sorting, merging arrays..
 
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
+
 
 void print(vector<int> v){
     for (int i=0; i<v.size(); i++){
@@ -72,11 +72,6 @@ void merge(vector<int> &a, vector<int> &b, vector<int> &res) {
     
 //    merge(a,b,res); 
 //    cout<<endl;
-    
-    
-    
-    
-
 
 // }
 
@@ -86,9 +81,10 @@ void mergesort(vector<int> &v){  // bhaisaab ab samjha vector me address bhejna 
 // saath me ab size na pass karna pade
     
     int n = v.size(); // is function me use karne ke liye to size ko dubara nikalna hi padega
-    if (n==1) return;  // base case -> important....
+    if (n == 1) return;  // base case -> important.... kyuki yaha recursion ki call lag rahi h
     // jab 1 size ka array aa jaega then usko further break karne ki koi need nahi
     // since single size array is already sorted
+
     int n1 = n/2;
     int n2 = n-n/2;
     
