@@ -1,3 +1,5 @@
+// revealCardsInIncreasingOrder.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -12,6 +14,7 @@ You will do the following steps repeatedly until all cards are revealed:
 
 Take the top card of the deck, reveal it, and take it out of the deck.
 If there are still cards in the deck then put the next top card of the deck at the bottom of the deck.
+
 If there are still unrevealed cards, go back to step 1. Otherwise, stop.
 Return an ordering of the deck that would reveal the cards in increasing order.
 
@@ -27,6 +30,7 @@ public:
         queue <int> q;
 
         for (int i=0; i<n; i++) q.push(i);      // pushing idx to queue..
+        
         sort(deck.begin() , deck.end());
 
         vector <int> ans(n);

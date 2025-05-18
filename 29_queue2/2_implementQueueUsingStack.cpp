@@ -23,15 +23,19 @@ public:
                 cout << "Queue is empty\n";
                 return -1;
             }
+
             // Move elements from st1 to st2
             while (!st1.empty()) {
                 int tp = st1.top();
                 st1.pop();
+
                 st2.push(tp);
             }
         }
+
         int deqVal = st2.top();
         st2.pop();
+
         return deqVal;
     }
 
