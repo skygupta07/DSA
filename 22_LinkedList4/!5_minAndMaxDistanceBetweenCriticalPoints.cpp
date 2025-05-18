@@ -22,21 +22,27 @@ public:
         int idx = 1;
         int fidx = -1;
         int sidx = -1;
+
         ListNode* a = head;
         ListNode* b = head->next;
         ListNode* c = head->next->next;
+
         if (c==NULL) return {-1,-1};    // jab do hi node hongi tab teesra to NULL hi touch kar dega..
 
         // for max distance
         if (c==NULL) return {-1,-1};
-        while (c!=NULL){
+
+        while (c != NULL){
+            
             if (b->val > a->val && b->val > c->val || b->val < a->val && b->val < c->val){
                 if (fidx == -1) fidx = idx; // if not yet calculated then only put 
                 else sidx = idx;    // else always update the second index...
             }
+
             a = a->next;
             b = b->next;
             c = c->next;
+
             idx++;
         }
 
@@ -71,11 +77,7 @@ public:
         }
         return {mind, maxd};
 
-        }
-
-
-
-    
+        }  
 };
 
 /*

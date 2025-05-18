@@ -1,30 +1,31 @@
-#include<iostream>
+#include <bits/stdc++.h>
 using namespace std;
-class node{ // DLL ka node...
+
+class Node{ // DLL ka Node...
 public:
     int data;
-    node* next;
-    node* prev;
+    Node* next;
+    Node* prev;
     
     // constructor -> class ka name (parameter)
-    node(int data){
+    Node(int data){
         this->data = data;
-        this->next = NULL; // smart filling of nodes..
+        this->next = NULL; // smart filling of Nodes..
         this->prev = NULL;
     }
 };
-// DLL ke node ki class to define kar di now uske corresponding fns ko define karo yaha.
+// DLL ke Node ki class to define kar di now uske corresponding fns ko define karo yaha.
 
-void display(node* head){
-    node* temp = head;
+void display(Node* head){
+    Node* temp = head;
     while (temp!=NULL){
         cout<<temp->data<<" ";
-        temp = temp ->next;
+        temp = temp->next;
     }
     cout<<endl;
 }
 
-void displayRev(node* tail){ //O(1) space //actual for dll
+void displayRev(Node* tail){ //O(1) space //actual for dll
     while(tail!=NULL){  // === while (tail)
         cout<<tail->data<<" ";
         tail= tail->prev;
@@ -33,13 +34,13 @@ void displayRev(node* tail){ //O(1) space //actual for dll
     
 }
 
-void displayRec(node* head){ // O(n) space
+void displayRec(Node* head){ // O(n) space
     if (head == NULL) return;   // base case
     cout<<head->data;           // kaam
     displayRec(head->next);     // fn call
 }
 
-void displayRecRev(node* head){ // O(n) space
+void displayRecRev(Node* head){ // O(n) space
     if (head == NULL) return;
     displayRecRev(head->next);
     cout<<head->data;   
@@ -47,11 +48,11 @@ void displayRecRev(node* head){ // O(n) space
 
 
 int main(){
-    node* a = new node(1);
-    node* b = new node(2);
-    node* c = new node(3);
-    node* d = new node(4);
-    node* e = new node(5);
+    Node* a = new Node(1);
+    Node* b = new Node(2);
+    Node* c = new Node(3);
+    Node* d = new Node(4);
+    Node* e = new Node(5);
 
     // 1 2 3 4 5 
     // establishing forward connection..
@@ -72,9 +73,4 @@ int main(){
     displayRecRev(a);
     cout<<endl;
     displayRev(e);
-
-    
-
-
-
 }

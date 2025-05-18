@@ -1,7 +1,9 @@
-#include<iostream>
+#include <bits/stdc++.h>
 using namespace std;
+
 class Node{ // DLL ke node ki properties...
 public:
+
     int data;
     Node* next;
     Node* prev;
@@ -13,11 +15,13 @@ public:
     }
 };
  
-class DLL{ // actually creating (DLL class) ofcourse class node will help us..
+// actually creating (DLL class) ofcourse class node will help us..
 // doubly linked list ki class banayi ek user defined data type banaya jiski ki properties usi 
 // me define karunga
 // jiska constructor usi me, jiske functions usi me...
+class DLL{ 
 public:
+
     Node* head;
     Node* tail;
     int size;
@@ -25,7 +29,7 @@ public:
     // default constructor...
     DLL(){ // constructor me jo aapne properties define kar rakhi
     // un SABHI ki aap kuch default value set kar do..
-        head = tail= NULL;
+        head = tail = NULL;
         size = 0;
     }
     
@@ -34,10 +38,13 @@ public:
         if (size == 0){
             head = tail = temp; // creating first node is like tu hi mata tu hi pita 
         }
-        else{ // imagination only...
+        else{ // imagination only... (kadam kadam badhaye jaa khushi ke geet gaye jaa.. matlab pehle 
+            // next ke liye kaam hoga then prev ke liye finally head ko next iteration ke liye ready bhi to karega...)
+
             temp->next = head;
             head->prev = temp; // extra as compared to singly LL
             head = temp;
+
         }
         size++;  // if ya else koi bhi condition hit ho size to increase hona hi hai..
     }
@@ -78,9 +85,11 @@ public:
         else{
             Node* t = new Node(val);
             Node* temp = head;
+
             for (int i=1; i<=idx-1; i++){ // ek kam position par pahucha
                 temp = temp->next;
             }
+
             t->next = temp->next; // first step taken by the hanging node 
             // i.e. the first node.. taki relationship bani rahe
             temp->next = t;
@@ -137,19 +146,11 @@ public:
 
 
 
-
-
-
-
-
-
-
-
-
-
 int main(){
     // class wagera bana to li now main fn me usko use kaise karu? start kaise karu?
     // step1: create object of that class..
+    // now using the object call different object methods you declared above...
+
     DLL list;
     list.insertAtTail(10);
     list.insertAtTail(20);
@@ -165,11 +166,4 @@ int main(){
     cout<<list.size<<endl;
 
     list.insertAtHead(90);
-    
-    
-
-
-
-
-
 }
