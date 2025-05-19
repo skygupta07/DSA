@@ -1,3 +1,5 @@
+// intersectionOfTwoArray.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -5,6 +7,29 @@ using namespace std;
 Given two integer arrays nums1 and nums2, return an array of their intersection.
 Each element in the result must be unique and you may return the result in any order.
 */
+
+
+class Solution {
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        vector <int> commonElements;
+
+        unordered_set <int> st;
+        for (auto el : nums1) st.insert(el);
+
+        for (auto el: nums2){
+            if (st.find(el) != st.end()){
+                commonElements.push_back(el);
+                st.erase(el);
+            }
+        }
+
+        return commonElements;
+    }
+};
+
+
+
 
 class Solution {
 public:
@@ -39,3 +64,23 @@ public:
 };
 
 // make set s1 and s2 then find common element...
+
+
+class Solution {
+    public:
+        vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+            unordered_set <int> common;
+    
+            unordered_set <int> st;
+    
+            for (auto el : nums1) st.insert(el);
+    
+            for (auto el : nums2){
+                if (st.find(el) != st.end()) common.insert(el);
+            }
+    
+            vector <int> result(common.begin(), common.end());
+    
+            return result;
+        }
+};

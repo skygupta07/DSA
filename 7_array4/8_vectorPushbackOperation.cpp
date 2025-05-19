@@ -9,6 +9,6 @@ int main(){
     v.push_back(7);
     v.push_back(10);
 
-    cout<<v.size()<<endl;
-    cout<<v.capacity()<<endl;
+    cout<<v.size()<<endl; // 5
+    cout<<v.capacity()<<endl; // 8
 }

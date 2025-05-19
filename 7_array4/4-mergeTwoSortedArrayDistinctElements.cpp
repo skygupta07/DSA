@@ -1,21 +1,25 @@
-/*
-
 #include <bits/stdc++.h>
-vector < int > sortedArray(vector < int > a, vector < int > b){
+using namespace std;
+
+vector <int> sortedArray(vector <int> a, vector <int> b){
     int m = a.size();
     int n = b.size();
     vector < int > ans;
+
     set <int> st;
 
     for (int i=0; i<m; i++){
         st.insert(a[i]);
     }
+
     for (int i=0; i<n; i++){
         st.insert(b[i]);
     }
+
     for (auto it: st){
         ans.push_back(it);
     }
+    
     return ans;
 }
 
@@ -63,8 +67,6 @@ vector < int > sortedArray(vector < int > a, vector < int > b) {
     
     return unionArr;    
 }
-
-*/ 
 
 
 

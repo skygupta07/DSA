@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
+
 int main(){
     vector <int> v(5);  // 5 size ka banaya sabko zero se initialise kiya
     cout<<v.size()<<endl;
