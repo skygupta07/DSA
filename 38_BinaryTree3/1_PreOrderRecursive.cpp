@@ -19,7 +19,7 @@ class Solution {
 public:
 
     void preOrder(TreeNode* root, vector<int> &ans){        // mandatory to pass the vectors by reference
-        if (root == NULL) return;
+        if (root == NULL) return; // isko likhna itna jyada important h ki mai bataunga hi nahi ...
         ans.push_back(root->val);
         preOrder(root->left , ans);
         preOrder(root->right , ans);
@@ -28,9 +28,10 @@ public:
 
 
     vector<int> preorderTraversal(TreeNode* root) {
-        vector <int> ans;  // created a vector 
+        vector <int> ans;  // created a vector
+
         preOrder(root,ans);   // done the work
-           // return the answer
+        // return the answer
         return ans;
     }
     
