@@ -6,7 +6,6 @@ using namespace std;
 /*
 
 Given the root of a binary tree, return the sum of all left leaves.
-
 A leaf is a node with no children. A left leaf is a leaf that is the left child of another node
 
 */
@@ -29,14 +28,17 @@ public:
     int sumOfLeftLeaves(TreeNode* root) {
         if (!root) return 0;            // !root matlab if (root == NULL) return 0;
 
-        queue <pair<TreeNode*, bool>> q;        // (node, is_left)
+        queue <pair <TreeNode*, bool>> q;        // (node, is_left)
         q.push({root , false}); // initiating the reaction by pushing root and its identity...
         int totalSum = 0;
 
         while (!q.empty()){
-            // fornt pop push
-            auto [node , isLeft] = q.front();   // good method to fetch pair values...
+            // front pop push
+
+            auto [node , isLeft] = q.front();  
             q.pop();
+             // good method to fetch pair values...ha ab mai yahi use karta hu..issey ye bhi dhyan rehta h ki mene datastructure
+            //  mai kya kya paramters initialise kiye they..
 
             if (isLeft && !node->left && !node->right) totalSum += node->val;
 

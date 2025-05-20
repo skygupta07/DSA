@@ -4,6 +4,30 @@
 using namespace std;
 
 
+class TreeNode{ 
+public:
+    // val members
+    int val;    // data or val
+    TreeNode *left, *right; // asked in interview..
+
+    // constructors with varying use...(constructor overloading)
+    TreeNode(){
+        this->val = 0;
+        left = NULL;
+    }
+    TreeNode(int val){
+        this->val = val; 
+        this->left = NULL;
+        this->right = NULL;
+    }
+    TreeNode(int val, TreeNode* left, TreeNode* right){
+        this->val = val;
+        this->left = left;
+        this->right = right;
+    }
+};
+
+
 class Solution {
 public:
     vector <vector <int> > verticalTraversal(TreeNode* root) {
@@ -12,13 +36,13 @@ public:
         //  - First int: Vertical distance from the root (x-coordinate)
         //  - Second int: Horizontal distance (level) from the root (y-coordinate)
         //  - multiset<int>: To store node values at the same position (x, y)
-        map<int, map <int, multiset <int>> > mp;
+        map <int, map <int, multiset <int>>> mp;
 
         // Queue to perform level order traversal (BFS).
         // Each element in the queue is a pair:
         //  - First: The current node
         //  - Second: A pair of integers (x, y) representing the node's position.
-        queue<pair<TreeNode*, pair<int, int>>> q;
+        queue <pair <TreeNode*, pair<int, int>>> q;
 
         // Start BFS with the root node at position (0, 0)
         q.push({root, {0, 0}});
@@ -32,7 +56,7 @@ public:
             int y = p.second.second;   // Horizontal distance
 
             // Insert the node's value into the map at position (x, y)
-         mp[x][y].insert(node->val);
+            mp[x][y].insert(node->val);
 
             // If the node has a left child, push it into the queue with updated position
             if (node->left) {
@@ -46,12 +70,12 @@ public:
         }
 
         // Prepare the result vector from the map  mp'
-        vector<vector<int>> result;
+        vector <vector <int>> result;
 
         // Traverse the map  'mp' by vertical levels
-        
         for (auto p : mp) {
-            vector<int> col;  // Vector to store mp in the current vertical level
+            vector <int> col;  // Vector to store mp in the current vertical level
+            
             for (auto q : p.second) {
                 // Insert all mp at the same vertical and horizontal position into 'col'
                 col.insert(col.end(), q.second.begin(), q.second.end());

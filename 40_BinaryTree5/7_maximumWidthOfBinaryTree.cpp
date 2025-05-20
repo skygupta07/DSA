@@ -1,3 +1,5 @@
+// maximumWidthOfBinaryTree.cpp
+
 //   Definition for a binary tree node.
 struct TreeNode {
       int val;
@@ -28,14 +30,15 @@ It is guaranteed that the answer will in the range of a 32-bit signed integer.
 
 class Solution {
 public:
-    int widthOfBinaryTree(TreeNode* root) {
+
+    int widthOfBinaryTree(TreeNode* root){
         // Base case: if the tree is empty, width is 0
         if (root == nullptr) return 0;
 
         long long maxi = 0; // To track the maximum width of the binary tree
 
-        // Queue stores pairs of nodes and their relative positions (long long to avoid overflow)
-        queue<pair<TreeNode*, long long>> q;
+        // Queue stores pairs of nodes and their relative* positions (long long to avoid overflow)
+        queue <pair <TreeNode*, long long>> q;
 
         // Start with the root node at position 0
         q.push({root, 0});
@@ -54,7 +57,7 @@ public:
                 long long d = q.front().second - dmin; // Relative position of the current node
                 q.pop();
 
-                // Mark the first and last positions
+                // Mark the first and last positions in the current level
                 if (i == 0) first = d; 
                 if (i == qSize - 1) last = d;
 
@@ -65,10 +68,12 @@ public:
                 if (node->right) q.push({node->right, 2 * d + 2});
             }
 
-            // Update maximum width using the positions at the current level
+            // Update maximum width using the positions at the current level, matlab wahi har level pe maximize karte raho width ko...
+            // kya pta kaun sa level maxwidth de de...
+
             maxi = max(maxi, last - first + 1);
         }
-
+        
         return maxi; // Return the maximum width found
     }
 };
@@ -76,8 +81,9 @@ public:
 /*
 
 Explanation:
-1. The width of the binary tree is calculated at each level and is defined as:
+1. The width of the binary tree is calculated at each level and is defined as: 
    width = last node's position - first node's position + 1 at a level.
+    (literally I'm very much obsessed with this formula pattern like {right - left + 1} )
    
 2. Each node is assigned a relative position based on its parent's position:
    - Left child: `2 * parent_position + 1`

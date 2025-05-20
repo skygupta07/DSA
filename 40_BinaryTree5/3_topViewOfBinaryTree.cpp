@@ -11,12 +11,37 @@ root se right right right jaate raho until reaches null node..then jaate hi waqt
 karna hai is baar ...
 
 return final vector..
-
 */
+
+
+
+class Node{ 
+public:
+    // data members
+    int data;
+    Node *left, *right; // asked in interview..
+
+    // constructors with varying use...(constructor overloading)
+    Node(){
+        this->data = 0;
+        left = NULL;
+    }
+    Node(int data){
+        this->data = data; 
+        this->left = NULL;
+        this->right = NULL;
+    }
+    Node(int data, Node* left, Node* right){
+        this->data = data;
+        this->left = left;
+        this->right = right;
+    }
+};
+
 
 class Solution {
 public:
-    vector<int> topView(Node* root) {
+    vector <int> topView(Node* root) {
         vector<int> ans;
         // ye chiz mene dekhi h ki jab bhi vector wali chiz return karni hoti h to... phir vector 
         // banake then !root wali condition check karke turant vector return kar dete hai...
@@ -24,10 +49,11 @@ public:
         if (!root) return ans;  // nalla
 
         // Map to store the first node at each horizontal distance
-        map<int, int> topNodeMap; // horizontal distance, node data
+        // map mai horizontal distance ko pehle rakhna jaruri h .... baaki to sab chalta h..
+        map <int, int> topNodeMap; // horizontal distance, node data
 
         // Queue to perform BFS
-        queue<pair<Node*, int>> q; // node, horizontal distance
+        queue <pair <Node*, int>> q; // node, horizontal distance
 
         // Start BFS from the root with horizontal distance 0
         q.push({root, 0});
@@ -65,7 +91,5 @@ public:
 /*
 exactly bottom view ki tarah hi hai .. bas ab yaha constraint aur laga diya ...
 ki jo ith horizontal distance par very first element ko hi include karna hai..
-
-
 
 */
