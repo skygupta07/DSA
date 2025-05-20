@@ -1,5 +1,29 @@
+// balancedBinaryTree.cpp
+
+/*
+
+Given a binary tree, determine if it is height-balanced.
+
+ A height-balanced binary tree is a binary tree in which the depth 
+ of the two subtrees of every node never differs by more than one.
+
+*/
+
+
 #include <bits/stdc++.h>
 using namespace std;
+
+
+struct TreeNode {
+      int val;
+
+      TreeNode *left;
+      TreeNode *right;
+
+      TreeNode() : val(0), left(nullptr), right(nullptr) {}
+      TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+      TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
 
 
 class Solution {
@@ -33,4 +57,5 @@ public:
         // If dfsHeight returns -1, the tree is not balanced, otherwise, it is balanced.
         return dfsHeight(root) != -1;   // returns true if balanced, false otherwise
     }
+    
 };
