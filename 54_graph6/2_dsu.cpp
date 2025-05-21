@@ -1,5 +1,4 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 int find(vector<int> &parent, int x) {
@@ -18,7 +17,8 @@ void Union(vector<int> &parent, vector<int> &rank, int a, int b) {
     if(rank[a] >= rank[b]) {
         rank[a]++;
         parent[b] = a;
-    } else {
+    } 
+    else {
         rank[b]++;
         parent[a] = b;
     }

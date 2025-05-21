@@ -21,10 +21,12 @@ void Union(vector<int> &parent, vector<int> &sz, vector<int> &minimal, vector<in
         sz[a] += sz[b];
         maximal[a] = max(maximal[a], maximal[b]);
         minimal[a] = min(minimal[a], minimal[b]);
-    } else {
+    } 
+    else {
         rank[b]++;
         parent[a] = b;
         sz[b] += sz[a];
+        
         maximal[b] = max(maximal[a], maximal[b]);
         minimal[b] = min(minimal[a], minimal[b]);
     }

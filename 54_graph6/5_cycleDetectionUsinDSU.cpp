@@ -12,11 +12,14 @@ bool Union(vector<int> &parent, vector<int> &rank, int a, int b) {
     // TX:(log*n);
     a = find(parent, a);
     b = find(parent, b);
-    if(a == b) return true;
+
+    if (a == b) return true; // bahut heavy code
+
     if(rank[a] >= rank[b]) {
         rank[a]++;
         parent[b] = a;
-    } else {
+    } 
+    else {
         rank[b]++;
         parent[a] = b;
     }
@@ -32,6 +35,7 @@ int main() {
     // n-> elements, m -> no of queries
     vector<int> parent(n+1);
     vector<int> rank(n+1, 0);
+
     for(int i = 0; i <= n; i++) {
         parent[i] = i;
     }

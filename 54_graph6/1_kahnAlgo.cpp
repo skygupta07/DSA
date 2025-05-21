@@ -1,4 +1,5 @@
 /*
+
 to check if a given DAG (Directic Acyclic Graph) contains cycle or not -> 
 we can apply kahn's algorithm....(i.e. 
 topological sorting)
@@ -14,8 +15,6 @@ at any moment if you are adding a new edge and if somehow it was present already
 same group then this current edge will create a cycle....
 
 
-kahn aur kadane's algorithm alag alag hota hai..
-
-
+kahn (topological sorting in graph) aur kadane's algorithm (max consecutive subarray length ke liye) alag alag hota hai..
 
 */
