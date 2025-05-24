@@ -1,15 +1,18 @@
-#include <iostream>
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
 
+
 void printsubset(string ans, string original){
+
     if(original == ""){ // base case
         cout<<ans<<endl;
         return;
     }
 
     char ch = original[0];
+
     printsubset(ans+ch ,original.substr(1));
+    
     // used substr so to omit the zeroth character...
     printsubset(ans, original.substr(1)); 
 }

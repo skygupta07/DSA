@@ -1,15 +1,18 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
+
 void maxinArray(int arr[], int n, int idx, int max){
-    if(idx==n){
+    if(idx == n){
         cout<<max<<endl;
         return;
     }
-    if (arr[idx]>max){
+    
+    if (arr[idx] > max){
         max = arr[idx];
     }
-    maxinArray(arr,n,idx+1,max);    // current iteration mai max miley ya na miley 
+
+    maxinArray(arr, n, idx+1, max);    // current iteration mai max miley ya na miley 
                 // aap next iteration check karo....
 }
 
