@@ -7,7 +7,7 @@ substring -> sequence (yes) continuous (yes)
 
 -------------
 
-for (int i=0; i<n; i++){    // syntax to generate substring...
+for (int i=0; i<n; i++){    // syntax to generate substring...(brute force)
     for (int j=i; j<n; j++){
         if ( isPalindrome(s, i, j)) count++;
     }
@@ -23,25 +23,6 @@ karke dekh payenge...
 
 plus 1 karenge kyuki single length waala bhi to palindrome hoga hi...
 side mai jaa rahe hai wo to acchi baat hai....
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

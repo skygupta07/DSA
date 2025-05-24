@@ -1,6 +1,6 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
+
 
 bool printS(int idx, vector <int> &ds, int s, int k, int arr[], int n){ // change1-> void to bool
     if (idx == n){  // base case
