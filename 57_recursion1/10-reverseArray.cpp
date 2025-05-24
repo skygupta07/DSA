@@ -10,7 +10,7 @@ void print(int arr[], int n){
 }
 
 void rev(int arr[], int i, int j){
-    if (i>j) return;
+    if (i > j) return;
 
     int temp = arr[i];
     arr[i] = arr[j];

@@ -1,14 +1,13 @@
-#include <iostream>
-#include <string>
-#include <vector>
+// checkPalindrome.cpp
+
+#include <bits/stdc++.h>
 using namespace std;
 
 bool isPalindrome(string s, int i, int j){
     if (i>j) return true;   // hamesha base case pehle...
     
-    if (s[i] == s[j]){
-        return isPalindrome(s,i+1,j-1);
-    }else return false;
+    if (s[i] == s[j]) return isPalindrome(s,i+1,j-1);
+    else return false;
 }
 
 int main(){
