@@ -1,5 +1,6 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
+
 
 void subSet(vector <int> v, int arr[], int n, int idx){
         // here vector passed without reference 
@@ -20,8 +21,9 @@ void subSet(vector <int> v, int arr[], int n, int idx){
 int main(){
     int arr[] ={1,2,3,4};
     int n = sizeof(arr)/sizeof(arr[0]);
+
     vector <int> v;
-    subSet(v,arr,n,0);
+    subSet(v, arr, n, 0);
 }
 
 

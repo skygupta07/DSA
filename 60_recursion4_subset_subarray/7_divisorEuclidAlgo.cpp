@@ -1,17 +1,9 @@
 #include <iostream>
 using namespace std;
 
-int gcd(int a, int b)
-{
-    if (a == 0)
-    {
-        return b;
-    }
-    else
-    {
-        return gcd(b % a, a);
-        //
-    }
+int gcd(int a, int b){
+    if (a == 0) return b;
+    else return gcd(b % a, a);
 }
 
 // time complexity of gcd(a,b) = O(log(a+b))
@@ -25,6 +17,6 @@ int main()
 
 /*
 1. long division method
-2. the stage at which remainder becomes zero, then the divisor at that stage is  required
+2. the stage at which remainder becomes zero, then the divisor at that stage is required
 
 */

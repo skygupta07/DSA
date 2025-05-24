@@ -1,15 +1,14 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
+
 
 void printSubSeq(int idx, vector <int> &v, int arr[], int n){
     if (idx == n){  // last wali row issi se banti hai...
-        for (auto it: v){
-            cout<<it<<" ";
-        }
-        if (v.size() == 0){
-            cout<< "{}";
-        }
+        
+        for (auto it: v) cout<<it<<" ";
+        
+        if (v.size() == 0) cout<< "{}";
+        
         cout<<endl;
         return;
     }
@@ -23,8 +22,7 @@ void printSubSeq(int idx, vector <int> &v, int arr[], int n){
     printSubSeq(idx+1, v, arr, n);  
       // to check new dress.(whether take or not take it)
                    //..remove the current one...
-  
-}
+  }
 
 // t.c. = O(2^n * n)
 // s.c. = O(n) ->recursion stack...
@@ -39,6 +37,7 @@ int main(){
 
 
 /*
+
 a contiguous/non-contiguous sequence which follows the order is subsequences..
 -> a null sequence is also a subsequence..
 -> a subarray can be a subsequence.....

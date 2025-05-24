@@ -1,12 +1,14 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
+
 
 void subArray(vector <int> v, int arr[], int n, int idx){
     if (idx == n){  // base case
+
         for (int i=0; i<v.size(); i++){
             cout<<v[i]<<" ";
         }
+        
         cout<<endl;
         return;
     }

@@ -1,5 +1,7 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
+
+
 int main(){
     int arr[] = {1,2,3,4};
     int n = sizeof(arr)/sizeof(arr[0]);
@@ -14,13 +16,12 @@ int main(){
         }   
         cout<<endl;
     }
-
 }
 
 
 
 /*
-subsequence mai ordering matter karti hai....
+subsequence mai ordering matter karti hai.... contiguous hona jaruri nahi h...
 subarrays are the subsequences which are in continuous fashion...
 
 
