@@ -18,9 +18,13 @@ public:
 class Solution {
 public:
     TreeNode* searchBST(TreeNode* root, int target) {
-        if (root==NULL) return NULL; // base case
+        if (root == NULL) return NULL; // base case
+
         else if (root->val == target) return root;
-        else if (root->val > target) return searchBST(root->left, target);   // target abhi chotta hai to left mai chalo..
+
+        // target abhi chotta hai to left mai chalo..
+        else if (root->val > target) return searchBST(root->left, target);   
+        
         else return searchBST(root->right, target);    
     }
 };

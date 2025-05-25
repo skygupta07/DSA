@@ -2,10 +2,23 @@
 using namespace std;
 
 
+//   Definition for a binary tree node.
+struct TreeNode {
+      int val;
+      TreeNode *left;
+      TreeNode *right;
+
+      TreeNode() : val(0), left(nullptr), right(nullptr) {}
+      TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+      TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
+ 
+
 class Solution {
 public:
+
     // Helper function to construct the BST recursively
-    TreeNode* helper(vector<int> &arr, int lo, int hi) {
+    TreeNode* helper(vector <int> &arr, int lo, int hi) {
         // Base case: if the subarray is empty, return NULL (leaf node)
         if (lo > hi) return NULL;
         
@@ -30,4 +43,5 @@ public:
         // Call the helper function to start the recursion from the entire array
         return helper(arr, 0, arr.size() - 1); 
     }
+    
 };

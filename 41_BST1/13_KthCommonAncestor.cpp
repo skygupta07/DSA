@@ -1,14 +1,21 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
+struct Node{
+    int data;
+    struct Node *left, *right;
+};
+
 class Solution{
 public:
     
     /*You are required to complete below function */
-    int kthCommonAncestor(Node *root, int k,int x, int y)
-    {
+    int kthCommonAncestor(Node *root, int k,int x, int y){
+
         vector <int> arr;
         Node* temp = root;
+
         int mn = min(x,y);
         int mx = max(x,y);
         
@@ -36,14 +43,15 @@ public:
 
 /*
 
-when u get a node in range between  [min,max] this node will be lowest common ancestor LCS right... (i.e.  ancestor which is nearest to X and Y)
+when u get a node in range between  [min,max] 
+this node will be lowest common ancestor LCS right... 
+(i.e.  ancestor which is nearest to X and Y)
 
 therefore when u are traversing from root node to lowest common ancestor, 
 the nodes u have traversed are also ancestors with rank (p, p-1, p-2, ....2, 1) 
-where p is no of possible ancestors   (if k > p simply return -1)
+where p is number of possible ancestors   (if k > p simply return -1)
 
-so when u are traversing from root to LCS keep track of node u have traverse and thier sequence 
+so when u are traversing from root to LCS keep track of node u have traverse and their sequence 
 will tell u rank of ancestor
-
 
 */
