@@ -13,14 +13,17 @@ public:
             if (word[i] == word[i-1]){
                 count++;
             }
+
             else{   // if streak breaked by word[i] matlab word[i-1] tak streak bani thi...
                 while (count > 0){
                     int chunk = min(9, count);
+                    
                     ans += to_string(chunk) + word[i-1];
                     count -= chunk;
                 }
                 count = 1;  // reset count to 1 again for next upcoming characters...
             }
+
         }
 
         // there will be no one to break the streak of last consecutive element so do it again for him..

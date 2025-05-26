@@ -3,17 +3,27 @@
 #include <vector>
 using namespace std;
 
-void printString(vector<string>& v){
+
+void printString(vector <string> &v){
+
         int n = v.size();
+        cout<<n<<endl;
+
+
         int i = 0;
         
         int l = v[i].length();
+
         for (int j=0; j<l; j++){
             cout<<v[j];
         }
+
         cout<<" ";
-        i++;        
+        i++;      
+
 }
+
+
 
 int main(){
     vector <string> v;
@@ -24,5 +34,6 @@ int main(){
     v.push_back(s1);
     v.push_back(s2);
     v.push_back(s3);
+
     printString(v);
 }

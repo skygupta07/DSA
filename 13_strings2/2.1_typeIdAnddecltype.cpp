@@ -2,9 +2,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
 // Driver Code
-int main()
-{
+int main(){
 	int x = 5;
 
 	// j will be of type int : data type of x
@@ -13,4 +13,5 @@ int main()
 	cout << typeid(j).name();
 
 	return 0;
+	
 }

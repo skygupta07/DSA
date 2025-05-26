@@ -6,6 +6,7 @@ int main(){
     string s;
     cout<<"enter the string: "<<endl;
     cin>>s;
+
     int count=0;
     int n=s.length();
 
@@ -27,6 +28,5 @@ int main(){
     }
 
     cout<<"number of different neighbours are: "<< count <<endl;
-
 
 }

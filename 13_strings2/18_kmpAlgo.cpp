@@ -28,6 +28,7 @@ public:
     vector<int> search(string& pat, string& txt) {
         int m = pat.length();
         int n = txt.length();
+        
         vector<int> lps(m, 0); // Longest prefix suffix array
         vector<int> ans;
 

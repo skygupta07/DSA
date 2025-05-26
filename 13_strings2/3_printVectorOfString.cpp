@@ -1,9 +1,10 @@
-#include <iostream>
-#include <string>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
+
 void printString(vector <string> &v){
+
+    // ye auto wali statement se one bottle down wala scenario ho jaata h...
     for (auto str: v){
         for (auto ch: str){
             cout<<ch;
@@ -15,6 +16,7 @@ void printString(vector <string> &v){
 
 
 int main(){
+
     vector <string> v;
     string s1 = "hello";
     string s2 = "world";

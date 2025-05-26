@@ -7,7 +7,9 @@ int main(){
                             // quotes only.....
     int ans = 0;
     char i = 'h';
+
     cout<<i<<endl;
+
     int I  = 1;
     int V = 5;
 
@@ -21,4 +23,4 @@ int main(){
 
 
 // okay vector ka size hota hai and string ki length...
-// backslash n ek character ki tarah count hota hai....
+// backslash n pura ek character ki tarah count hota hai....

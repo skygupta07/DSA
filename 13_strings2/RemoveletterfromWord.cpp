@@ -1,6 +1,8 @@
 #include <iostream>
-using namespace std;
 #include <string>
+using namespace std;
+
+
 int main(){
     // char str[]="Akash Gupta";
     // for (int i=0; str[i]!='\0'; i++){

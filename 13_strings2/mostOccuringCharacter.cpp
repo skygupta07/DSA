@@ -1,5 +1,7 @@
 #include <iostream>
 using namespace std;
+
+
 int main(){
     string s;
     int arr[100];
@@ -15,19 +17,20 @@ int main(){
                         // value of i count gets reset to 0 again for the next element..
 
         for (int j=i; j<n; j++){
-            if (s[i]==s[j]){
-                count++;
-                
+            if (s[i] == s[j]){
+                count++; 
             }
         }
+
         arr[k]=count;
         k++;
     }
 
     int max = arr[0];
-    int n= sizeof(arr)/sizeof(arr[0]);
+    int n = sizeof(arr)/sizeof(arr[0]);
+
     for (int i=0; i<n; i++){
-        if (arr[i]>max){
+        if (arr[i] > max){
             arr[i]=max;
         }
     }
