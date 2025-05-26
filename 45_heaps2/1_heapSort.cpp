@@ -3,11 +3,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
 // To heapify a subtree rooted with node i
 // which is an index in arr[].
 // n is size of heap
-void heapify(int arr[], int N, int i)
-{
+void heapify(int arr[], int N, int i){
 
     // Initialize largest as root
     int largest = i;
@@ -19,13 +19,11 @@ void heapify(int arr[], int N, int i)
     int r = 2 * i + 2;
 
     // If left child is larger than root
-    if (l < N && arr[l] > arr[largest])
-        largest = l;
+    if (l < N && arr[l] > arr[largest]) largest = l;
 
     // If right child is larger than largest
     // so far
-    if (r < N && arr[r] > arr[largest])
-        largest = r;
+    if (r < N && arr[r] > arr[largest]) largest = r;
 
     // If largest is not root
     if (largest != i) {
@@ -38,12 +36,10 @@ void heapify(int arr[], int N, int i)
 }
 
 // Main function to do heap sort
-void heapSort(int arr[], int N)
-{
+void heapSort(int arr[], int N){
 
     // Build heap (rearrange array)
-    for (int i = N / 2 - 1; i >= 0; i--)
-        heapify(arr, N, i);
+    for (int i = N / 2 - 1; i >= 0; i--) heapify(arr, N, i);
 
     // One by one extract an element
     // from heap
@@ -58,16 +54,14 @@ void heapSort(int arr[], int N)
 }
 
 // A utility function to print array of size n
-void printArray(int arr[], int N)
-{
-    for (int i = 0; i < N; ++i)
-        cout << arr[i] << " ";
+void printArray(int arr[], int N){
+    for (int i = 0; i < N; ++i) cout << arr[i] << " ";
     cout << "\n";
 }
 
 // Driver's code
-int main()
-{
+int main(){
+    
     int arr[] = { 12, 11, 13, 5, 6, 7 };
     int N = sizeof(arr) / sizeof(arr[0]);
 
