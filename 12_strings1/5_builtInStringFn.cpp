@@ -1,5 +1,3 @@
-reverse length substring stoi to_string
-
 /*
 string str;
 

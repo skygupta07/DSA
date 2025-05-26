@@ -1,9 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
 int main(){
     string str = "kak";
     cout<<str<<endl;
+    
     str.push_back('a'); // ji ha aap push_back ek single character hi kar sakte ho...
     cout<<str<<endl;
 

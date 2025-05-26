@@ -1,5 +1,7 @@
 #include <iostream>
 using namespace std;
+
+
 int main(){
     string s = "Ocean is so deep to understand.."; // matlab string bhi ek data type hai..
     int count = 0;
