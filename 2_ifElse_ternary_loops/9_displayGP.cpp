@@ -1,6 +1,7 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
+
+
 int main(){
     int a;
     cout<<"enter first term: "<<endl;
@@ -14,10 +15,12 @@ int main(){
     cout<<"enter the term which you want : ";
     cin>>n;
 
-    int nthTerm = a*pow(r,n-1);
+
+    int nthTerm = a*pow(r,n-1);   
     cout<<"nth term is given by: "<<nthTerm<<endl;
 
     cout<<"all gp terms upto n are: "<<endl;
+
 
     for (int i=1; i<=n; i++){
         cout<<a<<" ";

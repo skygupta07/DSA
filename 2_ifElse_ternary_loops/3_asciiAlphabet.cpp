@@ -1,12 +1,12 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
+
+
 int main(){
     char ch;
     cout<<"enter the character: ";
 
     cin>>ch;
-
 
     /*
     ascii value
@@ -24,6 +24,7 @@ int main(){
     if ( ( (int(ch) >=65) && (int(ch) <=90) ) || ( (int(ch)>=97) && (int(ch)<=122) ) ){
         cout<<"yes it is a alphabet"<<endl;
     }
+    
 }
 
 // if (ch >= "A")

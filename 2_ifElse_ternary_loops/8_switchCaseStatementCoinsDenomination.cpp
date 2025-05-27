@@ -1,13 +1,18 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
+
 int main() {
+
     int amount;
     cout << "Enter amount: " << endl;
     cin >> amount;
 
     int n1, n2, n5, n10, n20, n50, n100, n200, n500;
     n1 = n2 = n5 = n10 = n20 = n50 = n100 = n200 = n500 = 0;
+
+    // real life se bhi inspired h.. like pehle tu khulle dete waqt bhi pehle bada note hi uthayega.. 
+    // then ussey chota note then ussey chota jo bhi adjust ya fit ho jaye...
 
     if (amount >= 500) {
         n500 += amount / 500;

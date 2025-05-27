@@ -1,7 +1,10 @@
 #include <iostream>
 #include <vector>
 using namespace std;
+
+
 int main(){
+
     // int n;
     // cout<<"enter n: "<<endl;
     // cin>>n;
@@ -22,7 +25,8 @@ int main(){
 
 
 
-    // i ko bahar declare kiya globally taaki pata chal jaegi kis i ki value ke loop break hua...
+    // i ko bahar declare kiya globally taaki pata chal jaegi
+    //  kis i ki value ke loop break hua...
 
 }   
 

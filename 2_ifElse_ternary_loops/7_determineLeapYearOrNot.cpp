@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 using namespace std;
+
+
 int main(){
     int year;
     cout<<"enter the year: "<<endl;
@@ -22,8 +24,8 @@ int main(){
 
     line se padhte huye aao...this is the reason why we say if else ka ladder...
     
+    i.e. sequencing of statements matters a lot...
     
     */
-
 
 }
