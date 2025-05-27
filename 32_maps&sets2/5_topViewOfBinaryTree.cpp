@@ -17,27 +17,31 @@ struct Node {
 class Solution {
 public:
     vector<int> topView(Node* root) {
-        vector<int> ans;
+        vector <int> ans;
+
         if (!root) return ans;
 
         // Map to store the first node at each horizontal distance
         // map's key -> horizontal distance,   map's value -> node->value
-        map<int, int> topNodeMap;
+        // iss horizontal distance pe iss node ki value h...
+        map <int, int> topNodeMap;
 
 
-        // Queue to perform BFS
-        // TreeNode , horizontal distance     ka pair..
-        queue<pair<Node*, int>> q;
+        // Queue to perform BFS (tu kucch bhi karle queue mai to pehla by default tere ko 
+        // Node hi rakhna padega...)
+        // TreeNode , horizontal distance ka pair..
+        queue <pair <Node*, int>> q;
 
         // Start BFS from the root with horizontal distance 0 -> threshold
         q.push({root, 0});
 
         //bfs
-        while (!q.empty()) {
-            pair<Node*, int> front = q.front(); 
-            Node* node = front.first;
-            int hd = front.second;
+        while (!q.empty()){
+            pair <Node*, int> curr = q.front(); // or auto curr = q.front();
             q.pop();
+
+            Node* node = curr.first;
+            int hd = curr.second; 
 
             // If this horizontal distance is being visited for the first time
             if (topNodeMap.find(hd) == topNodeMap.end()) {
@@ -77,3 +81,14 @@ int main() {
 
     return 0;
 }
+
+
+/*
+
+top view
+bfs
+mp <TreeNode*, horizontalDistance>
+
+hd - 1 , hd + 1
+
+*/

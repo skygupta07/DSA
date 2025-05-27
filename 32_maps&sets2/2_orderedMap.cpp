@@ -8,7 +8,9 @@ int main(){
     m[1] = 45;
     m[3] = 50;
     m[2] = 40;
-    
+
+    // kucch chutiye .first ke baad mai ye bracket() laga dete h.. unhe kaun bataye... ye koi function call 
+    // nahi h simple method h ye...
 
     for (auto x : m){   // auto will see the key value pair coming...
         cout<< x.first<<" ";    // map se pehle pair isliye to padhaya tha ...
@@ -17,16 +19,26 @@ int main(){
     cout<<endl;
 
 
-    map <string,int> mp;
+    map <string, int> mp;
     
     mp["ak"] = 194;
-    mp["carry"] = 60;
     mp["bob"] = 49;
-
+    mp["carry"] = 60;
+    
     for(auto el: mp){
         cout<<el.first<<" "<<el.second<<" ";
     }
+
     cout<<endl;
+
+
+
+    //  warning: decomposition declarations are a C++17 extension [-Wc++17-extensions]
+    // but I will use coz I love this decomposition declarations...
+    
+    for (const auto &[str, freq] : mp){
+        cout<<str<<" "<<freq<<" ";
+    }
 
 }
 

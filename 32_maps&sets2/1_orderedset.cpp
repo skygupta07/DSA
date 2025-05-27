@@ -23,6 +23,8 @@ int main(){
 /*
 -> but yaha O(logn) time lagta hai insertion wagera mai...(bst soch sakte ho)
 -> unordered map mai ya unordered_set -> O(1) mai saara kaaam(insert, find , erase) ho jaata hai..
+this is the one of the main reason why we use unordered_set for faster lookups...
+
 
 */
 
