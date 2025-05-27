@@ -36,9 +36,12 @@ public:
 
         for (int i=0; i<n; i++){
             int compEle = target - v[i];
+
             if (mp.find(compEle) != mp.end()){
                 return {i , mp[compEle]};
             }
+
+            // pehle question se hi iss type ke pattern se familiar hu mai..
             // if compEle not found then push <currElement, its index > into the map
             mp[v[i]] = i; 
         } 

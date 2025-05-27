@@ -1,13 +1,16 @@
 ---- sets -----
 
 insert search delete -> all operations in O(1) 
-    aisa ho kaise sakta hai?? -> reason: collision theory...
+    aisa ho kaise sakta hai kya ?? -> reason: collision theory...
 
----- stl ---
+---- stl --- standard template library
+
 insert() , size(), find(), begin() , end(), erase()
 
 ------ maps ------
 insertion , searching, deletion -> 0(1)
+
+
 
 usage 
     1. frequency array/set type
