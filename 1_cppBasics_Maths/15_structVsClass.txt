@@ -1,0 +1,27 @@
+| Feature                         | `struct`                                  | `class`                                                    |
+| ------------------------------- | ----------------------------------------- | ---------------------------------------------------------- |
+| **Default Access Modifier**     | `public`                                  | `private`                                                  |
+| **Inheritance Access Modifier** | `public` by default                       | `private` by default                                       |
+| **Used For**                    | Grouping data (POD – Plain Old Data)      | Modeling objects with data and behavior                    |
+| **Encapsulation**               | Limited, unless manually controlled       | Strong encapsulation by default                            |
+| **Syntax**                      | `struct MyStruct { int x; };`             | `class MyClass { int x; };`                                |
+| **Data Abstraction**            | Not typically used for abstraction        | Commonly used for data abstraction and OOP principles      |
+| **Polymorphism & Inheritance**  | Supported (like class), but not preferred | Fully supports OOP concepts like inheritance, polymorphism |
+| **Constructor/Destructor**      | Can have constructors/destructors         | Can have constructors/destructors                          |
+| **Member Functions**            | Allowed                                   | Allowed                                                    |
+| **Memory Layout**               | Similar to class                          | Similar to struct                                          |
+| **Usage Preference**            | When only data is needed (lightweight)    | When encapsulation and full OOP features are needed        |
+
+
+
+Say: "In C++, both struct and class can have member functions, 
+constructors, destructors, and support inheritance."
+
+
+Emphasize: "The main difference is the default access modifier
+         – public for struct, 
+                - private for class."
+
+
+Best Practice: "Use struct for passive data structures, 
+and class for objects with behavior (methods) and encapsulation."

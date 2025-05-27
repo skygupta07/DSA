@@ -1,0 +1,1 @@
+add intuition, tc, sc, logic and comment it

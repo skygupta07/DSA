@@ -1,0 +1,122 @@
+Consider an array: {1,2,3,4}
+
+Subarray: contiguous sequence in an array i.e.
+4 size ki array hai matlab possible window sizes(k) are......
+k = 1, 2, 3, 4
+
+possible subarrays are: 
+    1, 2, 3, 4 - single length
+    12, 23, 34
+    123, 234 - three length
+    1234
+
+
+
+Subsequence: Need not to be contiguous, but maintains order i.e.
+
+{1,2,4}   -> possible ki beech se element gayab ho ....
+1, 2, 3, 4,   -> single size element
+12, 13, 14, 23, 24, 34, -> two size element
+123, 124, 234, 341, -> three size element
+1234    -> four size element
+
+
+
+Subset: Same as subsequence(subsequence +  phi) except it has empty set i.e.
+
+phi -> zero size element
+1, 2, 3, 4,   -> single size element
+12, 13, 14, 23, 24, 34, -> two size element
+123, 124, 234, 341, -> three size element
+1234    -> four size element
+
+
+
+Given an array/sequence of size n, possible  -   n is the number of elements in that array...
+
+say n = 4
+
+Subset = 2^n            -> 16
+
+Subseqeunce = (2^n) -1 (non-empty subsequences) -> 16 - 1 = 15
+Subarray = n*(n+1)/2    -> 10
+
+
+
+-------------------------------------
+
+given array = {p, q, r, s, t};
+
+subset -> 2pow5 = 32
+
+phi 
+
+p, q, r, s, t
+
+pq, pr, ps, pt,
+qr, qs, qt,
+rs, rt,
+st
+
+pqr, pqs, pqt,
+prs, prt,
+pst
+
+qrs, qrt,
+qst,
+rst,
+
+pqrs , pqrt,
+pqst,
+prst,
+qrst,
+
+pqrst
+
+
+---------------------------
+
+given array = {p, q, r, s, t};
+n= 5 -> total subarray = 5 * 6 / 2  = 15 
+
+subarray: possible window sizes are k = 1,2,3,4,5
+
+p, q, r, s, t
+
+pq, qr, rs, st
+
+pqr, qrs, rst
+
+pqrs, qrst,
+
+pqrst
+
+-------------------------------------
+given array = {p, q, r, s, t};
+
+subsequence -> 2pow5 - 1 = 32 - 1 = 31
+ 
+phi (nahi aayega ab ) uske alawa subset wala sab ...
+
+p, q, r, s, t
+
+pq, pr, ps, pt,
+qr, qs, qt,
+rs, rt,
+st
+
+pqr, pqs, pqt,
+prs, prt,
+pst
+
+qrs, qrt,
+qst,
+rst,
+
+pqrs , pqrt,
+pqst,
+prst,
+qrst,
+
+pqrst
+
