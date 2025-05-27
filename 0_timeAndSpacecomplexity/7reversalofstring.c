@@ -2,6 +2,8 @@
 #include <string.h>
 #include <stdlib.h>
 #define max 20
+
+
 int top=-1;
 char stack[max];  //string is a character array..
 char pop();
@@ -15,13 +17,15 @@ int main(){
 
     for (int i=0; i<strlen(str); i++){
         str[i]=pop();
+
         printf ("reversed string is: ");
         puts(str);
-
     }
-    return 0;
 
+    return 0;
 }
+
+
 void push (char item){
     if (top==(max-1)){
         printf ("stack overflow: ");
@@ -30,6 +34,7 @@ void push (char item){
     }
     stack[++top]=item;
 }
+
 char pop(){
     if (top==-1){
         printf ("stack underflow\n");

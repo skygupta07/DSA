@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>   // for dynamic memory allocation
 #define max 10
+
+
 int stack_arr[max];   // array with name stack_arr and size max...
 int top = -1;
 void push (int item);  // function prototype
