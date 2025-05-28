@@ -1,7 +1,9 @@
 // you are given a string consisting of small alphabets. consider no repetition in the
 // characters. Print all possible permutation of the string. ordering doesn't matter
+
 #include <bits/stdc++.h>
 using namespace std;
+
 
 void permutation(string input, string output) {
     // Base case: If the input string is empty, we have formed one permutation
@@ -37,11 +39,6 @@ int main(){
     permutation("abc", " ");
     return 0;
 }
-
-
-
-
-
 
 
 

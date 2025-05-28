@@ -1,11 +1,12 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 vector<vector<char> > grid;     // to mark the queen state...
 vector<vector <string> > result;
 
-// we are placing queens row wise from top to bottom -> so we will check column attack, left and right diagonal attack..
+// we are placing queens row wise from top to bottom (matlab at any cell queen ko 3 jagah se attack possible h)
+//  -> so we will check column attack, left and right diagonal attack..
+
 bool canPlaceQueeen(int row , int col, int n){
     // column check --> usi column mai upar kahi queen nahi bethi honi chahiye...
     for (int i = row - 1; i>=0; i--){
@@ -35,12 +36,12 @@ void f(int row, int n){ // starting row and no. of queens placed
     if (row == n){ // base case -> when you place the last queen in last row
         // we got one possible answer, print grid...
         vector <string> temp;
+
         for (int i = 0; i < n; i++){
             string res = "";
             for (int j = 0; j < n; j++){
                 res += grid[i][j];
             }
-            // grid mai row ko push kiya...
             temp.push_back(res);
         }
         // pure grid ko push kiya
@@ -62,6 +63,7 @@ void f(int row, int n){ // starting row and no. of queens placed
 vector<vector <string> > nqueen(int n){
     grid.clear();   // khakar v of v
     result.clear(); // khakar v of v
+
     grid.resize(n, vector<char> (n, '.'));
 
     // starting row and no. of queens to be placed

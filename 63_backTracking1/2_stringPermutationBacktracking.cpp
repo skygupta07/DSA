@@ -1,8 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
+
 void permutation(string &str, int i) { // The string is passed by reference to avoid copying and optimize performance
-    // Base case: If the current index `i` reaches the last index, print the current permutation
+    
+    // Base case: If the current index `i` reaches the last index, 
+    // print the current permutation (yahi dekha h mene mostly cases mai..)
+    
     if (i == str.size() - 1) {
         cout << str << "\n"; // Output the current permutation
         return;             // Terminate (#important) the current recursive call
@@ -22,6 +27,7 @@ void permutation(string &str, int i) { // The string is passed by reference to a
         swap(str[idx], str[i]);
     }
 }
+
 
 
 int main(){

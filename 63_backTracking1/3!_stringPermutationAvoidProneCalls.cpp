@@ -1,8 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
+
 // Function to generate permutations of a string
 void permutation(string &str, int i) {
+    
     // Base case: If the current index `i` reaches the last index, print the current permutation
     if (i == str.size() - 1) {
         cout << str << "\n"; // Output the current permutation
@@ -10,15 +13,15 @@ void permutation(string &str, int i) {
     }
 
     // Use an unordered_set to ensure no duplicate characters are processed at this level
-    unordered_set<char> s;
+    unordered_set <char> st;
 
     // Loop to iterate through the characters starting from index `i`
     for (int idx = i; idx < str.size(); idx++) {
         // Check if the character at `idx` has already been used at this level
-        if (s.count(str[idx])) continue; // Skip if the character is already present in the set
+        if (st.count(str[idx])) continue; // Skip if the character is already present in the set
 
         // Insert the character into the set to mark it as processed
-        s.insert(str[idx]);
+        st.insert(str[idx]);
 
         // Swap the character at index `i` with the character at index `idx`
         // This fixes one character in the current position
@@ -31,6 +34,8 @@ void permutation(string &str, int i) {
         swap(str[idx], str[i]);
     }
 }
+
+
 
 int main() {
     string str = "abc"; // Input string for generating permutations

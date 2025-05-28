@@ -1,5 +1,10 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
 class Solution {
 public:
+
     // Check if the cell (i, j) is safe to visit
     bool isSafe(vector<vector<int>> &mat, int i, int j, int n) {
         // Cell is safe if it's within bounds, not blocked (1), and not visited (not 2)
@@ -8,6 +13,7 @@ public:
 
     // Recursive function to find all paths
     void traverse(vector<vector<int>> &mat, int i, int j, string &path, vector<string> &ans, int n) {
+        
         // Base case: Reached the destination cell
         if (i == n - 1 && j == n - 1) {
             ans.push_back(path); // Add the path to the result
