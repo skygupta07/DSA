@@ -1,11 +1,13 @@
 /*
 ## Procedural vs Object-Oriented Programming (OOP)
 
+
 ### Procedural Programming:
 - Focuses on functions and procedures to operate on data.
 - Code is organized as a sequence of instructions or commands.
 - Functions are the building blocks of procedural programming.
 - Example languages: C, Pascal.
+
 
 ### Object-Oriented Programming (OOP):
 - Focuses on classes and objects.
@@ -13,11 +15,14 @@
 - Widely used in real-world programming due to its ability to model complex systems.
 - Example languages: C++, Java, Python.
 
+
 ### Key OOP Concepts:
 
 #### 1. Class:
 - A user-defined data type that acts as a blueprint for objects.
 - Contains data members (variables) and member functions (methods).
+
+
 
 ```cpp
 class Player {
@@ -58,6 +63,7 @@ public:
         fuelInjection();
         // More complex operations
     }
+
 private:
     void ignition() {
         // Complex code hidden from the user
@@ -77,6 +83,8 @@ class Player {
 private:
     int health;
     int ammo;
+
+
 public:
     void setHealth(int h) {
         health = h;
@@ -120,6 +128,7 @@ Enables a single function or method to operate differently based on the context.
 4a. Function Overloading:
 Multiple functions with the same name but different parameters.
 
+
 class Math {
 public:
     int add(int a, int b) {
@@ -135,8 +144,10 @@ cout << math.add(5, 3);       // Calls int version
 cout << math.add(5.5, 3.2);   // Calls double version
 
 
+
 ----- 4b. Function Overriding:
-A derived class provides a specific implementation of a function that is already defined in its base class.
+A derived class provides a specific implementation of a function 
+that is already defined in its base class.
 
 class Animal {
 public:
@@ -152,16 +163,19 @@ public:
     }
 };
 
+
 Animal myAnimal;
 Dog myDog;
 myAnimal.sound();  // Outputs "Some sound"
 myDog.sound();     // Outputs "Bark"
 
 
+
 Access Modifiers:
 ------ 1. Public:
 
 Members are accessible from outside the class.
+
 Example:
 
 class Player {

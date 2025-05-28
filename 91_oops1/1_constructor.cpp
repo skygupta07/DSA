@@ -1,4 +1,4 @@
-#include<iostream>
+#include <bits/stdc++.h> 
 using namespace std;
 
 class Rectangle{
@@ -7,9 +7,10 @@ public:
     int b;
 
     // constructor ka naam same as class name
-    // types: default , parameterised , copy constructor (dpc) karwate hai ghar constructor mai
+    // types: default , parameterised , copy constructor (dpc) karwate hai ghar aur constructor mai
     // ek class ke andar there can be more than one constructor..
-        // The technique of having two (or more) constructors in a class is known as constructor overloading.
+        // The technique of having two (or more) constructors in a class is known as
+        //  constructor overloading - {asked by Geetanjali Mam}
 
     // depending on the name or syntax corresponding constructor will be chosen..
    
@@ -48,9 +49,13 @@ int main(){
 
 /*
 class mai constructor mandatory
+
 constructor -> hidden function -> initialisation -> object creation
+
 // by default rehta hi hai...
 but you can make your own 
+
+
 similar to function() => but constructor ka koi return type nahi hota and iska name
 same as the class name..
 

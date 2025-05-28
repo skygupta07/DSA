@@ -4,6 +4,7 @@ using namespace std;
 
 class Book{
 private:
+
     string name;
     int price;
     int pages;
