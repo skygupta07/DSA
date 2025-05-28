@@ -33,6 +33,7 @@ int main() {
 
     // flag check karke ek aur object create ho raha hai
     bool flag = true;
+    
     if (flag == true) {
         // Yaha pe bajaj object create ho raha hai, jo sirf is scope ke andar rahega
         Bike bajaj(7, 250);  // Destructor isko turant cleanup karega jab curly braces close honge

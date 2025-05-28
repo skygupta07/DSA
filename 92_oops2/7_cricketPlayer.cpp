@@ -50,6 +50,7 @@ public: // dekh jab getter setter fn bana hi rha hu then constructor ki no need.
 int main(){
     player abd;   // object creation statically
     abd.setAge(45);
+    
     cout<<abd.getAge();
     cout<<endl;
 

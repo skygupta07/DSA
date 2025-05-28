@@ -54,7 +54,7 @@ int addscore(player a, player b){
 // sakta hu jo player return kare....
 
 player maxScorePlayer(player a, player b){
-    if (a.getscore()>b.getscore()) return a;
+    if (a.getscore() > b.getscore()) return a;
     else return b;
 }
 

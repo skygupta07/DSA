@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
 
+
 class player{
 private:  // imp
     int health;
@@ -67,7 +68,7 @@ int main(){
     // but agar aapke paas pointer object hai to ussey aap this-> ka use karke access kare 
    //  directly. waha dot operator nahi chalega rather ki aap pehle pointer banaye then pointerObject banaye then execute karte..
 
-    // inshort this-> operator is like broker for class members and assigning variables..
+    // inshort this-> operator is like broker {Dalaal} for class members and assigning variables..
 
 
 // simply har choote se choote kaam ke liye aap function bana liya karo....

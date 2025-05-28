@@ -74,10 +74,6 @@ int main(){
     cout<<abd.getScore();
     cout<<endl;
 
-
-
-
-
 }
 
 

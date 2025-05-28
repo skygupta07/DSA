@@ -14,6 +14,7 @@
 3. **Passing Classes in Function Parameters:**
    - You can pass an object of a class as a parameter to a function,
        but you can't directly print the entire object like a primitive type.
+       
    - To print or manipulate an object, you'll first need to access and store its attributes
        or use member functions.
 

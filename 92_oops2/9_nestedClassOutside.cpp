@@ -2,6 +2,8 @@
 using namespace std;
 
 class Guns{
+
+
 public:
     int ammo;
     int damage;

@@ -50,7 +50,8 @@ now naye object ke liye engineSize aur tyreSize har bar naya banega.... but aapk
 number of Bikes same rahega...
 
 -> static fn aapka kisi object ka nahi hota wo to guru aapke class ka hota hai...
-static will only access static
+static will only access static - felt 
+
 static member aur static function sabke liye same rahega...
 -> same for all objects ...it belongs to the class...can be accessed directly by className
 

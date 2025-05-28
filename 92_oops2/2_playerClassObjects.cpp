@@ -20,8 +20,7 @@ public:     // getter setter ❌ setter getter ✅
         ammo = a;
     }
     void setIsAlive(bool condition){
-        alive = condition;
-        
+        alive = condition;   
     }
 
     // getter 
@@ -69,7 +68,8 @@ int main(){
 
     Player winner = maxHealthPlayer(abd, msd);
     cout<<"winner player name is: " << winner.getName() <<"\n";
-    
+   
+    // winner player name is: thala
     return 0;
 
 }
