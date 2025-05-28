@@ -1,11 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include <vector>
-#include <algorithm>
-
-using namespace std;
-
 class Event {
 private:
     int start;
@@ -18,10 +13,12 @@ public:
     // Getter methods for accessing private members
     int getStart() const { return start; }
     int getEnd() const { return end; }
+
 };
 
 class MyCalendarTwo {
 private:
+
     vector<Event> bookings;
     vector<Event> overLapBookings;
 
