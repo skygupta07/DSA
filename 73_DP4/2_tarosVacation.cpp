@@ -9,6 +9,7 @@ int main(){
     // base case
     int a,b,c;  // a->0, b->1, c->1 
     cin>>a>>b>>c;
+
     dp[0][0] = a;   // 0th day par 0th activity choose karne par a happiness
     dp[0][1] = b;
     dp[0][2] = c;
@@ -40,6 +41,7 @@ following activities and do it on the i-th day:
 A: Swim in the sea. Gain ai points of happiness.
 B: Catch bugs in the mountains. Gain bi points of happiness.
 C: Do homework at home. Gain ci points of happiness.
+
 As Taro gets bored easily, he cannot do the same activities for two or more consecutive days.
 
 Find the maximum possible total points of happiness that Taro gains
