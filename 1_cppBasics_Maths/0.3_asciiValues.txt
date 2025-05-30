@@ -1,0 +1,8 @@
+    ascii value
+
+    0 to 9-> 48 to 57
+    A to Z -> 65 to 90   (ha bhai capital letter ki ascii value kam hoti h...)
+    a to z -> 97 to 122
+    
+
+    typecasting is int ascii = int(ch)
