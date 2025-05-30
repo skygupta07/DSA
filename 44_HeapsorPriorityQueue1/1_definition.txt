@@ -3,10 +3,12 @@
 ho sakta hai kisi process ki priority jyada ho...OS mai...usey pehle serve karna padega..
 load balancer diverts the request to the less loaded server
 filter lagaya then.. upar sabse min. rate wala aaya..
+
 priority_queue aisi queue jisme aapka front element max element hoga
     ( jitne bacche huye hai unka..)
 
 "**Priority Queue ko implement karne ke liye heaps ka use kiya jata hai.**"
+
 
 This is because **priority queues** are typically implemented using **heaps** 
 (especially binary heaps) due to their efficiency in performing insertion and deletion 

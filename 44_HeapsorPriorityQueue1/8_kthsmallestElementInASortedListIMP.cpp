@@ -13,7 +13,7 @@ public:
             pq.push({matrix[i][0], {i, 0}});  // Matrix ke i-th row ka pehla element heap me push kar rahe hain.
         }
 
-        pair<int, pair<int, int>> ans;  // Yeh pair answer ko store karega, jo heap ka top hoga (min element).
+        pair <int, pair<int, int>> ans;  // Yeh pair answer ko store karega, jo heap ka top hoga (min element).
 
         // Jab tak k th smallest element nahi mil jata ya heap khali nahi hota, tab tak loop chalega.
         while (k-- and not pq.empty()) {
@@ -23,6 +23,7 @@ public:
             pq.pop();
 
             int val = ans.first;  // Current smallest element (yehi answer ban sakta hai agar k == 0 ho gaya).
+            
             int row = ans.second.first;  // Matrix ke uss element ka row index.
             int col = ans.second.second;  // Matrix ke uss element ka column index.
 
@@ -31,6 +32,7 @@ public:
                 pq.push({matrix[row][col + 1], {row, col + 1}});  // Next element push karo heap me.
             }
         }
+        
         return ans.first;  // Jab loop khatam hoga, ans.first me k-th smallest element store hoga.
     }
 };

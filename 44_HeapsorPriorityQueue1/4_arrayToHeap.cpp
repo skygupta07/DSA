@@ -4,6 +4,7 @@ using namespace std;
 
 class Maxheap{
 public:
+
     vector <int> hp;  // heap ko array/vector se represent karne ki trick..
     // if parent is at ith index then leftchild(lc) is at 2i+1 position..(zero based indexing)
     //mental model me heap ka rakho but implement to array ya vector se hi hoga
@@ -11,11 +12,14 @@ public:
 
     void upheapify(int ci){ // ci = child index
         while(ci>0){
+
             int pi = (ci - 1)/2;
-            if (hp[pi]<hp[ci]){
+
+            if (hp[pi] < hp[ci]){
                 swap(hp[pi],hp[ci]);
                 ci = pi;    // for next iteration-> imp to update child index
             }
+
             else break; // kyuki agar pehle hi stage mai koi changes nahi ho rahe hai 
             // to baad mai bhi nahi honge...
         }
@@ -46,23 +50,29 @@ public:
     }
 
     void downheapify(int idx){
-        while(idx<hp.size()){
+
+        while(idx < hp.size()){
+
             int lc = 2*idx+1;
             int rc = 2*idx+2;
+
             // kyuki aisa ho sakta hai ki left child ho magar right child na ho..
-            if (lc>=hp.size()) break;
+            if (lc >= hp.size()) break;
 
             int maxEl = idx;
-            if (hp[lc]>hp[maxEl]){
+            if (hp[lc] > hp[maxEl]){
                 maxEl = lc; // maxElementIdx   === maxEl
             }
-            if (rc<hp.size() && hp[rc]>hp[maxEl]){
+
+            if (rc < hp.size() && hp[rc] > hp[maxEl]){
                 maxEl = rc;
             }
+
             if (maxEl != idx){ //means root node is not the maximum node
-                swap(hp[idx],hp[maxEl]);
+                swap(hp[idx], hp[maxEl]);
                 idx=maxEl; //for next iteration
             }
+
             else break;
         }
     }
@@ -70,12 +80,16 @@ public:
     void pop(){
         //removes the highest priority element
         if (empty()) return;
+
         swap( hp[0] , hp[hp.size()-1] );    // pehle swap to karo
+
         hp.pop_back(); // imp
+
         if (!empty()){
             downheapify(0); //since sabse upar hi hoga wo added element ab ussey 
             // uski correct position tak downheapify karo...
         }
+
     }
 
     // Maxheap(vector<int> v){ //constructor    // method1
@@ -85,12 +99,15 @@ public:
     //     }
     // }
 
-    Maxheap(vector<int> &v){ //constructor -> vector input lega aur maxheap tayar karke de dega..
+    Maxheap(vector <int> &v){ //constructor -> vector input lega aur maxheap tayar karke de dega..
         hp=v;       //imp -> meri fn ki definition wale vector se to equate karega hi na..                
+        
         int n = hp.size();
+        
         for (int i=n/2; i>=0; i--){ 
             downheapify(i);
         }   // t.c. = O(n)  // heap banana hi efficient kar diya ...
+    
     }
 
     // agar constructor mai koi member fn use ho raha hai to phir aap constructor ko 
@@ -104,17 +121,18 @@ public:
     
 };
 
+
 int main(){
+
     int arr[]={9,6,1,19,3,2,8,12,5};
     int n=sizeof(arr)/sizeof(arr[0]);
+    
     vector<int>v(arr,arr+n);  //copying array to vector..
     
     Maxheap hp(v);  
     hp.display();  // member fn hai isliye dot operator used...
     hp.push(10);
     hp.display();
-
-
 
 }
 
