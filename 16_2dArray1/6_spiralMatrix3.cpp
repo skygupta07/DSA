@@ -1,8 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Solution
-{
+class Solution{
 public:
     bool isValid(int i, int j, int n, int m){
         // ghuma ke kaan pakadna...
