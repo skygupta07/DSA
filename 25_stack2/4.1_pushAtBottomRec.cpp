@@ -1,6 +1,4 @@
-#include<iostream>
-#include<stack>
-
+#include<bits/stdc++.h>
 using namespace std;
 
 void display(stack <int> &st){
@@ -46,8 +44,5 @@ int main(){
     display(st);
     cout<<endl;
     pushAtBottom(st, 13);
-    display(st);
-
-
-    
+    display(st); 
 }

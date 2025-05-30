@@ -1,5 +1,6 @@
-#include<iostream>
+#include <bits/stdc++.h>
 using namespace std;
+
 
 // create Node
 
@@ -8,14 +9,18 @@ public:
     int data;
     Node* next;
 
+    // constructor 
+
     Node(int data){  // ha node ke constructor me to () fn sign aaega hi
         this->data = data;
         this->next = NULL;
     }
 };
 
+
 class Stack{  // user defined data type hote hai class...
 public:
+
     Node* head;  // imp ,, stack me hai hi kya jo bhi hai head hi hai...
     int size;  // head naam ka pointer banaya uski self defined properties hongi 
                 // like head->data    and    head->next
@@ -26,9 +31,12 @@ public:
     }
     // push, pop wale saare fn STACK wali Class ke andar hi likho..
     
+
     void push(int val){ //linked list se stack implement karte hue aapke naye nodes head pe insert hoge
+        
         Node* temp = new Node(val);
         temp->next = head;
+
         head = temp;
         size++;  // imp to maintain the size for better code..
     }
@@ -37,13 +45,14 @@ public:
         if (head==NULL){
             cout<<"stack underflow.."<<endl;
             return;
-
         }
+
         else{
-            head = head -> next;
+            head = head->next;
             size--;
         }
     }
+    
     int getTop(){
         if (head==NULL){
             cout<<"stack underflow."<<endl;

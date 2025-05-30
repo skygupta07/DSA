@@ -5,6 +5,7 @@ using namespace std;
 class Solution {
 public:
     int largestRectangleArea(vector <int> &histo){
+        
         stack <int> st;
         int maxA = 0;
         int n = histo.size();
