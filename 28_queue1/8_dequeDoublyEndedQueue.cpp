@@ -3,6 +3,7 @@ using namespace std;
 
 class Node{ // DLL ke node ki properties...
 public:
+
     int data;
     Node* next;
     Node* prev;
@@ -12,6 +13,7 @@ public:
         this->next = NULL; // smart filling of nodes..
         this->prev = NULL;
     }
+
 };
  
 class Deque{ // actually creating (DLL class) ofcourse class Node will help us..
@@ -19,6 +21,7 @@ class Deque{ // actually creating (DLL class) ofcourse class Node will help us..
 // me define karunga
 // jiska constructor usi me, jiske functions usi me...
 public:
+
     Node* head;
     Node* tail;
     int s;  // size
@@ -32,9 +35,11 @@ public:
     
     void pushFront(int data){   // salman bhai car se aate huye...
         Node* temp = new Node(data);    // first work is to put that data into Node ka jhola..
+        
         if (s == 0){
             head = tail = temp; // creating first node is like tu hi mata tu hi pita 
         }
+
         else{ // imagination only...
         // yaha temp pehle propose karega ... since always move forward in life...
             temp->next = head; // temp ka next will point to head...
@@ -42,29 +47,35 @@ public:
                                 // (head ka previous will point to temp)
             head = temp;    // head will point to temp
         }
+
         s++;  // if ya else koi bhi condition hit ho size to increase hona hi hai..
     }
     
     void PushBack(int data){
         Node* temp = new Node(data);
+
         if (s == 0){
             head = tail = temp; // creating first node is like tu hi mata tu hi pita 
-        }        
+        } 
+
         else{   // important line flow... (always move forward in life...
             // yaha par tail pehle propose karega....)
             tail->next = temp;
             temp->prev = tail;  //extra
             tail = temp;    // then last mai tail ko temp pe leka aaye...
         }
+        
         s++;
     }
     
     void display(){
         Node* temp = head;
+
         while(temp!=NULL){  // ya phir size bhi calcualte kar rha hota tab bhi yahi..
             cout<<temp->data<<" ";
             temp=temp->next;
         }
+
         cout<<endl;
     }
 
@@ -72,8 +83,10 @@ public:
     
     void popFront(){
         head = head->next;
+
         if (head!=NULL) head -> prev = NULL; // more than one element honge..
         if (head == NULL) tail = NULL;      // ek hi element tha wo bhi chala gya to..
+        
         s--;
     }
 
@@ -82,14 +95,17 @@ public:
             cout<<"list is Empty: "<<endl;
             return;
         }
+
         else if (s == 1){
             popFront();
             return;
         }
+
         // upar wali cheez nahi chalti to ye neeche waala to karna hi hai...
         Node* temp = tail->prev;
         temp->next = NULL;
         tail = temp;
+
         s--;
     }
 
@@ -102,7 +118,6 @@ public:
         if (s==0) return true;
         else return false;
     }
-
     
 };
 

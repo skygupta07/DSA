@@ -67,13 +67,18 @@ int main() {
 Standard deque Operations:
 push_back(x): Adds an element x to the end of the deque.
 push_front(x): Adds an element x to the front of the deque.
+
 pop_back(): Removes an element from the end of the deque.
 pop_front(): Removes an element from the front of the deque.
+
 front(): Returns the element at the front of the deque.
 back(): Returns the element at the back of the deque.
+
 size(): Returns the number of elements in the deque.
+
 empty(): Checks if the deque is empty.
 clear(): Removes all elements from the deque.
+
 at(index): Accesses the element at a specific position in the deque.
 
 

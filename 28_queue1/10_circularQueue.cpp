@@ -3,16 +3,19 @@ using namespace std;
 
 class CircularQueue {
 public:
+
     int f;  // front index
     int b;  // back index
     int s;  // current size
+
     int capacity; // maximum capacity
-    vector<int> arr;  // vector for storing elements
+    vector <int> arr;  // vector for storing elements
 
     CircularQueue(int size) {   // constructor
         f = 0;
         b = 0;
         s = 0;
+
         capacity = size;
         arr = vector<int>(size);  // initializing vector with the given size
     }
@@ -29,10 +32,12 @@ public:
 
     // Push an element to the back of the queue
     void push(int val) {
+
         if (isFull()) {
             cout << "Queue is full. Cannot push " << val << endl;
             return;
         }
+
         arr[b] = val;
         b = (b + 1) % capacity;  // Move back pointer circularly hamesha hi 
         // b = b+1 nahi karte hum simply hi... %capacity ka tarka laga dete 
@@ -46,27 +51,36 @@ public:
             cout << "Queue is empty. Cannot pop" << endl;
             return;
         }
-        f = (f + 1) % capacity;  // Move front pointer circularly
+
+        f = (f + 1) % capacity;  // Move front pointer circularly {ye modulus karne wali trick mene sabse pehle 
+        // yahi seekhi thi....}
+
         s--;
     }
 
+
     // Get the front element
     void front() {
+
         if (isEmpty()) {
             cout << "Queue is empty. No front element" << endl;
             return;
         }
+
         cout << "Front element: " << arr[f] << endl;
     }
 
     // Get the back element
     void back() {
+
         if (isEmpty()) {
             cout << "Queue is empty. No back element" << endl;
             return;
         }
+
         int backIndex = (b - 1 + capacity) % capacity;  // Move back circularly to get the last inserted element
         cout << "Back element: " << arr[backIndex] << endl;
+
     }
 
     // Get the current size of the queue
@@ -76,17 +90,22 @@ public:
 
     // Display the elements of the queue
     void display() {
+
         if (isEmpty()) {
             cout << "Queue is empty" << endl;
             return;
         }
+
         cout << "Queue elements: ";
+
         for (int i = 0; i < s; i++) {
             cout << arr[(f + i) % capacity] << " ";  // Print elements circularly
         }
+
         cout << endl;
     }
 };
+
 
 int main() {
     CircularQueue cq(5);  // Create a circular queue with capacity 5
@@ -116,6 +135,8 @@ int main() {
 
     return 0;
 }
+
+/*
 ```
 
 ### Explanation:
@@ -143,3 +164,7 @@ Back element: 60
 - The **wrap-around** behavior is handled using the modulo operator (`%`).
 - The **front** and **back** pointers are adjusted circularly after every operation.
 - The **capacity** of the queue is maintained to prevent overflow or underflow.
+
+
+
+*/

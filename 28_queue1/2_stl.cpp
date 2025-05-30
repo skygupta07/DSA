@@ -1,5 +1,4 @@
-#include <iostream>
-#include <queue>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main(){
@@ -14,9 +13,11 @@ int main(){
     q.push(5);
     q.push(6);
     q.push(7);
+
     cout<<q.size()<<endl;
     cout<<q.front()<<endl;
     cout<<q.empty()<<endl; // returns bool
+    
     q.pop();
     q.pop();
     cout<<q.front()<<endl;

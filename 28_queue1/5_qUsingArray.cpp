@@ -1,5 +1,4 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 class Queue{
@@ -10,8 +9,8 @@ public:
                         // important to first declare outside 
 
     Queue(int size){ // constructor
-        f=0;    // bhai array ki help se bana rahe hai...
-        b=0; // initially to front aur back arr ke zeroth index pe 
+        f = 0;    // bhai array ki help se bana rahe hai...
+        b = 0; // initially to front aur back arr ke zeroth index pe 
         arr.resize(size);
     }
 
@@ -91,9 +90,6 @@ int main(){
 /*
 problems in array implementation of q
 1. wastage of space -> solution is circular array....
-
-
-
 
 */
 

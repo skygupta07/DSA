@@ -1,5 +1,6 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
+
 
 class Node{ // dekh node ko to public hi rakh magar jo main hai jiske liye aaye hai
 // i.e. queue to uske members ko private aur public dekh liyo..
@@ -16,14 +17,14 @@ public:
 
 };
 
-class queue{
+class Queue{
     Node* head;
     Node* tail;
     int size;
 
     public:
     // constructor
-    queue(){  // initially jab ek bhi node nahi to apna head aur tail dono hi NULL ko point karenge...
+    Queue(){  // initially jab ek bhi node nahi to apna head aur tail dono hi NULL ko point karenge...
         this->head = NULL;
         this->tail = NULL;
         this->size = 0;
@@ -100,7 +101,8 @@ class queue{
 
 int main(){
 
-    queue qu;
+    Queue qu;
+    
     qu.enqueue(2);
      qu.enqueue(5);
       qu.enqueue(6);

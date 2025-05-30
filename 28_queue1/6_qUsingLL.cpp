@@ -1,7 +1,9 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
+
 class Node{ // LL Node class
 public:
+
     int data;
     Node* next;
 
@@ -18,7 +20,7 @@ public:
     int size;
 
     Queue(){    // constructor
-        head=tail=NULL;
+        head = tail = NULL;
         size=0;
     }
     

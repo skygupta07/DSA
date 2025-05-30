@@ -1,6 +1,6 @@
-#include <iostream>
-#include <queue>
+#include <bits/stdc++.h>
 using namespace std;
+
 
 void display(queue <int> &q){
     int n = q.size();
@@ -16,6 +16,7 @@ void display(queue <int> &q){
 
 void removeEven(queue <int> q){ // removing even indexed element...
     int n = q.size();
+
     for (int i=0; i<n; i++){
         // to po push
         if (i%2 != 0){
@@ -24,6 +25,7 @@ void removeEven(queue <int> q){ // removing even indexed element...
             q.pop();
             q.push(x);
         }
+        // even index means pop or remove the element....
         else{
             q.pop(); 
         }
