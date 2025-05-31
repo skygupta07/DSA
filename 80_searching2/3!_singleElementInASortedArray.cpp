@@ -1,7 +1,39 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// binary search
+/*
+
+You are given a sorted array consisting of only integers where every element appears exactly twice, 
+except for one element which appears exactly once.
+
+Return the single element that appears only once.
+
+Your solution must run in O(log n) time and O(1) space.
+
+Example 1:
+
+Input: nums = [1,1,2,3,3,4,4,8,8]
+Output: 2
+
+
+Example 2:
+
+Input: nums = [3,3,7,7,10,11,11]
+Output: 10
+ 
+
+Constraints:
+
+1 <= nums.length <= 105
+0 <= nums[i] <= 105
+
+
+*/
+
+
+
+// 28 sunte hi - yes meeeemmmmmm
+// sorted array sunted hi - binary search
 
 class Solution {
 public:
@@ -14,7 +46,8 @@ public:
         int lo = 0;
         int hi = n - 1;
 
-        while (lo < hi) { // Binary search until the search space reduces to a single element.
+        // Binary search until the search space reduces to a single element.
+        while (lo < hi) { 
             int mid = lo + (hi - lo) / 2;
 
             // Check if `mid` is the single non-duplicate.
@@ -24,7 +57,7 @@ public:
                 return nums[mid];
             }
 
-            // Determine which half to search based on index parity.
+            // Determine which half to search based on index* parity.
             // If the left half up to `mid` contains an odd number of elements,
             // the single element must be in the left half; otherwise, it’s in the right.
             if ((mid % 2 == 0 && nums[mid] == nums[mid + 1]) || 
