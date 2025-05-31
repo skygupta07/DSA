@@ -1,0 +1,18 @@
+pref[0] = arr[0] (threshold) ->
+(no need when you are modifying the array to make it the prefix array itself..)
+
+pref[i] = arr[i] + pref[i-1] [where i belongs to 1 to n-1] -> issey loop ki intuition aati hai...
+
+ha prefix sum mai current element ko lete h....and just previous wale previous wale prefix contribution ko ..
+
+suff[n-1] = arr[n-1]
+suff[i] = arr[i] + suff[i+1] where [i runs from n - 2 to 0]
+
+
+5 10 15 20 30 -> arr
+5 15 30 50 80 -> pref {Right Hand Love Chocolate}
+
+5 10 15 20 30 -> arr
+80 75 65 50 30 -> suff {Left Hand Love Chocolate}
+
+
