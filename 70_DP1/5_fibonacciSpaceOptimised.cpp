@@ -1,4 +1,6 @@
-#include <iostream>  // fibonacci space optimised 
+// fibonacciSpaceOptimised 
+
+#include <iostream>  
 #include <vector>
 using namespace std;
 
@@ -7,18 +9,24 @@ using namespace std;
 vector<int> dp;  // what is its use here ,if we remove then program not working
 
 int fib(int n){
+    if (n==0 || n==1) return n;
+
     int a = 0;
     int b = 1;
 
-    if (n==0 || n==1) return n;
     int c;
+
     int i = 2;
-    while(i<=n){
+
+    while(i <= n){
+        
         c = a+b;
         a = b;
         b = c;
+
         i++;
     } 
+
     return c;
 }
 

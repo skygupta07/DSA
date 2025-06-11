@@ -1,3 +1,5 @@
+// fibonnaciRecursive.cpp
+
 #include<iostream>
 using namespace std;
 
@@ -29,6 +31,6 @@ pmi(principle of mutual induction)
 
 
 ek baari mene f(5) compute kar liya to mujhe uski dubara same question mai hi need 
-pad rahi hai to bhai mai dubara calculate kyu karu.....
+pad rahi hai to bhai mai dubara calculate kyu karu.....chutiya thodi hu...
 */
 // 0 1 1 2 3 5 8 13 21 
