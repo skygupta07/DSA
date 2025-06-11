@@ -3,8 +3,8 @@
 using namespace std;
 
 class Node {
-    // linked list me data aur next line me node pointer hi hota hai...
-    public:
+    // linked list me data aur next line me node pointer hi hota hai... (remember capsule)
+public:
     int data;
     Node* next;
 
@@ -17,6 +17,7 @@ class Node {
     //destructor
     ~Node() {
         int value = this -> data;
+        
         //memory free
         if(this->next != NULL) {
             delete next;

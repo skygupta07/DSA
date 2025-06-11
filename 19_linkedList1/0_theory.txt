@@ -3,7 +3,7 @@ I am using class as user defined data type...
 arrays advantage:
     linear data structure
     different kind of data store kar sakte hai..
-    accessing elements is easy O(1)
+    **accessing elements is easy O(1)**
 
 arrays disadvantage:
     fixed size 

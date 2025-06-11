@@ -16,22 +16,30 @@ public: // in cpp
 void insertATHead(Node* &head, int data){   // singly ll mai hum head maintain
                                     // karte huye chalte hai...
     // in general linked list is passed through head pointer important---
+
+    // applying links using kua paani rule...
+
     Node* new_node = new Node(data);  // create a new node with name new_node 
     new_node->next = head;// read as: new_node ke next ko head pe point karaya(left ko right pe point karwaya # important)
                                 // wo value hua karti thi jo ki aapka right to left mai assign hota hai....
 
     head = new_node; // then head ko new_node pe point karaya...
                     // since head should always point to the first node of linked list.. 
+
 }
 
+
 void insertAtTail(Node* &head, int data){
-    // kisi bhi position pe insert karne ke liye node hona bhi to chahiye ,, isliye pehle to tum node banao..
+    // kisi bhi position pe insert karne ke liye node hona bhi to chahiye,isliye pehle to tum node banao..
 
     Node* new_node = new Node(data);
     Node* temp = head;  // ListNode* temp banaya jo ki head ko point kar rha hoga..filhaal
+    
+    // bol bacchan rule
     while (temp->next != NULL){
         temp = temp->next;
     }
+    
     // now after the while loop i.e. now the control of program...
     // pointer temp has reached the last node
     temp->next = new_node;
@@ -45,10 +53,17 @@ void insertAtPosition(Node* &head, int data, int pos){
     Node* temp = head;
     int current_pos = 0;
     
+
+    // best practice to use here would be .. while (current_pos < pos - 1) 
+    // if you want to reach say pos then your loop should have this condition coz when curr_pos == pos - 1
+    // then this loop will break and after the loop break your control will be at pos
+
     while (current_pos != pos -1){  // ek pichli wali position tak hi jaenge..
         temp= temp->next;
         current_pos++;   
     }
+
+    // kua paani rule
     // temp pointer is at pos-1
     new_node->next = temp->next;  // order is important else we can miss the access to our current node earlier...
     temp->next = new_node;
@@ -67,6 +82,7 @@ void deleteAtTail(Node* &head){ // thoda sa indirectly hi hallal karke free kart
     while(temp->next->next != NULL){ 
         temp= temp->next; 
     }
+
      // i.e. temp is at second last position
     Node* last = temp->next;    // save the last node
     temp->next = NULL;      // remove the last node
@@ -77,7 +93,8 @@ void deleteAtTail(Node* &head){ // thoda sa indirectly hi hallal karke free kart
 void deleteAtPosition(Node* head, int pos){
     int curr_pos =0;
     Node* prev = head;
-    while(curr_pos!= pos-1){    // ekdum exact end mai aane se pehle ek baar just 
+
+    while(curr_pos < pos-1){    // ekdum exact end mai aane se pehle ek baar just 
                                 // thoda peeche ke cases dekh lena...
         curr_pos++;
         prev = prev->next;
@@ -86,6 +103,7 @@ void deleteAtPosition(Node* head, int pos){
     // prev is pointing to node at pos-1
     Node* temp = prev->next;  // i.e. node to be deleted
     prev->next = prev->next->next;
+    
     free(temp);
 }
 

@@ -1,10 +1,12 @@
-// given the head of a linked list, delete every alternate element from the list starting from the second element
+// given the head of a linked list, 
+// delete every alternate element from the list starting from the second element
 
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 class Node{
 public:
+
     int data;
     Node* next; // next is a node pointer to the next node..
 
@@ -13,7 +15,9 @@ public:
        this->data = data;
        this->next = NULL; // by default koi bhi node banao aap uski next pointer to null ko hi point karegi..
     }
+
 };
+
 
 void insertATHead(Node* head, int data){
     // in general linked list is passed through head pointer important---
@@ -77,7 +81,7 @@ void deleteAtTail(Node* &head){ // thoda sa indirectly hi hallal karke free kart
         temp= temp->next; 
     }
      // i.e. temp is at second last position
-    Node* last = temp->next;    // save the last node
+    Node* last = temp->next;    // save the last node or write it as NodeToDelete
     temp->next = NULL;      // remove the last node
     free(last);         // free the memory of the last node
 }   

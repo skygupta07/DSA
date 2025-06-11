@@ -25,14 +25,14 @@ void insertAtHead(Node* &head, int data){
 void insertAtTail(Node* &head, int data){
     // kisi bhi position pe element insert karne ke liye node hona bhi to chahiye ,, isliye pehle to tum node banao..
     Node* new_node = new Node(data);
+    
     Node* temp = head;  // Node* temp banaya jo ki head ko point kar rha hoga..filhaal
-    while (temp->next != NULL){  // taki aakhri node pe aake ruk saku
+    while (temp->next != NULL){  // taki aakhri node pe aake ruk saku {bol bacchan}
         temp = temp->next;
     }
     // now after the while loop pointer temp has reached the last node
     temp->next = new_node;
     // new_node->next = NULL;  // No need to write since our constructor is smartly designed
-
 }
 
 void insertAtPosition(Node* &head, int data, int pos){
@@ -48,6 +48,12 @@ void insertAtPosition(Node* &head, int data, int pos){
     }
     
     // temp pointer is at pos-1
+
+    // you have to do no one else will do it for you... 
+    // yaha bhi apply ho rha h.. ab iss new_node ko insert hona tha...to dekh pehle 
+    // isko haath isi ko badhana pada {kua paani Rule}, haa baad mai apna kaam nikalwane ke liye phir usne 
+    // bhi link jod diya aakhri mai....
+
     new_node->next = temp->next;  // order is important else we can miss the access to our current node earlier...
     temp->next = new_node;
 
@@ -56,7 +62,7 @@ void insertAtPosition(Node* &head, int data, int pos){
 void display(Node* &head){  // again
     // temp node banao jo ki iss bar head ko point kar rha ho, while loop laga ke saare node print karwao..
     Node* temp = head;
-    while (temp!=NULL){  // saari nodes print karane ke liye aakhri tak jaana bhi to padega..
+    while (temp!=NULL){  // saari nodes print karana /  ya puri ll ka size nikalne ke liye aakhri tak jaana bhi to padega..
         cout<<temp->data<<"->";
         temp = temp->next;
     }

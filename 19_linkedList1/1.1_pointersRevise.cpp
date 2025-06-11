@@ -5,8 +5,12 @@ using namespace std;
 int main(){
 
     int x = 5;
-    // storing the address of x into a special kind of variable called pointer variable
+    
+    
+    // storing the address of x into a special kind of variable called pointer variable 
+    // which is specially designed to store the addresses..
     int* ptr = &x;  // asked in interview
+
     // printing the value of integer x using the dereference operator...
     cout<<*ptr<<"\n";
 

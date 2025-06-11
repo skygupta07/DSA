@@ -15,10 +15,12 @@ public:
 
 void display(ListNode* head){
     ListNode* temp = head;
+
     while (temp != NULL){
         cout<<temp->data<<" ";
         temp = temp->next;
     }
+
     cout<<"\n";
 }
 
@@ -64,8 +66,10 @@ void deleteAtTail(ListNode* &head){
     while (temp->next->next != NULL){
         temp = temp->next;
     }
+
     ListNode* tempNode = temp->next;
     temp->next = NULL;
+    
     free(tempNode);
 }
 
