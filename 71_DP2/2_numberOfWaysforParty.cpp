@@ -1,3 +1,7 @@
+// numberOfWaysForParty.cpp
+
+
+
 /* either friend can go single or can pair up, find out number of ways in which n friends
 can go to party
 
@@ -23,16 +27,6 @@ dekh lena....(yaha nth friend har baar single single baad mai lag jaa raha hogaa
 
 + if nth friend decided to pair up then he has to choose 1 friend from remaining n-1 friends and 
 then remaining n-2 friends apna dekh lo tum....
-
-
-
-
-
-
-
-
-
-
 
 
 
