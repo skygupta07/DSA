@@ -1,19 +1,21 @@
-#include <iostream>
-#include <unordered_map>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
+
 
 int main(){
     unordered_map <int, int> mp;
-    int arr[] = {3,4,5,9,1,1,7,0,4};
+
+    int arr[] = {3,4,5,9,1,1,7,0,4};    // pehle mujhe iss tarah vector declare karna nahi aata tha....
+    // to mai ek ek element ko push_back karke vector banata tha...mainly ye mai dx[], dy[] se hi seekha..
 }
 
 
-// unordered_map takes O(1) time in avg best case but takes O(n) in case of worst case(collision)
+// unordered_map takes O(1) time in avg & best case but takes O(n) in case of worst case(collision)
 // always take the unordered_map first on priority in raremost case if it gives
-// tle then try map
+// tle then try map (jab key sorted form mai ho...)
 
 /*
+
 hashing
 1. division method (linear chaining) will be done...
 2. folding method
