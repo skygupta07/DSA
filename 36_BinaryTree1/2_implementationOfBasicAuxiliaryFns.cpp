@@ -36,24 +36,29 @@ int NodesNumber(TreeNode* root){    // size of tree is number of TreeNode
 }
 
 int maxInTree(TreeNode* root){
-    if (root==NULL) return INT_MIN;  // agar search karte karte root leaf TreeNode tak aagye 
+    if (root == NULL) return INT_MIN;  // agar search karte karte root leaf TreeNode tak aagye 
     // tab to proper acchi comparison karne ke liye between root left or right aap int min hi return karo... 
+    
     int lMax = maxInTree(root->left);
     int rMax = maxInTree(root->right);
+
     return max(root->data,max(lMax,rMax));  // max(a,max(b,c)) -> OA mistake done
 }
 
 int minInTree(TreeNode* root){
-    if (root==NULL) return INT_MAX;
+    if (root == NULL) return INT_MAX;
+
     int lMin = minInTree(root->left);
     int rMin = minInTree(root->right);
-    return min(root->data,min(lMin,rMin));  // min(a,min(b,c))
+
+    return min(root->data, min(lMin, rMin));  // min(a,min(b,c)) - or simply tuple form mai bhi likh sakte ho... {a, b, c, d..}
 }
 
 int levelOfTree(TreeNode* root){    // or max depth of tree also..
     // no. of levels = 1 root ke karan plus left aur right me jiski jai uske number of levels...
-    if (root==NULL) return 0;
-    return 1 + max(levelOfTree(root->left),levelOfTree(root->right));
+    if (root == NULL) return 0;
+
+    return 1 + max(levelOfTree(root->left), levelOfTree(root->right));
 }   // 1 plus karne waali trick....
 
 

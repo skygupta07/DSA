@@ -12,18 +12,19 @@ public:
         this->left = NULL;
         this->right = NULL;
     }
-
 };
 
 void preOrder(node* root){
     if (root==NULL) return;
     cout<<root->data<<" ";
+
     preOrder(root->left);
     preOrder(root->right);
 }
 
 void inOrder(node* root){
-    if (root==NULL) return;    
+    if (root==NULL) return; 
+       
     inOrder(root->left);
     cout<<root->data<<" ";
     inOrder(root->right);
@@ -38,23 +39,26 @@ void postOrder(node* root){
 
 int levelOfTree(node* root){ // counts number of levels in a tree..
     // no. of levels = 1 root ke karan plus left aur right me jiske jai uske number of levels...
-    if (root==NULL) return 0;
+    if (root == NULL) return 0;
     return 1 + max(levelOfTree(root->left),levelOfTree(root->right));
 }
 
 // 
 void printNthLevel(node* &root, int currLevel, int targetLevel){  // fn resembling with preOrder..
-    if (root==NULL) return;
+    if (root == NULL) return;
+
     if(currLevel == targetLevel){
         cout<<root->data<<" ";
         return;  // optimised code..
     }    
+
     printNthLevel(root->left,currLevel+1,targetLevel);
     printNthLevel(root->right,currLevel+1,targetLevel);
 }
 
 void printNthLevelRev(node* root, int currLevel, int targetLevel){  // fn resembling with preOrder..
     if (root==NULL) return;
+
     if(currLevel == targetLevel){
         cout<<root->data<<" ";
         return;  // optimised code..4
@@ -67,6 +71,7 @@ void printNthLevelRev(node* root, int currLevel, int targetLevel){  // fn resemb
 void levelOrder(node* root){
     // print kar do aap nth level ko jitne aapke level hai utne times..
     int n = levelOfTree(root);
+    
     for (int i=1; i<=n; i++){  // accha yaha ab i=1 ka use dikh rha hai...
         printNthLevel(root,1,i);
         cout<<endl;
