@@ -11,7 +11,7 @@ Each element in the result must be unique and you may return the result in any o
 
 class Solution {
 public:
-    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+    vector <int> intersection(vector <int> &nums1, vector <int> &nums2) {
         vector <int> commonElements;
 
         unordered_set <int> st;

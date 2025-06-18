@@ -1,3 +1,5 @@
+// getTheMaxScore.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -22,6 +24,7 @@ Example 1:
 
 Input: nums1 = [2,4,5,8,10], nums2 = [4,6,8,9]
 Output: 30
+
 Explanation: Valid paths:
 [2,4,5,8,10], [2,4,5,8,9], [2,4,6,8,9], [2,4,6,8,10],  (starting from nums1)
 [4,6,8,9], [4,5,8,10], [4,5,8,9], [4,6,8,10]    (starting from nums2)
@@ -50,6 +53,10 @@ Constraints:
 nums1 and nums2 are strictly increasing.
 
 */
+
+// akash try with prefix suffix 
+// two cases - pref, suff   or suff, pref  - take max of both case...
+
 
 class Solution {
 public:

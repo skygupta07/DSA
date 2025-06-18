@@ -1,6 +1,7 @@
+// minimumChangestToMakeAlternatingBinaryString.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
-
 
 /*
 
@@ -41,8 +42,10 @@ s[i] is either '0' or '1'.
 
 */
 
+
 class Solution {
 public:
+
     int minOperations(string s) {
         int n = s.length();
 
@@ -53,28 +56,34 @@ public:
             else return 1;
         }
 
-        // Two patterns possible: "010101..." or "101010..."
+        // Two patterns possible: "010101..." or "101010..." - ya to zero se start ho ya phir one se start hoga..
         int count1 = 0, count2 = 0;
         
         // Count the changes needed for "010101..." case where string starts from zero....i.e. even index pe zero hona 
         // chahiye ideally and odd index pe 1... aur agar aisa nahi h to phir ussey count mai include karo...
         for (int i = 0; i < n; i++) {
+            // agar even index par
             if (i % 2 == 0) {
+                // element zero na mile to phir count to lagega..
                 if (s[i] != '0') count1++;
             } 
+
             else {
                 if (s[i] != '1') count1++;
             }
         }
 
         // Count the changes needed for "101010..."
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++){
+
             if (i % 2 == 0) {
                 if (s[i] != '1') count2++;
             }
-             else {
+
+            else {
                 if (s[i] != '0') count2++;
             }
+
         }
 
         // Return the minimum of the two counts

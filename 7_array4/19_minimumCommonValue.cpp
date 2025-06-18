@@ -14,6 +14,7 @@ at least one occurrence of that integer.
 
 class Solution {
 public:
+
     int getCommon(vector<int>& nums1, vector<int>& nums2) {
         int i = 0, j = 0;
         int m = nums1.size(), n = nums2.size();
