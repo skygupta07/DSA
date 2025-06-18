@@ -5,8 +5,10 @@ vector<int> getAllDivisors(int n) {
     vector<int> ans;
 
     for (int i = 1; i * i <= n; i++) {
+        
         if (n % i == 0) {
             ans.push_back(i);
+
             if (i != n / i) { // Avoid duplicate for perfect square
                 ans.push_back(n / i);
             }
@@ -15,6 +17,7 @@ vector<int> getAllDivisors(int n) {
 
     sort(ans.begin(), ans.end()); // Ensure divisors are sorted
     return ans;
+    
 }
 
 int main() {
