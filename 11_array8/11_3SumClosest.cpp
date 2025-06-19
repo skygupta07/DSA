@@ -30,7 +30,7 @@ Constraints:
 
 3 <= nums.length <= 500
 -1000 <= nums[i] <= 1000
--104 <= target <= 104
+-1e4 <= target <= 1e4
 
 */
 
@@ -54,19 +54,16 @@ public:
                 // Update the closest sum if this one is closer to the target - ye line badhiya h ekdum...
                 if (abs(target - sum) < closest) {
                     closest = abs(target - sum);
-                    ans = sum;
+                    ans = sum; // I love this kind of chalaki...
                 }
 
                 // Adjust pointers based on comparison with the target
-                if (sum < target) {
-                    lo++; // Increase the sum
-                }
-                else if (sum > target) {
-                    hi--; // Decrease the sum
-                }
-                else {
-                    return sum; // Exact match found
-                }
+                if (sum < target) lo++; // Increase the sum
+                
+                else if (sum > target) hi--; // Decrease the sum
+                
+                else return sum; // Exact match found
+                
             }
         }
 
