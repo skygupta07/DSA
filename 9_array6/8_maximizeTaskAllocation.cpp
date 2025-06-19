@@ -1,5 +1,9 @@
+// maximizeTaskAllocation.cpp
+
+
 #include <bits/stdc++.h>
 using namespace std;
+
 
 /*
 
@@ -11,12 +15,14 @@ Find the maximum number of tasks that can be completed by assigning each task
 to a compatible battery such that the task's energy requirement 
 does not exceed the battery's power supply.
 
+
 Input Format
 
 The first line contains two space-separated integers N and M 
 representing a number of tasks and the batteries respectively.
 The second line contains N space-separated integers representing the energy requirements of the tasks.
 The third line contains M space-separated integers representing the power supplies of the batteries
+
 
 Output Format
 
@@ -34,6 +40,7 @@ Testcase Input
 3 3
 5 3 7
 4 6 2
+
 Testcase Output
 2
 
@@ -48,8 +55,25 @@ Task 3 needed 7 power of energy which can not be fulfilled by available batterie
 
 */
 
-// function declaration (or function prototype).
-int maximizeTasks(vector<int>& energy, vector<int>& power);
+int maximizeTasks(vector <int> &energy, vector <int> &power) {
+
+    int count = 0;
+
+    for(int i=0; i<energy.size(); i++){
+
+        for(int j=0; j<power.size(); j++){
+
+            if(energy[i] <= power[j]){
+                count++;
+                break;
+            }
+        }
+    }
+    
+    return ( energy.size() > power.size() ) ? (count - 1) : count;
+}
+
+
 
 int main() {
     int n, m;
@@ -71,17 +95,3 @@ int main() {
     return 0;
 }
 
-int maximizeTasks(vector<int>& energy, vector<int>& power) {
-    // User will write the logic here
-    int count = 0;
-    for(int i=0; i<energy.size(); i++){
-        for(int j=0; j<power.size(); j++){
-            if(energy[i] <= power[j]){
-                count++;
-                break;
-            }
-        }
-    }
-    
-    return energy.size() > power.size() ? count - 1 : count;
-}

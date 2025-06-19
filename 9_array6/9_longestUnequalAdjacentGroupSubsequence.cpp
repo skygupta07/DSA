@@ -1,3 +1,5 @@
+// longestUnequalAdjacentGroupSubsequence.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -10,6 +12,7 @@ their corresponding elements at the same indices in groups are different
 (that is, there cannot be consecutive 0 or 1).
 
 Your task is to select the longest alternating subsequence from words.
+
 Return the selected subsequence. If there are multiple answers, return any of them.
 Note: The elements in words are distinct.
 
@@ -47,8 +50,7 @@ words[i] consists of lowercase English letters.
 class Solution
 {
 public:
-    vector<string> getLongestSubsequence(vector<string> &words, vector<int> &groups)
-    {
+    vector<string> getLongestSubsequence(vector<string> &words, vector<int> &groups){
         vector<string> ans;
 
         bool oneFlag = 1;
@@ -56,40 +58,40 @@ public:
         vector<int> oneStart;
         vector<int> zeroStart;
 
-        for (int i = 0; i < groups.size(); i++)
-        {
-            if (groups[i] == oneFlag)
-            {
+        for (int i = 0; i < groups.size(); i++){
+            if (groups[i] == oneFlag){
+
                 oneStart.push_back(i);
                 oneFlag = !oneFlag;
+
             }
         }
 
         // reset
         oneFlag = 0;
 
-        for (int i = 0; i < groups.size(); i++)
-        {
-            if (groups[i] == oneFlag)
-            {
+        for (int i = 0; i < groups.size(); i++){
+            if (groups[i] == oneFlag) {
+
                 zeroStart.push_back(i);
                 oneFlag = !oneFlag;
+
             }
         }
 
         bool winnerCase = (oneStart.size() > zeroStart.size());
 
-        if (winnerCase)
-        {
-            for (int i = 0; i < oneStart.size(); i++)
-            {
+        if (winnerCase) {
+
+            for (int i = 0; i < oneStart.size(); i++){
                 ans.push_back(words[oneStart[i]]);
             }
+
         }
-        else
-        {
-            for (int i = 0; i < zeroStart.size(); i++)
-            {
+
+        else{
+
+            for (int i = 0; i < zeroStart.size(); i++){
                 ans.push_back(words[zeroStart[i]]);
             }
         }
@@ -104,6 +106,7 @@ longest alternating subsequence
 for any two consecutive strings in the sequence,
 their corresponding elements in the binary array groups differ.
 
+
 take two case
 starting from 1 , starting from zero
 take max of two case
@@ -111,24 +114,25 @@ alternating zero count, one count
 */
 
 // asli dsa
-class Solution
-{
+class Solution {
 public:
-    vector<string> getLongestSubsequence(vector<string> &words, vector<int> &groups)
-    {
-        vector<string> ans;
+    vector <string> getLongestSubsequence(vector <string> &words, vector <int> &groups) {
+        vector <string> ans;
+
         int last = -1;
 
-        for (int i = 0; i < words.size(); i++)
-        {
-            if (groups[i] != last)
-            {
+        for (int i = 0; i < words.size(); i++){
+            
+            if (groups[i] != last) {
                 ans.push_back(words[i]);
 
                 // jo abhi encounter kiya wo mention bhi to karega...
                 last = groups[i];
             }
+
         }
+        
         return ans;
+
     }
 };
