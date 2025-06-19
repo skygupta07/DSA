@@ -49,27 +49,34 @@ class Solution {
 public:
 
     string makeFancyString(string s) {
-        // create the string ...
+        // Final string store karne ke liye
         string ans = "";
-        ans.push_back(s[0]);    // threshold...
+
+        // Pehla character to hamesha allow hoga, isliye direct daal diya
+        ans.push_back(s[0]);  // "threshold" means starting point bana liya
 
         int n = s.size();
-        int cnt = 1;    // ek khud ko to ginega...
+        int cnt = 1;  // ek character to daal hi chuke hain, to count 1 se start hoga
 
-        // i = 1 se start karne wale sahi lagte h....
-        for(int i=1; i<n; i++){
+        // Loop start karenge second character se (i = 1), kyunki pehla to already ans me hai
+        for (int i = 1; i < n; i++) {
             
-            if(s[i] == ans.back()){ // ha string ka back bhi hota h.. jaise vector ka back hota h,,
-                cnt++;
-                if (cnt < 3) ans.push_back(s[i]);
+            // Agar current character, ans ke last character ke barabar hai
+            if (s[i] == ans.back()) {  
+                cnt++;  // count badhao, same character mila to
+                if (cnt < 3) 
+                    ans.push_back(s[i]);  // agar 3 se kam bar aaya hai to add karo
+                // agar 3 ya usse zyada ho gaya to skip kar dena (do hi allowed hain)
             }
 
-            else{
+            else {
+                // agar different character mila to count reset karo
                 cnt = 1;
-                ans.push_back(s[i]);
+                ans.push_back(s[i]);  // naye character ko add karo
             }
-
         }
+
+        // Modified string return karo
         return ans;
     }
 };

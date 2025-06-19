@@ -1,3 +1,5 @@
+// myAtoi.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -15,13 +17,15 @@ Conversion: Read the integer by skipping leading zeros until a non-digit charact
 or the end of the string is reached. If no digits were read, then the result is 0.
 
 Rounding: If the integer is out of the 32-bit signed integer range [-231, 231 - 1], 
+
 then round the integer to remain in the range. 
-Specifically, integers less than -2pow31 should be rounded to -2pow31, 
-and integers greater than 2pow31 - 1 should be rounded to 2pow31 - 1.
+
+Specifically, integers less than -2pow31 should be rounded to -2e31, 
+and integers greater than 2pow31 - 1 should be rounded to 2e31 - 1.
 
 Return the integer as the final result.
 
- 
+
 Example 1:
 
 Input: s = "42"
@@ -55,7 +59,6 @@ Step 3: "   -042" ("042" is read in, leading zeros ignored in the result)
 Example 3:
 
 Input: s = "1337c0d3"
-
 Output: 1337
 
 Explanation:
@@ -69,7 +72,6 @@ Step 3: "1337c0d3" ("1337" is read in; reading stops because the next character 
 Example 4:
 
 Input: s = "0-1"
-
 Output: 0
 
 Explanation:
@@ -83,14 +85,12 @@ Step 3: "0-1" ("0" is read in; reading stops because the next character is a non
 Example 5:
 
 Input: s = "words and 987"
-
 Output: 0
 
 Explanation:
 
 Reading stops at the first non-digit character 'w'.
 
- 
 
 Constraints:
 
@@ -101,11 +101,11 @@ s consists of English letters (lower-case and upper-case), digits (0-9), ' ', '+
 */
 
 
-// } Driver Code Ends
 class Solution {
   public:
+
     bool isNumeric(char ch) {
-        return ch >= '0' && ch <= '9';
+        return (ch >= '0' && ch <= '9');
     }
 
     int myAtoi(char *s) {
@@ -121,6 +121,7 @@ class Solution {
 
         // Handle optional sign
         bool isNegative = false;
+        
         if (i < n && (s[i] == '-' || s[i] == '+')) {
             isNegative = (s[i] == '-');
             i++; // go to next index..
@@ -147,6 +148,7 @@ class Solution {
 
 
 /*
+
 sign ke liye variable
 zero positive ya negative nahi hota..
 
@@ -154,6 +156,5 @@ agar postive number jyadd bada h to max wla return kar dena h..
 same for negative elements also...
 
 number ke baad bakchodi not allowed....
-
 
 */

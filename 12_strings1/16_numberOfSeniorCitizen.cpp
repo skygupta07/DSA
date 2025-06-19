@@ -1,3 +1,5 @@
+// numberOfSeniorCitizen.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -36,15 +38,19 @@ details[i] consists of digits from '0' to '9'.
 details[i][10] is either 'M' or 'F' or 'O'.
 The phone numbers and seat numbers of the passengers are distinct.
 
+
 */
 
 
 class Solution {
 public:
+
     int countSeniors(vector<string>& details) {
+        
         int count = 0;
 
         for (int i=0; i<details.size(); i++){
+
             string detail = details[i];
 
             int tens = detail[11] - '0';
@@ -56,5 +62,6 @@ public:
         }
 
         return count;
+
     }
 };

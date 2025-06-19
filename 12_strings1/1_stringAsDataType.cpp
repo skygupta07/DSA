@@ -3,6 +3,7 @@ using namespace std;
 
 int main(){
     string name = "akash";
+    
     cout<<name.length()<<endl;
     cout<<name[5];  // null character prints nothing at all...
 

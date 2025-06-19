@@ -1,5 +1,8 @@
+// countBinarySubstring.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
+
 
 /*
 
@@ -15,7 +18,7 @@ Example 1:
 Input: s = "00110011"
 Output: 6
 Explanation: There are 6 substrings that have equal number of consecutive
- 1's and 0's: "0011", "01", "1100", "10", "0011", and "01".
+1's and 0's: "0011", "01", "1100", "10", "0011", and "01".
 
 Notice that some of these substrings repeat and are counted the number of times they occur.
 Also, "00110011" is not a valid substring because all the 0's (and 1's) are not grouped together.
@@ -30,7 +33,7 @@ that have equal number of consecutive 1's and 0's.
 
 Constraints:
 
-1 <= s.length <= 105
+1 <= s.length <= 1e5
 s[i] is either '0' or '1'.
 
 */
@@ -40,7 +43,7 @@ s[i] is either '0' or '1'.
 class Solution {
 public:
     int countBinarySubstrings(string s) {
-        int ans = 0;        // Final answer to store number of valid binary substrings
+        int count = 0;        // Final answer to store number of valid binary substrings
         
         int previous = 0;   // Length of previous group (of 0s or 1s)
         int current = 1;    // Length of current group (starts with 1 since s[0] already counted)
@@ -60,9 +63,9 @@ public:
             }
 
             // Agar current group size ≤ previous group size → valid substring possible
-            if(current <= previous) ans++;
+            if(current <= previous) count++;
         }
 
-        return ans;
+        return count;
     }
 };

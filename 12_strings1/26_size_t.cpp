@@ -16,8 +16,6 @@ Zyada tar STL functions (like string::size(), vector::size()) ka return type siz
 
 */
 
-Example:
-
 #include <iostream>
 using namespace std;
 
@@ -35,7 +33,9 @@ int main() {
 
     return 0;
 }
-Output:
+
+
+// Output:
 
 
 Found at index: 6
