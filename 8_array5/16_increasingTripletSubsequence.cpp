@@ -42,19 +42,27 @@ Follow up: Could you implement a solution that runs in O(n) time complexity and 
 class Solution { // wrong code
 public: 
     bool increasingTriplet(vector <int> &nums){
-        int first = INT_MAX, second = INT_MAX; // Initialize first and second to maximum possible value
+
+        // Initialize first and second to maximum possible value
+        int first = INT_MAX;
+        int second = INT_MAX; 
         
         for (int num : nums) {
-            if (num < first) {  // inequality nahi chalegi...(num <= first) this will handle repetition 
-                first = num; // Update the smallest number
-            } else if (num < second) {
-                second = num; // Update the second smallest number
-            } else {
-                // If we find a number greater than both first and second, we found a triplet
-                return true;
-            }
+
+            // inequality nahi chalegi...(num <= first) this will handle repetition
+            // Update the smallest number
+
+            if (num < first) first = num; 
+            
+            else if (num < second) second = num; // Update the second smallest number
+            
+            // If we find a number greater than both first and second, we found a triplet
+            else return true;
+        
         }
-        return false; // No triplet found
+
+        // No triplet found
+        return false; 
     }
 };
 
@@ -82,6 +90,7 @@ false
 
 class Solution {    // correct 
 public:
+
     bool increasingTriplet(vector<int>& nums) {
         int first = INT_MAX;
         int second = INT_MAX;
@@ -91,7 +100,9 @@ public:
         
         for (int i=0; i<nums.size(); i++){
             if (nums[i] <= first) first = nums[i];
+
             else if (nums[i] <= second) second = nums[i];
+
             else return true;
         }
 

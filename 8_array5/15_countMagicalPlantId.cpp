@@ -50,6 +50,7 @@ int main() {
     for (int id : result.second) {
         std::cout << id << " ";
     }
+    
     std::cout << std::endl;
 
     return 0;

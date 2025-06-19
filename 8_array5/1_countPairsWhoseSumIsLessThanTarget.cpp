@@ -1,3 +1,5 @@
+// countPairsWhoseSumIsLessThanTarget.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -42,9 +44,11 @@ Constraints:
 */
 
 class Solution {
-  public:
+public:
+
     int countPairs(vector<int> &arr, int target) {
         int n = arr.size();
+
         sort(arr.begin(), arr.end());
         
         int count = 0;
@@ -58,9 +62,11 @@ class Solution {
                 
                 if ( arr[j] > target ) break;
                 if (arr[i] + arr[j] < target) count++;
+
             }
         }
         
         return count;
+
     }
 };

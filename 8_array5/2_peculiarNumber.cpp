@@ -1,8 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include <bits/stdc++.h>
-using namespace std;
 
 // Function to calculate the x-th Fibonacci number iteratively
 int fib(int x) {

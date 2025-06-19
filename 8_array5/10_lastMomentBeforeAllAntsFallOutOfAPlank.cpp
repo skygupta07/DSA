@@ -1,4 +1,5 @@
 //  lastMomentBeforeAllAntsFallOutOfAPlank.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -48,12 +49,15 @@ if they are changing direction still they
 
 
 // 🧠 Intuition:
+
 // Jab ants pole par chal rahe hote hain, aur agar 2 ants takra jaati hain,
 // toh unka direction bas swap hota hai, aur agar hum unhe indistinguishable maan lein,
 // toh final result pe koi farq nahi padta.
 //  Matlab hum ants ko bina takraaye aage jaate hue maan sakte hain.
+
 // So, agar koi ant left ja rahi hai, toh wo 0 tak jaayegi, and time = left[i] lagega.
 // Aur agar koi ant right ja rahi hai, toh wo n tak jaayegi, and time = (n - right[i]) lagega.
+
 // Sabse last mein pole se girne wali ant ka time = max(left[i], n - right[i]) hoga. => matlab single hi
 // variable ko maximize kar do simply...
 
@@ -62,13 +66,13 @@ public:
     int getLastMoment(int n, vector<int> &left, vector<int> &right) {
         int maxTime = 0;
 
-        // 🔁 Left jaane wali har ant ke liye
+        // Left jaane wali har ant ke liye
         for (int i = 0; i < left.size(); i++) {
             // 0 tak jaane ka time = left[i] (kyunki origin 0 hai)
             maxTime = max(maxTime, left[i]);
         }
 
-        // 🔁 Right jaane wali har ant ke liye
+        //  Right jaane wali har ant ke liye
         for (int i = 0; i < right.size(); i++) {
             // n tak jaane ka time = (n - right[i])
             maxTime = max(maxTime, n - right[i]);

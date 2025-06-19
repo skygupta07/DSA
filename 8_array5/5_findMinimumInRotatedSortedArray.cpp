@@ -51,6 +51,7 @@ nums is sorted and rotated between 1 and n times.
 #include <bits/stdc++.h>
 using namespace std;
 
+// O(nlogn)
 class Solution {
 public:
     int findMin(vector<int>& nums) {
@@ -59,10 +60,34 @@ public:
     }
 };
 
+
+// inbuilt fn
 class Solution {
-    public:
-        int findMin(vector<int>& nums) {
+public:
+    int findMin(vector<int>& nums) {
+        return *min_element(nums.begin(), nums.end());
+    }
+};
+
+
+// O(n)
+class Solution {
+public:
+    int findMin(vector<int>& nums) {
+        int mini = INT_MAX;
+        for (int i=0; i<nums.size(); i++) mini = min(mini, nums[i]);
+        return mini;
+    }
+};
+
+
+// O(logn)
+class Solution {
+public:
+
+        int findMin(vector <int> &nums) {
             int n = nums.size();
+
             int lo = 0;
             int hi = n - 1;
     
@@ -88,20 +113,3 @@ class Solution {
         }
     };
     
-
-class Solution {
-public:
-    int findMin(vector<int>& nums) {
-        return *min_element(nums.begin(), nums.end());
-    }
-};
-
-
-class Solution {
-public:
-    int findMin(vector<int>& nums) {
-        int mini = INT_MAX;
-        for (int i=0; i<nums.size(); i++) mini = min(mini, nums[i]);
-        return mini;
-    }
-};

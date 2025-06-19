@@ -3,6 +3,10 @@ using namespace std;
 
 const int mod = 1e9 + 7;
 
+// jis tarah number ko negative karne ke liye (-1) se multiply kar sakte h... theek usi tarah
+// number ko long long banane ke liye (1LL) se multiply karte h...
+
+
 int countRectangles(int N) {
     // Total rectangles in the chessboard
     long long totalRectangles = (1LL * N * (N + 1) / 2) * (1LL * N * (N + 1) / 2);
@@ -17,11 +21,13 @@ int countRectangles(int N) {
 int main() {
     int T;
     cin >> T;
+
     while (T--) {
         int N;
         cin >> N;
         cout << countRectangles(N) << endl;
     }
+    
     return 0;
 }
 

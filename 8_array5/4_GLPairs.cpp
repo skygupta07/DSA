@@ -2,7 +2,7 @@
 using namespace std;
 
 // Placeholder function for user to implement the logic
-int GLPairs(int n, vector<int>& num) {
+int GLPairs(int n, vector <int> &num) {
     unordered_map <int, int> mp;
     for (auto el : num) mp[el]++;
 
@@ -14,6 +14,7 @@ int GLPairs(int n, vector<int>& num) {
 
     return count;
 }
+
 
 /*
 it means both lcm and hcf should be equal..

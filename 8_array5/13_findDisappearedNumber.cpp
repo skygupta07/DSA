@@ -24,7 +24,7 @@ Output: [2]
 Constraints:
 
 n == nums.length
-1 <= n <= 105
+1 <= n <= 1e5
 1 <= nums[i] <= n
  
 
@@ -36,17 +36,19 @@ You may assume the returned list does not count as extra space.
 
 class Solution {
 public:
+
     vector <int> findDisappearedNumbers(vector <int> &nums){
         int n = nums.size();
-        vector <int> ans;
 
         // insert elements into set for faster lookup
         unordered_set <int> st;
+
         for (auto num : nums) st.insert(num);
 
-        for (int i=1; i<=n; i++){
+        vector <int> ans; // ans or result or disappeared
+        for (int num=1; num<=n; num++){
             // if the element is not present (or missing)
-            if (st.find(i) == st.end()) ans.push_back(i);
+            if (st.find(num) == st.end()) ans.push_back(num);
         }
 
         return ans;
@@ -59,7 +61,7 @@ class Solution{
 public:
     vector<int> findDisappearedNumbers(vector<int>& nums){
         int n = nums.size();
-        vector<int> ans;
+        vector <int> ans;
         
         // Pehla loop array ke har element ko traverse karta hai.  
         // Hum har element ki absolute value ka use karte hain to find the index.
