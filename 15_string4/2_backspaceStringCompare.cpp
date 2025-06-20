@@ -69,27 +69,36 @@ always remember when your are popping from stack then the stack should not be em
 
 class Solution {
 public:
+
     bool backspaceCompare(string s, string t) {
         string sf;
         string tf;
 
-        // sach batau to mujhe abhi bhi viswas nahi ho rha ki string mai push_back()   aur pop_back() fn bhi hota h..
-        for (auto ch : s){
+        // sach batau to mujhe abhi bhi viswas nahi ho rha ki string mai 
+        // push_back()   aur pop_back() fn bhi hota h..
+        // but jab ye pta chala ki ( string = vector of char ) tab bharosa ho gya...
+        
+        for (const auto &ch : s){
+
             if (ch == '#'){
                 if (!sf.empty()) sf.pop_back(); // rambaan
             }
+
             else sf.push_back(ch);
         }
 
-        for (auto ch : t){
+        for (const auto &ch : t){
+
             if (ch == '#'){
                 if (!tf.empty()) tf.pop_back();
             }
+
             else tf.push_back(ch);
         }
 
         return (sf == tf);
     }
+
 };
 
 /*

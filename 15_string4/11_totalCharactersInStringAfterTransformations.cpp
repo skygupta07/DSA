@@ -1,5 +1,8 @@
+// totalCharactersInStringAfterTransformations1.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
+
 
 /*
 
@@ -24,18 +27,22 @@ Output: 7
 Explanation:
 
 First Transformation (t = 1):
+
 'a' becomes 'b'
 'b' becomes 'c'
 'c' becomes 'd'
 'y' becomes 'z'
 'y' becomes 'z'
+
 String after the first transformation: "bcdzz"
+
 Second Transformation (t = 2):
 'b' becomes 'c'
 'c' becomes 'd'
 'd' becomes 'e'
 'z' becomes "ab"
 'z' becomes "ab"
+
 String after the second transformation: "cdeabab"
 Final Length of the string: The string is "cdeabab", which has 7 characters.
 
@@ -53,15 +60,17 @@ First Transformation (t = 1):
 'z' becomes "ab"
 'b' becomes 'c'
 'k' becomes 'l'
+
 String after the first transformation: "babcl"
 Final Length of the string: The string is "babcl", which has 5 characters.
  
 
 Constraints:
 
-1 <= s.length <= 105
+
+1 <= s.length <= 1e5
 s consists only of lowercase English letters.
-1 <= t <= 105
+1 <= t <= 1e5
 
 */
 
@@ -91,10 +100,12 @@ public:
                     temp[0] = (temp[0] + cnt[i]) % mod;
                     temp[1] = (temp[1] + cnt[i]) % mod;
                 } 
+
                 else {
                     // Otherwise, character increments normally: 'a' → 'b', 'b' → 'c', ..., 'y' → 'z'
                     temp[i + 1] = (temp[i + 1] + cnt[i]) % mod;
                 }
+                
             }
 
             // Update cnt to new transformed frequencies for next round
@@ -108,4 +119,5 @@ public:
 
         return len;
     }
+    
 };

@@ -16,7 +16,7 @@ or the end of the string is reached. If no digits were read, then the result is 
 
 Rounding: If the integer is out of the 32-bit signed integer range [-2pow31, 2pow31 - 1], 
 then round the integer to remain in the range. Specifically, integers less than -2pow31 should be 
-rounded to -2pow31, and integers greater than 231 - 1 should be rounded to 2pow31 - 1.
+rounded to -2pow31, and integers greater than 2e31 - 1 should be rounded to 2pow31 - 1.
 
 
 Return the integer as the final result.

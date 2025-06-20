@@ -1,5 +1,8 @@
+// addStrings.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
+
 
 /*
 
@@ -29,7 +32,7 @@ Output: "0"
 
 Constraints:
 
-1 <= num1.length, num2.length <= 10pow4
+1 <= num1.length, num2.length <= 10e4
 
 num1 and num2 consist of only digits.
 num1 and num2 don't have any leading zeroes except for the zero itself.
@@ -57,6 +60,7 @@ public:
             while (carry || i >= 0 || j >= 0){
 
                 int f = (i >= 0) ? (num1[i] - '0') : 0; // Get digit from num1 or 0
+
                 //  {zero tab contribution count ho rha hoga jab ye wala number khatam ho chuka hoga 
                 // dusre ke mukable..} if i < 0
 
@@ -75,6 +79,7 @@ public:
             
             // Reverse the string as we built it from least significant digit
             reverse(ans.begin(), ans.end()); 
+            
             return ans;
         }
     };

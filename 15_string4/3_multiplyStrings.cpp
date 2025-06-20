@@ -28,12 +28,14 @@ Both num1 and num2 do not contain any leading zero, except the number 0 itself.
 
 */
 
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
-
 class Solution {
 public:
+
     string multiply(string num1, string num2) {
         // Agar dono me se koi bhi number "0" ho, toh seedha "0" return kar do
         if (num1 == "0" || num2 == "0") return "0";
@@ -44,14 +46,20 @@ public:
         
         // Ab multiplication karna start karenge, ek-ek digit multiply karke
         for (int i = num1.size() - 1; i >= 0; i--) { // num1 ke har digit ke liye
+            
             for (int j = num2.size() - 1; j >= 0; j--) { // num2 ke har digit ke liye
-                // Pehle dono digits ko multiply kiya aur result ko vector ke correct index me add kiya
+                // Pehle dono digits ko multiply kiya aur result ko vector ke correct index me add kiya - 
+                // {add karna yaha bahut jaruri.. jaise aap bachpan mai baad mai add karte they ...
+                // ye wahi wala add karna h...}
+                
                 num[i + j + 1] += (num1[i] - '0') * (num2[j] - '0');
                 
-                // Carry handle karte hain, agar result 10 se bada hai
-                num[i + j] += num[i + j + 1] / 10; // Carry ko ek digit piche add kar diya
+                // Carry handle karte hain, agar result 10 se bada hai i.e. Carry ko ek digit piche add kar diya
+                num[i + j] += num[i + j + 1] / 10;
+
                 num[i + j + 1] %= 10; // Current digit ko 10 ke mod se update kiya
             }
+
         }
         
         // Leading zeroes ko skip karte hain
@@ -65,5 +73,7 @@ public:
         while (i < num.size()) res.push_back(num[i++] + '0');
         
         return res; 
+
     }
+    
 };

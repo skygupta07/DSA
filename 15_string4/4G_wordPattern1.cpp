@@ -1,5 +1,8 @@
+// wordPattern1.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
+
 
 /*
 
@@ -19,7 +22,6 @@ No two letters map to the same word, and no two words map to the same letter.
 Example 1:
 
 Input: pattern = "abba", s = "dog cat cat dog"
-
 Output: true
 
 Explanation:
@@ -28,16 +30,16 @@ The bijection can be established as:
 
 'a' maps to "dog".
 'b' maps to "cat".
+
+
 Example 2:
 
 Input: pattern = "abba", s = "dog cat cat fish"
-
 Output: false
 
 Example 3:
 
 Input: pattern = "aaaa", s = "dog cat cat dog"
-
 Output: false
 
 
@@ -71,20 +73,25 @@ public:
                 // Agar mapping ka word ab wala word se alag hai -> mismatch
                 if (mp[currentChar] != word) return false; 
             }
+
             else {
                 // Agar character ka mapping nahi hai lekin word already kisi aur char se map hai
+                // ye to dagabaazi hui..
                 if (usedWords.count(word) > 0) return false;
 
-                // Nayi mapping set kar do
+                // Nayi mapping set kar do {or you can say fielding set kar do...}
+
                 mp[currentChar] = word;
                 usedWords.insert(word);
             }
 
-            idx++;  // move to next pattern character
+            // move to next pattern character
+            idx++;  
+
         }
 
         // Agar pattern characters finish nahi hue ya extra words the str mein
-        return idx == n && ss.eof();
+        return (idx == n) && ss.eof();
     }
 };
 
@@ -116,7 +123,8 @@ word → destination string to store result
 
 
 
-We're looping through the words in the string using getline and stringstream. After the loop, we want to verify 2 things:
+We're looping through the words in the string using getline and stringstream. 
+After the loop, we want to verify 2 things:
 
 idx == size → We've matched all characters in pattern.
 ss.eof() → We've also reached the end of the string stream, i.e., no extra words are left.

@@ -1,3 +1,5 @@
+// longestPalindrome.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -51,22 +53,25 @@ class Solution{
 public:
     int longestPalindrome(vector<string> &words){
 
-        // ✅ Step 1: Count the frequency of each word
-        unordered_map<string, int> freqMap;
+        // Step 1: Count the frequency of each word
+        unordered_map <string, int> freqMap;
         for (const auto &word : words) freqMap[word]++;
 
         int totalLen = 0;       // final length of the longest palindrome
         bool hasCenter = false; // to track if we can put a palindromic word in the middle
 
-        // ✅ Step 2: Traverse through each word and handle two cases
+        // Step 2: Traverse through each word and handle two cases
         for (auto &[word, freq] : freqMap){
+
             string rev = word;
             reverse(rev.begin(), rev.end()); // create reverse of current word
 
-            // ✅ Case 1: word is NOT a palindrome itself (like "ab", "ba")
+            // Case 1: word is NOT a palindrome itself (like "ab", "ba")
             if (word != rev){
+
                 // If reverse word also exists in the map
                 if (freqMap.find(rev) != freqMap.end()){
+
                     // You can pair min(word freq, reverse word freq) times
                     int pairFreq = min(freq, freqMap[rev]);
 
@@ -77,10 +82,12 @@ public:
                     freqMap[word] -= pairFreq;
                     freqMap[rev] -= pairFreq;
                 }
+
             }
 
-            // ✅ Case 2: word is a palindrome itself (like "gg", "aa")
+            // Case 2: word is a palindrome itself (like "gg", "aa")
             else{
+
                 // (freq / 2) pairs possible, each contributing 4 characters
                 totalLen += (freq / 2) * 4;
 
@@ -89,7 +96,7 @@ public:
             }
         }
 
-        // ✅ Step 3: If we had one palindromic word left unused, put it in the center
+        // Step 3: If we had one palindromic word left unused, put it in the center
         if (hasCenter) totalLen += 2;
 
         return totalLen;

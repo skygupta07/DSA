@@ -1,3 +1,5 @@
+// resultingStringAfterAdjacentRemoval.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -59,11 +61,14 @@ s consists only of lowercase English letters.
 
 class Solution {
 public:
+
     string resultingString(string s) {
         string result;
 
         for (char c : s) {
+
             if (!result.empty()) {
+
                 char prev = result.back();
                 int diff = abs(prev - c);
 
@@ -72,7 +77,9 @@ public:
                     result.pop_back();  // Remove the previous character
                     continue;
                 }
+                
             }
+
             result.push_back(c);  // No pair formed, keep current character
         }
 
