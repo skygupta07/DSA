@@ -1,6 +1,7 @@
 // largestNumber.cpp
 
 /*
+
 Given a list of non-negative integers nums, arrange them such that they form the largest number
 and return it.
 
@@ -18,6 +19,7 @@ Output: "9534330"
 
 */
 
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -26,13 +28,21 @@ class Solution {
 public:
     // Comparator function to decide which combination forms a larger number
     //  (sorting in descending order) - i.e bada number yaha par pehle...
+
+    // ascii value pe hi comparison hoga...
+    
+    /*
+    // agar a+b > b+a, toh a ko pehle rakho
+    // e.g. a = "9", b = "34" => "934" > "349", toh "9" ko pehle rakho
+    */
+
     static bool cmp(const string &a, const string &b) {
-        return a + b > b + a;   // yeh condition mujhe kaafi fascinating lagi...
+        return (a + b) > (b + a);   // yeh condition mujhe kaafi fascinating lagi...
     }
 
-    string largestNumber(vector<int>& nums) {
+    string largestNumber(vector <int> &nums) {
         // Convert each number to a string
-        vector<string> strNums;
+        vector <string> strNums;
 
         for (int num : nums) {
             strNums.push_back(to_string(num));

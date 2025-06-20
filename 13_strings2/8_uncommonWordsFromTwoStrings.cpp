@@ -1,5 +1,8 @@
+// uncommonWordsFromTwoStrings.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
+
 
 /*
 
@@ -25,7 +28,6 @@ Example 2:
 
 Input: s1 = "apple apple", s2 = "banana"
 Output: ["banana"]
-
  
 
 Constraints:
@@ -35,16 +37,17 @@ s1 and s2 consist of lowercase English letters and spaces.
 s1 and s2 do not have leading or trailing spaces.
 All the words in s1 and s2 are separated by a single space.
 
-
 */
+
 
 class Solution {
 public:
-    vector<string> uncommonFromSentences(string s1, string s2) {
-        // we need to find unique occurences
-        string s = s1 + " " + s2; // tumhare kaminepan ke hum gulam ho gaye...
-        stringstream str(s);
 
+    vector <string> uncommonFromSentences(string s1, string s2) {
+        // we need to find unique occurences
+
+        string s = s1 + " " + s2; // tumhare kaminepan ke hum gulam ho gaye...
+        stringstream ss(s);
         string tmp; // arey bkl koi jhola ya container to chahiye hi hoga na ... wo jo incoming strings ...
         // jo str se aa rahi ho ... usko store karne ke liye...
 
@@ -52,7 +55,7 @@ public:
         unordered_map <string, int> mp;
         
 
-        while(str >> tmp){    // stringstream ❌ cin ka bhai... ✅
+        while(ss >> tmp){    // stringstream ❌ cin ka bhai... ✅
             mp[tmp]++;
         }
 

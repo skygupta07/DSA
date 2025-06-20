@@ -3,7 +3,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
 /*
 
 You are given a string s and an integer k. 
@@ -32,10 +31,9 @@ There may exists other ways to achieve this answer too.
 
 Constraints:
 
-1 <= s.length <= 105
+1 <= s.length <= 1e5
 s consists of only uppercase English letters.
 0 <= k <= s.length
-
 
 */
 
@@ -48,8 +46,8 @@ public:
         // Initialize pointers i and j, and maxFreq to track the maximum frequency of a character
         int left = 0, right = 0, maxFreq = 0;  
 
-        // HashMap to store the frequency of characters within the window
-        unordered_map<char, int> mp;  
+        // HashMap to store the frequency of characters **within the window**
+        unordered_map <char, int> mp;  
 
         // Variable to store the length of the longest valid substring
         int maxLen = -1;  

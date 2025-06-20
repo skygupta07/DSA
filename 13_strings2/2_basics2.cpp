@@ -1,9 +1,10 @@
-#include <iostream>
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
+
 
 int main(){
     int x = -121;
+    
     string s = to_string(x);
 
     for (int i=0; i<s.length(); i++){

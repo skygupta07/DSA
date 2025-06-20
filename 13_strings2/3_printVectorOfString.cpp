@@ -6,11 +6,14 @@ void printString(vector <string> &v){
 
     // ye auto wali statement se one bottle down wala scenario ho jaata h...
     for (auto str: v){
+
         for (auto ch: str){
             cout<<ch;
         }
+
         cout<<"\n";
     }
+    
 }
 
 

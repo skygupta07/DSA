@@ -1,3 +1,5 @@
+// checkIfAWordOccurAsPrefixOfAnotherString.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -24,7 +26,8 @@ Example 2:
 
 Input: sentence = "this problem is an easy problem", searchWord = "pro"
 Output: 2
-Explanation: "pro" is prefix of "problem" which is the 2nd and the 6th word in the sentence, but we return 2 as it's the minimal index.
+Explanation: "pro" is prefix of "problem" which is the 2nd and the 6th word in the sentence, 
+but we return 2 as it's the minimal index.
 
 
 Example 3:
@@ -38,6 +41,7 @@ Constraints:
 
 1 <= sentence.length <= 100
 1 <= searchWord.length <= 10
+
 sentence consists of lowercase English letters and spaces.
 searchWord consists of lowercase English letters.
 
@@ -47,8 +51,10 @@ searchWord consists of lowercase English letters.
 
 class Solution {
 public:
+
     bool isPrefix(string s, string t) {
-        if (s.length() > t.length()) return false; // Ensure `t` is long enough
+        // Ensure `t` is long enough
+        if (s.length() > t.length()) return false; 
 
         for (int i = 0; i < s.length(); i++) {
             if (s[i] != t[i]) return false;
@@ -58,7 +64,7 @@ public:
     }
 
     int isPrefixOfWord(string sentence, string searchWord) {
-        stringstream ss(sentence); // Use stringstream to tokenize the sentence
+        stringstream ss(sentence); // Use stringstream to tokenize the string named sentence here....
         string word;    // stringstream ke baad agar aapne string temp/word   ye nahi likha to kya likha..
         
 

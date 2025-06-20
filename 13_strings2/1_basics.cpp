@@ -1,8 +1,9 @@
-#include <iostream>
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
 
+
 int main(){
+    
     string s = "akash\n";  // okay so strings are kept in double quotes and char in single
                             // quotes only.....
     int ans = 0;
@@ -15,6 +16,7 @@ int main(){
 
     ans += V-I;
     cout<<ans<<endl;
+
     int n = s.length();
     cout<<n<<endl;
     

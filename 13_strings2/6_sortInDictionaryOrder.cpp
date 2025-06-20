@@ -12,14 +12,16 @@ int main(){
 
     sort(s.begin(), s.end());   // lexographical order is actually  ascii value order mai sort kar dega..
     // tabhi capital letters wale char pehle aa gaye and spaces to aur bhi pehle aa gaye...
+    
     cout<<s<<endl;
 
     char ch = ' ';
     cout<<(int)ch<<endl;    // will give ascii value of space
 
+    // will give ascii value of hash
     char hash = '#';
-    cout<<(int)hash<<endl;  //   // will give ascii value of hash
-
+    cout<<(int)hash<<endl;
+    
 }
 
 
