@@ -19,9 +19,8 @@ int main() {
 }
 
 /*
-Given an integer 
-N, consider all arrays 
-A, output the smallest possible sum of the elements of the array.
+
+Given an integer N, consider all arrays A, output the smallest possible sum of the elements of the array.
 
 Note: Since the Input/Output may be large, it is preferred to use fast I/O.
 
@@ -31,4 +30,5 @@ sum of ap laga diya 0 2 4 6 8 10    wale pe....
 sn = n/2(2a + (n-1)*d)
 
 we got (n-1)*(n-2) then finally add 1 taaki sum jo odd kar raha hai...
+
 */

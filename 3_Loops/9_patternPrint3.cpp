@@ -2,6 +2,7 @@
 #include <vector>
 using namespace std;
 int main(){
+
     cout<<endl;
     cout<<"IMPORTANT star triangle flipped "<<endl;
 
@@ -73,15 +74,6 @@ int main(){
             cout<<"* ";
         }
         cout<<endl;
-    }
-
-
-    
-
-
-
-
-
- 
+    } 
 }
 

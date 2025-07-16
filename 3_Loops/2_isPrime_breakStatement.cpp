@@ -1,15 +1,17 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
+
 
 bool isPrime(int n){
     bool flag = true;   // true means prime...
-    for (int i=2; i<=n-1; i++){
+    
+    for (int i=2; i <= n-1; i++){
         if (n%i == 0){
             flag = false;
             break;
         }
     }
+
     return flag;
 }
 

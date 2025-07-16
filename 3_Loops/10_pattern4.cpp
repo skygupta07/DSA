@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 using namespace std;
+
+
 int main(){
     int n;  // no
     cout<<"enter number of rows: "<<endl;

@@ -12,7 +12,7 @@ int main(){
     int digits = 0;
     int a = n;
 
-    while (n>0){
+    while (n > 0){
         n = n/10;
         digits++;
     }

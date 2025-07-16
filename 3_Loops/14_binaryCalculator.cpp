@@ -5,8 +5,7 @@ using namespace std;
 using namespace std;
 
 // Function to convert a real number to its binary representation
-string toBinaryCalculator(double num) 
-{
+string toBinaryCalculator(double num) {
     string binary = "0."; // Initialize the binary string
     int precision_limit = 32; // Set the precision limit
 
