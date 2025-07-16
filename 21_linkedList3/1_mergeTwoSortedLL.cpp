@@ -1,101 +1,107 @@
+// mergeTwoSortedLinkedList.cpp
+
 //ll21
-#include<iostream>
+
+#include <bits/stdc++.h>
 using namespace std;
 
-class node{
-    public:
-    int data;
-    node* next;
+class Node{
+public:
 
-    node(int data){
+    int data;
+    Node* next;
+
+    // constructor
+    Node(int data){
         this->data = data;
         this->next = NULL;
     }
+
 };
 
-void insertAtHead(node* &head, int data){
-    node* new_node = new node(data);
-    new_node->next = head;
-    head = new_node;
+void insertAtHead(Node* &head, int data){
+    Node* new_Node = new Node(data);
 
-
+    new_Node->next = head;
+    head = new_Node;
 }
 
-void insertAtTail(node* &head, int data){
+void insertAtTail(Node* &head, int data){
 
-    // kisi bhi position pe element insert karne ke liye node hona bhi to chahiye ,, isliye pehle to tum node banao..
+    // kisi bhi position pe element insert karne ke liye Node hona bhi to chahiye, 
+    // isliye pehle to tum Node banao..
     
-    node* new_node = new node(data);
-    node* temp = head;  // Node* temp banaya jo ki head ko point kar rha hoga..filhaal
-    while (temp->next != NULL){  // taki aakhri node pe aake ruk saku
-        temp = temp->next;
+    Node* new_Node = new Node(data);
 
+    Node* temp = head;  // Node* temp banaya jo ki head ko point kar rha hoga..filhaal
+    while (temp->next != NULL){  // taki aakhri Node pe aake ruk saku
+        temp = temp->next;
     }
-    // now after the while loop pointer temp has reached the last node
-    temp->next = new_node;
-    new_node->next = NULL;  // No need to write since our constructor is smartly designed
+
+    // now after the while loop pointer temp has reached the last Node
+    temp->next = new_Node;
+    new_Node->next = NULL;  // No need to write since our constructor is smartly designed
 
 }
 
-void displayLL(node* &head){
-    node* temp = head;
+void displayLL(Node* &head){
+    Node* temp = head;
+
     while (temp != NULL){
         cout<<temp->data<<"->";
-        temp= temp->next;
+        temp = temp->next;
     }
+
     cout<<"NULL"<<endl;
 }
 
-int lengthLL(node* &head){
-    int n=0;
-    node* temp = head;
-    while(temp!=NULL){ // arey bhai jab puri length count karna chahta hai to puri LL traverse bhi to karega
-        temp = temp->next; // but ha agar aisa kaam hai ki last wale node ki need hai tab to while(temp-next!=NULL) wali condition lagegi..
-        n++;
+int lengthLL(Node* &head){
+    int n = 0;
+    Node* temp = head;
 
+    while(temp!=NULL){ // arey bhai jab puri length count karna chahta hai to puri LL traverse bhi to karega
+        temp = temp->next; // but ha agar aisa kaam hai ki last wale Node ki need hai tab to while(temp-next!=NULL) wali condition lagegi..
+        n++;
     }
+
     return n;
 }
 
-void mergeLL(node* h1, node* h2, node* h3){
-    node* tempA = h1;
-    node* tempB = h2;
-    node* tempC = h3;
-
+void mergeLL(Node* h1, Node* h2, Node* h3){
+    Node* tempA = h1;
+    Node* tempB = h2;
+    Node* tempC = h3;
       
     while(h1!=NULL && h2!=NULL){
-        if (tempA->data<=tempB->data){
-            node* t = new node(tempA->data);
+
+        if (tempA->data <= tempB->data){
+            Node* t = new Node(tempA->data);
             tempC->next= t;
+
             tempC = t;
-            tempA = tempA->next;
-             
+            tempA = tempA->next;    
         }
+
         else{ // B<A -> B jeet gaya
-            node* t = new node(tempB->data);
+            Node* t = new Node(tempB->data);
             tempC->next = t;
             tempC = t;
-            tempB = tempB->next;
-
+            tempB = tempB->next; // b jeeta to bhaiya b ka hi to pointer aage karoge...
         }
 
         // try kario ek baar while loop se bahar likh ke try kar..
-        if (tempA == NULL){
-            tempC->next = tempB;
-        }
-        else{
-            tempC->next = tempA;
-        }
+        if (tempA == NULL) tempC->next = tempB;
 
-}
+        else tempC->next = tempA;
+    } 
 }
 
 
 
 int main(){
-     // start with empty linked list i.e. there will be no node and 
+     // start with empty linked list i.e. there will be no Node and 
     // head pointer pointing to NULL   #important
-    node* h1 = NULL;
+    Node* h1 = NULL;
 
     //insertAtTail(h1,2); // pehla hi element daalne ke liye insertAtTail kiya to error throw kiya 
                             // due to null pointer exception..
@@ -108,7 +114,7 @@ int main(){
 
     displayLL(h1);
     
-    node* h2 = NULL;
+    Node* h2 = NULL;
 
     insertAtHead(h2,15);
     insertAtHead(h2,12);
@@ -118,12 +124,8 @@ int main(){
     insertAtHead(h2,2);
 
     displayLL(h2);
-    node* h3 = new node(100); // farzi node..
+    Node* h3 = new Node(100); // farzi Node..
     mergeLL(h1,h2,h3);
     
-
-   
-    
-
     return 0;
 }
