@@ -32,6 +32,7 @@ Constraints:
 
 0 <= nums.length <= 10pow5
 -10pow9 <= nums[i] <= 10pow9
+
 nums is a non-decreasing array.
 -10pow9 <= target <= 10pow9
 
@@ -51,6 +52,7 @@ public:
 
         int startingPosition = -1, endingPosition = -1;
  
+        // front se loop chalaya to find first occurence
         for(int i=0; i<n; i++){
             if(nums[i] == target){
                 startingPosition = i;
@@ -58,6 +60,7 @@ public:
             }
         }
 
+        // back se loop chalaya to find last occurence
         for(int i=n-1; i>=0; i--){
             if(nums[i] == target){
                 endingPosition = i;
@@ -97,6 +100,7 @@ public:
             int mid = lo + (hi - lo)/2;
             
             if (nums[mid] == target){
+
                 if (mid-1 >=0 && nums[mid - 1] != target){
                     start = mid; // storing index
                     break;
@@ -114,7 +118,7 @@ public:
         lo = 0;
         hi = nums.size() - 1;
         
-        while (lo<=hi){
+        while (lo <= hi){
             int mid = lo + (hi - lo)/2;
             
             if (nums[mid] == target){
@@ -127,6 +131,7 @@ public:
                 }
             }
             else if (nums[mid] < target) lo = mid + 1;
+            
             else hi = mid - 1;
         }
 

@@ -51,7 +51,7 @@ using namespace std;
 class Solution {
 public:
     
-    int helper(vector <int> &nums, int diff){
+    int solve(vector <int> &nums, int diff){
         int count = 0;
 
         int j = 0;
@@ -82,7 +82,7 @@ public:
             int mid = lo + (hi - lo)/2;
 
             // number of pairs that are smaller than mid difference..
-            int count = helper(nums, mid);
+            int count = solve(nums, mid);
 
             if (count >= k){
                 ans = mid;
@@ -99,69 +99,88 @@ public:
 };
 
 
-// mehtod 2 
+// method 2 
 
 class Solution {
 public:
-    int helper(vector<int>&nums,int k,int diff){
 
+    // 🔹 This function counts how many pairs (i, j) exist such that:
+    // i < j and (nums[j] - nums[i]) <= diff
+    // i.e., number of pairs whose absolute difference is ≤ current `mid` (i.e., diff)
+    
+    int solve(vector <int> &nums, int k, int diff) {
         int count = 0;
         int j = 0;
+
         int n = nums.size();
 
-        // har element ko pick karke uska uske aage waale elements ke saath difference calculate karenge and find karenge kitne elements esse hai jinka difference less than current difference(mid) hai
-        for(int i=0;i<n;i++){
-
-            // jab tak difference less hoga tab tak aage badhenge
-            while(j<n && (nums[j]-nums[i])<=diff){
+        for (int i = 0; i < n; i++) {
+            // j will keep moving forward till the difference condition breaks
+            while (j < n && (nums[j] - nums[i]) <= diff) {
                 j++;
             }
 
-            // number of elements = number of pairs = start index - ending index - 1
-            count += (j-i-1);
+            // 🔹 Total pairs formed with nums[i] such that difference ≤ diff = (j - i - 1)
+            // Because i is fixed and we moved j ahead till it violated condition
+            count += (j - i - 1);
         }
         return count;
     }
 
-
-    int smallestDistancePair(vector<int>& nums, int k) {
+    // 🔹 Main function to return the k-th smallest absolute difference among all pairs
+    int smallestDistancePair(vector <int> &nums, int k) {
         int n = nums.size();
-        sort(nums.begin(), nums.end());
+        sort(nums.begin(), nums.end());  // Sorting helps in applying two-pointer + binary search
 
-        // Kyunki humne sort kardiya hai toh difference ki range 0 to (max-min) tak hi jaayegi
+        // 🔹 After sorting, the smallest absolute difference can be 0
+        // (if duplicates exist), and max = max_element - min_element
         int lo = 0;
-        int hi = nums[n-1] - nums[0];
+        int hi = nums[n - 1] - nums[0];
 
         int ans = -1;
 
-        // hum har baar binary search ki help se ek difference {or kind of distance here} nikalenge 
-        // and ye dekhenge ki kitne pairs 
-        // jinka difference less than equal to hai iss current difference ke
-        while(lo <= hi){
+        // Binary search on answer space — trying all possible differences
+        while (lo <= hi) {
+            int mid = lo + (hi - lo) / 2;
 
-            int mid = lo + (hi-lo)/2;
+            // Count number of pairs whose difference is ≤ mid
+            int count = solve(nums, k, mid);
 
-            int count = helper(nums, k, mid);
-            // agar number of pairs jinka difference less than current difference hai 
-            // woh greater than equal to k hai toh {pehle jeb mai iss answer ko rakh lenge
-            //  then better option ki talaash..} hume apne current difference ko aur kum karne
-            //  ki try karenge left side move karke
-            
-            if(count >= k){
+            if (count >= k) {
+                // Mid can be a potential answer, but let's try to find even smaller one
+                // So move to the left side of search space
                 ans = mid;
-                hi = mid-1;
-            }
-
-            // agar number of pairs jinka difference less than current difference hai woh less than k hai
-            //  toh hume apne current difference ko aur increase karne ki try karenge right side move karke
-            
-            else{
+                hi = mid - 1;
+            } else {
+                // Too few pairs — means we need to allow bigger differences
                 lo = mid + 1;
             }
-
         }
 
         return ans;
     }
 };
 
+
+/*
+
+🧠 Intuition:
+Sort the array so that difference between elements becomes predictable.
+Binary search the difference d (range: 0 to max - min) and for each d, count how many pairs (i, j) exist with nums[j] - nums[i] <= d.
+If count >= k, then d can be the answer (but we want the smallest such d).
+Otherwise, we need to increase d to get enough pairs.
+
+
+📊 Time & Space Complexity:
+🔹 Time Complexity:
+
+Sorting: O(n log n)
+Binary Search: log(range) = log(nums[n-1] - nums[0]) ≈ log(maxDiff)
+solve() runs in O(n) (since j only moves forward, not reset)
+Total: O(n log n + n log(maxDiff))
+
+🔹 Space Complexity:
+
+O(1) auxiliary, as everything is done in-place (excluding recursion stack or output)
+
+*/

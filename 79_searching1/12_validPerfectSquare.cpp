@@ -37,7 +37,7 @@ public:
             if (square == n) return true;
             
             else if (square < n){
-                lo = mid+1;
+                lo = mid + 1;
             }
             else hi = mid - 1;
         }

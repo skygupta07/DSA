@@ -1,6 +1,41 @@
+// sqrt(x).cpp
+
+
+/*
+
+Given a non-negative integer x, return the square root of x rounded down to the nearest integer. 
+The returned integer should be non-negative as well.
+You must not use any built-in exponent function or operator.
+
+For example, do not use pow(x, 0.5) in c++ or x ** 0.5 in python.
+ 
+
+Example 1:
+
+Input: x = 4
+Output: 2
+
+Explanation: The square root of 4 is 2, so we return 2.
+
+
+Example 2:
+
+Input: x = 8
+Output: 2
+Explanation: The square root of 8 is 2.82842..., 
+and since we round it down to the nearest integer, 2 is returned.
+ 
+
+Constraints:
+
+0 <= x <= 2e31 - 1
+
+*/
+
 
 class Solution {
 public:
+
     int mySqrt(int x) {
         int lo = 0;
         int hi = x;
@@ -16,8 +51,8 @@ public:
             else hi = mid-1;
         }
 
-        return hi;  // in case number is not perfect square 
-    }
+        return hi;  // in case number is not perfect square - return lower bound
+    } 
 };
 
 // binary search mai hamesha main role mid aur target element ka hi hota hai....
@@ -34,13 +69,14 @@ class Solution {
 public:
 
     int mySqrt(int x){
-        if (x==0 || x==1) return x;
+        if (x == 0 || x == 1) return x;
 
         long long lo = 0;
         long long hi = x;
 
         while (lo <= hi){
             long long mid = lo + (hi-lo)/2;
+            
             if (mid*mid == x) return mid;
 
             else if (mid*mid < x) lo = mid+1;
@@ -48,11 +84,13 @@ public:
             else hi = mid-1;
         }
 
-        return hi;   
+        return hi;    // in case number is not perfect square - return lower bound {sqrt(8) = 2}
+
         /*
         if the number is not perfect square then lower bound* return karwaya.
          jaha ki lower bound after the loop obviously hi hoga...(binary search mai loop hi iss tarah 
         se tutta hai...)
         */
+
     }
 };

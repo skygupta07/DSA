@@ -9,6 +9,7 @@ return the number of fair pairs.
 A pair (i, j) is fair if:
 
 0 <= i < j < n, and
+
 lower <= nums[i] + nums[j] <= upper
  
 

@@ -32,6 +32,8 @@ Constraints:
 
 */
 
+
+// my first approach
 class Solution {
 public:
     int arrangeCoins(int n) {
@@ -73,13 +75,15 @@ public:
             long long sum = mid * (mid + 1) / 2;
 
             if (sum == n) return mid;
+            
             // try higher...
             else if (sum < n) lo = mid + 1;
+            
             // try lesser...
             else hi = mid - 1;
         }
 
-        return hi;
+        return hi; // finally return lower bound as there will be only hi number of complete rows only...
     }
 
 };

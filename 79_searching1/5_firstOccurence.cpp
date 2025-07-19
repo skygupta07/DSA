@@ -1,50 +1,44 @@
-// find the first occurence in array..
+// firstOccurence.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
 
+int main() {
+    int arr[] = {1, 2, 2, 2, 3, 3, 3, 5, 5, 5, 5, 8, 8, 9};
+    int n = sizeof(arr) / sizeof(arr[0]);  // Size of the array
 
-int main(){
-
-    int arr[] = {1,2,2,2,3,3,3,5,5,5,5,8,8,9};  // yes I know this kind of array declaration from dx, dy vector ...
-    
-    int n = 14; //size of array
-    int x = 3; // target element
-
+    int x = 3; // Target element to search
     int lo = 0;
-    int hi = n-1;
+    int hi = n - 1;
 
-    // to flag the presence of element in array...
-    bool flag = false;
-    
-    while (lo <= hi){
+    int ans = -1;  // Default answer if not found
 
-        int mid = (lo+hi)/2;
+    while (lo <= hi) {
+        int mid = lo + (hi - lo) / 2;  // Overflow-safe formula
 
-        if (arr[mid] == x){ // ab iske andar do cases aur dekhne hai.
-                            // kyuki repetition hai..
-            if (arr[mid-1] != x){ // uske just pehle waala uske equal nahi aaya matlab yahi hai first occurence..
-                flag = true;
-                cout<<"first occuring index is: "<<mid<<endl;
+        if (arr[mid] == x) {
+            // 🟢 Mil gaya x, but we don't stop here
+            // Check if it's the first occurrence
+            if (mid == 0 || arr[mid - 1] != x) {
+                ans = mid;  // This is the first occurrence
                 break;
             }
-
-            // matlab just peeche wala element bhi same hi nikla.. matlab ye first occurence nahi h...
-            // so make hi = mid - 1 
-            else{ 
-                 hi = mid-1;
+            else {
+                // Go left side if earlier occurrence might be there
+                hi = mid - 1;
             }
         }
-
-        else if(arr[mid] < x) lo = mid + 1;
-
-        else hi = mid - 1;
+        else if (arr[mid] < x) {
+            lo = mid + 1;
+        }
+        else {
+            hi = mid - 1;
+        }
     }
 
+    if (ans != -1) cout << "First occurrence of " << x << " is at index: " << ans << endl;
+    
+    else cout << "Element not found in array." << endl;
+
+    return 0;
 }
-
-/*
-
-given a sorted array of n elements and a target x. find the first occurence of x
-in the array. if x does not exist return -1;
-
-*/

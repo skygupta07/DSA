@@ -1,13 +1,15 @@
+// binarySearch.cpp
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
+int main() {
+    // Vector banaya, bina size diye kyunki hum push_back se elements daal rahe hain
+    vector <int> v;
 
-int main(){
-    vector <int> v;   // we don't need to mention the size of vector when we are pushing back
-    // but we do need to mention the size, when we try to access the index...
-
-    v.push_back(2);    // aur agar kewal size mention karke chodd diya to wo saare elements
-        // ko zero se initialise kar dega...to phir sabke index pe le jaake theek karna padega...
+    // Vector me kuch elements insert kiye using push_back
+    v.push_back(2);
     v.push_back(5);
     v.push_back(3);
     v.push_back(10);
@@ -15,56 +17,48 @@ int main(){
     v.push_back(18);
     v.push_back(50);
 
-    for (int i=0; i<v.size(); i++){
-        cout<<v[i]<<" ";
+    // Binary Search tabhi kaam karega jab array sorted ho
+    // Isliye pehle vector ko sort kar lo (ascending order me)
+    sort(v.begin(), v.end());
+
+    // Sorted vector print kar rahe hain
+    cout << "Sorted vector: ";
+    for (int i = 0; i < v.size(); i++) {
+        cout << v[i] << " ";
     }
-    cout<<endl;
+    cout << endl;
 
-    // low hi mid sab index hote hai..
+    // Binary Search ke liye low aur high index define kiya
     int lo = 0;
-    int hi = v.size()-1;
+    int hi = v.size() - 1;
 
-    // mid declared outside or inside the loop ??
-
-    int mid= hi + (lo-hi)/2;   // taki int ya long me storage aur range ki problem na aae 
-                            // isliye mid = (hi+lo)/2 -> mid = hi+(lo-hi)/2
-
-    // or mid = lo + (hi - lo)/2
+    // User se target element input liya jo search karna hai
     int target;
-    cout<<"enter the element you want to search: ";
-    cin>>target;
+    cout << "Enter the element you want to search: ";
+    cin >> target;
 
-    while (lo <= hi){   // ye to binary ki condition hi hai..
+    // Binary Search loop
+    while (lo <= hi) {
+        // Mid calculate kar rahe hain in a safe way to avoid overflow
+        int mid = lo + (hi - lo) / 2;
 
-        if (v[mid]==target ){
-            // compare to hamesha middle wale element ko hi kiya karunga..
-            return target;  // jab jo dhundh rahe they wo mil gaya 
-            // to break karo ya return karo.
+        // Middle element ko compare karo target se
+        if (v[mid] == target) {
+            // Agar mil gaya to index return karo
+            cout << "Element found at index (0-based): " << mid << endl;
+            return 0;
         }
-
-        else if (v[mid]<target){
+        else if (v[mid] < target) {
+            // Agar mid wala element chhota hai target se, to right half me jao
             lo = mid + 1;
         }
-
-        else{  // v[mid]>target..
+        else {
+            // Agar mid wala element bada hai target se, to left half me jao
             hi = mid - 1;
         }
-        
     }
-    // agar upar se kabhi fn return nahi kar paya matlab that particular element is not present
-    // so simply return -1 in that case...
 
+    // Agar loop ke baad bhi element nahi mila to -1 print karo
+    cout << "Element not found in the array." << endl;
     return -1;
-    cout<<endl;
 }
-
-
-/* 
-
-reducing the search space by half in each step
--> works only if array is SORTED in either asc or desc order
--> t.c. = O(logn)
-
-agar kahi bhi "given a sorted integer array" ✅ dikh jaye to binary search sochna hai...
-
-*/

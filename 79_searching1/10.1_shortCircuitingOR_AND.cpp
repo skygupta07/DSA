@@ -5,7 +5,7 @@ This is because the result of an OR operation will always be true if any one of 
 
 (application -> aisa question jisme array out of bound bhi check karna h... and dusri condition bhi check 
 karni h to better is ki if statement mai aap pehle index out of bound wali condition pehle daal de then 
-OR laga ke next condition likh liya kare...)
+OR laga ke next condition likh liya kare...) {rule derived from bvc bounded visited condition}
 
 ->> In an AND operation, if the first condition evaluates to FALSE, 
 the second condition is not evaluated. This is because for AND to be true, 

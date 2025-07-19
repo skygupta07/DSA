@@ -11,32 +11,33 @@ int main(){
 
     int n=7;
 
-    int lo=0;
-    int hi=n-1;
+    int lo = 0;
+    int hi = n-1;
 
     int target;
     cout<<"\nenter the target element. ";
     cin>>target;
     
     // binary search -> lo hi mid break lo hi (always applied on sorted array either asc or desc)
-    while (lo<=hi){
+    while (lo <= hi){
+                                                                    
         int mid = lo + (hi-lo)/2;   
 
-        if (arr[mid]==target){
+        if (arr[mid] == target){
             cout<<"target element found at "<<mid<<" index.\n";
             break;
         }
 
         // agar target bada h...
-        else if (arr[mid]<target){
-            lo= mid+1;
+        else if (arr[mid] < target){
+            lo = mid+1;
         }
 
         else{
             hi=mid-1;
         }
     }
-    return -1;
+    return -1; // element not present
 }
 
 // t.c. = O(logn) for binary search

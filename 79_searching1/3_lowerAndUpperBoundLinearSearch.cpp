@@ -1,22 +1,57 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+int main() {
+    // Sorted array diya gaya hai
+    int arr[] = {1, 3, 5, 7, 10, 12, 15, 18, 20, 22, 26, 30};
+    int n = sizeof(arr) / sizeof(arr[0]);  // n = 12
 
-int main(){
+    int target = 19;  // jis element ka lower/upper bound find karna hai
 
-    int arr[] = {1,3,5,7,10,12,15,18,20,22,26,30};
-    int n = sizeof(arr)/sizeof(arr[0]);     // n = 12
+    // ✅ Binary search based upper_bound and lower_bound using STL:
+    // lower_bound -> first element which is >= target
+    // upper_bound -> first element which is > target
 
-    int i = 0;
-    int target = 19; 
+    // Inbuilt STL function ka use kiya for better efficiency and clarity
+    auto lb = lower_bound(arr, arr + n, target);  // returns pointer
+    auto ub = upper_bound(arr, arr + n, target);
 
-    // agar target element hota to wo kaha fit hota
-    while(arr[i] < target){
-        i++;
+    // lb/ub are pointers, so index nikalne ke liye base pointer subtract karna padega
+    int lbIndex = lb - arr;
+    int ubIndex = ub - arr;
+
+    cout << "Target element: " << target << endl;
+
+    // Lower Bound Result
+    if (lbIndex < n) {
+        cout << "Lower Bound (>= target): " << arr[lbIndex] << " at index " << lbIndex << endl;
+    } 
+    
+    else {
+        cout << "Lower Bound not found (target greater than all elements)" << endl;
     }
 
-    cout<<"upper bound is: "<<arr[i]<<endl; // very much interesting to remember this result that upper bound pe loop break hota h..
-    cout<<"lower bound is: "<<arr[i-1]<<endl;
+    // Upper Bound Result
+    if (ubIndex < n) {
+        cout << "Upper Bound (> target): " << arr[ubIndex] << " at index " << ubIndex << endl;
+    } 
     
+    else {
+        cout << "Upper Bound not found (target >= all elements)" << endl;
+    }
 
-}    
+    return 0;
+}
+
+
+
+
+/*
+
+lower_bound(arr, arr+n, x)
+→ Returns the first element which is ≥ x
+
+upper_bound(arr, arr+n, x)
+→ Returns the first element which is > x
+
+*/

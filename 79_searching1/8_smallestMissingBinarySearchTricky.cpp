@@ -27,7 +27,8 @@ int main(){
             // If value is not equal to index, we found a potential answer
             // But we want the *first* such index where this happens
             // So, store this index and keep looking in the left half
-            ans = mid;
+            ans = mid; //kyuki mere ko aur smaller value chahiye isliye yaha par answer store kar raha hu..
+            // and aur acche option ko search kar raha hu....
             hi = mid - 1;
         }
     }
