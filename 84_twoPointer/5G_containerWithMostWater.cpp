@@ -1,6 +1,7 @@
 // containerWithMostWater.cpp
 
 /*
+
 You are given an integer array height of length n. 
 There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) 
 and (i, height[i]).
@@ -35,8 +36,9 @@ Output: 1
 using namespace std;
 
 class Solution {
-    public:
-        int maxArea(vector<int>& height) {
+public:
+
+        int maxArea(vector <int> &height) {
             int n = height.size();
 
             int left = 0;
@@ -45,11 +47,13 @@ class Solution {
             int maxi = 0;
     
             while (left < right) {
+                
                 int h = min(height[left], height[right]);
                 int w = right - left;
     
                 maxi = max(maxi, h * w);   
-                // pehle maximize kar liya area then pointers update kiye... pointers update kiya on the basis 
+                // pehle maximize kar liya area then pointers update kiye...
+                //  pointers update kiya on the basis 
                 // of ki kiski height kam h sach mai...
     
                 if (height[left] < height[right]) left++;
