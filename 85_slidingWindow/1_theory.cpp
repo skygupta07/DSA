@@ -1,4 +1,5 @@
 /*
+
 two pointer technique hai..
 
 
@@ -26,27 +27,5 @@ but subarray hamesha continuous honge...
 sliding window mai bas ye dekh liya karo ki last mai kaha tak jaa sakta hu...
 kyuki ek point ke baad ho sakta hai ...ki window form na ho rahi ho...
 so can cause index out of bound error....
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 */

@@ -1,23 +1,79 @@
+/*
+
+🧾 Problem: Maximum Sum Subarray of Size K (with Subarray Output)
+You are given an integer array arr[] of size n, and an integer k, 
+which represents the size of a sliding window.
+
+Your task is to:
+
+Find the maximum sum among all contiguous subarrays of size k.
+
+Print the maximum sum, and
+Print the elements of the subarray which gives this maximum sum.
+
+
+🧿 Input:
+An array of integers:
+arr[] = {1, 3, 5, 7, 9, 10, 2, 10}
+
+An integer:
+k = 4
+
+✅ Output:
+Maximum window sum: 31
+Subarray with maximum sum: 7 9 10 5
+
+
+🔍 Constraints:
+1 <= k <= n <= 10^6
+-10^4 <= arr[i] <= 10^4
+
+
+🧠 Example Explanation:
+For input arr = [1, 3, 5, 7, 9, 10, 2, 10] and k = 4,
+All windows of size 4 and their sums:
+
+[1, 3, 5, 7] → 16
+[3, 5, 7, 9] → 24
+[5, 7, 9, 10] → 31 ✅
+[7, 9, 10, 2] → 28
+[9, 10, 2, 10] → 31 ✅
+Two subarrays have the same max sum of 31, but the code returns the first occurrence.
+
+*/
+
+
 #include <bits/stdc++.h>
+using namespace std;
 
 int main(){
     int arr[] = {1,3,5,7,9,10,2,10};
     int n = sizeof(arr)/sizeof(arr[0]);
+
     int k = 4; // window size
+
     int maxSum = INT_MIN;
+
     int maxIdx = -1;
     int prevSum = 0;
-    for (int i=0; i<k; i++){    // sabse pehli baar to khidki bharni hi padegi
+
+    // sabse pehli baar to khidki bharni hi padegi
+    for (int i=0; i<k; i++){    
         prevSum += arr[i];
     }
+
     maxSum = prevSum;
+
+
+    // left, right pointer ya i , j pointer use karte h window track karne ke liye
 
     int i = 1; //imp -> i pointer denotes start of window
     int j = k; // imp -> j pointer denotes end of window
 
-    while (j<n){  // constraint dusre waale hi pointer pe hai..
+    // constraint right waale hi pointer pe hai..
+    while (j<n){  
 
-// currentWindowSum = prevWindowSum + lastElement of current window - first element of prev window
+        // currentWindowSum = prevWindowSum + lastElement of current window - first element of prev window
 
         int currSum = prevSum + arr[j] - arr[i-1]; // calculating current window sum
         
@@ -26,11 +82,12 @@ int main(){
             maxSum = currSum;
             maxIdx = i; // remembering the starting index of maxSum sliding window...
         }
+        
+         // next window banane se pehle ke updates - important
+        prevSum = currSum; 
 
-        prevSum = currSum;  // next window banane se pehle ke updates
-
-        i++;    // both i and j pointer will be incremented by 1
-        j++; // window ko aage badaya
+        i++;    // both i and j pointer will be incremented by 1, to move window ahead
+        j++; 
     }
 
     cout<<"max window sum is: "<<maxSum<<endl;
@@ -39,11 +96,6 @@ int main(){
         cout<<arr[p]<<" ";
     }
     cout<<endl;
-
-        
-
-
-
 }
 
 
@@ -62,8 +114,5 @@ int main(){
 currSum = prevSum + currNext - prevFirst
 
 -> window starting from i pointer 
-
-
-
 
 */

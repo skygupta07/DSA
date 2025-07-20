@@ -3,7 +3,7 @@ using namespace std;
 
 
 
-// } Driver Code Ends
+// asked in uber -> will give tle 
 class Solution {
 public:
     // arr: input array
@@ -40,5 +40,33 @@ aur iterate karte waqt mai hi global maximum variable ko maximize karte rehna...
 */
 
 
+// optimise using circular kadane's algorithm...
 
---------------- 
+#include <vector>
+#include <algorithm>
+#include <climits>
+using namespace std;
+
+int maxSubarraySum(vector<int> &arr, int n) {
+    int totalSum = 0, maxSum = INT_MIN, currMax = 0;
+    int minSum = INT_MAX, currMin = 0;
+
+    for (int i = 0; i < n; i++) {
+        totalSum += arr[i];
+
+        // Kadane's for max subarray sum
+        currMax = max(currMax + arr[i], arr[i]);
+        maxSum = max(maxSum, currMax);
+
+        // Kadane's for min subarray sum
+        currMin = min(currMin + arr[i], arr[i]);
+        minSum = min(minSum, currMin);
+    }
+
+    // If all elements are negative, maxSum is the result
+    if (maxSum < 0) return maxSum;
+
+    // Maximum of non-circular and circular subarray sums
+    return max(maxSum, totalSum - minSum);
+}
+

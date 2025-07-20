@@ -1,3 +1,5 @@
+// fruitsIntoBaskets.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -43,8 +45,57 @@ If we had started at the first tree, we would only pick from trees [1,2].
 
 Constraints:
 
-1 <= fruits.length <= 105
+1 <= fruits.length <= 1e5
 0 <= fruits[i] < fruits.length
+
+*/
+
+
+
+// return top 2 most frequent fruits - wrong Answer {kyuki aapne yaha stop wali condition ignore kari..}
+class Solution {
+public:
+    int totalFruit(vector<int>& fruits) {
+        unordered_map <int, int> freq;
+        for (auto fruit : fruits) freq[fruit]++;
+
+        // minheap
+        priority_queue <int, vector <int>, greater <int> > pq;
+
+        for (auto el : freq){
+            pq.push(el.second);
+
+            if (pq.size() > 2) pq.pop();
+        }
+
+        int ans = pq.top();
+        pq.pop();
+
+        ans += pq.top();
+        pq.pop();
+
+        return ans;
+    }
+};
+
+/*
+
+Wrong Answer
+30 / 91 testcases passed
+submitted at May 12, 2025 02:59
+
+Editorial
+Input
+
+fruits =
+[3,3,3,1,2,1,1,2,3,3,4]
+
+Use Testcase
+Output
+8
+
+Expected
+5
 
 */
 

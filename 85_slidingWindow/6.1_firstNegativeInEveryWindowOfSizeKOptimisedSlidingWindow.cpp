@@ -24,19 +24,20 @@ int main(){
     
     // check if you found any negative number in the first window or not 
 
-    if (pni ==-1){
+    if (pni == -1){
         ans[0] = 1; //  1 denotes no negative element found in that window...
     }
     else{
         ans[0] = arr[pni];
     }
 
-    // now start sliding window
+    // now start sliding window (dusri khidki pe chale jao..)
     int i = 1;
     int j = k;
 
-    while (j<=n-1){
+    while (j <= n-1){
         if (pni >= i) ans[i] = arr[pni];
+        
         else{
             pni = -1;
 
@@ -46,8 +47,10 @@ int main(){
                     break;
                 }
             }
+
             if (pni != -1) ans[i] = arr[pni];
             else ans[i] = 1;
+
         }
 
         i++;
