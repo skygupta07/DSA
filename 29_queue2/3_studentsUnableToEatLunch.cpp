@@ -1,3 +1,5 @@
+// studentsUnableToEatLunch.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -74,6 +76,7 @@ public:
             
             if (q.front() == sandwiches[i]){
                 q.pop();
+
                 i++;
                 count = 0;  // resetting count to zero coz we are in safe state still
             }
@@ -81,6 +84,7 @@ public:
             else{
                 int x = q.front();
                 q.pop();    // line mai aage se hat ke
+                
                 q.push(x);  // peech jaake lag gya...
                 count++;    // deadlock type critical condition mai count ko increment kiya ...
             }

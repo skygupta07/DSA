@@ -1,3 +1,5 @@
+// minimumTimeNeededToBuyTickets.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -45,7 +47,8 @@ Explanation:
 The queue starts as [5,1,1,1], where the kth person is underlined.
 After the person at the front has bought a ticket, the queue becomes [1,1,1,4] at 1 second.
 Continuing this process for 3 seconds, the queue becomes [4] at 4 seconds.
-Continuing this process for 4 seconds, the queue becomes [] at 8 seconds. The kth person has bought all their tickets, so return 8.
+Continuing this process for 4 seconds, the queue becomes [] at 8 seconds. 
+The kth person has bought all their tickets, so return 8.
  
 
 Constraints:
@@ -59,10 +62,11 @@ n == tickets.length
 
 class Solution {
 public:
-    int timeRequiredToBuy(vector<int>& tickets, int k) {
+
+    int timeRequiredToBuy(vector <int> &tickets, int k) {
         queue <int> q;
 
-        for (int i=0; i<tickets.size(); i++) q.push(i);     // pushing index* into the queue...
+        for (int i=0; i<tickets.size(); i++) q.push(i);     // pushing !!index* into the queue...
 
         int timeNeeded = 0;
 
@@ -78,11 +82,14 @@ public:
             // check the base cases and condition.....
 
             if (k == idFront && tickets[idFront] == 0) return timeNeeded;
+            
             if (tickets[idFront] != 0) q.push(idFront);     // if our friend want more ticket then push him again
                                                         // back into the queue...
         }
+
         return timeNeeded;
     }
+
 };
 
 
@@ -90,23 +97,26 @@ public:
 
 class Solution {
 public:
+
     int timeRequiredToBuy(vector <int> &tickets, int k) {
         int timeNeeded = 0;
 
         for (int i=0; i<tickets.size(); i++){
 
-            if (i<=k) timeNeeded += min(tickets[k] , tickets[i]);   // dono case ka intersection dekha...
+            if (i <= k) timeNeeded += min(tickets[k] , tickets[i]);   // dono case ka intersection dekha...
             else timeNeeded += min(tickets[k]-1 , tickets[i]);
 
         }
 
         return timeNeeded;
     }
+
 };
 
 /*
 
 /*
+
 Intuition / Logic:
 
 -> Har second mein, ek banda ticket kharidta hai (1 ticket per second).
@@ -124,6 +134,7 @@ Intuition / Logic:
    - Total time is just the sum of all these contributions.
 
 Example:
+
 Input: tickets = [2,3,2], k = 2
 
 Meaning: person at index 2 (3rd person) ko apni 2 tickets lene tak kitna time lagega?

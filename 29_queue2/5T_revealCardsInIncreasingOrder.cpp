@@ -4,6 +4,7 @@
 using namespace std;
 
 /*
+
 You are given an integer array deck. There is a deck of cards where every card has a unique
 integer. The integer on the ith card is deck[i].
 
@@ -25,13 +26,14 @@ Note that the first entry in the answer is considered to be the top of the deck.
 
 class Solution {
 public:
-    vector<int> deckRevealedIncreasing(vector<int>& deck) {
+
+    vector <int> deckRevealedIncreasing(vector <int> &deck) {
         int n = deck.size();
         queue <int> q;
 
         for (int i=0; i<n; i++) q.push(i);      // pushing idx to queue..
         
-        sort(deck.begin() , deck.end());
+        sort(deck.begin(), deck.end());
 
         vector <int> ans(n);
         // jayenge to saare hi index pe...
@@ -47,6 +49,7 @@ public:
                 q.pop();
             }
         }
+        
         return ans;
     }
 };

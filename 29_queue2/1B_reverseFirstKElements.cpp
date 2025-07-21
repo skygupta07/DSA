@@ -28,9 +28,9 @@ Explanation: After reversing the first 4 elements from the given queue the resul
 
 
 Constraints:
-1<=q[i]<=105
-1<=q.size()<=105
-1<=k<=105
+1<= q[i] <= 1e5
+1<= q.size() <=1e5
+1 <= k <= 1e5
 
 */
 
