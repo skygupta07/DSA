@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main(){
+int main() {
+
     queue <int> q;
     // c++ provides front pop push back size empty also -> ha ha sab chotte hi hai..
     // to po push agar peeche jagah khali hai...
@@ -10,6 +11,7 @@ int main(){
     q.push(2);
     q.push(3);
     q.push(4);
+
     q.push(5);
     q.push(6);
     q.push(7);
@@ -20,6 +22,7 @@ int main(){
     
     q.pop();
     q.pop();
+    
     cout<<q.front()<<endl;
     cout<<q.back()<<endl; 
 }   

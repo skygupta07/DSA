@@ -1,11 +1,51 @@
+// smallestIntegerDivisibleByK.cpp
+
+/*
+
+Given a positive integer k, you need to find the length of the smallest positive integer n 
+such that n is divisible by k, and n only contains the digit 1.
+
+Return the length of n. If there is no such n, return -1.
+Note: n may not fit in a 64-bit signed integer.
+
+
+Example 1:
+
+Input: k = 1
+Output: 1
+
+Explanation: The smallest answer is n = 1, which has length 1.
+
+
+Example 2:
+
+Input: k = 2
+Output: -1
+Explanation: There is no such positive integer n divisible by 2.
+
+
+Example 3:
+
+Input: k = 3
+Output: 3
+Explanation: The smallest answer is n = 111, which has length 3.
+ 
+
+Constraints:
+
+1 <= k <= 1e5
+
+*/
+
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
 // using maths
-
-
 class Solution {
 public:
+
     int smallestRepunitDivByK(int k) {
         
         // Hum ek aise number N ko dhoondh rahe hain jo sirf 1s se bana ho (jaise 1, 11, 111, 1111, ...) 
@@ -33,6 +73,7 @@ public:
 
         return -1;
     }
+
 };
 
 
@@ -53,6 +94,7 @@ int lengthOfNumber(int k) {
 
     // BFS-like approach
     while (!q.empty()) {
+
         auto [remainder, length] = q.front();
         q.pop();
 

@@ -1,3 +1,59 @@
+// reverseOddLevelsOfBinaryTree.cpp
+
+/*
+
+Given the root of a perfect binary tree, reverse the node values at each odd level of the tree.
+
+For example, suppose the node values at level 3 are [2,1,3,4,7,11,29,18], 
+then it should become [18,29,11,7,4,3,1,2].
+
+Return the root of the reversed tree.
+
+A binary tree is perfect if all parent nodes have two children and all leaves are on the same level.
+
+The level of a node is the number of edges along the path between it and the root node.
+
+
+Example 1:
+
+
+Input: root = [2,3,5,8,13,21,34]
+Output: [2,5,3,8,13,21,34]
+
+Explanation: 
+The tree has only one odd level.
+The nodes at level 1 are 3, 5 respectively, which are reversed and become 5, 3.
+
+
+Example 2:
+
+
+Input: root = [7,13,11]
+Output: [7,11,13]
+
+Explanation: 
+The nodes at level 1 are 13, 11, which are reversed and become 11, 13.
+
+
+Example 3:
+
+Input: root = [0,1,2,0,0,0,0,1,1,1,1,2,2,2,2]
+Output: [0,2,1,0,0,0,0,2,2,2,2,1,1,1,1]
+
+Explanation: 
+The odd levels have non-zero values.
+The nodes at level 1 were 1, 2, and are 2, 1 after the reversal.
+The nodes at level 3 were 1, 1, 1, 1, 2, 2, 2, 2, and are 2, 2, 2, 2, 1, 1, 1, 1 after the reversal.
+ 
+
+Constraints:
+
+The number of nodes in the tree is in the range [1, 2e14].
+0 <= Node.val <= 1e5
+root is a perfect binary tree.
+
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -16,13 +72,15 @@ struct TreeNode {
 class Solution {
 public:
     TreeNode* reverseOddLevels(TreeNode* root) {
-        if (root == NULL) return NULL; // Agar tree empty hai, toh bas NULL return karo.
+        if (root == NULL) return NULL; // Agar tree empty hai, toh bas NULL return karo. 
+        // actually is condition ko light mai leta tha ... but ek baar pura question baar baar check karne
+        // ke baad bhi error pata nahi chal paa rahi thi... so phir ye wali condition lagayi...
 
         // Queue for BFS traversal
         queue <TreeNode*> q;
         q.push(root);
 
-        vector<int> values; // To store values of nodes at the current level.
+        vector <int> values; // To store values of nodes at the current level.
         int level = 0;      // Start with level 0 (even).
 
         // Perform BFS traversal
@@ -30,13 +88,14 @@ public:
             int qSize = q.size();    // Number of nodes at the current level.
             
             // isme sabse badi chalaki yahi h ki saath mai ek vector leke chalo....
-            vector<int> temp;        // Temporary vector for the current level values.
+            vector <int> temp;        // Temporary vector for the current level values.
 
             for (int i = 0; i < qSize; i++) {
                 TreeNode* node = q.front(); // Current node
                 q.pop();
 
-                if (level % 2 == 1) { // Odd level: Replace the node's value with the reversed value.
+                // Odd level: Replace the node's value with the reversed value.
+                if (level % 2 == 1) {
                     node->val = values[qSize-1-i];
                 }
 

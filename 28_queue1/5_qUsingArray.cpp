@@ -5,12 +5,14 @@ class Queue{
 public:
     int f;  // front
     int b;  // back
+
     vector <int> arr;   // vector wearing array clothes to mimic
                         // important to first declare outside 
 
     Queue(int size){ // constructor
         f = 0;    // bhai array ki help se bana rahe hai...
         b = 0; // initially to front aur back arr ke zeroth index pe 
+        
         arr.resize(size);
     }
 
@@ -20,7 +22,8 @@ public:
             cout<<"queue is full"<<endl;
             return;
         }
-        arr[b]=val; // nahi to array ke back wale index pe value insert kar di
+
+        arr[b] = val; // nahi to array ke back wale index pe value insert kar di
         b++;    // making back index ready for next...
     }
 
@@ -29,6 +32,7 @@ public:
             cout<<"queue is Empty can't pop"<<endl;
             return;
         }
+
         f++;
     }
 
@@ -37,6 +41,7 @@ public:
             cout<<"queue is Empty can't get front"<<endl;
             return;
         }
+
         cout<<arr[f]<<endl;
     }
 
@@ -45,6 +50,7 @@ public:
             cout<<"queue is Empty can't get back"<<endl;
             return;
         }
+
         cout<<arr[b-1]<<endl;   // kyuki back hamesha ek kadam aage ko point kar raha hoga..
     }
 
@@ -98,6 +104,7 @@ problems in array implementation of q
 
 
 class MyQueue {
+    
 private:
     int arr[100005];
     int front;

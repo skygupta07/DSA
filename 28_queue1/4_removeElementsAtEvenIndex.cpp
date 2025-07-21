@@ -1,16 +1,21 @@
+// removeElementsAtEvenIndex.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
 
 
 void display(queue <int> &q){
     int n = q.size();
+    
     for (int i=0; i<n; i++){
         // to po push
         int x = q.front();
         cout<<x<<" ";
         q.pop();
+
         q.push(x);
     }
+
     cout<<endl;
 }
 
@@ -23,6 +28,7 @@ void removeEven(queue <int> q){ // removing even indexed element...
             int x = q.front();
             cout<<x<<" ";
             q.pop();
+            
             q.push(x);
         }
         // even index means pop or remove the element....

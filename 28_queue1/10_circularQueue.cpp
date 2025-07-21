@@ -42,6 +42,7 @@ public:
         b = (b + 1) % capacity;  // Move back pointer circularly hamesha hi 
         // b = b+1 nahi karte hum simply hi... %capacity ka tarka laga dete 
         // h to identify chor ki dadhi mai tinka...
+        
         s++;
     }
 

@@ -17,13 +17,14 @@ iteration mai... naya q.front() milega...
 
 2. priority queue-> nahi time nahi kucch aur criteria rakho  
 priority ka let's say jo sabse bada element hai wo sabse pehle execute hoga..
+abey ha yaar priority_queue bhi to queue hi {kind of}
 
 3. circular queue-> rear ke baad front available hoga...
 
 4. doubly ended queue-> element front aur rear dono jagah se 
 insert (salman khan) aur delete (vicky kaushal) kiya ja sakta hai..
 
- khila pila ke halal code 
+khila pila ke halal code 
 
 
 back/rear se push hota hai and front se pop hota hai...
@@ -31,6 +32,7 @@ back/rear se push hota hai and front se pop hota hai...
 ll implementation good
 
 ->overflow occurs in case of array implementation of queue or when memory limit exceeds
+
 -> underflow when q is empty and you are trying to access element
 
 

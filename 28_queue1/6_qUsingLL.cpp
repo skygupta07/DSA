@@ -15,6 +15,7 @@ public:
 
 class Queue{    // Queue class
 public:
+
     Node* head;     // data members 
     Node* tail;     // head tail or front, back
     int size;
@@ -28,17 +29,21 @@ public:
     // member functions
     void enqueue(int data){ // all fn of queue should be in Queue class declared
         Node* temp = new Node(data);
-        if (size==0){
+
+        if (size == 0){
             head = tail = temp;
         }
+
         else{
             tail->next = temp;
             tail = temp;    // phir tail ko temp pe le gaya 
         }
+
         size++;  // good habit
     }
 
     void dequeue(){
+
         if (size==0){
             cout<<"queue is Empty..";
             return;
@@ -46,7 +51,8 @@ public:
 
         else{   // imp
             Node* temp = head;
-            head=head->next;
+            head = head->next;
+            
             size--;
             delete(temp);   // sach mai hi delete kar diya.. taki memory waste naa ho...
                             // wo peeche reh ke karta hi kya waise bhi...

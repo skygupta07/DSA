@@ -1,7 +1,11 @@
+// josephusProblemCircularQueue.cpp ❌ Welcome Game with Majnu Bhai ✅
+
+
 /*
 
 There are 'N' persons standing in a circular queue. 
 There is a number written on the back of the shirts of every person. 
+
 One person among them has a ball in his hands and the number written on his shirt's back is 1. 
 The number written on the shirt of every other person is 1 more than the number written on the shirt 
 of the person standing to the left of him. We have also been provided with an integer 'K' 
@@ -42,12 +46,15 @@ Constraints:
 1 <= K <= 10 ^ 9
 
 Time limit: 1 second
+
+
 Sample Input 1:
 2
 5
 2
 4
 3
+
 Sample Output 1:
 3
 1
@@ -86,35 +93,61 @@ Sample Output 2:
 */
 
 
-#include <bits/stdc++.h>
+
+#include <bits/stdc++.h> // Includes all standard headers (iostream, vector, etc.)
 using namespace std;
 
+/*
+    🔥 Josephus Problem Insight:
 
-// Function to find the winner in the game - ha for loop chalega.... 2 se leke N tak 
+    The Josephus problem is a classic problem in computer science and mathematics.
+    In the context of this question:
+
+    - People are standing in a circle numbered 1 to N.
+    - Every K-th person is removed.
+    - The person holding the ball passes it K-1 times, and the K-th person gets eliminated.
+    - We need to find out who is the last person remaining (the winner).
+
+    Observation:
+    👉 This is equivalent to the Josephus problem with 0-based indexing.
+
+    Recurrence Relation:
+    - josephus(1, K) = 0
+    - josephus(n, K) = (josephus(n-1, K) + K) % n
+
+    We then convert it back to 1-based indexing for the final answer.
+*/
+
+
+// ✅ Function to compute the winner of the game for given N and K
 int findWinner(int N, int K) {
-    // Start with 0-based indexing for Josephus problem
-    int winner = 0; 
+    // winner initially for 1 person is index 0 (0-based indexing)
+    int winner = 0;
 
+    // Loop to apply the Josephus recurrence relation from 2 up to N people
     for (int i = 2; i <= N; i++) {
+        // (current winner index + K) modulo i people to get new winner
         winner = (winner + K) % i;
     }
 
-    // Convert to 1-based indexing
+    // Convert result to 1-based indexing (as question expects person numbers starting from 1)
     return winner + 1;
 }
 
 
-
-
+// ✅ Driver function
 int main() {
-    int T;
-    cin >> T; // Number of test cases
+    int T;  // Number of test cases
+    cin >> T;
+
+    // Run T test cases
     while (T--) {
         int N, K;
         cin >> N >> K;
+
+        // Output the winner for each test case
         cout << findWinner(N, K) << endl;
     }
+
     return 0;
 }
-
-
