@@ -1,8 +1,10 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-class TreeNode{  // okay so leetcode uses ListTreeTreeNode or TreeTreeTreeNode and all to distinguish kaha ka TreeTreeNode
+// okay so leetcode uses ListTreeNode or TreeNode and all to distinguish kaha ka Node
+class TreeNode{  
 public:
+
     int data;
     TreeNode* left;
     TreeNode* right;
@@ -15,25 +17,29 @@ public:
 };
 
 void display(TreeNode* root){ // preOrder Traversal
-    if (root==NULL) return;  // ye cheez dhyan rakhna ki abhi bhi aapka root wahi sabse upar wala nahi hai 
+    if (root == NULL) return;  // ye cheez dhyan rakhna ki abhi bhi aapka root wahi sabse upar wala nahi hai 
                             // uski help se to hum cheezo ko sort kar rahe hai.. basically root is a TreeTreeTreeNode Pointer
                             // to wo ab ghumte ghumte jab neeche jaake null ho jae tab phir wapas return jaana hoga
     cout<<root->data<<" ";  // beech mai apna kaam karlo...
+    
     display(root->left);
     display(root->right);
 }
 
 int sum(TreeNode* root){
-    if (root==NULL) return 0; // mana ki leaf TreeNode ki value aapki zero hai(tej ho rahe ho..)
+    if (root == NULL) return 0; // mana ki leaf TreeNode ki value aapki zero hai(tej ho rahe ho..)
+    
     return root->data + sum(root->left) + sum(root->right);
             // root + left recursion + right recursion
 }
 
 int NodesNumber(TreeNode* root){    // size of tree is number of TreeNode
-    if (root==NULL) return 0; // wapas jaaana hai magar int ans bhi dena hai to zero ko yaad kiya.
+    if (root == NULL) return 0; // wapas jaaana hai magar int ans bhi dena hai to zero ko yaad kiya.
                 // saap bhi mar jaye aur laathi bhi naa tute...
+    
     return 1 + NodesNumber(root->left) + NodesNumber(root->right); // recursion magic..
 }
+
 
 int maxInTree(TreeNode* root){
     if (root == NULL) return INT_MIN;  // agar search karte karte root leaf TreeNode tak aagye 
@@ -42,7 +48,8 @@ int maxInTree(TreeNode* root){
     int lMax = maxInTree(root->left);
     int rMax = maxInTree(root->right);
 
-    return max(root->data,max(lMax,rMax));  // max(a,max(b,c)) -> OA mistake done
+    return max(root->data, max(lMax,rMax));  // max(a,max(b,c)) -> OA mistake done
+    // or return max({root->data, lMax, rMax});
 }
 
 int minInTree(TreeNode* root){

@@ -1,4 +1,5 @@
-// lowestCommonAncestor
+// lowestCommonAncestorOfABinaryTree.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -57,6 +58,7 @@ struct TreeNode {
 // lc 236
 class Solution {
 public:
+
     bool exists(TreeNode* root, TreeNode* target){
 
         if (root == NULL) return false;

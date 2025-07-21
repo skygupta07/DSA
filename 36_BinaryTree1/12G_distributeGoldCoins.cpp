@@ -47,7 +47,7 @@ struct TreeNode {
     TreeNode *right;
 
     TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {} // we use this one
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
@@ -80,12 +80,14 @@ public:
             jo batati hai ki current node ne kitne coins bheje ya liye.
             
         */
+
         return (node->val - 1) + leftRequired + rightRequired;
 
     }
 
     // Main function to initiate dfs and return total steps
     int distributeCoins(TreeNode* root) {
+
         dfs(root);
 
         return steps;
@@ -96,6 +98,7 @@ public:
 
 
 /*
+
 amount mere ko recursive call mai waapas aate waqt calculate karni hai.....so written post recursive call.....
 time and space complexity of simple dfs i.e. O(n)
 
@@ -104,6 +107,7 @@ time and space complexity of simple dfs i.e. O(n)
 
 /**
  * Definition for a binary tree node.
+ 
  * struct TreeNode {
  *     int val;
  *     TreeNode *left;
@@ -112,23 +116,47 @@ time and space complexity of simple dfs i.e. O(n)
  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
+ 
+
  */
 
 
 class Solution {
 public: 
 
-    // kyuki root ka koi parent nahi hota....
-    int distributeCoins(TreeNode* root, TreeNode* parent = NULL) {
-        if (root == NULL) return NULL;
+    // Function: distributeCoins
+    // root: current node of the binary tree
+    // parent: parent of the current node (NULL in case of root)
 
+    // Task: Distribute the coins in such a way that every node has exactly 1 coin
+    // Returns: Total number of moves required
+
+    int distributeCoins(TreeNode* root, TreeNode* parent = NULL) {
+        
+        // Base case: Agar current node NULL hai to 0 moves lagenge
+        if (root == NULL) return 0;
+
+        // Recursive call: Left aur right subtree ko solve karo
+        // Har call return karega us subtree ko balance karne ke liye required moves
         int moves = distributeCoins(root->left, root) + distributeCoins(root->right, root);
 
+        // root->val - 1 ka matlab:
+        // - Agar root->val > 1 hai, to is node ke paas extra coins hain -> x > 0
+        // - Agar root->val < 1 hai, to is node ko coins chahiye -> x < 0
+        // - Agar root->val == 1 hai, to is node ke paas perfect coins hain -> x = 0
+        
         int x = root->val - 1;
+
+        // Agar parent hai to:
+        // - Extra coins ko parent node me push karo ya waha se pull karo
+        // - x coins parent ke val me add kar diye jaate hain
         if (parent) parent->val += x;
 
+        // Har move me ek coin ek edge ke across move hota hai
+        // Isliye moves me abs(x) add karo (chahe coin aaye ya jaaye)
         moves += abs(x);
 
+        // Total moves return karo is subtree ke liye
         return moves;
     }
 
@@ -136,10 +164,9 @@ public:
 
 
 
+
 /*
 can we modify the given function in leetcode ? yes ofcourse here we will add parent node also...
-
-
 
 The idea is that the child give x = (y-1) coins to parent, if he has y coins. 
 (if y=0=> x=-1 then parent should give the child 1 coin)

@@ -5,7 +5,8 @@ using namespace std;
 
 //  A binary tree Node
 class Node {
-  public:
+public:
+
     int data;
     Node* left;
     Node* right;
@@ -13,22 +14,25 @@ class Node {
     // Constructor
     Node(int val) {
         data = val;
+
         left = nullptr;
         right = nullptr;
     }
+
 };
 
 
 class Solution {
 public:
   
-    void bfs( Node* root, vector <vector <int>> &ans){
+    void bfs(Node* root, vector <vector <int>> &ans){
         if (root == NULL) return;
         
         queue <Node*> q;
         q.push(root);
         
         while(!q.empty()){
+            
             vector <int> v;
             int qSize = q.size();
             
@@ -44,11 +48,12 @@ public:
             
             ans.push_back(v);
         }
+        
     }
   
   
   
-    vector<vector<int>> levelOrder(Node *root) {
+    vector <vector<int>> levelOrder(Node *root) {
          vector <vector <int>> ans;
          
          bfs(root, ans);

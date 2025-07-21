@@ -1,6 +1,7 @@
 // diameterOfBinaryTree.cpp
 
 /*
+
 543. Diameter of Binary Tree
 
 Given the root of a binary tree, return the length of the diameter of the tree.
@@ -12,13 +13,16 @@ The length of a path between two nodes is represented by the number of edges bet
 
 */
 
-#include <iostream>
+
+#include <bits/stdc++.h>
 using namespace std;
+
 
 struct TreeNode {
       int val;
       TreeNode *left;
       TreeNode *right;
+
       TreeNode() : val(0), left(nullptr), right(nullptr) {}
       TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
       TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
@@ -27,32 +31,41 @@ struct TreeNode {
 class Solution {
 public:
 
-
-    int levels(TreeNode* root){ // level of tree
+    // level of tree
+    int levels(TreeNode* root){ 
         if (root == NULL) return 0;
+
         return 1 + max(levels(root->left), levels(root->right));
     }
 
-    void helper (TreeNode* root , int &maxdia){    // helper fn which further takes help of levels fn and calculate the
-    // diameter of tree..
+    // helper fn which further takes help of levels fn and calculate the diameter of tree..
+    void solve (TreeNode* root , int &maxDia){    
+        
         if (root == NULL) return;   // base case 
-        int currDia = levels(root->left) + levels(root->right); // kaam -> diameter nikala and then turant
+        
+        // kaam -> diameter nikala and then turant
+        int currDia = levels(root->left) + levels(root->right); 
+
+
         // maximise pe bhi laga diya...
+        maxDia = max(maxDia, currDia);
 
-        maxdia = max(currDia,maxdia);
+        // recursively call lagai taaki saare nodes tak cover ho sake...
+        solve(root->left, maxDia); 
+        solve(root->right, maxDia); 
 
-        helper(root->left,maxdia); // recursively call lagai taaki saare nodes tak cover ho sake...
-        helper(root->right,maxdia); 
     }
 
 
     int diameterOfBinaryTree(TreeNode* root) {
-        int maxdia = 0; // initialise...
+        int maxDia = 0; // initialise...
 
-        helper(root,maxdia); // helper or solve or f 
+        solve(root, maxDia); // solve or f or helper 
 
-        return maxdia;
+        return maxDia;
     }
+
+
 };
 
 
@@ -60,6 +73,7 @@ public:
 /*
 we can think that ans is standing on a root go to deep in left and go in deep of right 
 then add both of them 
+
 but it will be better that we calculate the path via ezch node ...
 and update the maxdia via travelling only..(i.e. maximizing the global variable while doing your general
 iteration work....)
@@ -68,12 +82,14 @@ iteration work....)
 
 
 
-
 // -------- method - 2 -------------
 
 class Solution {
 public:
-    int height(TreeNode* &node, int &diameter){ // if you want the same variable value to be reflected everywhere
+
+    int height(TreeNode* &node, int &diameter){ 
+
+        // if you want the same variable value to be reflected everywhere
                 // then pass it by reference only....
         if (node == NULL) return 0;
 
@@ -83,11 +99,14 @@ public:
         diameter = max(diameter, lh + rh);
 
         return 1 + max(lh,rh);
+    
     }
 
     int diameterOfBinaryTree(TreeNode* root) {
         int diameter = 0;
+
         height(root,diameter);
+        
         return diameter;
     }
 
@@ -95,13 +114,16 @@ public:
 
 
 /*
+
 we can think that ans is standing on a root go to deep in left and go in deep of right then add both o them 
 but it will be better that we calculate the path via ezch node ...and update the maxdia via travelling only..
 
 // i.e. we are trying to take the longest on every node considering that node as the curve point.....
+
 */
 
 
+// interviews
 class Solution {
 public:
 

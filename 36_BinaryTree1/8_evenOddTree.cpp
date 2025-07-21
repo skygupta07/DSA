@@ -77,6 +77,10 @@ The number of nodes in the tree is in the range [1, 1e5].
 
 */
 
+
+// bfs aapka ek while aur ek for loop se bhi ho sakta h ...
+// aur chahe to two while loops ka bhi use kar sakte h...
+
 class Solution {
 public:
     bool isEvenOddTree(TreeNode* root) {
@@ -85,15 +89,16 @@ public:
         queue <TreeNode*> q;
         q.push(currNode);
         
-        // initially level is even -> then flip the isEvenLevel bool check... after each level.....
+        // initially level is even -> then flip flop the isEvenLevel bool check... after each level.....
         bool isEvenLevel = true; 
 
         while(!q.empty()){
             int qSize = q.size();
 
             int prev = INT_MAX;
+
             if (isEvenLevel) prev = INT_MIN;    // even level mai increasing chahiya isliye...uss level ke element 
-            // ko process karne ke liye...(same hi variable ko condition ke hissab se toggle karna hota h.. 
+            // ko process karne ke liye...(same hi variable {prev here} ko condition ke hissab se toggle karna hota h.. 
             //  to always write condition wali statement baad mai...)
 
             while(qSize--){    // yahi accha tarika hota hai while loop waala...
@@ -101,8 +106,8 @@ public:
                 q.pop();
 
                 // even level ho but values hi dhokha dede to...
-                if (isEvenLevel && (currNode->val %2 == 0 || currNode->val <= prev)) return false;
-                if (!isEvenLevel && (currNode->val %2 != 0 || currNode->val >= prev)) return false;
+                if (isEvenLevel && (currNode->val%2 == 0 || currNode->val <= prev)) return false;
+                if (!isEvenLevel && (currNode->val%2 != 0 || currNode->val >= prev)) return false;
 
                 prev = currNode->val;       // to move on to move on to move on...
 

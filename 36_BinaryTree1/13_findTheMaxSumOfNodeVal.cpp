@@ -77,20 +77,21 @@ The input is generated such that edges represent a valid tree.
 class Solution {
 public:
 
-    // using ll = long long;
-    typedef long long ll;
+    using ll = long long;
 
     long long maximumValueSum(vector<int>& nums, int k, vector<vector<int>>& edges) {
         ll sum = 0;
         ll count = 0;   // count of the persons who want to do xor operations on themselves
         
-        ll baliKaBakra = INT_MAX;
+        ll baliKaBakra = INT_MAX; // or mini
 
         for (auto el: nums){
 
             if ((el^k) > el){
                 sum += el^k;
+
                 baliKaBakra = min(baliKaBakra, ll(el^k) - el);
+
                 count++;
             }
 

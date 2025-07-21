@@ -1,8 +1,10 @@
-#include<iostream>
+#include <bits/stdc++.h>
 using namespace std;
+
 
 class node{
 public:
+
     int data;
     node* left;
     node* right;
@@ -40,7 +42,8 @@ void postOrder(node* root){
 int levelOfTree(node* root){ // counts number of levels in a tree..
     // no. of levels = 1 root ke karan plus left aur right me jiske jai uske number of levels...
     if (root == NULL) return 0;
-    return 1 + max(levelOfTree(root->left),levelOfTree(root->right));
+
+    return 1 + max(levelOfTree(root->left), levelOfTree(root->right));
 }
 
 // 
@@ -73,7 +76,7 @@ void levelOrder(node* root){
     int n = levelOfTree(root);
     
     for (int i=1; i<=n; i++){  // accha yaha ab i=1 ka use dikh rha hai...
-        printNthLevel(root,1,i);
+        printNthLevel(root, 1, i);
         cout<<endl;
     }
 
@@ -133,5 +136,7 @@ int main(){
 // dfs traversals -> pre in postorder traversal
 
 // pre in post order traversals taking t.c. = O(n) and s.c. = O(height) = O(logn) best case
+
 // but in worst case s.c. = O(n) for skewed tree...
+
 // becuause peak space ke case mai bhi maximum logn hi elements present they call stack mai..
