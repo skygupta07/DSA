@@ -3,6 +3,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
 /*
 
 RandomizedCollection is a data structure that contains a collection of numbers, 
@@ -15,12 +16,16 @@ RandomizedCollection() Initializes the empty RandomizedCollection object.
 
 bool insert(int val) Inserts an item val into the multiset, even if the item is already present. 
 Returns true if the item is not present, false otherwise.
+
 bool remove(int val) Removes an item val from the multiset if present. 
+
 Returns true if the item is present, false otherwise. 
+
 Note that if val has multiple occurrences in the multiset, we only remove one of them.
 
 
 int getRandom() Returns a random element from the current multiset of elements. 
+
 The probability of each element being returned is linearly related to the number of the same values 
 the multiset contains.
 
@@ -72,10 +77,10 @@ class RandomizedCollection {
 private:
 
     // Stores all inserted values as (val, index in valIndices[val])
-    vector<pair<int, int>> elements;
+    vector <pair <int, int>> elements;
 
     // Maps each value to a list of indices in the 'elements' vector
-    unordered_map<int, vector<int>> valIndices;
+    unordered_map <int, vector<int>> valIndices;
 
 
 public:
@@ -106,7 +111,8 @@ public:
         valIndices[val].pop_back();
 
         // Get the last element in elements
-        auto last = elements.back();
+        auto last = elements.back(); // very very important to use this back - {otherwise iske liye tum phir 
+        // ko alag hi datastructure lagane lagoge....}
 
         // Move last element to removed index if not already there
         elements[removeIdx] = last;
@@ -123,10 +129,12 @@ public:
         }
 
         return true;
+
     }
 
     int getRandom() {
         int idx = rand() % elements.size();
+        
         return elements[idx].first;
     }
     

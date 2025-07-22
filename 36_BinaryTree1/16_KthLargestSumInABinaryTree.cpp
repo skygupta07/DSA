@@ -65,6 +65,7 @@ public:
 
     int findLevel(TreeNode* root){
         if (root == NULL) return 0;
+
         return 1 + max(findLevel(root->left) , findLevel(root->right));
     }
 
@@ -77,8 +78,8 @@ public:
         while (!q.empty()){
             int qSize = q.size();
 
-            long long lSum = 0;
-
+            long long lSum = 0; // stores level sum
+ 
             for (int i=0; i<qSize; i++){
                 TreeNode* curr = q.front();
                 q.pop();
@@ -104,7 +105,10 @@ public:
 
         bfs(root, pq);
 
-        while(k-- > 1 && !pq.empty()){ // kth largest nikalna hai matlab akash k-- > 1
+        // kth largest nikalna hai to maxheap bana ke then akash (k-- > 1)
+        // {mujhe ye yaad h ki mai kucch jyada hi soch raha tha ki minheap banau ya kya ...}
+
+        while(k-- > 1 && !pq.empty()){ 
             pq.pop();
         }
 

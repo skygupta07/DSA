@@ -53,12 +53,15 @@ x and y are exist in the tree.
       int val;
       TreeNode *left;
       TreeNode *right;
+
      TreeNode() : val(0), left(nullptr), right(nullptr) {}
-      TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-      TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-  };
+     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  
+};
  
 
+// method1
 class Solution {
 public:
 
@@ -66,14 +69,15 @@ public:
     void bfs(TreeNode* root, int x, int y, bool &ans){
         if (root == NULL) return; // base case
 
-        queue<TreeNode*> q;
+        queue <TreeNode*> q;
         q.push(root);
 
         while (!q.empty()) {
             int qSize = q.size();
 
             // flags to check if x and y found at current level
-            bool xFound = false, yFound = false;
+            bool xFound = false;
+            bool yFound = false;
 
             for (int i = 0; i < qSize; i++) {
                 TreeNode* curr = q.front();
@@ -95,22 +99,26 @@ public:
                 if (curr->val == x) xFound = true;
                 if (curr->val == y) yFound = true;
 
-                // left and right child ko queue me daalo
+                // left and right child ko queue me daalo {again I forgot this }
                 if (curr->left) q.push(curr->left);
                 if (curr->right) q.push(curr->right);
+
             }
 
-            // agar same level pe x & y dono mil gaye, aur siblings nahi the (checked above), then they are cousins
+            // agar same level pe x & y dono mil gaye, aur siblings nahi the (checked above), 
+            // then they surely are cousins
             if (xFound && yFound) {
                 ans = true;
                 return;
             }
 
-            // agar same level pe sirf ek mila, toh wo same level pe nahi hain -> not cousins
+            // agar same level pe sirf ek mila aur dusra nahi mila, 
+            // toh wo same level pe nahi hain -> not cousins
             if ((xFound && !yFound) || (!xFound && yFound)) {
                 ans = false;
                 return;
             }
+
         }
 
         ans = false; // agar x aur y milte hi nahi hai tree me
@@ -119,16 +127,22 @@ public:
     // Main function
     bool isCousins(TreeNode* root, int x, int y) {
         bool ans = false;
+
         bfs(root, x, y, ans);
+
         return ans;
     }
 };
 
 
+
+
 class Solution {
 public:
+
     TreeNode* replaceValueInTree(TreeNode* root) {
         root->val = 0;  // The root has no cousins, so its value is set to 0.
+        
         queue<TreeNode*> q;  // Queue for BFS traversal.
         q.push(root);  // Start with the root node.
         
@@ -136,10 +150,12 @@ public:
         while(!q.empty()){
             int n = q.size();  // Number of nodes at the current level.
             int sum = 0;  // To store the sum of all child nodes.
-            vector<TreeNode*> buf;  // Buffer to store the current level's nodes.
+            
+            vector <TreeNode*> buf;  // Buffer to store the current level's nodes.
             
             // Traverse all nodes at the current level.
             while(n--){
+
                 TreeNode* node = q.front();  // Get the node at the front of the queue.
                 q.pop();  // Remove it from the queue.
                 buf.push_back(node);  // Store the node in the buffer for later updates.
@@ -150,6 +166,7 @@ public:
                     q.push(node->left);  // Add left child to the queue.
                     sum += node->left->val;  // Add the left child's value to the sum.
                 }
+
                 if(node->right) {
                     q.push(node->right);  // Add right child to the queue.
                     sum += node->right->val;  // Add the right child's value to the sum.
@@ -175,6 +192,8 @@ public:
             }
         }
         
-        return root;  // Return the modified root of the tree.
+        // Return the modified root of the tree.
+        return root; 
     }
+
 };

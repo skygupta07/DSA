@@ -3,6 +3,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
 /*
 
 
@@ -13,6 +14,7 @@ You have to perform m independent queries on the tree where in the ith query you
 
 Remove the subtree rooted at the node with the value queries[i] from the tree. 
 It is guaranteed that queries[i] will not be equal to the value of the root.
+{agar aisa hota to pura tree hi ek baar mai gayab ho jaata ...}
 
 Return an array answer of size m where answer[i] 
 is the height of the tree after performing the ith query.

@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
 /*
 
 You are given the root of a binary tree with unique values.
-
 In one operation, you can choose any two nodes at the same level and swap their values.
 
 Return the minimum number of operations needed to make the values at each level sorted 
@@ -79,11 +79,11 @@ class Solution {
 public:
 
     // Helper function to calculate minimum number of swaps required to sort the array
-    int countSwap(vector<int>& arr){
+    int countSwap(vector <int> &arr){
         int n = arr.size();
 
         // Pehle har element ke sath uska index store karo
-        vector <pair <int, int>> indexedArr;
+        vector <pair <int, int>> indexedArr; // el, idx
 
         for (int i = 0; i < n; ++i) {
             // el, idx
@@ -93,7 +93,8 @@ public:
         // Sort karo based on value, taaki hume pata chale kisko kahan hona chahiye
         sort(indexedArr.begin(), indexedArr.end());
 
-        vector <bool> visited(n, false);  // Ye track karega ki koi element already cycle me visit hua ya nahi
+        // Ye track karega ki koi element already cycle me visit hua ya nahi
+        vector <bool> visited(n, false);  
         
         int swaps = 0;
 
@@ -104,7 +105,7 @@ public:
 
             // Cycle detection
             int cycleSize = 0;
-            int j = i;
+            int j = i; // now yaha se cycle trace karna start karo...
 
             while (!visited[j]) {
                 visited[j] = true;
@@ -124,18 +125,22 @@ public:
         int totalOps = 0;
 
         // Standard level-order traversal (BFS)
-        queue<TreeNode*> q;
+        queue <TreeNode*> q;
         q.push(root);
 
         while (!q.empty()) {
             int levelSize = q.size();
-            vector<int> levelValues;
+            vector <int> levelValues;
 
             // Ek level ke sare nodes process karo
-            for (int i = 0; i < levelSize; ++i) {
-                TreeNode* node = q.front(); q.pop();
-                levelValues.push_back(node->val);
+            for (int i = 0; i < levelSize; i++) {
+                TreeNode* node = q.front(); 
+                q.pop();
 
+                levelValues.push_back(node->val);
+                
+                // jab kabhi bhi node humne upar nikal rakha hota h 
+                // to ab uske nbrs ko bhi yahi dekhna hota h..
                 if (node->left) q.push(node->left);
                 if (node->right) q.push(node->right);
             }
@@ -145,5 +150,6 @@ public:
         }
 
         return totalOps;
+
     }
 };

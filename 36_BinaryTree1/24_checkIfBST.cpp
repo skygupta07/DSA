@@ -21,13 +21,16 @@ Expected Space Complexity: O(1)
 */
 
 class Solution {
-    public:
+public:
+
       bool isBSTTraversal(vector<int>& arr) {
+
           for (int i=1; i<arr.size(); i++){
             // agar current element peechle element se chota ya even equal
             //  bhi ho gaya to BST not possibl at all...
               if (arr[i] <= arr[i-1]) return false;
           }
+          
           return true;
       }
   };

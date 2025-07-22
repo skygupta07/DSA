@@ -1,4 +1,4 @@
-// nArrayPostOrderTraversal.cpp
+// nArrayPostOrderTraversal.cpp {easy marked}
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -39,8 +39,9 @@ Follow up: Recursive solution is trivial, could you do it iteratively?
 // Definition for a Node.
 class Node {
 public:
+
     int val;
-    vector<Node*> children;
+    vector <Node*> children;
 
     Node() {}
 
@@ -48,17 +49,18 @@ public:
         val = _val;
     }
 
-    Node(int _val, vector<Node*> _children) {
+    Node(int _val, vector <Node*> _children) {
         val = _val;
         children = _children;
     }
 };
 
 
-
+// dry run done
 class Solution {
 public:
-    vector<int> postorder(Node* root) {
+
+    vector <int> postorder(Node* root) {
         vector<int> ans;
 
         if (root == NULL) return ans;   // nalla case
@@ -81,6 +83,7 @@ public:
         // Reverse the result to get the correct postorder traversal
 
         reverse(ans.begin(), ans.end());
+
         return ans;
     }
 };
@@ -89,7 +92,8 @@ public:
 
 
 # Intuition
-The problem can be solved using recursion, but using a stack can help simulate the recursive approach iteratively.
+The problem can be solved using recursion, 
+but using a stack can help simulate the recursive approach iteratively.
 
 # Approach
 1. Use a stack to simulate the recursive process.
@@ -134,22 +138,30 @@ public:
 
 class Solution {
 private: 
-    void f(Node* &root, vector <int> &ans){
+
+    void solve(Node* &root, vector <int> &ans){
         if (root == NULL) return;
 
         for (auto child : root->children){
-            f(child, ans);
+
+            // ab iss call ke liye to child will behave like root
+            solve(child, ans);
+
             ans.push_back(child->val);
         }
     }
 
 
-
 public:
-    vector<int> postorder(Node* root) {
+
+    vector <int> postorder(Node* root) {
         vector <int> ans;
-        f(root, ans);
+
+        solve(root, ans);
+
         if (root != NULL) ans.push_back(root->val);
+
         return ans;
     }
+
 };

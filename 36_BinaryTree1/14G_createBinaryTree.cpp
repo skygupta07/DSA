@@ -68,6 +68,8 @@ public:
 
         // hasParent: batata hai ki koi node kisi ka child hai ya nahi
         // jiska parent hoga usko 'true' mark karenge
+
+        // ye hasParent wala isliye hi bana rahe h taaki baad mai jaake root node ko find kar sake...
         unordered_map <int, bool> hasParent;
 
         // step-1: Tree construct karna based on descriptions

@@ -61,6 +61,7 @@ public:
 
     // Recursive DFS function to check flip equivalence
     bool dfs(TreeNode* &root1, TreeNode* &root2){
+
         // Case 1: Both nodes are NULL (leaf level) -> Equal
         if (!root1 && !root2) return true;
 
@@ -79,7 +80,7 @@ public:
         bool notFlip = dfs(root1->left, root2->left) && dfs(root1->right, root2->right);
 
         // If either works, trees are flip equivalent at this level
-        return flip || notFlip;
+        return (flip || notFlip);
     }
 
     // Main function that kicks off the recursion
