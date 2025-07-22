@@ -1,3 +1,5 @@
+// levelOrderTraversalUsingNthLevel.cpp
+
 #include <iostream>
 using namespace std;
 
@@ -12,8 +14,8 @@ public:
         this->left = NULL;
         this->right = NULL;
     }
-
 };
+
 
 int levels(TreeNode* root){
     if (root == NULL) return 0;
@@ -22,21 +24,25 @@ int levels(TreeNode* root){
 
 void printNthLevel(TreeNode* root, int currLevel, int reqLevel){
     if (root == NULL) return;  //base case
+
     if (currLevel == reqLevel){
         cout<<root->val<<" ";   // kaam
         return;   // agar required level pe aagaye ho then neeche jaane ki no need...
     }
-    printNthLevel(root->left,currLevel+1,reqLevel);
-    printNthLevel(root->right,currLevel+1, reqLevel);
 
+    printNthLevel(root->left, currLevel+1, reqLevel);
+    printNthLevel(root->right, currLevel+1, reqLevel);
 }
 
 void levelOrder(TreeNode* root){
     int n = levels(root);
-    for (int i=1; i<=n; i++){
-        printNthLevel(root,1,i);
-    }
 
+    // har level ko print karwaya...
+    
+    for (int i=1; i<=n; i++){
+        // currLevel, requiredLevel
+        printNthLevel(root, 1, i);
+    }
 }
 
 

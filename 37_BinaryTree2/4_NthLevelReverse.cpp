@@ -1,9 +1,10 @@
-#include<iostream>
-#include<vector>
+#include <bits/stdc++.h>
 using namespace std;
+
 
 class TreeNode{
 public:
+
     int data;
     TreeNode* left;
     TreeNode* right;
@@ -13,19 +14,27 @@ public:
         this->left = NULL;
         this->right = NULL;
     }
+
 };
+
+
 
 void printNthLevelRev(TreeNode* root, int currLevel, int reqLevel){
     if (root == NULL) return;
+
     if (currLevel == reqLevel){
         cout<<root->data<<" ";
         return;
     }
-    printNthLevelRev(root->right,currLevel+1,reqLevel);
-    printNthLevelRev(root->left,currLevel+1,reqLevel);  
+
+    printNthLevelRev(root->right, currLevel+1, reqLevel); // just right ki call pehle kar di..
+    printNthLevelRev(root->left, currLevel+1, reqLevel);  
 }
+
 // yaha bas recursive call ko up down karne se changes aate hai ....pre in post ke change se
 // koi fark nahi pad rha...
+
+
 
 int main(){
     TreeNode* a = new TreeNode(1); // tu ek node ke andar kucch bhi value daal but usko
@@ -49,7 +58,7 @@ int main(){
 
  /*   //    1       -level 1
      //    /\ 
-    //    2 3       --level 2
+    //    2  3       --level 2
     //   /\ /\ 
     //   4 5 6 7    ---level 3
 
