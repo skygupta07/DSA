@@ -1,3 +1,5 @@
+// minPushes.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -26,6 +28,7 @@ Example 1:
 
 Input: word = "abcde"
 Output: 5
+
 Explanation: The remapped keypad given in the image provides the minimum cost.
 "a" -> one push on key 2
 "b" -> one push on key 3
@@ -38,9 +41,9 @@ It can be shown that no other mapping can provide a lower cost.
 
 Example 2:
 
-
 Input: word = "xyzxyzxyzxyz"
 Output: 12
+
 Explanation: The remapped keypad given in the image provides the minimum cost.
 "x" -> one push on key 2
 "y" -> one push on key 3
@@ -51,10 +54,9 @@ Note that the key 9 is not mapped to any letter: it is not necessary to map lett
 
 
 Example 3:
-
-
 Input: word = "aabbccddeeffgghhiiiiii"
 Output: 24
+
 Explanation: The remapped keypad given in the image provides the minimum cost.
 "a" -> one push on key 2
 "b" -> one push on key 3
@@ -65,9 +67,9 @@ Explanation: The remapped keypad given in the image provides the minimum cost.
 "g" -> one push on key 8
 "h" -> two pushes on key 9
 "i" -> one push on key 9
+
 Total cost is 1 * 2 + 1 * 2 + 1 * 2 + 1 * 2 + 1 * 2 + 1 * 2 + 1 * 2 + 2 * 2 + 6 * 1 = 24.
 It can be shown that no other mapping can provide a lower cost.
-
 
 */
 
@@ -75,77 +77,106 @@ It can be shown that no other mapping can provide a lower cost.
 class Solution {
 public:
     int minimumPushes(string word) {
-        unordered_map<char, int> mp;
 
-        for(auto ch : word) mp[ch]++;
+        unordered_map<char, int> freq;
 
+        // Step 1: Count frequency of each character in the word
+        for (auto ch : word) {
+            freq[ch]++;
+        }
+
+        // Step 2: Max-heap to prioritize characters with highest frequency
         priority_queue<int> pq;
-        for(auto it : mp) pq.push(it.second);
-        
-        int count = 0; 
-        int ans = 0;
 
-        while(!pq.empty()){
+        for (auto it : freq) {
+            pq.push(it.second); // Push frequency values
+        }
 
-            int n = pq.top();
+        int count = 0; // How many unique characters we've processed
+        int ans = 0;   // Final answer to store total pushes
+
+        // Step 3: Assign keys to characters in decreasing order of frequency
+        while (!pq.empty()) {
+            int f = pq.top();
             pq.pop();
-            
-            ans += n*(count/8 + 1);
+
+            // For every 8 characters, cost level increases by 1
+            // 0–7 characters → cost = 1, 8–15 → cost = 2, etc.
+            ans += f * (count / 8 + 1);
+
             count++;
         }
-        
+
         return ans;
     }
 };
 
 
+/*
+
+There are only 8 keys per page/level, so:
+First 8 characters have cost multiplier 1
+Next 8 have cost multiplier 2, and so on…
+
+To minimize total cost, assign high-frequency characters first, i.e., with the lowest multiplier.
+That’s why we use a max heap (priority queue) to process characters with highest frequency first.
+
+*/
+
 
 // ----------
+
 
 
 class Solution {
 public:
 
-    unordered_map <char,int> mp;
+    unordered_map <char, int> mp;  // freq map banane ke liye global rakha
 
-    // Custom comparison function for sorting the freqVector in decreasing order
-    static bool cmp(pair<char, int>& a, pair<char, int>& b) {
-            return a.second > b.second;
+    // Comparator function to sort characters based on decreasing frequency
+    static bool cmp(pair<char, int> &a, pair<char, int> &b) {
+        return a.second > b.second;
     }
 
     int minimumPushes(string word) {
-        // Calculate frequency of each character
+
+        // Step 1: Count frequency of each character
         for (auto ch : word) {
             mp[ch]++;
         }
 
-        // Convert the frequency map to a vector of pairs for sorting -> good method
+        // Step 2: Convert freq map into a vector of pairs
         vector<pair<char, int>> freqVec(mp.begin(), mp.end());
 
-        // Sort the characters based on frequency in decreasing order
+        // Step 3: Sort vector based on frequency in decreasing order
         sort(freqVec.begin(), freqVec.end(), cmp);
 
-        // Map to store push values
-        unordered_map<char, int> pushes;
-        int bunch = 8;  // 8 8 8 2 ka guccha hi form hoga max since 26 chars
-        int push = 1;
+        // Step 4: Har 8 unique character ke bunch ko ek push level assign karenge
+        unordered_map <char, int> pushes;
+        
+        int bunch = 8;  // ek level mein 8 characters max assign kar sakte hain
+        int push = 1;   // starting push level
 
-        // Assign push values to the first 8 unique characters, then to the next 8, and so on
         for (int i = 0; i < freqVec.size(); i++) {
-            if (bunch == 0) {       // good way to update things in for loop as well
+            if (bunch == 0) {
+                // naye level ke liye reset kar diya
                 push++;
                 bunch = 8;
             }
-            pushes[freqVec[i].first] = push;    // corresponding character ko uski push value assign karwayi....
+
+            // current character ko push level assign kar diya
+            pushes[freqVec[i].first] = push;
             bunch--;
         }
 
-        // Calculate the minimum pushes required
+        // Step 5: Final answer = har character ke frequency * uska assigned push level
         int ans = 0;
-        for (int i = 0; i < word.length(); i++) {
-            ans += pushes[word[i]];
+        
+        for (char ch : word) {
+            ans += pushes[ch];
         }
 
         return ans;
     }
+
 };

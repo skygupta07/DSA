@@ -4,6 +4,7 @@
 using namespace std;
 
 /*
+
 Given two integer arrays nums1 and nums2, 
 return an array of their intersection. Each element in the result must be unique 
 and you may return the result in any order.
@@ -29,34 +30,39 @@ Constraints:
 */
 
 class Solution {
-    public:
-        vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+public:
+
+        vector <int> intersection(vector <int> &nums1, vector <int> &nums2) {
             vector <int> result;
-            set <int> s1;
-            set <int> s2;
+
+            set <int> st1;
+            set <int> st2;
     
-            for (auto el: nums1){
-                s1.insert(el);
-            }
+            for (auto el: nums1) st1.insert(el);
     
-            for (auto el: nums2){
-                s2.insert(el);
-            }
+            for (auto el: nums2) st2.insert(el);
     
-            int m = s1.size();
-            int n = s2.size();
+            int m = st1.size();
+            int n = st2.size();
     
-            if (m<=n){
-                for (auto el : s1){
-                    if (s2.find(el) != s2.end()) result.push_back(el);
+            if (m <= n){
+                // set1 ke har element ko set2 mai dekha...
+
+                for (auto el : st1){
+                    if (st2.find(el) != st2.end()) result.push_back(el);
                 }
-            }else{
-                for (auto el: s2){
-                    if (s1.find(el)!= s1.end()) result.push_back(el);
+
+            }
+            
+            else{
+                for (auto el: st2){
+                    if (st1.find(el)!= st1.end()) result.push_back(el);
                 }
+                
             }
     
             return result;
+
         }
     };
     

@@ -2,11 +2,21 @@
 using namespace std;
 
 
-int main(){
-    vector <pair <string,int> > v;
+/*
 
-    pair <string,int> p1;   
-    pair <string,int> p2; 
+vector <int> = vi
+vector <string> vs
+vector <pair <int, int>> vp
+
+*/
+
+
+int main(){
+
+    vector <pair <string, int>> vp;
+
+    pair <string, int> p1;   
+    pair <string, int> p2; 
 
     // p.first aur p.second karke hi aap values fetch insert delete kar sakte ho..
 
@@ -16,15 +26,18 @@ int main(){
     p2.first = "flipkart";
     p2.second = 55;
 
-    v.push_back(p1);
-    v.push_back(p2);
+    vp.push_back(p1);
+    vp.push_back(p2);
 
-    for (auto p : v){
+    for (auto p : vp){
+
         string platform = p.first;
         int price = p.second;
 
         cout<<"available at "<<platform<<" for "<<price<<" Rupees"<<endl;
+    
     }
 
     return 0;
+    
 }

@@ -1,3 +1,5 @@
+// happyNumber.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -20,8 +22,9 @@ Example 1:
 
 Input: n = 19
 Output: true
+
 Explanation:
-12 + 92 = 82
+1pow2 + 9pow2 = 82 
 82 + 22 = 68
 62 + 82 = 100
 12 + 02 + 02 = 1
@@ -35,7 +38,7 @@ Output: false
 
 Constraints:
 
-1 <= n <= 2pow31 - 1
+1 <= n <= 2e31 - 1
 
 */
 
@@ -46,14 +49,14 @@ public:
     int digitSquareSum(int n){
         int sum = 0;
 
-        while (n!=0){   // ha yaha not equal to zero tak hi chalana padega.. 
+        while (n != 0){   // ha yaha not equal to zero tak hi chalana padega.. 
             // or it is equivalent to while (n > 0)
         /// ekdum usko tod tod ke zero kar dena h...
 
             int ld = n%10;
-            sum += ld*ld;
-            n = n/10; // for next iteration
+            sum += ld*ld;   // add the digit square here...
 
+            n = n/10; // for next iteration
         }
 
         return sum;
@@ -62,19 +65,25 @@ public:
     bool isHappy(int n){
        unordered_set <int> set;
 
-       while (n!=1 && !set.count(n)){
+       while (n != 1 && !set.count(n)){
+
            set.insert(n);
-           n = digitSquareSum(n);   // for next iteration...
+
+           // for next iteration... update the n
+           n = digitSquareSum(n);  
        }
 
         // is while loop se bahar aaye to do case either n == 1 => happ num => return true;
-        // else set.count(n) =1 matlab element present mil gya hoga jo ki ab waha se loop start ho jaega...
+        // else set.count(n) = 1 matlab element present mil gya hoga jo ki ab waha se loop start ho jaega...
         // otherwise saare hi unique aate they agar directly wo 1 as a sum de deta to...
-        return (n==1);   
+
+        return (n == 1);   
     }
+
 };
 
 // jab yaha mujhe uski frequency wagera store hi nahi karwani to hashmap kyu use karu... 
 // I just have to check
 // whether the element is present or not which can be done using the unordered_set itself..
-// set.count(n) -> returns boolean value whether n has been encountered in the set once or not....
+// set.count(n) -> returns boolean value whether n {or the key} 
+// has been encountered in the set once or not....

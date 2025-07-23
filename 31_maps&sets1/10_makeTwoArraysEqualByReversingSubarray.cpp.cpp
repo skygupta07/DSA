@@ -3,6 +3,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
 /*
 
 You are given two integer arrays of equal length target and arr. 
@@ -16,6 +17,7 @@ Example 1:
 
 Input: target = [1,2,3,4], arr = [2,4,1,3]
 Output: true
+
 Explanation: You can follow the next steps to convert arr to target:
 1- Reverse subarray [2,4,1], arr becomes [1,4,2,3]
 2- Reverse subarray [4,2], arr becomes [1,2,4,3]
@@ -27,6 +29,7 @@ Example 2:
 
 Input: target = [7], arr = [7]
 Output: true
+
 Explanation: arr is equal to target without any reverses.
 
 
@@ -34,6 +37,7 @@ Example 3:
 
 Input: target = [3,7,9], arr = [3,7,11]
 Output: false
+
 Explanation: arr does not have value 9 and it can never be converted to target.
  
 
@@ -49,22 +53,21 @@ target.length == arr.length
 
 class Solution {
 public:
-    bool canBeEqual(vector<int>& target, vector<int>& arr) {    // t.c. = O(n) , s.c. = O(n)
+
+    bool canBeEqual(vector <int> &target, vector <int> &arr) {    // t.c. = O(n) , s.c. = O(n)
         unordered_map <int, int> mp;
 
-        for (auto el: target){
-            mp[el]++;
-        }
-
-        for (auto el: arr){
-            mp[el]--;
-        }
+        for (auto el: target) mp[el]++;
+    
+        for (auto el: arr) mp[el]--;
+        
 
         for (auto el: mp){
             if (el.second != 0){
                 return false;
             }
         }
+        
         return true;
     }
 };

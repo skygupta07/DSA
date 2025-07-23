@@ -3,9 +3,9 @@
 insert search delete -> all operations in O(1) 
     aisa ho kaise sakta hai kya ?? -> reason: collision theory...
 
----- stl --- standard template library
+---- stl --- standard template library {important}
 
-insert() , size(), find(), begin() , end(), erase()
+insert() , size(), find(), begin(), end(), erase()
 
 ------ maps ------
 insertion , searching, deletion -> 0(1)

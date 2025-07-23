@@ -1,5 +1,8 @@
+// maximumNumberOfStringPair.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
+
 
 /*
 
@@ -88,19 +91,37 @@ public:
          // then check karo agar wo word pehle se arr me nahi hai to daal do 
        // aur agar pehle se hai to count increment kar do then return count
 
-       unordered_set <string> s; 
        int n = arr.size();
+
+       unordered_set <string> st; 
+       
        int count = 0;
+
+
+        // one method would be like first you will push all the elements into the set and then
+        // check condition in the second iteration...
+
+        // but smarter way is to do computation while creating the set itself...
+
        for (int i=0; i<n; i++){
-           string rev = arr[i];  // ek tarah se rev me uski copy store kari now reverse karunga 
+
+        // ek tarah se rev me uski copy store kari now reverse karunga
+        // agar kahi bhi kabhi bhi aisa lage ki original wale cheej ki mujhe baad mai need pad sakti h..
+        // and usko mai restore nahi kar paunga... to please bhai copy variable bana liya karo....
+        
+           string rev = arr[i];   
            reverse(rev.begin() , rev.end());
 
            // set me find karo reverse word ko
-           if(s.find(rev)!=s.end()) count++;
-           else s.insert(arr[i]); 
+           if(st.find(rev) != st.end()) count++;
 
+           else st.insert(arr[i]); 
        }
-       return count;
+
+
+       // number of pairs
+       return count; 
+
     }
 };
 

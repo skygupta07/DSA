@@ -1,5 +1,8 @@
+// uniqueNumberOfOccurences.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
+
 
 /*
 
@@ -11,6 +14,7 @@ Example 1:
 
 Input: arr = [1,2,2,1,1,3]
 Output: true
+
 Explanation: The value 1 has 3 occurrences, 2 has 2 and 3 has 1. 
 No two values have the same number of occurrences.
 
@@ -42,12 +46,11 @@ public:
         // Step 1: Storing the frequency of each element in the array
         unordered_map <int, int> freq;
 
-        for (auto el : arr) {
-            freq[el]++;
-        }
+        for (auto el : arr) freq[el]++;
+        
 
         // Step 2: Using an unordered_set to track the unique frequencies
-        unordered_set<int> st;
+        unordered_set <int> st;
 
         // Step 3: Checking if all frequencies are unique
         for (auto el : freq) {
@@ -55,6 +58,7 @@ public:
             if (st.find(el.second) != st.end()) {
                 return false;
             }
+            
             // Otherwise, insert the frequency into the set
             st.insert(el.second);
         }

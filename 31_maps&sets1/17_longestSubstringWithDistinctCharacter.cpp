@@ -3,6 +3,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
 /*
 
 Given a string s, find the length of the longest substring with all distinct characters. 
@@ -35,12 +36,15 @@ class Solution {
 public:
     int longestUniqueSubstr(string &s) {
         int n = s.length();
-        unordered_map<char, int> mp; // Stores the last index of each character*
+
+        // Stores the last index of each character*
+        unordered_map <char, int> mp; 
 
         int maxLen = 0; // Maximum length of unique substring
         int left = 0;   // Left pointer of the sliding window
         
         for (int right = 0; right < n; right++) {
+            
             // If the character is already in the map, move the left pointer && wo right wala element 
             //  jo consider kar rahe h wo valid window mai hona bhi to chahiye..(imp)
             if (mp.find(s[right]) != mp.end() && mp[s[right]] >= left) {
@@ -55,5 +59,7 @@ public:
         }
         
         return maxLen;
+
     }
+
 };
