@@ -1,61 +1,57 @@
-#include <iostream>
-#include <vector>
-#include <unordered_map>
+// adjacencyMapWeightedUndirectedGraph.cpp
+
+#include <bits/stdc++.h>
 using namespace std;
 
-vector <unordered_map <int,int> > graph;      // globally banaya taki fn call me pass na karna pade
-int v;     // no. of vertices
 
-void addEdge(int src, int dest, bool bi_dir = true){
-    graph[src][dest] = wt;       // source me destination
+// Global graph represented as vector of unordered_maps (Adjacency list with weights)
+vector <unordered_map <int, int>> graph;
+int v; // number of vertices
 
-    if(bi_dir){
-        graph[dest][src] = wt;     // agar bidirectional to destination me bhi source
-    }
+// Add an edge from src to dest with weight 'wt'. If bi_dir = true, make it bidirectional.
+void addEdge(int src, int dest, int wt, bool bi_dir = true) {
+    graph[src][dest] = wt;
+
+    if (bi_dir) graph[dest][src] = wt;
 }
 
+// Display the adjacency list of the graph
+void display() {
 
-void display(){
-    for (int i=0; i<graph.size(); i++){
-        cout<<i<< " -> ";
-        for (auto ele : graph[i]){      // to print the neighbour iterate over the ith 
-                                        // linked list and print its element...
-            cout<<ele<<" , ";
+    cout << "\nGraph Representation (Adjacency List):\n";
 
+    for (int i = 0; i < graph.size(); i++) {
+        cout << i << " -> ";
+
+        for (auto &nbr : graph[i]) {
+            cout << "[" << nbr.first << ", wt=" << nbr.second << "] ";
         }
-        cout<<"\n";
+
+        cout << "\n";
     }
+
 }
 
+int main() {
+    cout << "Enter number of vertices: ";
+    cin >> v;
+    graph.resize(v); // resize graph to hold v vertices
 
+    cout << "Enter number of edges: ";
+    int e;
+    cin >> e;
 
-int main(){
-    cout<<"enter number of vertices:"<<" ";
-    cin>>v;
-    graph.resize(v, < unordered_map <int,int >());
-    cout<<"enter number of edges:"<<" ";
-    int e;   // number of edge
-    cin>>e;
-    cout<<"add source element then space then destination element "<<endl;
-    while(e--){
-        int s,d;
-        cin>>s>>d;
-        addEdge(s,d,false);  // add edge from source to destination
-                            // false means directional graph
-   
+    cout << "Enter edges in the format: src dest weight\n";
+    
+    while (e--) {
+        int src, dest, wt;
+
+        cin >> src >> dest >> wt;
+
+        addEdge(src, dest, wt, false); // false = directional graph
     }
+
     display();
+
+    return 0;
 }
-
-
-
-
-
-
-
-
-
-// graph is represented as array of linked list
-/*
-final answer me linked list ke order se phark nahi padta
-*/

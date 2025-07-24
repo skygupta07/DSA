@@ -16,6 +16,7 @@ Return the topological sort for the given graph.
 
 Topological sorting for Directed Acyclic Graph (DAG) is a linear ordering of vertices 
 such that for every directed edge u -> v, vertex u comes before v in the ordering.
+
 Note: As there are multiple Topological orders possible, you may return any of them. 
 If your returned Topological sort is correct then the output will be true else false.
 
@@ -34,7 +35,8 @@ Few valid Topological orders for the given graph are:
 Input: V = 6, E = 6, edges[][] = [[1, 3], [2, 3], [4, 1], [4, 0], [5, 0], [5,2]]
 
 Output: true
-Explanation: The output true denotes that the order is valid. Few valid Topological orders for the graph are:
+Explanation: The output true denotes that the order is valid. 
+Few valid Topological orders for the graph are:
 [4, 5, 0, 1, 2, 3]
 [5, 2, 4, 0, 1, 3]
 
@@ -58,6 +60,7 @@ class Solution {
             }
         }
         
+        // finally saari call lagne ke baad reverse order mai stack mai push hongi cheeje....
         stk.push(node);
     }
   
@@ -85,12 +88,8 @@ class Solution {
         // waha se dfs call kar...
         
         for (int i=0; i<V; i++){
-            
             // iff the ith node is not visited then only call the dfs from there...
-            if (!visited[i]){
-                dfs(i, stk, visited, graph);
-            }
-
+            if (!visited[i]) dfs(i, stk, visited, graph);
         }
         
         vector <int> topoOrder;
@@ -115,13 +114,13 @@ put those nodes into stack for which bfs call has been made...
 
 // bfs
 
-// using kahn's algo...
-
+// using kahn's algo... {my favourite}
 class Solution {
 public:
+
 	//Function to return list containing vertices in Topological order.
-	vector<int> topoSort(int V, vector<int> adj[]){
-		int indegree[V] = {0};
+	vector <int> topoSort(int V, vector<int> adj[]){
+		vector <int> indegree(V, 0);
 
 		for (int i = 0; i < V; i++) {
             // u se v tak edge h to indegree v ki hi increase hoti h...
@@ -130,14 +129,16 @@ public:
 			}
 		}
 
-		queue<int> q;
+        // to simply process all the nodes having indegree as zero, we push all the nodes having indegree
+        // zero directly into the queue...
+
+		queue <int> q;
+
 		for (int i = 0; i < V; i++) {
-			if (indegree[i] == 0) {
-				q.push(i);
-			}
+			if (indegree[i] == 0) q.push(i);
 		}
 
-		vector <int> topo;
+		vector <int> topo; // to store answer
 
 		while (!q.empty()) {
 			int node = q.front();
@@ -146,12 +147,19 @@ public:
 			topo.push_back(node);
 			// node is in your topo sort
 			// so please remove it from the indegree
-
-			for (auto it : adj[node]) {
-				indegree[it]--;
-				if (indegree[it] == 0) q.push(it);
-			}
             
+            // it or nbr whatever you like
+			for (auto it : adj[node]) {
+
+                // sabhi nbr ki indegree ghatao....
+				indegree[it]--;
+
+                // now jiss bhi nbr ki indegree zero ho gayi hogi... ussey q mai daal do...
+                // ek cheej h jo cheej bhi q mai chali gayi wo to confirm h 
+                // ki bhai ab wo process ho hi jaegi..
+				
+                if (indegree[it] == 0) q.push(it);
+			}
 		}
 
 		return topo;
@@ -163,14 +171,16 @@ public:
 int main() {
 
 	//V = 6;
-	vector<int> adj[6] = {{}, {}, {3}, {1}, {0, 1}, {0, 2}};
-	int V = 6;
+	vector <int> adj[6] = {{}, {}, {3}, {1}, {0, 1}, {0, 2}};
+	
+    int V = 6;
 	Solution obj;
 	vector<int> ans = obj.topoSort(V, adj);
 
 	for (auto node : ans) {
 		cout << node << " ";
 	}
+    
 	cout << endl;
 
 	return 0;

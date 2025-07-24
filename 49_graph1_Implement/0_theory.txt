@@ -167,6 +167,7 @@ column sum = 2
 
 
 --- summary : use adjacency list ----
+
 you would say like ki vector < list <int> > graph;  ki jagah 
 vector <vector <int> > graph     kyu nahi implement kar rahe ....because 
 list (or linkedlist) is more space optimised than vector ....vector thoda jyada 
