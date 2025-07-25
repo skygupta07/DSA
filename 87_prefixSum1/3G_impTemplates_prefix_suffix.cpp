@@ -1,5 +1,6 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
+
 
 void prefixSum(int arr[], int n){
     int psum[n];    // jhola
@@ -8,9 +9,11 @@ void prefixSum(int arr[], int n){
     for (int i=1; i<n; i++){
         psum[i] = arr[i] + psum[i-1];
     }
+
     for(int i=0; i<n; i++){
         cout<<psum[i]<<" ";
     }
+
     cout<<endl;
 }
 
@@ -24,6 +27,7 @@ void suffixSum(int arr[], int n){
     for(int i=0; i<n; i++){
         cout<<sSum[i]<<" ";
     }
+
     cout<<endl;
 }
 
@@ -65,18 +69,22 @@ void prefixProductExceptSelf(int arr[],int n){
     for (int i=0; i<n; i++){
         cout<<ppes[i]<<" ";
     }
+    
     cout<<endl;
 }
 
 void suffixProductExceptSelf(int arr[],int n){
     int spes[n];
     spes[n-1] = 1;
+
     for (int i=n-1; i>=0; i--){
         spes[i] = spes[i-1]*arr[i-1];  // except self hai to yaha arr[i-1] karna padega..
     }
+
     for (int i=0; i<n; i++){
         cout<<spes[i]<<" ";
     }
+
     cout<<endl;
 }
 

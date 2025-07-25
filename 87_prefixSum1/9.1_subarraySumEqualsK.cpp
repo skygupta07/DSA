@@ -1,4 +1,4 @@
-// subarraySumEqualsK
+// subarraySumEqualsK.cpp
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -26,6 +26,7 @@ Output: 2
 
 class Solution { // gave tle ....
 public:
+
     int subarraySum(vector<int>& arr, int target) {
         int n = arr.size();
         int count = 0;
@@ -34,6 +35,7 @@ public:
             int sum = 0;
             for (int j=i; j<n; j++){
                 sum += arr[j];
+
                 if (sum == target) count++;
             }
         }
@@ -56,7 +58,8 @@ public:
             pref[i] = arr[i] + pref[i - 1];
         }
 
-        unordered_map <int, int> mp; // Step 3: Map to store prefix sums and their frequencies
+        // Step 3: Map to store prefix sums and their frequencies
+        unordered_map <int, int> mp;
         int count = 0; // Variable to store the count of subarrays with sum equal to k
 
 

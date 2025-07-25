@@ -1,3 +1,5 @@
+// reducingDishes.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -48,7 +50,7 @@ public:
 
         // Step 2: Suffix sum array bana lo
         // suff[i] = satisfaction[i] + satisfaction[i+1] + ... + satisfaction[n-1]
-        vector<int> suff(n, 0);
+        vector <int> suff(n, 0);
 
         // Initialize last element
         suff[n-1] = satisfaction[n-1];
@@ -58,7 +60,7 @@ public:
             suff[i] = satisfaction[i] + suff[i + 1];
         }
 
-        // Step 3: Find the pivot index from where suffix sum is non-negative
+        // Step 3: Find the pivot index from where suffix sum is non-negative {crux❌ crush✅ of the problem}
         int pivotIdx = -1;
 
         for (int i = 0; i < n; i++) {

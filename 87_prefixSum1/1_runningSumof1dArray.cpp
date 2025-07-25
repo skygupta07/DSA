@@ -45,13 +45,14 @@ public:
 
     vector<int> runningSum(vector<int>& nums) {
         int n = nums.size();
-        vector<int> ans(n);
+        vector <int> ans(n, 0);
 
         ans[0] = nums[0];   // threshold
         
         for(int i=1; i<n; i++){
             ans[i] = ans[i-1] + nums[i];
         }
+
         return ans;
     }
 
@@ -66,8 +67,9 @@ public:
         int n = nums.size();
         // zeroth element to wahi rahega.. no need to touch it...
         for (int i=1; i<n; i++){
-            nums[i] = nums[i]+nums[i-1];
+            nums[i] = nums[i] + nums[i-1];
         }
+        
         return nums;  
     }
 
