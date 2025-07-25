@@ -30,7 +30,6 @@ Output: 444
 #include <bits/stdc++.h>
 using namespace std;
 
-
 class Solution {
 public:
 
@@ -80,6 +79,7 @@ public:
             // (i - left[i]) -> left side ke subarrays count
             // (right[i] - i) -> right side ke subarrays count
             // nums[i] -> current element
+            
             sum += static_cast<ll> (i - left[i]) * (right[i] - i) * nums[i] % MOD;
             
             sum %= MOD; // Har step par modulo le lo

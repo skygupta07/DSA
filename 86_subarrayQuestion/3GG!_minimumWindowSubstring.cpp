@@ -25,6 +25,7 @@ Example 2:
 
 Input: s = "a", t = "a"
 Output: "a"
+
 Explanation: The entire string s is the minimum window.
 
 
@@ -32,6 +33,7 @@ Example 3:
 
 Input: s = "a", t = "aa"
 Output: ""
+
 Explanation: Both 'a's from t must be included in the window.
 Since the largest window of s only has one 'a', return empty string.
  
@@ -74,9 +76,10 @@ public:
         int minLen = INT_MAX;   // Stores length of the minimum window found
         int minStart = 0;       // Start index of the best window
 
-        // Begin sliding the window
+        // Begin sliding the window {now ab string s ke liye karenge...}
         while (right < sLen) {
 
+            // string s ka character nikala...
             char ch = s[right];
 
             // If current character is still needed (positive frequency), reduce `required`
@@ -111,9 +114,11 @@ public:
         }
 
         // If no valid window was ever found, return empty string 
-        return (minLen == INT_MAX) ? "" : s.substr(minStart, minLen); // abhi recently hi mai blank ho gaya tha..
+        return (minLen == INT_MAX) ? "" : s.substr(minStart, minLen); 
+        // abhi recently hi mai blank ho gaya tha.. {starting from this index mujhe itni length ka chahiye..}
         // actually ye substr function hi yaad nahi aa raha tha...
     }
+
 };
 
 
@@ -142,7 +147,8 @@ Time Complexity:
 O(sLen + tLen)
 
 We scan t once to build the frequency array: O(tLen)
-We expand and contract the sliding window using two pointers: O(sLen) in total (each character is processed at most twice).
+We expand and contract the sliding window using two pointers: 
+O(sLen) in total (each character is processed at most twice).
 
 
 📦 Space Complexity:

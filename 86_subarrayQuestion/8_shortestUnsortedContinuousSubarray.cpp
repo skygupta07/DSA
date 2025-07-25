@@ -1,11 +1,52 @@
 // shortestUnsortedContinuousSubarray.cpp
 
+/*
+
+Given an integer array nums, you need to find one continuous subarray 
+such that if you only sort this subarray in non-decreasing order, 
+then the whole array will be sorted in non-decreasing order.
+
+Return the shortest such subarray and output its length.
+
+
+Example 1:
+
+Input: nums = [2,6,4,8,10,9,15]
+Output: 5
+Explanation: You need to sort [6, 4, 8, 10, 9] in ascending order to make the whole array 
+sorted in ascending order.
+
+
+Example 2:
+
+Input: nums = [1,2,3,4]
+Output: 0
+
+
+Example 3:
+
+Input: nums = [1]
+Output: 0
+ 
+
+Constraints:
+
+1 <= nums.length <= 1e4
+-1e5 <= nums[i] <= 1e5
+ 
+
+Follow up: Can you solve it in O(n) time complexity?
+
+*/
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
 class Solution {
 public:
-    int findUnsortedSubarray(vector<int>& arr) {
+
+    int findUnsortedSubarray(vector <int> &arr) {
         int n = arr.size(); // Array ka size
         int l = -1, r = -1; // Unsorted subarray ke left aur right boundary track karne ke liye
 
@@ -30,6 +71,7 @@ public:
 
         // Subarray ka minimum aur maximum find karte hain
         int mini = arr[l], maxi = arr[l];
+
         for (int i = l; i <= r; i++) {
             mini = min(mini, arr[i]); // Subarray ka minimum
             maxi = max(maxi, arr[i]); // Subarray ka maximum
@@ -48,7 +90,11 @@ public:
 
 
 /*
-It finds the first position in a sorted range where an element is strictly greater than the given value.
-After finding the first position greater than mini using upper_bound, we subtract arr.begin() to convert the iterator returned by upper_bound into an index
+It finds the first position in a sorted range where 
+an element is strictly greater than the given value.
+
+
+After finding the first position greater than mini using upper_bound, 
+we subtract arr.begin() to convert the iterator returned by upper_bound into an index
 
 */

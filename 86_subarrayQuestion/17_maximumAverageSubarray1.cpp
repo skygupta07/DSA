@@ -49,6 +49,11 @@ public:
         for (int left = 0; left <= n-k; left++){
             int right = left + k - 1;
 
+            // arey ha ye syntax to mujhe yaad h ... 
+            // ha ki agar wo left wala pointer zero par h tab to arr[left] se leke arr[right] tak ka sum 
+            // simply pref[right] se mil jaata h....
+
+            // but left agar zero index par nahi hota tab to bhai pref[right] - pref[left - 1]
             int sum = (left == 0) ? pref[right] : pref[right] - pref[left - 1];
 
             double subarrAvg = (double)sum/k;   // bhai very imp syntax ki (double) hi bracket mai rahega bas..

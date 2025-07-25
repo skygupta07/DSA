@@ -1,3 +1,5 @@
+// sumOfSubarrayRanges.cpp
+
 /*
 You are given an integer array nums. 
 The range of a subarray of nums is the difference between the largest and smallest element 
@@ -12,6 +14,7 @@ Example 1:
 
 Input: nums = [1,2,3]
 Output: 4
+
 Explanation: The 6 subarrays of nums are the following:
 [1], range = largest - smallest = 1 - 1 = 0 
 [2], range = 2 - 2 = 0
@@ -26,6 +29,7 @@ Example 2:
 
 Input: nums = [1,3,3]
 Output: 4
+
 Explanation: The 6 subarrays of nums are the following:
 [1], range = largest - smallest = 1 - 1 = 0
 [3], range = 3 - 3 = 0
@@ -40,13 +44,14 @@ Example 3:
 
 Input: nums = [4,-2,-3,4,1]
 Output: 59
+
 Explanation: The sum of all subarray ranges of nums is 59.
  
 
 Constraints:
 
 1 <= nums.length <= 1000
--10pow9 <= nums[i] <= 10pow9
+-1e9 <= nums[i] <= 1e9
  
 Follow-up: Could you find a solution with O(n) time complexity?
 
@@ -61,6 +66,7 @@ using namespace std;
 
 class Solution {
 public:
+
     long long subArrayRanges(vector<int>& nums) {
         long long totalSum = 0;
         int n = nums.size();
@@ -78,6 +84,7 @@ public:
                 totalSum += (long long)(maxi - mini);
             }
         }
+
         return totalSum;
     }
 };
@@ -90,73 +97,81 @@ public:
 
 class Solution {
 public:
+
     long long subArrayRanges(vector<int>& nums) {
         int n = nums.size();
-        vector<int> prevGreater(n), nextGreater(n);
-        vector<int> prevSmaller(n), nextSmaller(n);
+        vector <int> prevGreater(n), nextGreater(n);
+        vector <int> prevSmaller(n), nextSmaller(n);
 
         // For nextGreater - yaha strict inequality checking mai to phir next wale equal jarur kar dena...
         // it is to handle the edge cases...
-        stack<int> st;
+        stack <int> stk;
+
         for (int i = 0; i < n; i++) {
-            while (!st.empty() && nums[st.top()] < nums[i]) {
-                nextGreater[st.top()] = i;
-                st.pop();
+
+            // monotonic stack
+            while (!stk.empty() && nums[stk.top()] < nums[i]) {
+                nextGreater[stk.top()] = i;
+                stk.pop();
             }
-            st.push(i);
+            stk.push(i);
         }
-        while (!st.empty()) {
-            nextGreater[st.top()] = n;
-            st.pop();
+        while (!stk.empty()) {
+            nextGreater[stk.top()] = n;
+            stk.pop();
         }
 
         // For prevGreater - greater dhund rahe h to phir obviously smaller ko pop karo..
         for (int i = n - 1; i >= 0; i--) {
-            while (!st.empty() && nums[st.top()] <= nums[i]) {
-                prevGreater[st.top()] = i;
-                st.pop();
+            while (!stk.empty() && nums[stk.top()] <= nums[i]) {
+                prevGreater[stk.top()] = i;
+                stk.pop();
             }
-            st.push(i);
+            stk.push(i);
         }
-        while (!st.empty()) {
-            prevGreater[st.top()] = -1;
-            st.pop();
+        while (!stk.empty()) {
+            prevGreater[stk.top()] = -1;
+            stk.pop();
         }
 
         // For nextSmaller
         for (int i = 0; i < n; i++) {
-            while (!st.empty() && nums[st.top()] > nums[i]) {
-                nextSmaller[st.top()] = i;
-                st.pop();
+            while (!stk.empty() && nums[stk.top()] > nums[i]) {
+                nextSmaller[stk.top()] = i;
+                stk.pop();
             }
-            st.push(i);
+            stk.push(i);
         }
-        while (!st.empty()) {
-            nextSmaller[st.top()] = n;
-            st.pop();
+        while (!stk.empty()) {
+            nextSmaller[stk.top()] = n;
+            stk.pop();
         }
 
         // For prevSmaller
         for (int i = n - 1; i >= 0; i--) {
-            while (!st.empty() && nums[st.top()] >= nums[i]) {
-                prevSmaller[st.top()] = i;
-                st.pop();
+            while (!stk.empty() && nums[stk.top()] >= nums[i]) {
+                prevSmaller[stk.top()] = i;
+                stk.pop();
             }
-            st.push(i);
+            stk.push(i);
         }
-        while (!st.empty()) {
-            prevSmaller[st.top()] = -1;
-            st.pop();
+        while (!stk.empty()) {
+            prevSmaller[stk.top()] = -1;
+            stk.pop();
         }
 
         long long maxSum = 0, minSum = 0;
+        
         for (int i = 0; i < n; i++) {
+
             long long leftMax = i - prevGreater[i];
             long long rightMax = nextGreater[i] - i;
+
             maxSum += leftMax * rightMax * nums[i];
 
             long long leftMin = i - prevSmaller[i];
             long long rightMin = nextSmaller[i] - i;
+            
             minSum += leftMin * rightMin * nums[i];
         }
 
