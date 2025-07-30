@@ -9,6 +9,8 @@ int main(){
     // 32 bit (4bytes) ke size mai aapke integer ki binary representation show 
     // kar dega...
     cout<<bitset<32>(n)<<endl;
+
+    cout<<0b1010<<endl;  // 10   - accha matlab 0b aage laga dene se binary representation mai convert kar dega...
 }
 
 /*

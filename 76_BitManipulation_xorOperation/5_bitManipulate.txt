@@ -13,8 +13,8 @@ if that 31st bit is 1 => negative number.
     if that 31st bit is 0 => positive number...(kyuki bydefault wahi rehta hai na..)
 
 
----> right shift by 2 matlab LSB (right ki ) do bits khaa jao.... and obviously then lsb mai to phir two zeroes lagana 
-hi padega....
+---> right shift by 2 matlab LSB (right ki ) do bits khaa jao.... and obviously then
+lsb mai to phir two zeroes lagane hi padega....
 waise internally to wo 2's complement ke form mai store karega number ko....
 
 
@@ -28,6 +28,7 @@ so the max possible poitive value for a INT number is 2power30 + 2power29 + 2pow
 
 agar ~x kiya 
 to computer do step karega...
+
 1. flip the number
 2. check if the number: 
     if negative => store its 2's complement

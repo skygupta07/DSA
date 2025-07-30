@@ -19,7 +19,7 @@ void decToBin(int decNum, vector<int>& binNum) {
     }
 }
 
-// Function to flip all bits of x
+// Function to flip all bits of x - (flip karna matlab 1 ke saath xor kar dena)
 void flipAllBits(int &x) {
     int numBits = log2(x) + 1;  // Find the number of bits in the binary representation of x
     int allOnes = (1 << numBits) - 1;  // Create a bitmask of all 1s with the same number of bits

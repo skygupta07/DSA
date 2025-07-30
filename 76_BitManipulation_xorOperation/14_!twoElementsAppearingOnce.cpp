@@ -23,7 +23,7 @@ void findUnique(int *arr, int n) {
         k++;
     }
 
-    int retVal = 0;
+    int retVal = 0; // zero ke saath xor karne se wahi number aata hai...
     // XOR all elements having the k-th bit set
     for (int i = 0; i < n; i++) {
         int num = arr[i];

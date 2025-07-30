@@ -1,4 +1,4 @@
-dono number ki bits par kaam karta hai aur wo bhi bit by bit wo particlar
+dono number ki bits par kaam karta hai aur wo bhi bit by bit wo particular
 bitwise operator ko laga dega...
 
 bitwise operators are : AND(single &) OR(single pipe |) NOT(~) XOR(^)

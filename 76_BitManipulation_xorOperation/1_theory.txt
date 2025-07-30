@@ -1,3 +1,6 @@
+left shift karenge to bit consider karenge jo bit left mai gayi hogi...
+right shift karenge to bit consider nahi karenge jo right mai chali gayi hogi.. (coz wo bit 32 ke scope se bahar chali gayi hogi...)
+
 <<   left shift operator    (less than)
 >> right shift operator -> reason : kyuki right side hi point kar raha hai...   (greater than)
 
@@ -16,24 +19,25 @@ right shift divides the number by two...
 divide by 3 ya multiply by 2 kar rahe ho to better hoga right shift left shift karlo..
 
 --------
-agar koi number even hai to uski binary representation mai last bit pakka se zero hogi...(#sundayMarketDiscuss)
+agar koi number even hai to uski binary representation mai last bit pakka se zero hogi...
+(#sundayMarketDiscuss)
                 odd                                                          1 hogi...
     
 
-masking karna bit ko is simply for finding what is the last node....
+masking karna bit ko is simply for finding what is the last node.... (or what is the LSB)
 masking karna matlab 1 ke saath AND operation lagana 
 agar AND operation lagane se resultant answer 1 aaya => ki mera given number odd tha 
 else wo even tha....
 
 i.e. if (a%2 == 0)  ===  if (a&1 == 0)
 
-swap two numbers using bitwise operation 
+swap two numbers using bitwise operation (left mai aba , and right mai to aapka a^b hai hi...)
 a = a ^ b 
 b = a ^ b 
 a = a ^ b
 
 
----bas teen baar xor kardo number khud se hi swap ho jaenge.....
+---bas teen baar xor kardo number khud se hi swap ho jaenge..... i = (isko kabutar bana do..)
 ---
 
 
@@ -41,3 +45,57 @@ a = a ^ b
 >> right shift right wale logo ko teer marega....kyuki right side hi point kar raha hai...
 
 
+
+------
+And operator 
+
+agar saare true honge tabhi true hoga
+agar ek bhi false hua to answer false aa jayega...
+
+OR operator 
+
+agar saare false honge tabhi false hoga ....
+aur agar ek bhi true hua to answer true ho jaega...
+
+
+accha to wo negative number store karne ke liye 31st bit use hoti h....
+
+
+
+{
+
+    haa mujhe yaad h mai khud confuse ho rha tha...... 
+    ki kahi negative number represent karne ke liye jo bit 1 kari h ....
+    ussey number to increase nahi ho jaega... but aisa nahi hota ab samajh aaya..
+    actually wo very 31st bit hi humne reserve kar rakhi hoti h sign ke liye....
+
+}
+31st bit ko 1 kar dega to phir negative number ban jaega...
+
+always remember that if you are doing computation on the negative number, then first convert the number 
+into its 2's complement first, then do any computation you want...
+
+sign bit ke saath mai hi leke chalte h ... aisa thodi hoga ki usko exclude karne lagenge.. 
+wo to ab knowledge increase hui to ab pta chala otherwise puri puri binary representation pe to saath hi 
+mai operation karte they...
+
+
+for example 
+
+~5 karna h 
+to pehle 5 ki binary representation likhi 
+000 .....  101 
+
+then bits flip kiye..
+1111....   010
+
+now dekha to number negative ho gaya h to ab iska pehle 2's complement karo then stop hoga...
+{1's complement + 1}
+
+0000 ....... 101
+             + 1
+-------------------
+000         110  (6) - but ye to 6 type ban gaya... ha to kya dikkat h... ye kisne bol diya ki nahi 
+ban sakta ....
+
+saaley ek to binary mai represent bhi kar rha hu ... upar se inko ekdum simple type chahiye... 
