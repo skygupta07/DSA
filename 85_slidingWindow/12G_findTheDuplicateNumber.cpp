@@ -3,9 +3,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// hare matlab khargosh, jo ki tej bhaagta hai. {arey yrr tune starting mai hi hint de di... ab to 
-// ho jaega aaram se..}
-
+// hare matlab khargosh, jo ki tej bhaagta hai. 
+// {arey yrr tune starting mai hi hint de di... ab to 
+// ho jaega question aaram se..}
 
 /*
 

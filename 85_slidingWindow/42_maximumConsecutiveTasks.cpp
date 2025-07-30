@@ -90,6 +90,7 @@ void user_logic(int n, vector<int>& tasks, int T, int& max_tasks, vector<int>& s
         // if current window length is greater than previous seen window length.. then update maxLen
         if (right - left + 1 > maxLen) {
             maxLen = right - left + 1;
+            
             startIdx = left;
             sum_durations = sum;  // Store the sum of the longest valid subarray
         }

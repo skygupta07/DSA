@@ -36,25 +36,42 @@ Constraints:
 s only consists of a, b or c characters.
 
 */
-
 class Solution {
-    public:
-        int numberOfSubstrings(string s) {
-            int n = s.length();
-            vector<int> freq(3, 0); // Count occurrences of 'a', 'b', and 'c'
-            int left = 0, count = 0;
-    
-            for (int right = 0; right < n; right++) {
-                freq[s[right] - 'a']++; // Increase frequency of current character
-    
-                // While the current window contains at least one of each character
-                while (freq[0] > 0 && freq[1] > 0 && freq[2] > 0) {
-                    count += (n - right); // All substrings from left to end are valid
-                    freq[s[left] - 'a']--; // Shrink window from left
-                    left++;
-                }
+public:
+    int numberOfSubstrings(string s) {
+        int n = s.length();  // Step 1: String ka length store kar liya
+
+        // Step 2: freq[0] -> 'a', freq[1] -> 'b', freq[2] -> 'c' ka count
+        // Initialize frequency array for 'a', 'b', 'c' with 0
+        vector<int> freq(3, 0);
+
+        int left = 0;   // Sliding window ka left pointer
+        int count = 0;  // Final answer, number of valid substrings
+
+        // Step 3: Right pointer se string traverse karte jaa rahe hain
+        for (int right = 0; right < n; right++) {
+            
+            // Current character ka frequency badha do
+            // Example: s[right] = 'c' => 'c' - 'a' = 2 => freq[2]++
+            freq[s[right] - 'a']++;  
+
+            // Step 4: Jab tak window ke andar 'a', 'b', 'c' teeno present hain
+            while (freq[0] > 0 && freq[1] > 0 && freq[2] > 0) {
+                // Abhi ke right index tak ke saare substrings starting from 'left' are valid
+                // Example: agar n = 10, right = 5 => substrings: [left...5], [left...6], ... [left...9] are all valid
+                // Isiliye (n - right) substrings valid hain
+                count += (n - right);
+
+                // Window ko chhota karo by removing s[left]
+                // jisse aur naye window explore ho sake
+                freq[s[left] - 'a']--;
+
+                // Left pointer ko aage badha diya (window shrink kiya)
+                left++;
             }
-            return count;
         }
-    };
-    
+
+        // Step 5: Final answer return kar do
+        return count;
+    }
+};

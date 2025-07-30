@@ -1,3 +1,5 @@
+// moveZeroes.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -12,6 +14,8 @@ Example 1:
 
 Input: nums = [0,1,0,3,12]
 Output: [1,3,12,0,0]
+
+
 Example 2:
 
 Input: nums = [0]
@@ -21,7 +25,9 @@ Output: [0]
 
 class Solution {
 public:
-    void moveZeroes(vector<int>& arr){
+
+    void moveZeroes(vector <int> &arr){
+        
         int n = arr.size();
         int zcount = 0;
 
@@ -31,12 +37,14 @@ public:
         
         for (int i=0; i<zcount; i++){
             for (int j=0; j<n-1; j++){
-                if ( arr[j] == 0 && arr[j+1]!=0){
+                if (arr[j] == 0 && arr[j+1] != 0){
                     swap(arr[j] , arr[j+1]);
                 }
             }
         }
+
     }
+
 };
 
 
@@ -53,6 +61,7 @@ This pushes zeros to the right gradually (like bubbles in bubble sort).
 
 class Solution {
 public:
+
     void moveZeroes(vector<int>& arr){
         int n = arr.size();
         int j = -1;  // j will store index of first 0

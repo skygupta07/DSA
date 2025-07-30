@@ -150,31 +150,38 @@ i.e. using the two pointers soln..
 // most optimal for zero and postive elements...
 // t.c. = O(2N) - kyuki yaha andar wala loop har baar n times nahi chal rha.. 
 
-
+// Function to find the length of the longest subarray with sum equal to k
 int longestSubarrayWithSumK(vector<int> a, long long k) {
-    int n = a.size();
+    int n = a.size();  // total elements in array
 
-    int left = 0;
-    int right = 0;
+    int left = 0, right = 0;  // two pointers for sliding window
+    long long sum = a[0];     // current sum of window
 
-    long long sum = a[0];
+    int maxLen = 0;           // final answer
 
-    int maxLen = 0;
+    // Jab tak right pointer array ke andar hai
+    while (right < n) {
 
-    while (right < n){
-        // shrink window
-        while (left <= right && sum > k){
-            sum -= a[left];
-            left++;
+        // ✅ Step 1: Window ko shrink karo jab tak sum > k hai
+        // Kyunki hume exact k chahiye, aur agar zyada ho gaya toh left se hatao
+        while (left <= right && sum > k) {
+            sum -= a[left];   // left se element hatao
+            left++;           // left pointer aage badhao
         }
 
-        if (sum == k) maxLen = max(maxLen, right - left + 1);
+        // ✅ Step 2: Agar window ka sum == k ho gaya toh maxLen update karo
+        if (sum == k) {
+            maxLen = max(maxLen, right - left + 1);
+        }
 
+        // ✅ Step 3: right pointer ko aage badhao
         right++;
 
-        if (right < n) sum += a[right];
+        // Bounds check: right array ke size se bahar na chala jaye
+        if (right < n) {
+            sum += a[right];  // right element ko window mein add karo
+        }
     }
 
     return maxLen;
-
 }

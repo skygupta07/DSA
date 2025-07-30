@@ -40,30 +40,38 @@ Explanation: You have to take all the cards. Your score is the sum of points of 
 
 Constraints:
 
-1 <= cardPoints.length <= 105
-1 <= cardPoints[i] <= 104
+1 <= cardPoints.length <= 1e5
+1 <= cardPoints[i] <= 1e4
+
 1 <= k <= cardPoints.length
 
 */
-
-class Solution
-{
+class Solution {
 public:
-    int maxScore(vector<int> &cardPoints, int k)
-    {
+
+    int maxScore(vector<int> &cardPoints, int k) {
+        
         int maxSum = 0;
 
-        // first window .. starting from left
-        for (int i = 0; i < k; i++)
-            maxSum += cardPoints[i];
+        // Step 1: First k elements ko pick karte hain from the **left side** (0 to k-1)
+        // Ye assume karte hain ki sabhi k cards left se hi uthaye hain
+        for (int i = 0; i < k; i++) maxSum += cardPoints[i];
 
-        int currSum = maxSum; // ye mana pehle .. then andar changes karke maximize karte h...
+        // ab currSum ko maxSum ke barabar maan lo
+        // aage changes karenge to try getting better score
+        int currSum = maxSum;
 
-        for (int i = k - 1; i >= 0; i--)
-        {
-            currSum -= cardPoints[i];
-            currSum += cardPoints[cardPoints.size() - k + i]; // important
+        // Step 2: Ab hum gradually ek-ek card left se remove karenge
+        // aur right se ek card uthayenge
+        // i.e., window ko slide kar rahe hain from left-only to including right-end
+        for (int i = k - 1; i >= 0; i--) {
+            currSum -= cardPoints[i];  // left side se ek card hatao
 
+            // right side se ek card add karo
+            // yahan "cardPoints.size() - k + i" se correct right-end index milega
+            currSum += cardPoints[cardPoints.size() - k + i]; 
+
+            // maxSum ko update karo agar currSum bada ho
             maxSum = max(maxSum, currSum);
         }
 

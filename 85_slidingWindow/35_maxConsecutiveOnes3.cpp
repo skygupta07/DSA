@@ -34,17 +34,21 @@ nums[i] is either 0 or 1.
 
 class Solution {
 public:
-    int longestOnes(vector<int>& nums, int k) {
+
+    int longestOnes(vector <int> &nums, int k) {
         int n = nums.size(); 
+
         // start dono pointer to suru se hi honge na...
         int left = 0; // Left pointer, window ka shuru
         int right = 0; // Right pointer, window ka akhir
 
         while (right < n){ // Jab tak right pointer array ke andar hai
+            
             if (nums[right] == 0) k--; // Agar current element 0 hai, to flips ka count ek kam kar do
 
             if (k < 0){ // Agar flips ka count negative ho gaya 
                 if (nums[left] == 0) k++; // Agar left pointer pe bhi 0 hai, to flips ka count ek badhao
+                
                 left++; // Left pointer ko aage badhao -> is bande ki need nahi h..'
             }
 
@@ -57,7 +61,9 @@ public:
 
 
 /*
+
 Window ko expand karte hain jab tak allowed flips ki limit nahi ho jati.
 Agar flips ki limit ho jati hai, to window ko contract karte hain.
 Har step pe, maximum window size ko track karte hain.
+
 */

@@ -102,6 +102,7 @@ Expected
 class Solution {
 public:
     int totalFruit(vector<int>& fruits) {
+        
         unordered_map <int, int> basket; // key - type of fruit, value - number of fruit
         int left = 0, maxLen = 0;
 
@@ -112,7 +113,9 @@ public:
             // Jab basket mein 2 se zyada types aa jaaye, window shrink karo
             while (basket.size() > 2) {
                 basket[fruits[left]]--;
+
                 if (basket[fruits[left]] == 0) basket.erase(fruits[left]);
+                
                 left++;
             }
 
