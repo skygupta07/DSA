@@ -43,6 +43,47 @@ Constraints:
 
 */
 
+
+class Solution {
+public:
+
+    bool isSorted(vector <int> &nums){
+        int n = nums.size();
+
+        for (int i=1; i<n; i++){
+            if (nums[i] < nums[i-1]) return false;
+        }
+
+        return true;
+    }
+
+
+    bool check(vector<int>& nums) {
+        int n = nums.size();
+
+        int pivotIdx = -1;
+        
+        for (int i=1; i<n; i++){
+            if (nums[i] < nums[i-1]){
+                pivotIdx = i;
+                break;
+            }
+        }
+
+        if (pivotIdx != -1){
+
+            reverse(nums.begin(), nums.begin()+pivotIdx);
+            reverse(nums.begin()+pivotIdx, nums.end());
+
+            reverse(nums.begin(), nums.end());
+
+            return isSorted(nums);
+        }
+
+        else return true;
+    }
+};
+
 class Solution {
 public:
     bool check(vector<int>& nums) {

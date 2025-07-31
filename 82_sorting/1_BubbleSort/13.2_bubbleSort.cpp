@@ -8,10 +8,14 @@ void print(vector <int> v){
     }
 }
 
-void bubbleSort(vector<int> &v){  // if I by mistake pass here vector<int> v  only then 
+
+// push the maximum to the last by adjacent swap...
+
+void bubbleSort(vector <int> &v){  // if I by mistake pass here vector<int> v  only then 
                             // copy of vector would be passed so no changes occur.
                     // so always pass vector by reference
     int n = v.size(); 
+    
     for (int i=0; i<n-1; i++){
         for (int j=0; j<n-1; j++){  // inner loop bhi aapka n-1 chalaya last element ko consider
                         // kiya to uske aage wo kis se compare karta!!

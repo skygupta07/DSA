@@ -1,3 +1,7 @@
+// insertion sort
+// take an element and insert it in its correct position...
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -23,6 +27,8 @@ void insertionSort(int arr[], int n){
 }
 
 
+// worst: O(nsquare)
+// best : O(N)
 
 
 

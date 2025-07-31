@@ -1,6 +1,5 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
-#include<climits>
 
 
 void print(vector <int> &v){
@@ -13,11 +12,15 @@ void print(vector <int> &v){
 void selectionSort(vector<int> &v){
     int n = v.size();
     
-    for (int i=0; i<n-1; i++){
+    // bahar wala loop second last tak
+    for (int i=0; i < n-1; i++){
         int minidx = -1;  // since we want ki har pass ke baad values update hoti rahe
                         // isliye pehle waale loop ke andar likha
         int min = INT_MAX;
+
+        // andar wala i se n tak chalega...
         for(int j=i; j<n; j++){
+            
             if (v[j]<min){
                 min = v[j];
                 minidx = j;

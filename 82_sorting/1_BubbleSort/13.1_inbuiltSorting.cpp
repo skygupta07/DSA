@@ -6,6 +6,7 @@ int main(){
 
     vector <int> v(5);    // since neeche you are using loop so passing size of vector is must
     cout<<"enter 5 vector elements: ";
+    
     for (int i=0; i<v.size(); i++){
         cin>> v[i];
     }

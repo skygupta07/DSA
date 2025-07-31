@@ -47,7 +47,7 @@ public:
 
         for (int i=0; i<n-1; i++){
             for (int j=i+1; j<n; j++){
-                if (nums[i] > (long long) 2 * nums[j]) count++;
+                if (nums[i] > (long long) 2 * nums[j]) count++; // ha bhai bracket to long long pe hi lagega..
             }
         }
 
@@ -60,11 +60,14 @@ public:
 
 class Solution {
 private: 
+
     // Merge function: Sorting karte waqt reverse pairs count karte hain
-    void merge(vector<int>& nums, int& reversePairsCount, int lo, int mid, int hi) {
+    void merge(vector <int> &nums, int& reversePairsCount, int lo, int mid, int hi) {
         int j = mid + 1; // Right subarray ke starting index
         
-        // Reverse pairs ko count karte hain - important loop ek element first part se aa rha h to dusra dusre part se..
+        // Reverse pairs ko count karte hain - {important loop} 
+        // ek element first part se aa rha h to dusra second part se..
+
         for (int i = lo; i <= mid; i++) {
             while (j <= hi && nums[i] > 2 * (long long)nums[j]) {
                 // Agar nums[i] > 2 * nums[j], to ye reverse pair hai
@@ -75,7 +78,7 @@ private:
         
         // Merge karte hain sorted subarrays ko
         int size = hi - lo + 1; // Current subarray ka size
-        vector<int> temp(size, 0); // Temporary array for merging
+        vector <int> temp(size, 0); // Temporary array for merging
 
         int left = lo, right = mid + 1, k = 0;
 
@@ -123,6 +126,7 @@ private:
     }
 
 public:
+
     // Main function to find reverse pairs
     int reversePairs(vector<int>& nums) {
 
@@ -132,4 +136,5 @@ public:
 
         return reversePairsCount; 
     }
+
 };

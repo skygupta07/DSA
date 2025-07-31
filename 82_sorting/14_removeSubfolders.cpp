@@ -50,19 +50,23 @@ Each folder name is unique.
 
 class Solution {
 public:
-    vector<string> removeSubfolders(vector<string>& folder) {
+
+
+    vector <string> removeSubfolders(vector <string> &folder) {
         // Sort the folders lexicographically so parent folders come before their subfolders
         sort(folder.begin(), folder.end());
 
         // Initialize result vector with the first folder
-        vector<string> ans;
+        vector <string> ans;
         ans.push_back(folder[0]);
 
         // Iterate through remaining folders starting from index 1
         for(int i = 1; i < folder.size(); i++) {
+
             // Get the last added folder path and add a trailing slash
             // This helps in comparing if current folder is a subfolder
-            string lastFolder = ans.back();
+            string lastFolder = ans.back();  // merge interval mai seekhi thi ye cheeje...
+
             lastFolder.push_back('/');
 
             // Compare current folder with last added folder
@@ -75,8 +79,10 @@ public:
                 // If not a subfolder, add to result
                 ans.push_back(folder[i]);
             }
+
         }
 
         return ans;
+
     }
 };

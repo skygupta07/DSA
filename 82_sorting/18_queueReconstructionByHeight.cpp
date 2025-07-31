@@ -3,6 +3,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
 /*
 
 You are given an array of people, people, which are the attributes of some people 
@@ -18,14 +19,19 @@ is the attributes of the jth person in the queue (queue[0] is the person at the 
 Example 1:
 
 Input: people = [[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]]
-Output: [[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]]
+Output: [[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]] -> kehne ka matlab h like [4, 4] is telling that meri 
+height 4 h and mere aage char log h jinki height mere equal ya mere se jyada h...
+
 Explanation:
+
 Person 0 has height 5 with no other people taller or the same height in front.
 Person 1 has height 7 with no other people taller or the same height in front.
+
 Person 2 has height 5 with two persons taller or the same height in front, which is person 0 and 1.
 Person 3 has height 6 with one person taller or the same height in front, which is person 1.
 Person 4 has height 4 with four people taller or the same height in front, which are people 0, 1, 2, and 3.
 Person 5 has height 7 with one person taller or the same height in front, which is person 1.
+
 Hence [[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]] is the reconstructed queue.
 
 
@@ -40,6 +46,7 @@ Output: [[4,0],[5,0],[2,2],[3,2],[1,4],[6,0]]
 
 class Solution {
 public:
+
     // Comparator function for sorting logic.
     // Static function kyunki ise class ke kisi object ke bina call karna hai.
     static bool cmp(vector <int> &a, vector <int> &b) {
@@ -52,7 +59,7 @@ public:
         return a[0] > b[0];
     }
 
-    vector<vector<int>> reconstructQueue(vector<vector<int>>& people) {   
+    vector <vector<int>> reconstructQueue(vector<vector<int>>& people) {   
         // Pehle array ko sort karte hain custom comparator ke basis par.
         sort(people.begin(), people.end(), cmp);  // Sorting according to cmp function.
 
@@ -69,6 +76,7 @@ public:
             // vector.insert(position_iterator, element_to_insert);
             ans.insert(ans.begin() + man[1], man);  // Position + value insert karenge.
         }
+
         // Final queue return karte hain.
         return ans;
     }

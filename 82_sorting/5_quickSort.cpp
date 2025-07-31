@@ -1,50 +1,63 @@
-#include <iostream>
+// mergeSort.cpp
+// pick a pivot and place in its correct place in the sorted array...  smaller on the left and larger on the right issey 
+// wo pivot element to for sure apni correct position par aa jaega...
+
+// tc = O(nlogn), sc = O(1) => Ohhhhoooo slightly better thand merge sort
+
+#include <bits/stdc++.h>
 using namespace std;
 
-int partition(int arr[], int si, int ei)
-{
-    //                  starting index , ending index
+
+
+//                  starting index , ending index
+int partition(int arr[], int si, int ei){
+
+    
     int pivotElement = arr[(si + ei) / 2]; // choosing randomised pivot element to improve t.c.
                                            // initially first element will be considered as pivotElement
     int count = 0;
 
-    for (int i = si + 1; i <= ei; i++)
-    { // si+1 wale element se leke last tak jaaege
-        if (i == (si + ei) / 2)
-            continue;
-        if (arr[i] <= pivotElement)
-        {
-            count++; // counting dekhi ki pivotElement se kitne chote elements present hai..
-        }
+    // si+1 wale element se leke last tak jaaege
+    for (int i = si + 1; i <= ei; i++){ 
+        if (i == (si + ei) / 2) continue;
+
+         // counting dekhi ki pivotElement se kitne chote elements present hai....
+        if (arr[i] <= pivotElement) count++;
     }
+
+
     // declaring pivot index
     int pivotidx = count + si;               // imp
+    
     swap(arr[(si + ei) / 2], arr[pivotidx]); // pivot index ko initially sahi index pe place kiya
+    
     int i = si;
     int j = ei;
 
-    while (i < pivotidx && j > pivotidx)
-    {
-        if (arr[i] <= pivotElement)
-            i++; // matlab theek hai filhaal apni jagah pe, now next index dekho..
-        if (arr[j] > pivotElement)
-            j--;
-        else if (arr[i] > pivotElement && arr[j] < pivotElement)
-        {
+    while (i < pivotidx && j > pivotidx){
+        //  // matlab theek hai filhaal apni jagah pe, now next index dekho..
+        // ek jagah to eaual wale element ko consider karoge hi...
+        if (arr[i] <= pivotElement) i++;
+
+        if (arr[j] > pivotElement) j--;
+
+        else if (arr[i] > pivotElement && arr[j] < pivotElement){
             swap(arr[i], arr[j]);
             i++;
             j--;
         }
     }
+    
     return pivotidx;
 }
 
-void quicksort(int arr[], int si, int ei)
-{
-    if (si >= ei)
-        return; // base case..
+void quicksort(int arr[], int si, int ei){
+    // base case..
+    if (si >= ei) return;
 
-    int pi = partition(arr, si, ei); // kaam
+    // kaam
+    int pi = partition(arr, si, ei);
+   
     // partition index
 
     // 5,1,8,2,7,6,3,4
@@ -55,23 +68,19 @@ void quicksort(int arr[], int si, int ei)
     quicksort(arr, pi + 1, ei); // accha quick sort me bhi recursion to lag hi rahi hai..
 }
 
-int main()
-{
+int main(){
+
     int arr[] = {5, 1, 8, 2, 7, 6, 3, 4};
     int n = sizeof(arr) / sizeof(arr[0]);
 
-    for (int i = 0; i < n; i++)
-    {
-        cout << arr[i] << " ";
-    }
+    for (int i = 0; i < n; i++) cout << arr[i] << " ";
     cout << endl;
 
+    //          start, end index
     quicksort(arr, 0, n - 1);
 
-    for (int i = 0; i < n; i++)
-    {
-        cout << arr[i] << " ";
-    }
+    for (int i = 0; i < n; i++) cout << arr[i] << " ";
+    
     cout << endl;
 }
 
@@ -94,3 +103,20 @@ int main()
 
 // bubble, insertion, merge stable
 // selection me random swaps so unstable
+
+
+/*
+
+
+pivot element choose kiya 
+now going from left to right find the first element which is greater than pivot..
+now coming from right to left find the first element which is smaller than pivot ...
+
+now swap these two elements...
+
+and finally jab i crosses j then we swapped the pivot and i 
+
+
+
+
+*/

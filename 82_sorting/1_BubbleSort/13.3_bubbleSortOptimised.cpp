@@ -9,31 +9,44 @@ void print(vector <int> v){
 }
 
 void bubbleSort(vector<int> &v){
-     
     int n = v.size(); 
+
     for (int i=0; i<n-1; i++){
+
         bool flag = true;   // assuming array is already sorted
             // taki har loop me update hoke check hoti rahe value
-        for (int j=0; j<n-1-i; j++){   // i aur ghata diya
-            if (v[j]>v[j+1]){
+
+         // i aur ghata diya
+        for (int j=0; j<n-1-i; j++){  
+
+            // at any moment current element is greater than next.. simply swap them..
+            if (v[j] > v[j+1]){
+
                 swap(v[j],v[j+1]);
                 flag = false;   // agar values swap karni pad rahi hai matlab array not sorted
+
             }
         }
 
-        if (flag==true){  // means no swapping was done means array is sorted now
+        // means no swapping was done means array is sorted now
+        if (flag==true){
             break;
-        } 
+        }
+        
     }
 }
 
 int main(){
+
     int arr[] = {4,2,5,1,9,14};
     int n = sizeof(arr)/sizeof(arr[0]);
+
     vector<int> v(arr, arr+n);  
     print(v);
+
     cout<<endl;
     bubbleSort(v); 
+    
     print(v);
 }
 

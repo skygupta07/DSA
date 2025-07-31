@@ -1,4 +1,7 @@
 // IMPORTANT concept of vectors, recursion, sorting, merging arrays..
+// very important for interviews
+
+// remember merge sort is divide and merge // O(Nlogbase2N) , S.C. = O(N)
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -81,6 +84,7 @@ void mergesort(vector<int> &v){  // bhaisaab ab samjha vector me address bhejna 
 // saath me ab size na pass karna pade
     
     int n = v.size(); // is function me use karne ke liye to size ko dubara nikalna hi padega
+    
     if (n == 1) return;  // base case -> important.... kyuki yaha recursion ki call lag rahi h
     // jab 1 size ka array aa jaega then usko further break karne ki koi need nahi
     // since single size array is already sorted
@@ -116,6 +120,7 @@ void mergesort(vector<int> &v){  // bhaisaab ab samjha vector me address bhejna 
 
 int main(){
     int arr[]={8,3,2,4,1,10,12,6};
+
     int n = sizeof(arr)/sizeof(arr[0]);
 
     // pehle array banate hai then vector me array ko copy paste marte hai taqi wo baar baar push_back()
@@ -133,6 +138,7 @@ int main(){
 }
 
 // algorithm of Merge Sort
+
 // 1. divide and conquer: divide the vector into two pieces..(i.e. make two vector of size: n/2, n-n/2)
 // 2. magic: sort the smaller divided vectors using recursion..(base case)
 // 3, merge Two sorted vector..
