@@ -1,4 +1,4 @@
-// mergeIntervals.cpp - imp to learn steps - OA frequently asked
+// mergeIntervals.cpp - imp to learn steps - OA frequently asked (understood)
 
 /*
 
@@ -11,15 +11,60 @@ Example 1:
 
 Input: intervals = [[1,3],[2,6],[8,10],[15,18]]
 Output: [[1,6],[8,10],[15,18]]
+
 Explanation: Since intervals [1,3] and [2,6] overlap, merge them into [1,6].
 
 Example 2:
 
 Input: intervals = [[1,4],[4,5]]
 Output: [[1,5]]
+
 Explanation: Intervals [1,4] and [4,5] are considered overlapping.
 
 */
+
+
+// mergeIntervals.cpp - Must-know OA pattern: Merge Overlapping Intervals
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    vector <vector <int>> merge(vector <vector <int>> &intervals) {
+        int n = intervals.size();
+
+        if (n <= 1) return intervals;
+
+        // Step 1: Sort intervals by starting time
+        sort(intervals.begin(), intervals.end());
+
+        // to store all the final intervals
+        vector <vector <int>> merged;
+        
+        // Step 2: Traverse through each interval
+        for (const auto &interval : intervals) {
+
+            // If merged is empty OR current interval doesn't overlap with the last merged one
+            // start time ke basis par sort kiya h to phir.. curr interval ka start time previous
+            // wale interval ke end time se bada hona chahiye.. {non overlapping condition}
+            if (merged.empty() || interval[0] > merged.back()[1]) {
+                merged.push_back(interval);
+            } 
+            
+            else {
+                // Overlap: merge current interval with the last one in merged
+                merged.back()[1] = max(merged.back()[1], interval[1]);
+            }
+            
+        }
+
+        return merged;
+    }
+};
+
+
+// 
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -32,13 +77,15 @@ bool cmp(vector <int> &a, vector <int> &b){
 class Solution {
 public:
 
-    vector<vector<int>> merge(vector <vector<int>> &intervals){
+    vector <vector <int>> merge(vector <vector<int>> &intervals){
+        
         // Step 1: Intervals ko unke end time ke basis pe sort karo
         sort(intervals.begin(), intervals.end(), cmp);
 
         vector <vector <int>> result; // Yeh final merged intervals store karega
 
         int n = intervals.size();
+
         if (n == 1) return intervals; // Agar sirf ek interval hai toh wahi return kar do
 
         // Step 2: Sabse last interval ko result mein daal diya, kyuki hum ulta loop chalayenge
@@ -57,6 +104,7 @@ public:
                 // start time ka minimum aur end time ka maximum leke update kar do
                 result[result.size() - 1][0] = min(result[result.size() - 1][0], curr[0]);
                 result[result.size() - 1][1] = max(result[result.size() - 1][1], curr[1]);
+
             }
 
             // Overlap nahi ho raha, toh yeh interval alag hai, isko result mein daal do aise hi
@@ -69,30 +117,8 @@ public:
 
         return result; // Final merged intervals return kar do
     }
+    
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
