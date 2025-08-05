@@ -1,5 +1,8 @@
+// equilibriumPoint.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
+
 
 /*
 
@@ -21,20 +24,24 @@ Explanation: There is no equilibrium index in the array.
 
 Input: arr[] = [-7, 1, 5, 2, -4, 3, 0]
 Output: 3
-Explanation: The sum of left of index 3 is -7 + 1 + 5 = -1 and sum on right of index 3 is -4 + 3 + 0 = -1.
+Explanation: The sum of left of index 3 is -7 + 1 + 5 = -1 
+and sum on right of index 3 is -4 + 3 + 0 = -1.
 
 */
 
 
 class Solution {
 public:
+
     // Function to find equilibrium point in the array.
-    int findEquilibrium(vector<int> &arr) {
+    int findEquilibrium(vector <int> &arr) {
         int n = arr.size();
+
         vector <int> prefSumExceptSelf(n, 0);
         vector <int> suffSumExceptSelf(n, 0);
         
         prefSumExceptSelf[0] = 0;
+        
         for (int i=1; i<n; i++){
             // ha expect self wale mai pehle wale ka sum add karna hai
             prefSumExceptSelf[i] = arr[i-1] + prefSumExceptSelf[i-1];

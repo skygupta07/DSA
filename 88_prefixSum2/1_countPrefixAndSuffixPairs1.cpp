@@ -1,8 +1,11 @@
+// countPrefixAndSuffixPairs1.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
 
 
 /*
+
 You are given a 0-indexed string array words.
 
 Let's define a boolean function isPrefixAndSuffix that takes two strings, str1 and str2:
@@ -20,6 +23,7 @@ Example 1:
 
 Input: words = ["a","aba","ababa","aa"]
 Output: 4
+
 Explanation: In this example, the counted index pairs are:
 i = 0 and j = 1 because isPrefixAndSuffix("a", "aba") is true.
 i = 0 and j = 2 because isPrefixAndSuffix("a", "ababa") is true.
@@ -31,6 +35,7 @@ Example 2:
 
 Input: words = ["pa","papa","ma","mama"]
 Output: 2
+
 Explanation: In this example, the counted index pairs are:
 i = 0 and j = 1 because isPrefixAndSuffix("pa", "papa") is true.
 i = 2 and j = 3 because isPrefixAndSuffix("ma", "mama") is true.
@@ -40,6 +45,7 @@ Example 3:
 
 Input: words = ["abab","ab"]
 Output: 0
+
 Explanation: In this example, the only valid index pair is i = 0 and j = 1, and isPrefixAndSuffix("abab", "ab") is false.
 Therefore, the answer is 0.
  
@@ -54,6 +60,7 @@ words[i] consists only of lowercase English letters.
 
 class Solution {
 public:
+
     bool isPrefix(string a, string b){ // check if a is prefix of b
         int lenA = a.length();
         int lenB = b.length();
@@ -68,6 +75,7 @@ public:
         }
 
         return true;
+
     }
 
     bool isSuffix(string a, string b){ // check if a is suffix of b
@@ -98,7 +106,9 @@ public:
         }
 
         return count;
+
     }
+    
 };
 
 
