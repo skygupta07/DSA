@@ -1,5 +1,9 @@
 //lc 2182. Construct String With Repeat Limit
 
+
+// please in header files ko yaha rehne do ... kabhi kabhi aise bhi compiler hote h jisme 
+// #include <bits/stdc++.h> kaam nahi karta so waha par hum ye header ek ek karke hi include karte h...
+
 #include <iostream>
 #include <vector>
 #include <unordered_map>
@@ -8,15 +12,16 @@ using namespace std;
 
 class Solution {
 public:
+
     string repeatLimitedString(string s, int repeatLimit) {
         // Step 1: Count the frequency of each character in the string
-        unordered_map<char, int> mp;
-        for (int i = 0; i < s.size(); i++) {
-            mp[s[i]]++;
-        }
+        unordered_map <char, int> mp;
+
+        for (int i = 0; i < s.size(); i++) mp[s[i]]++;
         
         // Step 2: Use a max-heap (priority queue) to store characters and their frequencies
-        priority_queue<pair<char, int>> pq;
+        priority_queue <pair <char, int>> pq;
+
         for (auto p : mp) {
             pq.push(p);
         }
@@ -24,13 +29,16 @@ public:
         string result = "";
         
         // Step 3: Build the result string while respecting the repeatLimit constraint
+        
         while (!pq.empty()) {
+
             // Get the character with the highest lexicographical order and its frequency
             auto largest = pq.top();
             pq.pop();
             
             // Determine the number of times to add the current character without exceeding repeatLimit
             int len = min(repeatLimit, largest.second);
+
             for (int i = 0; i < len; i++) {
                 result += largest.first;
             }
@@ -52,10 +60,13 @@ public:
                     
                     // Push the remaining occurrences of the largest character back into the priority queue
                     pq.push({largest.first, largest.second - len});
-                } else {
+                } 
+                
+                else {
                     // If the priority queue is empty, we can't add more characters, so return the result
                     return result;
                 }
+                
             }
         }
         
