@@ -1,0 +1,12 @@
+B - Basic or Fundamental
+H - Hard
+GH - Good but Hard
+
+! - need to revisit this question
+I  or imp - important 
+T - Tricky
+
+V - See Video
+1R means 1 time Revision Done
+
+NC - NeetCode 150 

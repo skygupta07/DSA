@@ -1,1 +1,1 @@
-add intuition, tc, sc, logic and comment it
+add intuition, tc, sc, logic and comment it in detail
