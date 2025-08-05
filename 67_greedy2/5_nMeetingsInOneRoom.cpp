@@ -1,8 +1,8 @@
 // nMeetingsInOneRoom.cpp
 
-
 #include <bits/stdc++.h>
 using namespace std;
+
 
 /*
 
@@ -18,11 +18,13 @@ Examples :
 
 Input: start[] = [1, 3, 0, 5, 8, 5], end[] =  [2, 4, 6, 7, 9, 9]
 Output: 4
+
 Explanation: Maximum four meetings can be held with given start and end timings.
 The meetings are - (1, 2), (3, 4), (5,7) and (8,9)
 
 Input: start[] = [10, 12, 20], end[] = [20, 25, 30]
 Output: 1
+
 Explanation: Only one meetings can be held with given start and end timings.
 Input: start[] = [1, 2], end[] = [100, 99]
 Output: 1
@@ -31,11 +33,13 @@ Output: 1
 
 
 class Solution {
-    public:
+public:
+
       // Function to find the maximum number of meetings that can be performed in a meeting room.
       int maxMeetings(vector <int> &start, vector <int> &end) {
 
           int n = start.size();
+
           vector <pair <int, int>> v; // end, start time
           
           // Storing meetings as {end time, start time} pairs
@@ -44,23 +48,30 @@ class Solution {
           }
   
           // Sorting meetings by **end time** (Greedy Approach) 
-        //   - kyuki first parameter ke basis par hi hoti h cheeje har jagah..
+         // - kyuki first parameter ke basis par hi hoti h cheeje *har jagah*..
 
           sort(v.begin(), v.end());
   
           int count = 1; // First meeting can always be attended
 
           int lastTime = v[0].first; // Store end time of the first meeting
-  
+          
+
+          // aise cases mai pata nahi kyu khud hi loop 1 se start karne lagta hu...
           for (int i = 1; i < n; i++) {
-              // If the current meeting starts after the last attended meeting ends
+              
+            // If the current meeting starts {kyuki humne sort end time ke basis par kiya h to bhai ab
+            // current interval ka to start time hi to compare karenge...} after the last attended meeting ends
               if (v[i].second > lastTime) {
-                  lastTime = v[i].first; // Update last attended meeting's end time
-                  count++; // Increment count of meetings
+                  
+                lastTime = v[i].first; // Update last attended meeting's end time
+                count++; // Increment count of meetings
+
               }
           }
   
           return count; // Return the maximum number of non-overlapping meetings
-      }
+    }
+
   };
   

@@ -1,3 +1,5 @@
+// patchingArray.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -14,6 +16,7 @@ Example 1:
 
 Input: nums = [1,3], n = 6
 Output: 1
+
 Explanation:
 Combinations of nums are [1], [3], [1,3], which form possible sums of: 1, 3, 4.
 Now if we add/patch 2 to nums, the combinations are: [1], [2], [3], [1,3], [2,3], [1,2,3].
@@ -25,6 +28,7 @@ Example 2:
 
 Input: nums = [1,5,10], n = 20
 Output: 2
+
 Explanation: The two patches can be [2, 4].
 
 
@@ -37,40 +41,54 @@ Output: 0
 Constraints:
 
 1 <= nums.length <= 1000
-1 <= nums[i] <= 104
+1 <= nums[i] <= 1e4
+
 nums is sorted in ascending order.
-1 <= n <= 2pow31 - 1
+1 <= n <= 2e31 - 1
 
 */
-#include <vector>
+
+
+#include <bits/stdc++.h>
 using namespace std;
 
 class Solution {
 public:
-    int minPatches(vector<int>& nums, int n) {
-        long patches = 0;       // Number of patches (numbers added)
-        long maxReach = 0;      // Maximum number we can form using current nums and patches
+
+
+    int minPatches(vector <int> &nums, int n) {
+
+        long patchesCount = 0;       // Number of patchesCount (i.e., extra numbers added to the array)
+        long maxReach = 0;      // The maximum number we can form from 1 to maxReach using current array
         
-        int i = 0;              // Pointer to iterate through the nums array
+        int i = 0; // Pointer for iterating through the input array `nums`
         int sz = nums.size(); 
 
-        // Keep adding patches until we can form all numbers from 1 to n
+        // Continue until we can form all numbers from 1 to n
         while (maxReach < n) {
             
             if (i < sz && nums[i] <= maxReach + 1) {
-                // If current number can extend the current range
+                // If nums[i] can be used to extend the range of formable numbers
+                // Example: maxReach = 3, nums[i] = 4 → we can now reach up to 3+4 = 7
                 maxReach += nums[i];
-                i++;
+                
+                i++;  // Move to next number in nums
             } 
             
             else {
-                // Patch is required: add maxReach + 1
-                // This patch allows us to form numbers up to 2*maxReach + 1
-                patches++;
+
+                // If nums[i] is too large or no numbers left, we must add a patch
+                // We add maxReach + 1, which is the smallest number we cannot form yet
+                // This patch helps us extend the range from [1, maxReach] to [1, 2*maxReach + 1]
+                patchesCount++;
                 maxReach += maxReach + 1;
+
             }
         }
 
-        return patches;
+        return patchesCount;  // Return total number of patches added
+    
     }
+    
 };
+

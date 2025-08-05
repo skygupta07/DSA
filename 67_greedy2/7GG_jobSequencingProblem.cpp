@@ -1,9 +1,12 @@
+// frequently asked OA question
+
 // jobSequencingProblem.cpp
 
 /*
 
 You are given two arrays: deadline[], and profit[], which represent a set of jobs, 
 where each job is associated with a deadline, and a profit. 
+
 Each job takes 1 unit of time to complete, and only one job can be scheduled at a time. 
 You will earn the profit associated with a job only if it is completed by its deadline.
 
@@ -43,12 +46,12 @@ public:
           int n = deadline.size();
           
           // pata h sort karna h to better rehta h pehle joda bana lo..
-          vector <pair <int, int>> jobs;
+          vector <pair <int, int>> jobs; // profit , deadline
 
           for (int i=0; i<n; i++) jobs.push_back({profit[i], deadline[i]});
           
 
-        //   maxProfit wala sabse pehle aajayega...
+            // maxProfit wala sabse pehle aajayega...
           sort(jobs.rbegin(), jobs.rend());
 
 
@@ -56,7 +59,7 @@ public:
           int maxDeadline = 0;
           for (int i=0; i<n; i++) maxDeadline = max(maxDeadline, jobs[i].second);
           
-          // -1 indicates that slot or room is empty
+          // -1 indicates that slot or room is empty {DSA is all about pattern}
           vector <int> slot(maxDeadline + 1, -1);
           
           int countJobs = 0;
@@ -77,6 +80,7 @@ public:
                       
                       countJobs++;
                       maxProfit += profit;
+                      
                       break; //slot book ho gaya to chal chal bhai chal nikal le ab.. chal ab dusre job ko aane de..
                   }
               }
