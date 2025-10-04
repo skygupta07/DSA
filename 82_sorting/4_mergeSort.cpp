@@ -78,7 +78,7 @@ void merge(vector<int> &a, vector<int> &b, vector<int> &res) {
 
 // }
 
-void mergesort(vector<int> &v){  // bhaisaab ab samjha vector me address bhejna jaruri kyu hai
+void mergesort(vector <int> &v){  // bhaisaab ab samjha vector me address bhejna jaruri kyu hai
 // vectors are passed by reference..
 // aur ha vector bhi isliye hi banaya tha taki function me pass karte waqt kewal vector hi pass karna ho
 // saath me ab size na pass karna pade

@@ -1,3 +1,5 @@
+// mergeSort.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -5,17 +7,17 @@ using namespace std;
 // First subarray is arr[left..mid]
 // Second subarray is arr[mid+1..right]
 
-void merge(vector<int>& arr, int left, int mid, int right){
+void merge(vector <int> &arr, int left, int mid, int right){
 
-    int n1 = mid - left + 1;
+    int n1 = mid - left + 1; // size of first subarray
     int n2 = right - mid;
 
     // Create temp vectors
-    vector<int> L(n1), R(n2);
+    vector <int> L(n1), R(n2);
 
     // Copy data to temp vectors L[] and R[]
-    for (int i = 0; i < n1; i++) L[i] = arr[left + i];
-    for (int j = 0; j < n2; j++) R[j] = arr[mid + 1 + j];
+    for (int i = 0; i < n1; i++) L[i] = arr[left + i]; // pehla wala vector left se start ho raha h isliye left ka offset
+    for (int j = 0; j < n2; j++) R[j] = arr[mid + 1 + j]; // ye wala vector mai mid+1 ka offset dena hoga..
 
     int i = 0, j = 0;
     int k = left;
@@ -57,6 +59,7 @@ void mergeSort(vector<int>& arr, int left, int right){
     if (left >= right) return;
 
     int mid = left + (right - left) / 2;
+
     mergeSort(arr, left, mid);
     mergeSort(arr, mid + 1, right);
 
@@ -64,7 +67,7 @@ void mergeSort(vector<int>& arr, int left, int right){
 }
 
 // Function to print a vector
-void printVector(vector<int>& arr){
+void printVector(vector <int> &arr){
     for (int i = 0; i < arr.size(); i++) cout << arr[i] << " ";
     cout << endl;
 }
