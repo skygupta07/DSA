@@ -131,7 +131,6 @@ public:
             if (visited[i] || indexMapping[i] == i) continue;
 
             int cycleSize = 0;
-
             int j = i;
 
             // ek cycle traverse karo

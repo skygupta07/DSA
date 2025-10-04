@@ -40,11 +40,13 @@ Follow Up: Can you do it in O(n) time and/or in-place with O(1) extra space?
 
 class Solution {
 public:
-    void wiggleSort(vector<int>& nums) {
+
+
+    void wiggleSort(vector <int> &nums) {
         int n = nums.size();
 
         // Step 1️⃣: Make a copy of the original array
-        vector<int> nums1(nums);
+        vector <int> nums1(nums);
 
         // Step 2️⃣: Sort the copy in increasing order
         sort(nums1.begin(), nums1.end());
@@ -52,11 +54,13 @@ public:
         // Two pointers:
         // j -> start of the smaller half (low values)
         // k -> start of the larger half (high values)
+
         int j = (n - 1) / 2;  // middle or just before middle for odd n
         int k = n - 1;        // end of the array (largest element)
 
         // Step 3️⃣: Fill nums[] in a wiggle pattern from end to start
         // Why from end? Because if there are duplicates, placing largest last avoids conflicts.
+        
         for (int i = 0; i < n; i++) {
             // Odd index (i % 2 == 1) should have larger element
             
@@ -70,5 +74,10 @@ public:
                 k--;
             }
         }
+
     }
+
 };
+
+
+
