@@ -34,16 +34,16 @@ class Solution {
 public:
 
     string reorganizeString(string s) {
-        unordered_map<char, int> mp;  // Step 1: Count frequencies
+        unordered_map <char, int> freq;  // Step 1: Count frequencies
 
         for (char ch : s) {
-            mp[ch]++;
+            freq[ch]++;
         }
 
         // Step 2: Max Heap to store characters sorted by freq (max first)
-        priority_queue<pair<int, char>> pq;
+        priority_queue <pair <int, char>> pq;
 
-        for (auto el : mp) {
+        for (auto el : freq) {
             pq.push({el.second, el.first});  // {freq, char}
         }
 
@@ -71,9 +71,11 @@ public:
 
         // Step 4: Handle the last remaining char (if any)
         if (!pq.empty()) {
-            auto [freq, ch] = pq.top(); pq.pop();
+            auto [freq, ch] = pq.top(); 
+            pq.pop();
 
             if (freq > 1) return ""; // Not possible to place without repeat
+            
             ans += ch;  // else safe to add one occurrence
         }
 
@@ -104,12 +106,17 @@ else{
 /*
 
 Count frequencies of all characters using a map<char, int>.
+
 Push all {freq, char} into a max heap (priority queue in descending order of freq).
+
 While the heap has at least 2 characters:
 Pop two most frequent characters (say ch1, ch2)
+
 Append both to the result string
 Decrease their frequencies by 1
+
 If any still have remaining freq, push them back into heap
+
 After the loop:
 If one character is left, check if its frequency is 1, if yes, append to result
 If more than 1 → impossible ⇒ return ""

@@ -57,6 +57,7 @@ public:
         int maxOneCount = 0;
         int maxIdx = 0;
 
+        // har row pe gaye...
         for (int i = 0; i < mat.size(); i++) {
             // Accumulate ka third parameter initial sum hota hai. Yahi bhoolte ho tum 😄
             int oneCount = accumulate(mat[i].begin(), mat[i].end(), 0);
@@ -87,6 +88,7 @@ SC = O(1)
 
 class Solution {
 public:
+
     // Helper function: binary search to find first occurrence of 1
     int countOnes(vector<int> &row) {
         int lo = 0;

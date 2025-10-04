@@ -1,5 +1,8 @@
+// minimizeMaximumOfProductDistributedInAnArray.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
+
 
 /*
 
@@ -11,8 +14,11 @@ You need to distribute all products to the retail stores following these rules:
 
 A store can only be given at most one product type but can be given any amount of it.
 After distribution, each store will have been given some number of products (possibly 0). 
+
 Let x represent the maximum number of products given to any store. 
-You want x to be as small as possible, i.e., you want to minimize the maximum number of products 
+You want x to be as small as possible, 
+
+i.e., you want to minimize the maximum number of products 
 that are given to any store.
 
 Return the minimum possible x.
@@ -59,9 +65,11 @@ m == quantities.length
 */
 
 
+// binary search 
 
 class Solution {
 public:
+
     // Helper function to check if it is possible to distribute quantities among `n` stores
     // such that the maximum items in any store is `mid`.
     bool isPossible(int n, vector<int>& quantities, int mid) {
@@ -86,23 +94,23 @@ public:
 
     // Main function to find the minimized maximum number of items in any store
     int minimizedMaximum(int n, vector<int>& quantities) {
-        int s = 1, e = 100000, ans = -1;
+        int lo = 1, hi = 100000, ans = -1;
         
         // Perform binary search on the potential maximum number of items per store
-        while (s <= e) {
+        while (lo <= hi) {
 
-            int mid = s + (e - s) / 2; // Calculate the midpoint
+            int mid = lo + (hi - lo) / 2; // Calculate the midpoint
             
             // Check if it's possible to distribute items such that no store has more than `mid` items
             if (isPossible(n, quantities, mid)) {
                 // If yes, store the answer and try to find a smaller feasible `mid`
                 ans = mid;
-                e = mid - 1;
+                hi = mid - 1;
             } 
             
             else {
                 // If no, increase the lower bound to try for a larger `mid`
-                s = mid + 1;
+                lo = mid + 1;
             }
             
         }

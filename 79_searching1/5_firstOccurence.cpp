@@ -1,13 +1,37 @@
 // firstOccurence.cpp
 
+
+/*
+
+You are given a sorted array (which may contain duplicate elements) and a target value x. 
+Write a program in C++ to find the first occurrence (index) of x in the array using Binary Search.
+
+If x is not present, print "Element not found in array.".
+The solution should run in O(log n) time complexity.
+
+Example 1:
+Input: arr = [1, 2, 2, 2, 3, 3, 3, 5, 5, 8, 9], x = 3
+Output: First occurrence of 3 is at index: 4
+
+Example 2:
+Input: arr = [1, 2, 4, 6, 7, 8], x = 5
+Output: Element not found in array.
+
+
+*/
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
 int main() {
+
     int arr[] = {1, 2, 2, 2, 3, 3, 3, 5, 5, 5, 5, 8, 8, 9};
+
     int n = sizeof(arr) / sizeof(arr[0]);  // Size of the array
 
     int x = 3; // Target element to search
+    
     int lo = 0;
     int hi = n - 1;
 

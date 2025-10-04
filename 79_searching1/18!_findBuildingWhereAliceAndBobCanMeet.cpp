@@ -1,3 +1,5 @@
+// findBuildingWhereAliceAndBobCanMeet.cpp
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -25,8 +27,10 @@ Output: [2,5,-1,5,2]
 
 Explanation: In the first query, Alice and Bob can move to building 2 since heights[0] < heights[2] 
 and heights[1] < heights[2]. 
+
 In the second query, Alice and Bob can move to building 5 since heights[0] < heights[5] 
 and heights[3] < heights[5]. 
+
 In the third query, Alice cannot meet Bob since Alice cannot move to any other building.
 In the fourth query, Alice and Bob can move to building 5 since heights[3] < heights[5] 
 and heights[4] < heights[5].
@@ -101,7 +105,7 @@ public:
         }
 
         int numQueries = queries.size();
-        vector<int> results(numQueries);
+        vector <int> results(numQueries);
 
         // Step 3: Process each query
         for (int queryIndex = 0; queryIndex < numQueries; queryIndex++) {
@@ -126,6 +130,7 @@ public:
 
             // Find the leftmost index >= right where height > max(heights[left], heights[right])
             int maxHeight = max(heights[left], heights[right]);
+            
             int low = right, high = n, mid;
 
             while (low < high) {
@@ -134,15 +139,19 @@ public:
                 // If max height in range [right, mid] > maxHeight => go left
                 if (queryMaximum(right, mid) > maxHeight) {
                     high = mid;
-                } else {
+                } 
+                
+                else {
                     low = mid + 1; // else go right
                 }
             }
 
             // Check if we found a valid index
             results[queryIndex] = (low == n) ? -1 : low;
+        
         }
 
         return results;
+    
     }
 };

@@ -42,64 +42,39 @@ n == nums.length
 */
 
 
-
-
 #include <bits/stdc++.h>
 using namespace std;
 
 
+// brute force -> minheap gave tle here...
+
 class Solution {
 public:
-    
-    int solve(vector <int> &nums, int diff){
-        int count = 0;
 
-        int j = 0;
+    int smallestDistancePair(vector <int> &nums, int k) {
         int n = nums.size();
+        
+        priority_queue <int, vector <int>, greater <int>> pq;
 
-        for (int i=0; i<n; i++){
-            while (j<n && nums[j] - nums[i] <= diff) j++;
-            count += j-i-1;
-        }
-
-        return count; 
-    }
-
-
-
-    int smallestDistancePair(vector<int>& nums, int k) {
-        int n = nums.size();
-
-        sort(nums.begin() , nums.end());
-
-        // binary search on difference
-        int lo = 0;
-        int hi = nums[n-1] - nums[0];
-
-        int ans = 0;
-
-        while (lo <= hi){
-            int mid = lo + (hi - lo)/2;
-
-            // number of pairs that are smaller than mid difference..
-            int count = solve(nums, mid);
-
-            if (count >= k){
-                ans = mid;
-                hi = mid-1;
-            }
-
-            else{
-                lo = mid + 1;
+        for(int i=0; i<=n-2; i++){
+            for (int j=i+1; j<=n-1; j++){
+                pq.push(abs(nums[i] - nums[j]));
             }
         }
-        return ans;
-    }
 
+        // it is simple to find the kth smallest hume bhai pehle k-1 smaller element ko bhagana padega...
+        while (k>1 && !pq.empty()){
+            pq.pop();
+            k--;
+        }
+
+        return pq.top();
+    }
 };
 
 
-// method 2 
+
+//method 2 ->  using binary search 
 
 class Solution {
 public:
@@ -127,9 +102,11 @@ public:
         return count;
     }
 
+
     // 🔹 Main function to return the k-th smallest absolute difference among all pairs
     int smallestDistancePair(vector <int> &nums, int k) {
         int n = nums.size();
+
         sort(nums.begin(), nums.end());  // Sorting helps in applying two-pointer + binary search
 
         // 🔹 After sorting, the smallest absolute difference can be 0
@@ -151,7 +128,9 @@ public:
                 // So move to the left side of search space
                 ans = mid;
                 hi = mid - 1;
-            } else {
+            } 
+            
+            else {
                 // Too few pairs — means we need to allow bigger differences
                 lo = mid + 1;
             }
@@ -166,7 +145,9 @@ public:
 
 🧠 Intuition:
 Sort the array so that difference between elements becomes predictable.
-Binary search the difference d (range: 0 to max - min) and for each d, count how many pairs (i, j) exist with nums[j] - nums[i] <= d.
+Binary search the difference d (range: 0 to max - min) and for each d, 
+count how many pairs (i, j) exist with nums[j] - nums[i] <= d.
+
 If count >= k, then d can be the answer (but we want the smallest such d).
 Otherwise, we need to increase d to get enough pairs.
 

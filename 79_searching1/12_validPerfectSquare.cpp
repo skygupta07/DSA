@@ -24,6 +24,7 @@ Explanation: We return false because 3.742 * 3.742 = 14 and 3.742 is not an inte
 
 class Solution {
 public:
+
     typedef long long ll;
 
     bool isPerfectSquare(int n) {
@@ -36,12 +37,12 @@ public:
 
             if (square == n) return true;
             
-            else if (square < n){
-                lo = mid + 1;
-            }
+            else if (square < n) lo = mid + 1;
+            
             else hi = mid - 1;
         }
         
         return false;
     }
+    
 };

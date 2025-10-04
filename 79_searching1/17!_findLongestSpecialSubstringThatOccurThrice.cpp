@@ -1,6 +1,7 @@
 // findLongestSpecialSubstringThatOccursThrice.cpp
 
 /*
+
 You are given a string s that consists of lowercase English letters.
 
 A string is called special if it is made up of only a single character. 
@@ -50,7 +51,9 @@ class Solution {
 public:
     // Helper function to check if a substring of length >= x has a character repeating more than twice
     bool helper (const string &s, int n, int x){
-        vector <int> cnt(26, 0); // Frequency array to count occurrences of each character
+        
+        vector <int> freq(26, 0); // Frequency array to count occurrences of each character
+        
         int p = 0; // Pointer to track the start of the current substring
 
         for (int i = 0; i < n; i++) {
@@ -58,14 +61,15 @@ public:
             while (s[p] != s[i]) p++;
 
             // If the current substring length (i - p + 1) >= x, count the character frequency
-            if (i - p + 1 >= x) cnt[s[i] - 'a']++;
+            if (i - p + 1 >= x) freq[s[i] - 'a']++;
 
             // If any character's count exceeds 2, return true
-            if (cnt[s[i] - 'a'] > 2) return true;
+            if (freq[s[i] - 'a'] > 2) return true;
         }
 
         // If no character repeats more than twice for length >= x, return false
         return false;
+        
     }
 
     // Function to find the maximum length of substring such that 

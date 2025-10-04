@@ -37,6 +37,36 @@ nums.length == n
 
 */
 
+// brute force -> gave tle
+
+class Solution {
+public:
+    
+    
+    long long countFairPairs(vector<int>& nums, int lower, int upper) {
+        int n = nums.size();
+
+        sort(nums.begin(), nums.end());
+
+        int count = 0;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+
+                int sum = nums[i] + nums[j];
+                if (sum >= lower && sum <= upper) {
+                    count++;
+                }
+
+                if (sum > upper) break;  // Early exit if sum exceeds upper bound {valid : coz sort kar diya h to aage positive element hi milenge.... break early}
+            }
+        }
+
+        return count;
+
+    }
+};
+
 
 #include <bits/stdc++.h>  
 using namespace std;
@@ -54,11 +84,17 @@ public:
 
         long long count = 0;  // yeh variable final answer store karega — total fair pairs
 
-        // Step 2: Har index i ke liye, hum dekh rahe hain ki uske baad wale elements me kaunse j valid hain
+        // Step 2: Har index i ke liye, hum dekh rahe hain ki uske baad wale elements 
+        // me kaunse j valid hain
+        
         for (int i = 0; i < n; i++) {
 
             // Requirement: lower <= nums[i] + nums[j] <= upper
+
+            // subtracting nums[i] from all sides 
+
             // ⇒ lower - nums[i] <= nums[j] <= upper - nums[i]
+            
             // So we calculate minimum and maximum values nums[j] can take
             int min_required = lower - nums[i];  // nums[j] should be >= min_required
             int max_required = upper - nums[i];  // nums[j] should be <= max_required

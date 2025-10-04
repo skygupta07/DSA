@@ -94,20 +94,21 @@ int main() {
     int lbidx = lowerBound(arr, n, target);
     if (lbidx != -1)
         cout << "Lower Bound of target is: arr[" << lbidx << "] = " << arr[lbidx] << endl;
+    
     else
         cout << "No valid lower bound found (all elements ≥ target)" << endl;
 
     // Upper Bound index
     int ubidx = upperBound(arr, n, target);
+    
     if (ubidx != -1)
         cout << "Upper Bound of target is: arr[" << ubidx << "] = " << arr[ubidx] << endl;
+    
     else
         cout << "No valid upper bound found (all elements ≤ target)" << endl;
 
     return 0;
 }
-
-
 
 
 

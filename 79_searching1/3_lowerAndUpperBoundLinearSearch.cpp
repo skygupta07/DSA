@@ -1,9 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
 int main() {
+    
     // Sorted array diya gaya hai
     int arr[] = {1, 3, 5, 7, 10, 12, 15, 18, 20, 22, 26, 30};
+
     int n = sizeof(arr) / sizeof(arr[0]);  // n = 12
 
     int target = 19;  // jis element ka lower/upper bound find karna hai
